@@ -4,32 +4,22 @@ import Image, { StaticImageData } from "next/image";
 
 type ImageType = {
   src: string | StaticImageData;
-  full?: boolean;
   width: number;
   height: number;
 };
 
-const Carousel = ({ images }: { images: ImageType[] }) => {
+const Carousel = ({
+  images,
+  containerHeight,
+}: {
+  images: ImageType[][];
+  containerHeight: number;
+}) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  // Create slides based on the full prop
-  const slides: ImageType[][] = [];
-
-  for (let i = 0; i < images.length; i++) {
-    const firstImage = images[i];
-    const secondImage = images[i + 1];
-
-    if (firstImage.full) {
-      slides.push([firstImage]);
-    } else {
-      slides.push([firstImage, secondImage].filter(Boolean));
-      i++;
-    }
-  }
-
   // Triple the slides array to ensure smooth infinite scrolling
-  const tripledSlides = [...slides, ...slides, ...slides];
+  const slides = [...images, ...images, ...images];
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -72,9 +62,12 @@ const Carousel = ({ images }: { images: ImageType[] }) => {
   }, [scrollPosition]);
 
   return (
-    <div ref={carouselRef} className="w-full h-[541px] overflow-hidden">
-      <div className="flex space-x-4">
-        {tripledSlides.map((slide, slideIndex) => (
+    <div
+      ref={carouselRef}
+      className={`w-full h-[${containerHeight}px] overflow-hidden`}
+    >
+      <div className="w-full flex space-x-4">
+        {slides.map((slide, slideIndex) => (
           <div key={slideIndex} className="flex-shrink-0">
             <div className="w-full h-full flex flex-col space-y-4">
               {slide.map((image, imageIndex) => (
@@ -85,7 +78,7 @@ const Carousel = ({ images }: { images: ImageType[] }) => {
                   width={image.width}
                   height={image.height}
                   objectFit="cover"
-                //   className="h-full"
+                  //className="w-full h-full"
                 />
               ))}
             </div>
