@@ -3,6 +3,7 @@ import TeamBehind from "./(home)/team-behind";
 import Brands from "./(home)/brands";
 import Product from "./(home)/product/product";
 import Offer from "./(home)/offer";
+import Team from "./(home)/team";
 
 export default function Page() {
   return (
@@ -25,6 +26,10 @@ export default function Page() {
 
       <Spacer horizontal vertical>
         <Offer />
+      </Spacer>
+
+      <Spacer vertical>
+        <Team />
       </Spacer>
     </div>
   );
