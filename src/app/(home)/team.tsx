@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/button";
-import { Spacer } from "../page";
 import BabcoLogo from "./hero/babco-logo";
 import arrow from "../../../public/arrow-right-icon.svg";
 import member1 from "../../../public/member-1.webp";
@@ -13,6 +12,7 @@ import member5 from "../../../public/member-5.webp";
 import member6 from "../../../public/member-6.webp";
 import member7 from "../../../public/member-7.webp";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
+import { Spacer } from "@/components/layout/spacer";
 
 const Team = () => {
   return (

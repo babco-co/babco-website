@@ -14,7 +14,7 @@ import brand6 from "../../../public/carousel-brands/brand-6.svg";
 import brand7 from "../../../public/carousel-brands/brand-7.svg";
 import brand8 from "../../../public/carousel-brands/brand-8.svg";
 import brand9 from "../../../public//carousel-brands/brand-9.webp";
-import { Spacer } from "../page";
+import { Spacer } from "@/components/layout/spacer";
 
 const carouselImages = [
   [

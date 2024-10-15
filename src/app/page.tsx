@@ -4,6 +4,7 @@ import Brands from "./(home)/brands";
 import Product from "./(home)/product/product";
 import Offer from "./(home)/offer";
 import Team from "./(home)/team";
+import { Spacer } from "@/components/layout/spacer";
 
 export default function Page() {
   return (
@@ -34,24 +35,3 @@ export default function Page() {
     </div>
   );
 }
-
-export const Spacer = ({
-  children,
-  className,
-  horizontal = false,
-  vertical = false,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  horizontal?: boolean;
-  vertical?: boolean;
-}) => (
-  <div
-    className={`${horizontal ? "px-4 sm:px-8 lg:px-12" : ""}
-       ${
-         vertical ? "mb-[120px] sm:mb-[160px] lg:mb-[226px]" : ""
-       } ${className}`}
-  >
-    {children}
-  </div>
-);
