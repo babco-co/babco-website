@@ -4,6 +4,7 @@ import Link from "next/link";
 import Button from "../ui/button";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 import arrowRightIcon from "../../../public/arrow-right-icon.svg";
+import { CONTACT_EMAIL } from "@/lib/utils/constants";
 
 const Header = () => {
   const color = useColorCycle();
@@ -52,10 +53,17 @@ const Header = () => {
             Follow
           </Link>
 
-          <Button className="ml-4 gap-2" variant="primary" bgColor={color}>
-            Talk to us
-            <Image src={arrowRightIcon} alt="arrow" />
-          </Button>
+          <Link href={`mailto:${CONTACT_EMAIL}?subject=Hi%20Babco!`}>
+            <Button
+              className="ml-4 gap-2"
+              variant="primary"
+              bgColor={color}
+              onClick={(e) => e.stopPropagation()}
+            >
+              Talk to us
+              <Image src={arrowRightIcon} alt="arrow" />
+            </Button>
+          </Link>
         </div>
       </nav>
     </header>
