@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 
-type ImageType = {
+export type ImageType = {
   src: string | StaticImageData;
   width: number;
   height: number;
@@ -72,13 +72,12 @@ const Carousel = ({
             <div className="w-full h-full flex flex-col space-y-4">
               {slide.map((image, imageIndex) => (
                 <Image
+                  className="w-full h-full object-cover"
                   key={imageIndex}
                   src={image.src}
                   alt={"img"}
                   width={image.width}
                   height={image.height}
-                  objectFit="cover"
-                  //className="w-full h-full"
                 />
               ))}
             </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import Carousel from "@/components/ui/carousel";
 import line from "../../../public/line.svg";
@@ -6,40 +5,40 @@ import tembo from "../../../public/tembo-brand.svg";
 import arch from "../../../public/arch-brand.svg";
 import gitar from "../../../public/gitar-brand.svg";
 import apolitical from "../../../public/apolitical-brand.svg";
-import carousel1 from "../../../public/brands-carousel/carousel-1.svg";
-import carousel2 from "../../../public/brands-carousel/carousel-2.webp";
-import carousel3 from "../../../public/brands-carousel/carousel-3.webp";
-import carousel4 from "../../../public/brands-carousel/carousel-4.svg";
-import carousel5 from "../../../public/brands-carousel/carousel-5.webp";
-import carousel6 from "../../../public/brands-carousel/carousel-6.svg";
-import carousel7 from "../../../public/brands-carousel/carousel-7.svg";
-import carousel8 from "../../../public/brands-carousel/carousel-8.svg";
-import carousel9 from "../../../public//brands-carousel/carousel-9.webp";
+import brand1 from "../../../public/carousel-brands/brand-1.svg";
+import brand2 from "../../../public/carousel-brands/brand-2.webp";
+import brand3 from "../../../public/carousel-brands/brand-3.webp";
+import brand4 from "../../../public/carousel-brands/brand-4.svg";
+import brand5 from "../../../public/carousel-brands/brand-5.webp";
+import brand6 from "../../../public/carousel-brands/brand-6.svg";
+import brand7 from "../../../public/carousel-brands/brand-7.svg";
+import brand8 from "../../../public/carousel-brands/brand-8.svg";
+import brand9 from "../../../public//carousel-brands/brand-9.webp";
 import { Spacer } from "../page";
 
 const carouselImages = [
   [
-    { src: carousel1, width: 349, height: 291 },
-    { src: carousel2, width: 349, height: 244 },
+    { src: brand1, width: 349, height: 291 },
+    { src: brand2, width: 349, height: 244 },
   ],
   [
-    { src: carousel3, width: 425, height: 367 },
-    { src: carousel4, width: 425, height: 168 },
+    { src: brand3, width: 425, height: 367 },
+    { src: brand4, width: 425, height: 168 },
   ],
-  [{ src: carousel5, width: 456, height: 541 }],
+  [{ src: brand5, width: 456, height: 541 }],
   [
-    { src: carousel6, width: 256, height: 179 },
-    { src: carousel7, width: 256, height: 354 },
+    { src: brand6, width: 256, height: 179 },
+    { src: brand7, width: 256, height: 354 },
   ],
   [
-    { src: carousel8, width: 523, height: 253 },
-    { src: carousel9, width: 523, height: 73 },
+    { src: brand8, width: 523, height: 253 },
+    { src: brand9, width: 523, height: 73 },
   ],
 ];
 
 const Brands = () => {
   return (
-    <div className="w-full flex flex-col gap-32">
+    <section className="w-full flex flex-col gap-32">
       <Spacer horizontal>
         <div className="w-full flex flex-row items-center justify-start">
           <p className="max-w-[600px] text-xl lg:text-[72px] font-extralight leading-[120%]">
@@ -66,7 +65,7 @@ const Brands = () => {
       </Spacer>
 
       <Carousel images={carouselImages} containerHeight={541} />
-    </div>
+    </section>
   );
 };
 

@@ -11,7 +11,7 @@ import samsung from "../../../public/samsung-logo.svg";
 
 const TeamBehind = () => {
   return (
-    <div className="w-full flex flex-col items-start justify-center gap-11">
+    <section className="w-full flex flex-col items-start justify-center gap-11">
       <p className="text-xl lg:text-[66px] font-bold text-[#333] leading-normal uppercase">
         From the team behind
       </p>
@@ -27,7 +27,7 @@ const TeamBehind = () => {
         <Image className="opacity-30" src={king} alt="babco" />
         <Image className="opacity-30" src={samsung} alt="babco" />
       </div>
-    </div>
+    </section>
   );
 };
 
