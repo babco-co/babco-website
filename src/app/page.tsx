@@ -2,6 +2,7 @@ import Hero from "./(home)/hero/hero";
 import TeamBehind from "./(home)/team-behind";
 import Brands from "./(home)/brands";
 import Product from "./(home)/product/product";
+import Offer from "./(home)/offer";
 
 export default function Page() {
   return (
@@ -20,6 +21,10 @@ export default function Page() {
 
       <Spacer horizontal vertical>
         <Product />
+      </Spacer>
+
+      <Spacer horizontal vertical>
+        <Offer />
       </Spacer>
     </div>
   );

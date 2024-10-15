@@ -29,7 +29,7 @@ const ProductItem = ({
           />
         </svg>
 
-        <p className="text-2xl sm:text-[42px] font-extralight leading-[120%] text-primary-white">
+        <p className="text-2xl lg:text-[42px] font-extralight leading-[120%] text-primary-white">
           {title}
         </p>
         <p className="text-base font-extralight leading-[120%] text-dark-gray">
