@@ -1,9 +1,9 @@
 "use client";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 export default function MerchPage() {
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
     // Redirect to the external merch link
