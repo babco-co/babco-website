@@ -4,7 +4,7 @@ import arrow from "../../../public/arrow-right-circle.svg";
 const Offer = () => {
   return (
     <section className="w-full flex flex-col gap-10">
-      <p className="max-w-[810px] text-3xl lg:text-[100px] font-extralight text-primary-white leading-[100%]">
+      <p className="max-w-[263px] lg:max-w-[810px] text-[32px] lg:text-[100px] font-extralight text-primary-white leading-[100%]">
         We offer design & development for:
       </p>
       <Item title="Vertical SAAS" />
@@ -20,7 +20,7 @@ export default Offer;
 
 const Item = ({ title }: { title: string }) => (
   <div className="w-full flex flex-row items-center justify-between">
-    <p className="text-xl lg:text-[60px] font-extralight leading-[200%] text-medium-gray">
+    <p className="text-2xl lg:text-[60px] font-extralight leading-normal lg:leading-[200%] text-medium-gray">
       {title}
     </p>
 

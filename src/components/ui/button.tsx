@@ -16,7 +16,7 @@ const Button = ({
   const baseClasses = "flex items-center justify-center px-4 py-3 rounded-sm";
 
   const variantClasses = {
-    primary: "bg-primary-pink text-xs font-black leading-[14.4px] text-black",
+    primary: "bg-primary-pink font-black leading-[120%] text-black",
   };
 
   return (

@@ -67,8 +67,8 @@ const Brands = () => {
           <Image className="block lg:hidden" src={lineMobile} alt="line" />
 
           <Carousel speed={0.5} gap={68} className="w-full">
-            {carouselBrandImages.map((brand, index) => (
-              <Image key={index} src={brand.src} alt="brand logo" />
+            {carouselBrandImages.map((item, index) => (
+              <Image key={index} src={item.src} alt="brand logo" />
             ))}
           </Carousel>
         </div>

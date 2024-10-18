@@ -29,7 +29,7 @@ export default function Page() {
         <Offer />
       </Spacer>
 
-      <Spacer vertical>
+      <Spacer>
         <Team />
       </Spacer>
     </div>
