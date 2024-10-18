@@ -22,7 +22,8 @@ import member13 from "../../../public/member-13.webp";
 
 const members = [
   { src: member1, className: "w-[435px] h-[401px]" },
-  { src: member2, className: "w-[304px] h-[256px" },
+  { src: member2, className: "w-[304px] h-[256px]" },
+  { src: member7, className: "w-[205px] h-[223px]" },
   { src: member5, className: "w-[274px] h-[285px]" },
   { src: member13, className: "w-[269px] h-[196px]" },
   { src: member10, className: "w-[119px] h-[124px]" },
@@ -31,7 +32,6 @@ const members = [
   { src: member3, className: "w-[227px] h-[227px]" },
   { src: member6, className: "w-[246px] h-[271px]" },
   { src: member4, className: "w-[154px] h-[196px]" },
-  { src: member7, className: "w-[205px] h-[223px]" },
   { src: member9, className: "w-[325px] h-[325px]" },
   { src: member8, className: "w-[178px] h-[203px]" },
   { src: member12, className: "w-[370px] h-[362px]" },
@@ -72,7 +72,7 @@ const Team = () => {
 
       <div className="w-full  flex flex-col items-center justify-center relative mt-[126px] mb-[-100px]">
         <Carousel speed={0.5} gap={68} className="w-full">
-          {members.slice(0, 5).map((item, index) => (
+          {members.slice(0, 7).map((item, index) => (
             <Image
               className={item.className}
               key={index}
@@ -82,8 +82,8 @@ const Team = () => {
           ))}
         </Carousel>
 
-        <Carousel speed={0.5} gap={68} className="w-full">
-          {members.slice(6, members.length - 1).map((item, index) => (
+        <Carousel speed={0.5} gap={68} className="w-full pt-[50px] pl-[500px]">
+          {members.slice(7, members.length).map((item, index) => (
             <Image
               className={item.className}
               key={index}
