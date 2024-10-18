@@ -8,24 +8,47 @@ import instagram from "../../../public/instagram-logo.svg";
 import Braun from "../../../public/Braun-logo.svg";
 import king from "../../../public/king-logo.svg";
 import samsung from "../../../public/samsung-logo.svg";
+import Carousel from "@/components/ui/carousel";
+import { Spacer } from "@/components/layout/spacer";
+
+const images = [
+  { src: airbnb, width: 51, height: 54 },
+  { src: google, width: 54, height: 54 },
+  { src: apple, width: 54, height: 54 },
+  { src: meta, width: 81, height: 54 },
+  { src: amazon, width: 59, height: 54 },
+  { src: instagram, width: 54, height: 54 },
+  { src: Braun, width: 128, height: 54 },
+  { src: king, width: 80, height: 54 },
+  { src: samsung, width: 203, height: 54 },
+];
 
 const TeamBehind = () => {
   return (
-    <section className="w-full flex flex-col items-start justify-center gap-11">
-      <p className="text-xl lg:text-[66px] font-bold text-[#333] leading-normal uppercase">
-        From the team behind
-      </p>
+    <section className="w-full flex flex-col items-start justify-center gap-11 overflow-x-hidden">
+      <Spacer horizontal>
+        <p className="text-[26px] lg:text-[66px] font-bold text-[#333333] leading-[100%] uppercase">
+          From the team behind
+        </p>
+      </Spacer>
 
-      <div className="flex flex-row items-center justify-start gap-[60px]">
-        <Image className="opacity-30" src={airbnb} alt="babco" />
-        <Image className="opacity-30" src={google} alt="babco" />
-        <Image className="opacity-30" src={apple} alt="babco" />
-        <Image className="opacity-30" src={meta} alt="babco" />
-        <Image className="opacity-30" src={amazon} alt="babco" />
-        <Image className="opacity-30" src={instagram} alt="babco" />
-        <Image className="opacity-30" src={Braun} alt="babco" />
-        <Image className="opacity-30" src={king} alt="babco" />
-        <Image className="opacity-30" src={samsung} alt="babco" />
+      <div className="w-full opacity-30">
+        <Carousel
+          speed={0.5}
+          gap={60}
+          className="w-full"
+          itemClassName="min-w-[73px]"
+        >
+          {images.map((item, index) => (
+            <Image
+              key={index}
+              src={item.src}
+              alt="brand logo"
+              width={item.width}
+              height={item.height}
+            />
+          ))}
+        </Carousel>
       </div>
     </section>
   );

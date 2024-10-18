@@ -1,4 +1,6 @@
-import Carousel, { ImageType } from "@/components/ui/carousel";
+import CarouselGallery, {
+  CarouselItem,
+} from "@/components/ui/carousel-gallery";
 
 const ProductItem = ({
   title,
@@ -7,12 +9,12 @@ const ProductItem = ({
 }: {
   title: string;
   subtitle: string;
-  images: ImageType[][];
+  images: CarouselItem[][];
 }) => {
   return (
-    <section className="w-full flex flex-col items-start justify-center gap-5">
+    <section className="w-full flex flex-col items-start justify-center gap-5 overflow-x-hidden">
       <div>
-        <Carousel images={images} containerHeight={541} />
+        <CarouselGallery items={images} containerHeight={541} />
       </div>
 
       <div className="w-full flex flex-col items-start justify-center gap-2">
@@ -29,14 +31,14 @@ const ProductItem = ({
           />
         </svg>
 
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[120%] text-primary-white">
+        <p className="text-[32px] lg:text-[42px] font-extralight leading-[120%] text-primary-white">
           {title}
         </p>
         <p className="text-base font-extralight leading-[120%] text-dark-gray">
           {subtitle}
         </p>
 
-        <div className="w-full flex flex-row gap-2 items-center justify-start">
+        <div className="w-full flex flex-row flex-wrap gap-2 items-start justify-start">
           <Tag titles={["Web design", "Motion", "Eng"]} />
           <Tag titles={["Branding"]} />
           <Tag titles={["UI", "UX Design"]} />
@@ -54,19 +56,21 @@ export default ProductItem;
 const Tag = ({ titles }: { titles: string[] }) => {
   return (
     <div
-      className="flex flex-row items-center justify-center px-3 py-2 
+      className="max-w-full inline-flex flex-shrink-0 items-center justify-center px-3 py-2 
         rounded-[32px] border border-[#232323]"
     >
-      {titles.map((title, index) => (
-        <div className="flex flex-row items-center justify-center" key={index}>
-          {index > 0 && (
-            <span className="text-xs font-bold text-light-gray mx-1">+</span>
-          )}
-          <p className="text-xs font-bold text-light-gray leading-[120%] uppercase">
-            {title}
-          </p>
-        </div>
-      ))}
+      <div className="flex flex-wrap items-center justify-center gap-1">
+        {titles.map((title, index) => (
+          <span key={index} className="flex items-center">
+            {index > 0 && (
+              <span className="text-xs font-bold text-light-gray mx-1">+</span>
+            )}
+            <p className="text-xs font-bold text-light-gray leading-[120%] uppercase break-words">
+              {title}
+            </p>
+          </span>
+        ))}
+      </div>
     </div>
   );
 };

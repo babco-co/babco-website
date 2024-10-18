@@ -1,25 +1,24 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
-import Image, { StaticImageData } from "next/image";
-
-export type ImageType = {
-  src: string | StaticImageData;
-  width: number;
-  height: number;
-};
+import React, { useRef, useEffect, useState, ReactNode } from "react";
 
 const Carousel = ({
-  images,
-  containerHeight,
+  children,
+  speed = 0.5,
+  gap = 16,
+  className = "",
+  itemClassName = "",
 }: {
-  images: ImageType[][];
-  containerHeight: number;
+  children: ReactNode;
+  speed?: number;
+  gap?: number;
+  className?: string;
+  itemClassName?: string;
 }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  // Triple the slides array to ensure smooth infinite scrolling
-  const slides = [...images, ...images, ...images];
+  const childrenArray = React.Children.toArray(children);
+  const slides = [...childrenArray, ...childrenArray, ...childrenArray];
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -29,10 +28,9 @@ const Carousel = ({
 
     const animate = () => {
       setScrollPosition((prevPosition) => {
-        const newPosition = prevPosition + 1; // Move 1px per frame
-        const maxScroll = carousel.scrollWidth / 3; // One-third of the total width
+        const newPosition = prevPosition + speed;
+        const maxScroll = carousel.scrollWidth / 3;
 
-        // If we've scrolled past one-third, reset to the beginning of the middle third
         if (newPosition >= maxScroll) {
           return maxScroll;
         }
@@ -46,7 +44,7 @@ const Carousel = ({
     animationId = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationId);
-  }, []);
+  }, [speed]);
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -54,7 +52,6 @@ const Carousel = ({
 
     carousel.scrollLeft = scrollPosition;
 
-    // If we've reached the end of the middle third, instantly jump back to the start of the middle third
     if (scrollPosition === carousel.scrollWidth / 3) {
       setScrollPosition(0);
       carousel.scrollLeft = 0;
@@ -64,26 +61,14 @@ const Carousel = ({
   return (
     <div
       ref={carouselRef}
-      className={`w-full h-[${containerHeight}px] overflow-hidden`}
+      className={`flex flex-row items-center justify-start overflow-hidden ${className}`}
+      style={{ gap: `${gap}px` }}
     >
-      <div className="w-full flex space-x-4">
-        {slides.map((slide, slideIndex) => (
-          <div key={slideIndex} className="flex-shrink-0">
-            <div className="w-full h-full flex flex-col space-y-4">
-              {slide.map((image, imageIndex) => (
-                <Image
-                  className="w-full h-full object-cover"
-                  key={imageIndex}
-                  src={image.src}
-                  alt={"img"}
-                  width={image.width}
-                  height={image.height}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      {slides.map((child, index) => (
+        <div key={index} className={`flex-shrink-0 ${itemClassName}`}>
+          {child}
+        </div>
+      ))}
     </div>
   );
 };

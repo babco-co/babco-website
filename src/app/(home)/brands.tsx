@@ -1,10 +1,16 @@
 import Image from "next/image";
+import CarouselGallery from "@/components/ui/carousel-gallery";
 import Carousel from "@/components/ui/carousel";
 import line from "../../../public/line.svg";
-import tembo from "../../../public/tembo-brand.svg";
-import arch from "../../../public/arch-brand.svg";
-import gitar from "../../../public/gitar-brand.svg";
-import apolitical from "../../../public/apolitical-brand.svg";
+import lineMobile from "../../../public/line-mobile.svg";
+import tembo from "../../../public/carousel-brands/tembo-brand.svg";
+import arch from "../../../public/carousel-brands/arch-brand.svg";
+import gitar from "../../../public/carousel-brands/gitar-brand.svg";
+import apolitical from "../../../public/carousel-brands/apolitical-brand.svg";
+import omlet from "../../../public/carousel-brands/omlet-brand.svg";
+import sqlite from "../../../public/carousel-brands/sqlite-brand.svg";
+import oumi from "../../../public/carousel-brands/oumi-brand.svg";
+import brandmarch from "../../../public/carousel-brands/brandmarch-brand.svg";
 import brand1 from "../../../public/carousel-brands/brand-1.svg";
 import brand2 from "../../../public/carousel-brands/brand-2.webp";
 import brand3 from "../../../public/carousel-brands/brand-3.webp";
@@ -15,6 +21,17 @@ import brand7 from "../../../public/carousel-brands/brand-7.svg";
 import brand8 from "../../../public/carousel-brands/brand-8.svg";
 import brand9 from "../../../public//carousel-brands/brand-9.webp";
 import { Spacer } from "@/components/layout/spacer";
+
+const carouselBrandImages = [
+  { src: tembo },
+  { src: arch },
+  { src: gitar },
+  { src: apolitical },
+  { src: omlet },
+  { src: sqlite },
+  { src: oumi },
+  { src: brandmarch },
+];
 
 const carouselImages = [
   [
@@ -38,33 +55,26 @@ const carouselImages = [
 
 const Brands = () => {
   return (
-    <section className="w-full flex flex-col gap-32">
+    <section className="w-full flex flex-col gap-10 lg:gap-32 overflow-x-hidden">
       <Spacer horizontal>
         <div className="w-full flex flex-row items-center justify-start">
-          <p className="max-w-[600px] text-xl lg:text-[72px] font-extralight leading-[120%]">
+          <p className="min-w-[160px] lg:min-w-[600px] text-xl lg:text-[72px] font-extralight leading-[120%]">
             Bring your iconic brand to life
           </p>
 
-          <Image src={line} alt="line" />
+          <Image className="hidden lg:block" src={line} alt="line" />
 
-          <ul className="flex flex-row items-center justify-start gap-16">
-            <li>
-              <Image className="min-w-[73px]" src={tembo} alt="logo" />
-            </li>
-            <li>
-              <Image className="min-w-[73px]" src={arch} alt="logo" />
-            </li>
-            <li>
-              <Image className="min-w-[53px]" src={gitar} alt="logo" />
-            </li>
-            <li>
-              <Image className="min-w-[112px]" src={apolitical} alt="logo" />
-            </li>
-          </ul>
+          <Image className="block lg:hidden" src={lineMobile} alt="line" />
+
+          <Carousel speed={0.5} gap={68} className="w-full">
+            {carouselBrandImages.map((brand, index) => (
+              <Image key={index} src={brand.src} alt="brand logo" />
+            ))}
+          </Carousel>
         </div>
       </Spacer>
 
-      <Carousel images={carouselImages} containerHeight={541} />
+      <CarouselGallery items={carouselImages} containerHeight={541} />
     </section>
   );
 };
