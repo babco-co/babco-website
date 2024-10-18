@@ -14,10 +14,10 @@ const ProductItem = ({
   return (
     <section className="w-full flex flex-col items-start justify-center gap-5 overflow-x-hidden">
       <div>
-        <CarouselGallery items={images} containerHeight={541} />
+        <CarouselGallery items={images} containerHeight={541} mode="manual" />
       </div>
 
-      <div className="w-full flex flex-col items-start justify-center gap-2">
+      <div className="w-full flex flex-col items-start justify-center gap-2.5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="10"

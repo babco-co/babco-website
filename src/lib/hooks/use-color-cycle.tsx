@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useColorCycle = (initialColor = "#FFC0F1", interval = 1000) => {
+export const useColorCycle = (initialColor = "#FFC0F1", interval = 2000) => {
   const [color, setColor] = useState(initialColor);
 
   useEffect(() => {

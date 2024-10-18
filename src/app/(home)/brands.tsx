@@ -74,7 +74,11 @@ const Brands = () => {
         </div>
       </Spacer>
 
-      <CarouselGallery items={carouselImages} containerHeight={541} />
+      <CarouselGallery
+        items={carouselImages}
+        containerHeight={541}
+        mode="auto"
+      />
     </section>
   );
 };

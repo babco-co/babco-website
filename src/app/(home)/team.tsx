@@ -42,7 +42,7 @@ const Team = () => {
     <section className="w-full flex flex-col items-center justify-center overflow-x-hidden">
       <Spacer horizontal className="w-full">
         <div className="w-full flex flex-col items-start gap-5">
-          <p className="max-w-[329px] lg:max-w-[1028px] text-[32px] lg:text-[100px] font-extralight text-primary-white leading-[100%]">
+          <p className="max-w-[329px] lg:max-w-full text-[32px] lg:text-[100px] font-extralight text-primary-white leading-[100%]">
             Create something intentionally great with us
           </p>
 
