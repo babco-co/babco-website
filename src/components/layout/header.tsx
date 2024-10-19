@@ -4,14 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "../ui/button";
-import { CONTACT_EMAIL, LINKEDIN } from "@/lib/utils/constants";
+import { LINKEDIN } from "@/lib/utils/constants";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 import arrowRightIcon from "../../../public/arrow-right-icon.svg";
 import menuIcon from "../../../public/hamburger-icon.svg";
 import closeIcon from "../../../public/close-icon.svg";
+import { useModal } from "../ui/contact-us/modal-context";
 
 const Header = () => {
   const color = useColorCycle();
+  const { openModal } = useModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -92,20 +94,15 @@ const Header = () => {
             Follow
           </Link>
 
-          <Link
-            className="hidden sm:flex"
-            href={`mailto:${CONTACT_EMAIL}?subject=Hi%20Babco!`}
+          <Button
+            className="hidden sm:flex ml-4 gap-2 text-xs"
+            variant="primary"
+            bgColor={color}
+            onClick={openModal}
           >
-            <Button
-              className="ml-4 gap-2 text-xs"
-              variant="primary"
-              bgColor={color}
-              onClick={(e) => e.stopPropagation()}
-            >
-              Talk to us
-              <Image src={arrowRightIcon} alt="arrow" />
-            </Button>
-          </Link>
+            Talk to us
+            <Image src={arrowRightIcon} alt="arrow" />
+          </Button>
 
           <button
             className="w-6 h-6 flex sm:hidden items-center justify-center rounded-sm z-50 bg-primary-pink"
@@ -159,31 +156,26 @@ const Header = () => {
                 Follow
               </Link>
 
-              <Link
-                className="w-full"
-                href={`mailto:${CONTACT_EMAIL}?subject=Hi%20Babco!`}
+              <Button
+                className="w-full h-[68px] text-lg font-black leading-[120%] text-primary-pink gap-2 mt-5"
+                variant="primary"
+                bgColor={"black"}
+                onClick={openModal}
               >
-                <Button
-                  className="w-full h-[68px] text-lg font-black leading-[120%] text-primary-pink gap-2 mt-5"
-                  variant="primary"
-                  bgColor={"black"}
-                  onClick={(e) => e.stopPropagation()}
+                Talk to us
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="23"
+                  height="24"
+                  viewBox="0 0 23 24"
+                  fill="none"
                 >
-                  Talk to us
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="23"
-                    height="24"
-                    viewBox="0 0 23 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M1.5 10.5L-1.31134e-07 10.5L1.31134e-07 13.5L1.5 13.5L1.5 10.5ZM22.5607 13.0607C23.1464 12.4749 23.1464 11.5251 22.5607 10.9393L13.0147 1.3934C12.4289 0.807611 11.4792 0.807611 10.8934 1.3934C10.3076 1.97918 10.3076 2.92893 10.8934 3.51472L19.3787 12L10.8934 20.4853C10.3076 21.0711 10.3076 22.0208 10.8934 22.6066C11.4792 23.1924 12.4289 23.1924 13.0147 22.6066L22.5607 13.0607ZM1.5 13.5L21.5 13.5L21.5 10.5L1.5 10.5L1.5 13.5Z"
-                      fill="#FFC0F1"
-                    />
-                  </svg>
-                </Button>
-              </Link>
+                  <path
+                    d="M1.5 10.5L-1.31134e-07 10.5L1.31134e-07 13.5L1.5 13.5L1.5 10.5ZM22.5607 13.0607C23.1464 12.4749 23.1464 11.5251 22.5607 10.9393L13.0147 1.3934C12.4289 0.807611 11.4792 0.807611 10.8934 1.3934C10.3076 1.97918 10.3076 2.92893 10.8934 3.51472L19.3787 12L10.8934 20.4853C10.3076 21.0711 10.3076 22.0208 10.8934 22.6066C11.4792 23.1924 12.4289 23.1924 13.0147 22.6066L22.5607 13.0607ZM1.5 13.5L21.5 13.5L21.5 10.5L1.5 10.5L1.5 13.5Z"
+                    fill="#FFC0F1"
+                  />
+                </svg>
+              </Button>
             </nav>
           </motion.div>
         )}

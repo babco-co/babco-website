@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import "../styles/globals.css";
-import { geistMono, geistSans, inter } from "@/styles/fonts";
 import Header from "@/components/layout/header";
+import { ModalProvider } from "@/components/ui/contact-us/modal-context";
+import { geistMono, geistSans, inter } from "@/styles/fonts";
+import Modal from "@/components/ui/contact-us/modal";
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,8 +20,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <Header />
-        {children}
+        <ModalProvider>
+          <Header />
+          {children}
+          <Modal />
+        </ModalProvider>
       </body>
     </html>
   );
