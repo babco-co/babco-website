@@ -14,7 +14,12 @@ const ProductItem = ({
   return (
     <section className="w-full flex flex-col items-start justify-center gap-5 overflow-x-hidden">
       <div>
-        <CarouselGallery items={images} containerHeight={541} mode="manual" />
+        <CarouselGallery
+          items={images}
+          containerHeight={541}
+          mode="manual"
+          identifier={title.toLowerCase().replace(/\s+/g, '-')}
+        />
       </div>
 
       <div className="w-full flex flex-col items-start justify-center gap-2.5">
@@ -34,7 +39,7 @@ const ProductItem = ({
         <p className="text-[32px] lg:text-[42px] font-extralight leading-[120%] text-primary-white">
           {title}
         </p>
-        <p className="text-base font-extralight leading-[120%] text-dark-gray">
+        <p className="text-base font-extralight leading-[120%] text-dark-gray mb-12">
           {subtitle}
         </p>
 
