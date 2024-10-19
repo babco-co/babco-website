@@ -1,9 +1,4 @@
-import {
-  UseFormRegister,
-  FieldErrors,
-  useWatch,
-  Control,
-} from "react-hook-form";
+import { UseFormRegister, FieldErrors } from "react-hook-form";
 import { FormInputs, ServiceType } from "./schema";
 
 const SelectField = ({
@@ -12,23 +7,17 @@ const SelectField = ({
   errors,
   label,
   options,
-  control,
+  value,
 }: {
   name: keyof FormInputs;
   register: UseFormRegister<FormInputs>;
   errors: FieldErrors<FormInputs>;
   label: string;
   options: { value: ServiceType; label: string }[];
-  control: Control<FormInputs>;
+  value: string;
 }) => {
   const hasError = !!errors[name];
   const errorMessage = errors[name]?.message;
-
-  // Watch the selected value
-  const selectedValue = useWatch({
-    control,
-    name,
-  });
 
   return (
     <div className="w-full flex flex-col gap-2 items-start justify-center">
@@ -45,7 +34,7 @@ const SelectField = ({
             hasError ? "border-red-600" : "border-[#EBEAE7]/10"
           } focus-within:border-primary-pink outline-none bg-transparent 
            appearance-none cursor-pointer ${
-             selectedValue ? "text-[#F2F2F2]" : "text-[#6E6E6E]"
+             value ? "text-[#F2F2F2]" : "text-[#6E6E6E]"
            } text-sm font-normal leading-[24px]`}
           {...register(name)}
           id={name}

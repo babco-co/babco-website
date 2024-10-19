@@ -24,11 +24,13 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
     handleSubmit,
     formState: { errors },
     reset,
-    control
+    watch,
   } = useForm<FormInputs>({ resolver: yupResolver(schema) });
 
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>("");
+
+  const service = watch("service");
 
   const sendEmail = async (data: FormInputs) => {
     setIsLoading(true);
@@ -42,7 +44,7 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
           from_name: data.name,
           from_email: data.email,
           from_company: data.company,
-          service_needed: data.service, 
+          service_needed: data.service,
           to_name: "Babco.co",
           to_email: CONTACT_EMAIL,
         },
@@ -110,7 +112,7 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
             errors={errors}
             label="What services do you need from our agency?"
             options={serviceOptions}
-            control={control}
+            value={service}
           />
         </div>
 
