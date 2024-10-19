@@ -81,7 +81,7 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
         className="w-full flex flex-col items-start justify-center gap-8"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="w-2/3 flex flex-col items-start justify-center gap-6 mb-4">
+        <div className="w-full sm:w-2/3 flex flex-col items-start justify-center gap-6 mb-4">
           <InputField
             name="name"
             register={register}

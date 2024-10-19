@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import Button from "@/components/ui/button";
 import { Spacer } from "@/components/layout/spacer";
 import Carousel from "@/components/ui/carousel";
-import { CONTACT_EMAIL } from "@/lib/utils/constants";
+import { useModal } from "@/components/ui/contact-us/modal-context";
 import BabcoLogo from "./hero/babco-logo";
 import member1 from "../../../public/member-1.webp";
 import member2 from "../../../public/member-2.webp";
@@ -38,6 +37,7 @@ const members = [
 ];
 
 const Team = () => {
+  const { openModal } = useModal();
   return (
     <section className="w-full flex flex-col items-center justify-center overflow-x-hidden">
       <Spacer horizontal className="w-full">
@@ -46,27 +46,25 @@ const Team = () => {
             Create something intentionally great with us
           </p>
 
-          <Link href={`mailto:${CONTACT_EMAIL}?subject=Hi%20Babco!`}>
-            <Button
-              className="w-[176px] h-[68px] gap-2 text-lg"
-              variant="primary"
-              onClick={(e) => e.stopPropagation()}
+          <Button
+            className="w-[176px] h-[68px] gap-2 text-lg"
+            variant="primary"
+            onClick={openModal}
+          >
+            Talk to us
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="23"
+              height="24"
+              viewBox="0 0 23 24"
+              fill="none"
             >
-              Talk to us
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="24"
-                viewBox="0 0 23 24"
-                fill="none"
-              >
-                <path
-                  d="M1.5 10.5L-1.31134e-07 10.5L1.31134e-07 13.5L1.5 13.5L1.5 10.5ZM22.5607 13.0607C23.1464 12.4749 23.1464 11.5251 22.5607 10.9393L13.0147 1.3934C12.4289 0.807611 11.4792 0.807611 10.8934 1.3934C10.3076 1.97918 10.3076 2.92893 10.8934 3.51472L19.3787 12L10.8934 20.4853C10.3076 21.0711 10.3076 22.0208 10.8934 22.6066C11.4792 23.1924 12.4289 23.1924 13.0147 22.6066L22.5607 13.0607ZM1.5 13.5L21.5 13.5L21.5 10.5L1.5 10.5L1.5 13.5Z"
-                  fill="#000"
-                />
-              </svg>
-            </Button>
-          </Link>
+              <path
+                d="M1.5 10.5L-1.31134e-07 10.5L1.31134e-07 13.5L1.5 13.5L1.5 10.5ZM22.5607 13.0607C23.1464 12.4749 23.1464 11.5251 22.5607 10.9393L13.0147 1.3934C12.4289 0.807611 11.4792 0.807611 10.8934 1.3934C10.3076 1.97918 10.3076 2.92893 10.8934 3.51472L19.3787 12L10.8934 20.4853C10.3076 21.0711 10.3076 22.0208 10.8934 22.6066C11.4792 23.1924 12.4289 23.1924 13.0147 22.6066L22.5607 13.0607ZM1.5 13.5L21.5 13.5L21.5 10.5L1.5 10.5L1.5 13.5Z"
+                fill="#000"
+              />
+            </svg>
+          </Button>
         </div>
       </Spacer>
 
