@@ -27,14 +27,23 @@ const InputField = ({
       </label>
 
       <input
-        className={`w-full h-[48px] py-3 border-b ${
-          hasError ? "border-error" : "border-[#EBEAE7]/10"
-        } focus-within:border-primary-pink outline-none bg-transparent 
-        text-sm font-normal laeading-[24px] text-primary-white placeholder-[#6E6E6E]`}
+        className={`w-full h-12 py-3 border-b 
+        ${hasError ? "border-error" : "border-[#EBEAE7]/10"}
+        focus-within:border-primary-pink outline-none bg-transparent 
+        text-sm font-normal leading-[24px] text-primary-white placeholder-[#6E6E6E]
+        [&:-webkit-autofill]:bg-black
+        [&:-webkit-autofill]:shadow-[0_0_0_30px_black_inset]
+        [&:-webkit-autofill]:text-primary-white
+        [&:-webkit-autofill]:[-webkit-text-fill-color:#fff]
+        [&:-webkit-autofill]:[transition-delay:9999s]
+        [&:-webkit-autofill]:[-webkit-box-shadow:0_0_0_30px_black_inset]
+        appearance-none
+        hover:bg-transparent focus:bg-transparent`}
         {...register(name)}
         id={name}
         placeholder={placeholder}
-        type={"text"}
+        type="text"
+        autoComplete="on"
       />
 
       {hasError && errorMessage && (
