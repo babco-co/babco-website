@@ -20,7 +20,7 @@ const config: Config = {
         green: "#CAF4CB",
         yellow: "#F7F272",
         blue: "#83B2F0",
-        error: "#DC2626",
+        error: "#DD2E44",
       },
     },
   },
