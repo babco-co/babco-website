@@ -4,19 +4,12 @@ import { useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormInputs, schema, ServiceType } from "./schema";
+import { FormInputs, schema, serviceOptions, ServiceType } from "./schema";
 import InputField from "./input";
 import Button from "../button";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import arrowRightIcon from "../../../../public/arrow-right-icon.svg";
 import SelectField from "./select-field";
-
-const serviceOptions: { value: ServiceType; label: string }[] = [
-  { value: "consulting", label: "Consulting" },
-  { value: "development", label: "Development" },
-  { value: "design", label: "Design" },
-  { value: "other", label: "Other" },
-];
 
 const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
   const {
@@ -24,17 +17,15 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
+    control,
   } = useForm<FormInputs>({ resolver: yupResolver(schema) });
 
   const [isLoading, setIsLoading] = useState(false);
-  const [apiError, setApiError] = useState<string | null>("");
-
-  const service = watch("service");
+  const [apiRes, setApiRes] = useState<string | null>("");
 
   const sendEmail = async (data: FormInputs) => {
     setIsLoading(true);
-    setApiError(null);
+    setApiRes(null);
 
     try {
       const response = await emailjs.send(
@@ -44,7 +35,7 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
           from_name: data.name,
           from_email: data.email,
           from_company: data.company,
-          service_needed: data.service,
+          service_needed: data.service.join(", "),
           to_name: "Babco.co",
           to_email: CONTACT_EMAIL,
         },
@@ -52,8 +43,11 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
       );
 
       if (response.status === 200) {
+        setApiRes(
+          "Your request was successfully submited, Thanks for reaching out!"
+        );
         reset();
-        closeModal();
+        // closeModal();
       } else {
         throw new Error("Failed to send email");
       }
@@ -62,7 +56,7 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
         error instanceof Error
           ? error.message
           : "Failed to send email. Please try again.";
-      setApiError(errorMessage);
+      setApiRes(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -77,6 +71,26 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
+      {apiRes && (
+        <div className="w-full flex flex-row gap-2 items-center justify-start p-2 mb-10 rounded bg-white/10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              d="M10 0C4.49 0 0 4.49 0 10C0 15.51 4.49 20 10 20C15.51 20 20 15.51 20 10C20 4.49 15.51 0 10 0ZM14.78 7.7L9.11 13.37C8.97 13.51 8.78 13.59 8.58 13.59C8.38 13.59 8.19 13.51 8.05 13.37L5.22 10.54C4.93 10.25 4.93 9.77 5.22 9.48C5.51 9.19 5.99 9.19 6.28 9.48L8.58 11.78L13.72 6.64C14.01 6.35 14.49 6.35 14.78 6.64C15.07 6.93 15.07 7.4 14.78 7.7Z"
+              fill="white"
+            />
+          </svg>
+          <p className="text-sm font-medium leading-[24px] text-white">
+            {apiRes}
+          </p>
+        </div>
+      )}
+
       <form
         className="w-full flex flex-col items-start justify-center gap-8"
         onSubmit={handleSubmit(onSubmit)}
@@ -108,11 +122,10 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
 
           <SelectField
             name="service"
-            register={register}
+            control={control}
             errors={errors}
             label="What services do you need from our agency?"
             options={serviceOptions}
-            value={service}
           />
         </div>
 
@@ -124,12 +137,6 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
           {isLoading ? "Sending..." : "Talk to us"}
           <Image src={arrowRightIcon} alt="arrow" width={22} height={16} />
         </Button>
-
-        {apiError && (
-          <div className="flex flex-row gap-1 items-center justify-start">
-            <p className="text-red-600">{apiError}</p>
-          </div>
-        )}
       </form>
     </div>
   );

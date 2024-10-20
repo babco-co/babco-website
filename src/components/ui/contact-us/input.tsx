@@ -28,7 +28,7 @@ const InputField = ({
 
       <input
         className={`w-full h-[48px] py-3 border-b ${
-          hasError ? "border-red-600" : "border-[#EBEAE7]/10"
+          hasError ? "border-error" : "border-[#EBEAE7]/10"
         } focus-within:border-primary-pink outline-none bg-transparent 
         text-sm font-normal laeading-[24px] text-primary-white placeholder-[#6E6E6E]`}
         {...register(name)}
@@ -39,7 +39,7 @@ const InputField = ({
 
       {hasError && errorMessage && (
         <div className="flex flex-row gap-1 items-center justify-start">
-          <p className="text-red-600">{errorMessage}</p>
+          <p className="text-error">{errorMessage}</p>
         </div>
       )}
     </div>

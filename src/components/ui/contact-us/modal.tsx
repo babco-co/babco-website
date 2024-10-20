@@ -18,7 +18,7 @@ const Modal = () => {
   return (
     <AnimatePresence>
       <motion.div
-        className="flex items-center justify-center fixed inset-0 backdrop-blur-[22px] z-50 bg-white/20"
+        className="flex items-center justify-center fixed inset-0 backdrop-blur-[22px] z-50 bg-white/20 overflow-y-auto"
         onClick={handleCloseModal}
         variants={overlayVariants}
         initial="hidden"
@@ -26,7 +26,7 @@ const Modal = () => {
         exit="exit"
       >
         <motion.div
-          className="w-full max-w-[691px] max-h-[669px] flex flex-col items-center justify-center 
+          className="w-full max-w-[691px] flex flex-col items-center justify-center 
           gap-10 p-10 rounded-md relative bg-primary-black overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
           variants={modalVariants}

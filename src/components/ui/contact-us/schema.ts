@@ -1,37 +1,59 @@
 import * as yup from "yup";
 
-export type ServiceType = "consulting" | "development" | "design" | "other";
+export type ServiceType =
+  | "Web Design"
+  | "Motion"
+  | "Engenering"
+  | "UI+UX Design"
+  | "Merch"
+  | "Illustration"
+  | "Social Media Assets"
+  | "Branding";
 
-export interface FormInputs {
-  email: string;
-  name: string;
-  company: string;
-  service: ServiceType;
+export interface SelectOption {
+  value: ServiceType;
+  label: string;
 }
 
-export const schema = yup
-  .object({
-    name: yup
-      .string()
-      .min(2, "Name must be at least 2 characters")
-      .max(50, "Name must not exceed 50 characters")
-      .matches(/^[a-zA-Z\s]*$/, "Name can only contain letters and spaces")
-      .required("Name is required"),
-    email: yup
-      .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    company: yup
-      .string()
-      .min(2, "Company must be at least 2 characters")
-      .max(50, "Company must not exceed 50 characters")
-      .required("Company is required"),
-    service: yup
-      .string()
-      .oneOf(["consulting", "development", "design", "other"] as const)
-      .required("Service selection is required"),
-  })
-  .required();
+export const serviceOptions: SelectOption[] = [
+  { value: "Web Design", label: "Web Design" },
+  { value: "Motion", label: "Motion" },
+  { value: "Engenering", label: "Engenering" },
+  { value: "UI+UX Design", label: "UI+UX Design" },
+  { value: "Merch", label: "Merch" },
+  { value: "Illustration", label: "Illustration" },
+  { value: "Social Media Assets", label: "Social Media Assets" },
+  { value: "Branding", label: "Branding" },
+];
 
-// Infer the type from the schema
-export type FormInputSchema = yup.InferType<typeof schema>;
+export interface FormInputs {
+  name: string;
+  email: string;
+  company: string;
+  service: ServiceType[];
+}
+
+export const schema = yup.object().shape({
+  name: yup.string().required("Name is required"),
+  email: yup.string().email("Invalid email").required("Email is required"),
+  company: yup.string().required("Company name is required"),
+  service: yup
+    .array()
+    .of(
+      yup
+        .string()
+        .oneOf([
+          "Web Design",
+          "Motion",
+          "Engenering",
+          "UI+UX Design",
+          "Merch",
+          "Illustration",
+          "Social Media Assets",
+          "Branding",
+        ] as const)
+        .required()
+    )
+    .min(1, "Please select at least one service")
+    .required("Please select at least one service"),
+});
