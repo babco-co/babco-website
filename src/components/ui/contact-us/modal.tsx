@@ -69,7 +69,7 @@ const Modal = () => {
             </button>
           </div>
 
-          <ContactForm closeModal={handleCloseModal} />
+          <ContactForm />
         </motion.div>
       </motion.div>
     </AnimatePresence>

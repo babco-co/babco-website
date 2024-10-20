@@ -1,17 +1,16 @@
 import { useState } from "react";
 import Image from "next/image";
-import { useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormInputs, schema, serviceOptions, ServiceType } from "./schema";
+import { FormInputs, schema, serviceOptions } from "./schema";
 import InputField from "./input";
 import Button from "../button";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import arrowRightIcon from "../../../../public/arrow-right-icon.svg";
 import SelectField from "./select-field";
 
-const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
+const ContactForm = () => {
   const {
     register,
     handleSubmit,
@@ -47,7 +46,6 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
           "Your request was successfully submited, Thanks for reaching out!"
         );
         reset();
-        // closeModal();
       } else {
         throw new Error("Failed to send email");
       }
@@ -62,12 +60,9 @@ const ContactForm = ({ closeModal }: { closeModal: () => void }) => {
     }
   };
 
-  const onSubmit: SubmitHandler<FormInputs> = useCallback(
-    (data) => {
-      sendEmail(data);
-    },
-    [sendEmail]
-  );
+  const onSubmit: SubmitHandler<FormInputs> = (data) => {
+    sendEmail(data);
+  };
 
   return (
     <div className="w-full flex flex-col items-center justify-center">

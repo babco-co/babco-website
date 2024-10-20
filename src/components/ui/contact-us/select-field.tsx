@@ -1,6 +1,6 @@
 import { Control, FieldErrors, Controller } from "react-hook-form";
-import Select, { StylesConfig, components } from "react-select";
-import { FormInputs, ServiceType, SelectOption } from "./schema";
+import Select, { DropdownIndicatorProps, StylesConfig, components } from "react-select";
+import { FormInputs, SelectOption } from "./schema";
 
 const SelectField = ({
   name,
@@ -19,7 +19,7 @@ const SelectField = ({
   const errorMessage = errors[name]?.message;
 
   const customStyles: StylesConfig<SelectOption, true> = {
-    control: (provided, state) => ({
+    control: (provided) => ({
       ...provided,
       backgroundColor: "transparent",
       border: "none",
@@ -93,7 +93,7 @@ const SelectField = ({
     }),
   };
 
-  const DropdownIndicator = (props: any) => {
+  const DropdownIndicator = (props: DropdownIndicatorProps<SelectOption, true>) => {
     return (
       <components.DropdownIndicator {...props}>
         <svg
