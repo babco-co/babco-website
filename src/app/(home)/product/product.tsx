@@ -62,7 +62,7 @@ const temboCarousel = [
   [{ src: tembo1, width: 743, height: 540 }],
   [
     { src: tembo2, width: 483, height: 149 },
-    { src: tembo3, width: 483, height: 389 },
+    { src: tembo3, width: 483, height: 375 },
   ],
   [{ src: tembo4, width: 540, height: 540 }],
 ];

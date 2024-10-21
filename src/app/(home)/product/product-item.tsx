@@ -1,4 +1,7 @@
+"use client";
+import { motion } from "framer-motion";
 import GallerySlider, { SliderItem } from "@/components/ui/gallery-slider";
+import { YScrollVariants } from "@/lib/utils/animations";
 
 const ProductItem = ({
   title,
@@ -11,15 +14,20 @@ const ProductItem = ({
 }) => {
   return (
     <section className="w-full flex flex-col items-start justify-center gap-14 overflow-x-hidden">
-      <div>
-        <GallerySlider
-          items={images}
-          containerHeight={541}
-          identifier={title.toLowerCase().replace(/\s+/g, "-")}
-        />
-      </div>
+      <GallerySlider
+        items={images}
+        containerHeight={541}
+        identifier={title.toLowerCase().replace(/\s+/g, "-")}
+      />
 
-      <div className="w-full flex flex-col items-start justify-center gap-2.5">
+      <motion.div
+        className="w-full flex flex-col items-start justify-center gap-2.5"
+        initial="hidden"
+        whileInView="visible"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+        viewport={{ once: true }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="10"
@@ -48,7 +56,7 @@ const ProductItem = ({
           <Tag titles={["Illustration"]} />
           <Tag titles={["Social Media Assets"]} />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

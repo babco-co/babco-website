@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Button from "@/components/ui/button";
 import { Spacer } from "@/components/layout/spacer";
 import Carousel from "@/components/ui/carousel";
@@ -18,6 +19,7 @@ import member10 from "../../../public/member-10.webp";
 import member11 from "../../../public/member-11.webp";
 import member12 from "../../../public/member-12.webp";
 import member13 from "../../../public/member-13.webp";
+import { YScrollVariants } from "@/lib/utils/animations";
 
 const members = [
   { src: member1, className: "w-[435px] h-[401px]" },
@@ -41,7 +43,14 @@ const Team = () => {
   return (
     <section className="w-full flex flex-col items-center justify-center overflow-x-hidden pt-[100px] border-t border-white/10">
       <Spacer horizontal className="w-full">
-        <div className="w-full flex flex-col items-start gap-5">
+        <motion.div
+          className="w-full flex flex-col items-start gap-5"
+          initial="hidden"
+          whileInView="visible"
+          variants={YScrollVariants}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+        >
           <p className="max-w-[329px] lg:max-w-full text-[32px] lg:text-[100px] font-extralight text-primary-white leading-[100%]">
             Create something intentionally great with us
           </p>
@@ -65,7 +74,7 @@ const Team = () => {
               />
             </svg>
           </Button>
-        </div>
+        </motion.div>
       </Spacer>
 
       <div className="w-full  flex flex-col items-center justify-center relative mt-[126px] mb-[-100px]">

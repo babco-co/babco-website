@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import GallerySlider from "@/components/ui/gallery-slider";
 import Carousel from "@/components/ui/carousel";
 import line from "../../../public/line.svg";
@@ -21,6 +23,7 @@ import brand7 from "../../../public/carousel-brands/brand-7.svg";
 import brand8 from "../../../public/carousel-brands/brand-8.svg";
 import brand9 from "../../../public//carousel-brands/brand-9.webp";
 import { Spacer } from "@/components/layout/spacer";
+import { YScrollVariants } from "@/lib/utils/animations";
 
 const carouselBrandImages = [
   { src: tembo },
@@ -58,9 +61,16 @@ const Brands = () => {
     <section className="w-full flex flex-col gap-10 lg:gap-32 overflow-x-hidden">
       <Spacer horizontal>
         <div className="w-full flex flex-row items-center justify-start">
-          <p className="min-w-[160px] lg:min-w-[600px] text-xl lg:text-[72px] font-extralight leading-[120%]">
+          <motion.p
+            className="min-w-[160px] lg:min-w-[600px] text-xl lg:text-[72px] font-extralight leading-[120%]"
+            initial="hidden"
+            whileInView="visible"
+            variants={YScrollVariants}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+          >
             Bring your iconic brand to life
-          </p>
+          </motion.p>
 
           <Image className="hidden lg:block" src={line} alt="line" />
 
@@ -74,9 +84,7 @@ const Brands = () => {
         </div>
       </Spacer>
 
-      <div className="h-[600px]">
-        <GallerySlider items={carouselImages} containerHeight={541} />
-      </div>
+      <GallerySlider items={carouselImages} containerHeight={541} />
     </section>
   );
 };

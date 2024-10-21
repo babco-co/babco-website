@@ -31,7 +31,7 @@ const GallerySlider = ({
   if (!sliderId) return null;
 
   return (
-    <div className="relative" style={{ height: `${containerHeight}px` }}>
+    <div className="w-full h-full">
       <Swiper
         slidesPerView="auto"
         spaceBetween={16}
@@ -41,7 +41,7 @@ const GallerySlider = ({
           prevEl: `.${sliderId}-prev`,
         }}
         modules={[Navigation]}
-      className="h-full"
+        style={{ height: `${containerHeight}px` }}
       >
         {items.map((slide, slideIndex) => (
           <SwiperSlide key={slideIndex} style={{ width: "auto" }}>
