@@ -54,6 +54,23 @@ const carouselImages = [
     { src: brand8, width: 523, height: 253 },
     { src: brand9, width: 523, height: 73 },
   ],
+  [
+    { src: brand1, width: 349, height: 291 },
+    { src: brand2, width: 349, height: 244 },
+  ],
+  [
+    { src: brand3, width: 425, height: 367 },
+    { src: brand4, width: 425, height: 168 },
+  ],
+  [{ src: brand5, width: 456, height: 541 }],
+  [
+    { src: brand6, width: 256, height: 179 },
+    { src: brand7, width: 256, height: 354 },
+  ],
+  [
+    { src: brand8, width: 523, height: 253 },
+    { src: brand9, width: 523, height: 73 },
+  ],
 ];
 
 const Brands = () => {

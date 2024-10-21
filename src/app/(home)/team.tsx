@@ -25,7 +25,7 @@ const members = [
   { src: member1, className: "w-[435px] h-[401px]" },
   { src: member2, className: "w-[304px] h-[256px]" },
   { src: member7, className: "w-[205px] h-[223px]" },
-  { src: member5, className: "w-[244px] h-[255px]" },
+  { src: member5, className: "w-[222px] h-[255px]" },
   { src: member13, className: "w-[269px] h-[196px]" },
   { src: member10, className: "w-[119px] h-[124px]" },
   { src: member11, className: "w-[232px] h-[232px]" },

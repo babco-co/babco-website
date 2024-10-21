@@ -45,9 +45,27 @@ const archCarousel = [
     { src: arch5, width: 540, height: 143 },
   ],
   [{ src: arch6, width: 680, height: 540 }],
+  [
+    { src: arch1, width: 349, height: 251 },
+    { src: arch2, width: 349, height: 268 },
+  ],
+  [{ src: arch3, width: 843, height: 540 }],
+  [
+    { src: arch4, width: 540, height: 376 },
+    { src: arch5, width: 540, height: 143 },
+  ],
+  [{ src: arch6, width: 680, height: 540 }],
 ];
 
 const sqliteCarousel = [
+  [
+    { src: sqlit1, width: 258, height: 258 },
+    { src: sqlit2, width: 258, height: 258 },
+  ],
+  [{ src: sqlit3, width: 688, height: 540 }],
+  [{ src: sqlit4, width: 168, height: 540 }],
+  [{ src: sqlit5, width: 540, height: 540 }],
+  [{ src: sqlit6, width: 540, height: 540 }],
   [
     { src: sqlit1, width: 258, height: 258 },
     { src: sqlit2, width: 258, height: 258 },
@@ -65,9 +83,23 @@ const temboCarousel = [
     { src: tembo3, width: 483, height: 375 },
   ],
   [{ src: tembo4, width: 540, height: 540 }],
+  [{ src: tembo1, width: 743, height: 540 }],
+  [
+    { src: tembo2, width: 483, height: 149 },
+    { src: tembo3, width: 483, height: 375 },
+  ],
+  [{ src: tembo4, width: 540, height: 540 }],
 ];
 
 const omletCarousel = [
+  [
+    { src: omlet1, width: 349, height: 251 },
+    { src: omlet2, width: 349, height: 268 },
+  ],
+  [{ src: omlet3, width: 653, height: 540 }],
+  [{ src: omlet4, width: 440, height: 540 }],
+  [{ src: omlet5, width: 540, height: 540 }],
+  [{ src: omlet6, width: 540, height: 540 }],
   [
     { src: omlet1, width: 349, height: 251 },
     { src: omlet2, width: 349, height: 268 },
@@ -85,6 +117,12 @@ const gitarCarousel = [
   ],
   [{ src: gitar3, width: 440, height: 540 }],
   [{ src: gitar4, width: 540, height: 540 }],
+  [
+    { src: gitar1, width: 472, height: 234 },
+    { src: gitar2, width: 472, height: 285 },
+  ],
+  [{ src: gitar3, width: 440, height: 540 }],
+  [{ src: gitar4, width: 540, height: 540 }],
 ];
 
 const apoliticalCarousel = [
@@ -92,9 +130,18 @@ const apoliticalCarousel = [
   [{ src: apolitical2, width: 540, height: 540 }],
   [{ src: apolitical3, width: 540, height: 540 }],
   [{ src: apolitical4, width: 540, height: 540 }],
+  [{ src: apolitical1, width: 791, height: 540 }],
+  [{ src: apolitical2, width: 540, height: 540 }],
+  [{ src: apolitical3, width: 540, height: 540 }],
+  [{ src: apolitical4, width: 540, height: 540 }],
 ];
 
 const oumiCarousel = [
+  [{ src: oumi1, width: 981, height: 540 }],
+  [
+    { src: oumi2, width: 349, height: 251 },
+    { src: oumi3, width: 349, height: 268 },
+  ],
   [{ src: oumi1, width: 981, height: 540 }],
   [
     { src: oumi2, width: 349, height: 251 },
