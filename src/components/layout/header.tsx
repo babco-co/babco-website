@@ -77,6 +77,8 @@ const Header = () => {
           <Link
             className="hidden sm:block text-xs font-normal text-primary-white uppercase"
             href="/merch"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Merch
           </Link>
@@ -130,6 +132,8 @@ const Header = () => {
               <Link
                 className="text-4xl font-extralight text-primary-black uppercase"
                 href="/merch"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Merch
               </Link>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CarouselGallery from "@/components/ui/carousel-gallery";
+import GallerySlider from "@/components/ui/gallery-slider";
 import Carousel from "@/components/ui/carousel";
 import line from "../../../public/line.svg";
 import lineMobile from "../../../public/line-mobile.svg";
@@ -74,11 +74,9 @@ const Brands = () => {
         </div>
       </Spacer>
 
-      <CarouselGallery
-        items={carouselImages}
-        containerHeight={541}
-        mode="auto"
-      />
+      <div className="h-[600px]">
+        <GallerySlider items={carouselImages} containerHeight={541} />
+      </div>
     </section>
   );
 };

@@ -1,6 +1,4 @@
-import CarouselGallery, {
-  CarouselItem,
-} from "@/components/ui/carousel-gallery";
+import GallerySlider, { SliderItem } from "@/components/ui/gallery-slider";
 
 const ProductItem = ({
   title,
@@ -9,16 +7,15 @@ const ProductItem = ({
 }: {
   title: string;
   subtitle: string;
-  images: CarouselItem[][];
+  images: SliderItem[][];
 }) => {
   return (
-    <section className="w-full flex flex-col items-start justify-center gap-5 overflow-x-hidden">
+    <section className="w-full flex flex-col items-start justify-center gap-14 overflow-x-hidden">
       <div>
-        <CarouselGallery
+        <GallerySlider
           items={images}
           containerHeight={541}
-          mode="manual"
-          identifier={title.toLowerCase().replace(/\s+/g, '-')}
+          identifier={title.toLowerCase().replace(/\s+/g, "-")}
         />
       </div>
 
@@ -39,7 +36,7 @@ const ProductItem = ({
         <p className="text-[32px] lg:text-[42px] font-extralight leading-[120%] text-primary-white">
           {title}
         </p>
-        <p className="text-base font-extralight leading-[120%] text-dark-gray mb-12">
+        <p className="text-base font-extralight leading-[120%] text-dark-gray">
           {subtitle}
         </p>
 

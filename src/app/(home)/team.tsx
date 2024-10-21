@@ -23,7 +23,7 @@ const members = [
   { src: member1, className: "w-[435px] h-[401px]" },
   { src: member2, className: "w-[304px] h-[256px]" },
   { src: member7, className: "w-[205px] h-[223px]" },
-  { src: member5, className: "w-[274px] h-[285px]" },
+  { src: member5, className: "w-[244px] h-[255px]" },
   { src: member13, className: "w-[269px] h-[196px]" },
   { src: member10, className: "w-[119px] h-[124px]" },
   { src: member11, className: "w-[232px] h-[232px]" },
@@ -32,14 +32,14 @@ const members = [
   { src: member6, className: "w-[246px] h-[271px]" },
   { src: member4, className: "w-[154px] h-[196px]" },
   { src: member9, className: "w-[325px] h-[325px]" },
-  { src: member8, className: "w-[178px] h-[203px]" },
+  { src: member8, className: "w-[179px] h-[179px]" },
   { src: member12, className: "w-[370px] h-[362px]" },
 ];
 
 const Team = () => {
   const { openModal } = useModal();
   return (
-    <section className="w-full flex flex-col items-center justify-center overflow-x-hidden">
+    <section className="w-full flex flex-col items-center justify-center overflow-x-hidden pt-[100px] border-t border-white/10">
       <Spacer horizontal className="w-full">
         <div className="w-full flex flex-col items-start gap-5">
           <p className="max-w-[329px] lg:max-w-full text-[32px] lg:text-[100px] font-extralight text-primary-white leading-[100%]">
