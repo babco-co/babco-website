@@ -160,7 +160,10 @@ const Header = () => {
                 className="w-full h-[68px] text-lg font-black leading-[120%] text-primary-pink gap-2 mt-5"
                 variant="primary"
                 bgColor={"black"}
-                onClick={openModal}
+                onClick={() => {
+                  handleToggleMenu();
+                  openModal();
+                }}
               >
                 Talk to us
                 <svg
