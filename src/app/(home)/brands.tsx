@@ -1,7 +1,6 @@
 "use client";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
-import GallerySlider from "@/components/ui/gallery-slider";
 import Carousel from "@/components/ui/carousel";
 import line from "../../../public/line.svg";
 import lineMobile from "../../../public/line-mobile.svg";
@@ -22,10 +21,15 @@ import brand6 from "../../../public/carousel-brands/brand-6.svg";
 import brand7 from "../../../public/carousel-brands/brand-7.svg";
 import brand8 from "../../../public/carousel-brands/brand-8.svg";
 import brand9 from "../../../public//carousel-brands/brand-9.webp";
-import { Spacer } from "@/components/layout/spacer";
 import { YScrollVariants } from "@/lib/utils/animations";
 
-const carouselBrandImages = [
+type ImageData = {
+  src: StaticImageData;
+  width?: number;
+  height?: number;
+};
+
+const carouselBrandImages: ImageData[] = [
   { src: tembo },
   { src: arch },
   { src: gitar },
@@ -36,72 +40,92 @@ const carouselBrandImages = [
   { src: brandmarch },
 ];
 
-const carouselImages = [
+const carouselImages: (ImageData | ImageData[])[] = [
   [
     { src: brand1, width: 349, height: 291 },
     { src: brand2, width: 349, height: 244 },
   ],
   [
-    { src: brand3, width: 425, height: 367 },
+    { src: brand3, width: 425, height: 359 },
     { src: brand4, width: 425, height: 168 },
   ],
   [{ src: brand5, width: 456, height: 541 }],
   [
     { src: brand6, width: 256, height: 179 },
-    { src: brand7, width: 256, height: 354 },
+    { src: brand7, width: 256, height: 348 },
   ],
   [
-    { src: brand8, width: 523, height: 253 },
-    { src: brand9, width: 523, height: 73 },
+    { src: brand8, width: 523, height: 374 },
+    { src: brand9, width: 523, height: 149 },
   ],
   [
     { src: brand1, width: 349, height: 291 },
     { src: brand2, width: 349, height: 244 },
   ],
   [
-    { src: brand3, width: 425, height: 367 },
+    { src: brand3, width: 425, height: 359 },
     { src: brand4, width: 425, height: 168 },
   ],
   [{ src: brand5, width: 456, height: 541 }],
   [
     { src: brand6, width: 256, height: 179 },
-    { src: brand7, width: 256, height: 354 },
+    { src: brand7, width: 256, height: 348 },
   ],
   [
-    { src: brand8, width: 523, height: 253 },
-    { src: brand9, width: 523, height: 73 },
+    { src: brand8, width: 523, height: 374 },
+    { src: brand9, width: 523, height: 149 },
   ],
 ];
 
 const Brands = () => {
   return (
     <section className="w-full flex flex-col gap-10 lg:gap-32 overflow-x-hidden">
-      <Spacer horizontal>
-        <div className="w-full flex flex-row items-center justify-start">
-          <motion.p
-            className="min-w-[160px] lg:min-w-[600px] text-xl lg:text-[72px] font-extralight leading-[120%]"
-            initial="hidden"
-            whileInView="visible"
-            variants={YScrollVariants}
-            transition={{ duration: 0.4 , delay: 1}}
-            viewport={{ once: true }}
-          >
-            Bring your iconic brand to life
-          </motion.p>
+      <div className="w-full flex flex-row items-center justify-start">
+        <motion.p
+          className="min-w-[160px] lg:min-w-[600px] text-xl lg:text-[72px] font-extralight leading-[120%]"
+          initial="hidden"
+          whileInView="visible"
+          variants={YScrollVariants}
+          transition={{ duration: 0.4, delay: 1 }}
+          viewport={{ once: true }}
+        >
+          Bring your iconic brand to life
+        </motion.p>
 
-          <Image className="hidden lg:block" src={line} alt="line" />
+        <Image className="hidden lg:block" src={line} alt="line" />
+        <Image className="block lg:hidden" src={lineMobile} alt="line" />
 
-          <Image className="block lg:hidden" src={lineMobile} alt="line" />
+        <Carousel speed={0.5} gap={68} className="w-full">
+          {carouselBrandImages.map((item, index) => (
+            <Image key={index} src={item.src} alt="brand logo" />
+          ))}
+        </Carousel>
+      </div>
 
-          <Carousel speed={0.5} gap={68} className="w-full">
-            {carouselBrandImages.map((item, index) => (
-              <Image key={index} src={item.src} alt="brand logo" />
-            ))}
-          </Carousel>
-        </div>
-      </Spacer>
-
-      <GallerySlider items={carouselImages} containerHeight={541} />
+      <Carousel speed={0.5} gap={16} className="w-full">
+        {carouselImages.map((imageGroup, index) => (
+          <div key={index} className="flex flex-col gap-4">
+            {Array.isArray(imageGroup) ? (
+              imageGroup.map((item: ImageData, subIndex) => (
+                <Image
+                  key={`${index}-${subIndex}`}
+                  src={item.src}
+                  width={item.width}
+                  height={item.height}
+                  alt="brand logo"
+                />
+              ))
+            ) : (
+              <Image
+                src={imageGroup.src}
+                width={imageGroup.width}
+                height={imageGroup.height}
+                alt="brand logo"
+              />
+            )}
+          </div>
+        ))}
+      </Carousel>
     </section>
   );
 };

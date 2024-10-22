@@ -36,22 +36,22 @@ import ProductItem from "./product-item";
 
 const archCarousel = [
   [
-    { src: arch1, width: 349, height: 251 },
+    { src: arch1, width: 349, height: 256 },
     { src: arch2, width: 349, height: 268 },
   ],
-  [{ src: arch3, width: 843, height: 540 }],
+  [{ src: arch3, width: 834, height: 540 }],
   [
-    { src: arch4, width: 540, height: 376 },
+    { src: arch4, width: 540, height: 381 },
     { src: arch5, width: 540, height: 143 },
   ],
   [{ src: arch6, width: 680, height: 540 }],
   [
-    { src: arch1, width: 349, height: 251 },
+    { src: arch1, width: 349, height: 256 },
     { src: arch2, width: 349, height: 268 },
   ],
-  [{ src: arch3, width: 843, height: 540 }],
+  [{ src: arch3, width: 834, height: 540 }],
   [
-    { src: arch4, width: 540, height: 376 },
+    { src: arch4, width: 540, height: 381 },
     { src: arch5, width: 540, height: 143 },
   ],
   [{ src: arch6, width: 680, height: 540 }],
@@ -60,7 +60,7 @@ const archCarousel = [
 const sqliteCarousel = [
   [
     { src: sqlit1, width: 258, height: 258 },
-    { src: sqlit2, width: 258, height: 258 },
+    { src: sqlit2, width: 258, height: 266 },
   ],
   [{ src: sqlit3, width: 688, height: 540 }],
   [{ src: sqlit4, width: 168, height: 540 }],
@@ -68,7 +68,7 @@ const sqliteCarousel = [
   [{ src: sqlit6, width: 540, height: 540 }],
   [
     { src: sqlit1, width: 258, height: 258 },
-    { src: sqlit2, width: 258, height: 258 },
+    { src: sqlit2, width: 258, height: 266 },
   ],
   [{ src: sqlit3, width: 688, height: 540 }],
   [{ src: sqlit4, width: 168, height: 540 }],
@@ -94,7 +94,7 @@ const temboCarousel = [
 const omletCarousel = [
   [
     { src: omlet1, width: 349, height: 251 },
-    { src: omlet2, width: 349, height: 268 },
+    { src: omlet2, width: 349, height: 273 },
   ],
   [{ src: omlet3, width: 653, height: 540 }],
   [{ src: omlet4, width: 440, height: 540 }],
@@ -102,7 +102,7 @@ const omletCarousel = [
   [{ src: omlet6, width: 540, height: 540 }],
   [
     { src: omlet1, width: 349, height: 251 },
-    { src: omlet2, width: 349, height: 268 },
+    { src: omlet2, width: 349, height: 273 },
   ],
   [{ src: omlet3, width: 653, height: 540 }],
   [{ src: omlet4, width: 440, height: 540 }],
@@ -113,13 +113,13 @@ const omletCarousel = [
 const gitarCarousel = [
   [
     { src: gitar1, width: 472, height: 234 },
-    { src: gitar2, width: 472, height: 285 },
+    { src: gitar2, width: 472, height: 290 },
   ],
   [{ src: gitar3, width: 440, height: 540 }],
   [{ src: gitar4, width: 540, height: 540 }],
   [
     { src: gitar1, width: 472, height: 234 },
-    { src: gitar2, width: 472, height: 285 },
+    { src: gitar2, width: 472, height: 290 },
   ],
   [{ src: gitar3, width: 440, height: 540 }],
   [{ src: gitar4, width: 540, height: 540 }],

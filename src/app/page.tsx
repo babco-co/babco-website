@@ -13,7 +13,7 @@ export default function Page() {
         <Hero />
       </Spacer>
 
-      <Spacer vertical>
+      <Spacer vertical horizontal>
         <Brands />
       </Spacer>
 
