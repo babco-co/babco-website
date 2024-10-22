@@ -13,12 +13,14 @@ const ProductItem = ({
   images: SliderItem[][];
 }) => {
   return (
-    <section className="w-full flex flex-col items-start justify-center gap-14 overflow-x-hidden">
-      <GallerySlider
-        items={images}
-        containerHeight={541}
-        identifier={title.toLowerCase().replace(/\s+/g, "-")}
-      />
+    <section className="w-full flex flex-col items-start justify-center gap-8">
+      <div className="w-full overflow-x-hidden">
+        <GallerySlider
+          items={images}
+          containerHeight={541}
+          identifier={title.toLowerCase().replace(/\s+/g, "-")}
+        />
+      </div>
 
       <motion.div
         className="w-full flex flex-col items-start justify-center gap-2.5"

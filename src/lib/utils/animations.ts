@@ -44,14 +44,22 @@ export const modalVariants = {
 
 export const bounceVariants = {
   initial: {
-    y: 500,
+    y: 0,
+    opacity: 0,
   },
   animate: {
-    y: [500, -200, 0],
+    y: [0, -200, 0],
+    opacity: 1,
     transition: {
-      duration: 1.2,
-      times: [0, 0.3, 1],
-      ease: "easeOut",
+      y: {
+        duration: 1,
+        times: [0, 0.4, 1],
+        ease: [0.33, 1, 0.68, 1],
+      },
+      opacity: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
     },
   },
 };
@@ -68,6 +76,16 @@ export const shadowVariants = {
       delay: 0.8,
       duration: 0.4,
       ease: "easeOut",
+    },
+  },
+};
+
+export const fadeInVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
     },
   },
 };

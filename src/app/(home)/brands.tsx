@@ -83,7 +83,7 @@ const Brands = () => {
             initial="hidden"
             whileInView="visible"
             variants={YScrollVariants}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.4 , delay: 1}}
             viewport={{ once: true }}
           >
             Bring your iconic brand to life

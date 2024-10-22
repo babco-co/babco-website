@@ -13,15 +13,20 @@ const Hero = () => {
     <section className="w-full flex flex-col items-center justify-center">
       <motion.div
         className="w-full h-fit flex justify-center"
+        initial="initial"
+        animate="animate"
         variants={bounceVariants}
+      >
+        <BabcoLogo fill={color} className="w-full h-auto" />
+      </motion.div>
+
+      <motion.div
+        className="w-full"
+        variants={shadowVariants}
         initial="initial"
         animate="animate"
       >
-        <BabcoLogo fill={color} />
-      </motion.div>
-
-      <motion.div variants={shadowVariants} initial="initial" animate="animate">
-        <Image src={babcoShadowLogo} alt="babco" />
+        <Image src={babcoShadowLogo} alt="babco" className="w-full h-auto" />
       </motion.div>
     </section>
   );
