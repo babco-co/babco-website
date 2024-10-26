@@ -9,7 +9,7 @@ import { Spacer } from "@/components/layout/spacer";
 export default function Page() {
   return (
     <div className="w-full min-h-screen font-[family-name:var(--font-inter)]">
-      <Spacer horizontal className="mt-[240px] mb-[300px] lg:mb-[100px]">
+      <Spacer horizontal vertical className="mt-[240px]">
         <Hero />
       </Spacer>
 
@@ -17,7 +17,7 @@ export default function Page() {
         <Brands />
       </Spacer>
 
-      <Spacer vertical>
+      <Spacer vertical horizontal>
         <TeamBehind />
       </Spacer>
 
@@ -25,7 +25,7 @@ export default function Page() {
         <Product />
       </Spacer>
 
-      <Spacer horizontal vertical>
+      <Spacer horizontal className="py-[90px]">
         <Offer />
       </Spacer>
 

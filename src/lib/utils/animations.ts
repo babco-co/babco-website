@@ -1,3 +1,16 @@
+export const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 1,
+    },
+  },
+};
+
 export const YScrollVariants = {
   hidden: {
     y: 50,
@@ -6,39 +19,6 @@ export const YScrollVariants = {
   visible: {
     y: 0,
     opacity: 1,
-  },
-};
-
-export const overlayVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.5, ease: "easeInOut" },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.5, ease: "easeInOut" },
-  },
-};
-
-export const modalVariants = {
-  hidden: { y: -50, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-      ease: "easeOut",
-      when: "beforeChildren",
-    },
-  },
-  exit: {
-    y: -50,
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeIn",
-    },
   },
 };
 
@@ -64,28 +44,66 @@ export const bounceVariants = {
   },
 };
 
-export const shadowVariants = {
-  initial: {
-    opacity: 0,
-    scale: 0.8,
-  },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delay: 0.8,
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  },
-};
-
 export const fadeInVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       duration: 1,
+    },
+  },
+};
+
+export const pageVariants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      delay: 0.3, // Delay entrance until after transition
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
+
+export const opacityVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
+export const pageContentVariants = {
+  hidden: { y: -50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    y: -50,
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeIn",
     },
   },
 };

@@ -5,10 +5,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormInputs, schema, serviceOptions } from "./schema";
 import InputField from "./input";
-import Button from "../button";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
-import arrowRightIcon from "../../../../public/arrow-right-icon.svg";
 import SelectField from "./select-field";
+import Button from "@/components/ui/button";
+import arrowRightIcon from "../../../public/arrow-right-icon.svg";
 
 const ContactForm = () => {
   const {

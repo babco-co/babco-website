@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/header";
-import { ModalProvider } from "@/components/ui/contact-us/modal-context";
+import { TransitionProvider } from "@/components/ui/page-transition";
 import { geistMono, geistSans, inter } from "@/styles/fonts";
-import Modal from "@/components/ui/contact-us/modal";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
@@ -20,11 +19,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <ModalProvider>
+        <TransitionProvider>
           <Header />
           {children}
-          <Modal />
-        </ModalProvider>
+        </TransitionProvider>
       </body>
     </html>
   );

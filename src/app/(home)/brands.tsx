@@ -21,7 +21,7 @@ import brand6 from "../../../public/carousel-brands/brand-6.svg";
 import brand7 from "../../../public/carousel-brands/brand-7.svg";
 import brand8 from "../../../public/carousel-brands/brand-8.svg";
 import brand9 from "../../../public//carousel-brands/brand-9.webp";
-import { YScrollVariants } from "@/lib/utils/animations";
+import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 
 type ImageData = {
   src: StaticImageData;
@@ -80,14 +80,16 @@ const carouselImages: (ImageData | ImageData[])[] = [
 const Brands = () => {
   return (
     <section className="w-full flex flex-col gap-10 lg:gap-32 overflow-x-hidden">
-      <div className="w-full flex flex-row items-center justify-start">
+      <motion.div
+        className="w-full flex flex-row items-center justify-start"
+        initial="hidden"
+        whileInView="visible"
+        variants={containerVariants}
+        viewport={{ once: true }}
+      >
         <motion.p
           className="min-w-[160px] lg:min-w-[600px] text-xl lg:text-[72px] font-extralight leading-[120%]"
-          initial="hidden"
-          whileInView="visible"
           variants={YScrollVariants}
-          transition={{ duration: 0.4, delay: 1 }}
-          viewport={{ once: true }}
         >
           Bring your iconic brand to life
         </motion.p>
@@ -95,12 +97,14 @@ const Brands = () => {
         <Image className="hidden lg:block" src={line} alt="line" />
         <Image className="block lg:hidden" src={lineMobile} alt="line" />
 
-        <Carousel speed={0.5} gap={68} className="w-full">
-          {carouselBrandImages.map((item, index) => (
-            <Image key={index} src={item.src} alt="brand logo" />
-          ))}
-        </Carousel>
-      </div>
+        <motion.div variants={YScrollVariants}>
+          <Carousel speed={0.5} gap={68} className="w-full">
+            {carouselBrandImages.map((item, index) => (
+              <Image key={index} src={item.src} alt="brand logo" />
+            ))}
+          </Carousel>
+        </motion.div>
+      </motion.div>
 
       <Carousel speed={0.5} gap={16} className="w-full">
         {carouselImages.map((imageGroup, index) => (

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Button from "@/components/ui/button";
 import { Spacer } from "@/components/layout/spacer";
 import Carousel from "@/components/ui/carousel";
-import { useModal } from "@/components/ui/contact-us/modal-context";
 import BabcoLogo from "./hero/babco-logo";
 import member1 from "../../../public/member-1.webp";
 import member2 from "../../../public/member-2.webp";
@@ -20,6 +19,7 @@ import member11 from "../../../public/member-11.webp";
 import member12 from "../../../public/member-12.webp";
 import member13 from "../../../public/member-13.webp";
 import { YScrollVariants } from "@/lib/utils/animations";
+import { useTransition } from "@/components/ui/page-transition";
 
 const members = [
   { src: member1, className: "w-[435px] h-[401px]" },
@@ -39,7 +39,8 @@ const members = [
 ];
 
 const Team = () => {
-  const { openModal } = useModal();
+  const { startTransition } = useTransition();
+
   return (
     <section className="w-full flex flex-col items-center justify-center overflow-x-hidden pt-[100px] border-t border-white/10">
       <Spacer horizontal className="w-full">
@@ -58,7 +59,7 @@ const Team = () => {
           <Button
             className="w-[176px] h-[68px] gap-2 text-lg"
             variant="primary"
-            onClick={openModal}
+            onClick={() => startTransition("/contact-us")}
           >
             Talk to us
             <svg

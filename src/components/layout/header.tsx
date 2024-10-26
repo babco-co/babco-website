@@ -9,11 +9,11 @@ import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 import arrowRightIcon from "../../../public/arrow-right-icon.svg";
 import menuIcon from "../../../public/hamburger-icon.svg";
 import closeIcon from "../../../public/close-icon.svg";
-import { useModal } from "../ui/contact-us/modal-context";
+import { useTransition } from "../ui/page-transition";
 
 const Header = () => {
   const color = useColorCycle();
-  const { openModal } = useModal();
+  const { startTransition } = useTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -100,7 +100,9 @@ const Header = () => {
             className="hidden sm:flex ml-4 gap-2 text-xs"
             variant="primary"
             bgColor={color}
-            onClick={openModal}
+            onClick={() => {
+              startTransition("/contact-us");
+            }}
           >
             Talk to us
             <Image src={arrowRightIcon} alt="arrow" />
@@ -166,7 +168,7 @@ const Header = () => {
                 bgColor={"black"}
                 onClick={() => {
                   handleToggleMenu();
-                  openModal();
+                  startTransition("/contact-us");
                 }}
               >
                 Talk to us
