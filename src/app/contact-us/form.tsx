@@ -119,7 +119,7 @@ const ContactForm = () => {
         className="w-full flex flex-col items-start justify-center gap-8"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="w-full sm:w-2/3 flex flex-col items-start justify-center gap-6 mb-4">
+        <div className="w-full flex flex-col items-start justify-center gap-6 mb-4">
           <InputField
             name="name"
             register={register}
@@ -154,7 +154,7 @@ const ContactForm = () => {
         </div>
 
         <Button
-          className="w-[167px] h-[44px] gap-2 text-lg"
+          className="w-[167px] h-[44px] gap-2 text-lg self-center"
           variant="primary"
           disabled={isLoading}
         >

@@ -64,7 +64,7 @@ export const pageVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      delay: 0.3, // Delay entrance until after transition
+      delay: 1, // Delay entrance until after transition
     },
   },
   exit: {

@@ -1,31 +1,29 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import ContactForm from "./form";
 import { pageVariants } from "@/lib/utils/animations";
-import lineMobile from "../../../public/line-mobile.svg";
+import { Spacer } from "@/components/layout/spacer";
 
-export default function ContactPage() {
+export default function Page() {
   return (
-    <div className="flex items-center justify-center p-12">
-      <motion.div
-        className="w-full max-w-[691px] flex flex-col items-center justify-center 
-          gap-10 p-10 rounded-md relative border border-gray-500"
-        variants={pageVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        <div className="w-full">
-          <div className="flex gap-4 items-center justify-start">
-            <p className="text-lg lg:text-[56px] font-extralight leading-[200%] text-primary-white">
+    <div className="w-full flex items-center justify-center">
+      <Spacer horizontal className="mb-10">
+        <motion.div
+          className="w-full lg:w-[492px] flex flex-shrink-0 flex-col items-center justify-center 
+          gap-10 p-10"
+          variants={pageVariants}
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+        >
+          <div className="flex gap-4 items-center justify-center">
+            <p className="text-lg sm:text-[56px] font-extralight leading-[200%] text-primary-white">
               Contact Us
             </p>
-            <Image className="" src={lineMobile} alt="line" />
           </div>
-        </div>
-        <ContactForm />
-      </motion.div>
+          <ContactForm />
+        </motion.div>
+      </Spacer>
     </div>
   );
 }
