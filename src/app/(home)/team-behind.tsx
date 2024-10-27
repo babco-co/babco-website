@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 import airbnb from "../../../public/airbnb-logo.svg";
 import google from "../../../public/google-logo.svg";
 import apple from "../../../public/apple-logo.svg";
@@ -10,7 +12,6 @@ import instagram from "../../../public/instagram-logo.svg";
 import Braun from "../../../public/Braun-logo.svg";
 import king from "../../../public/king-logo.svg";
 import samsung from "../../../public/samsung-logo.svg";
-import Carousel from "@/components/ui/carousel";
 import { YScrollVariants } from "@/lib/utils/animations";
 
 const images = [
@@ -26,6 +27,22 @@ const images = [
 ];
 
 const TeamBehind = () => {
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      containScroll: false,
+    },
+    [
+      AutoScroll({
+        playOnInit: true,
+        speed: 1,
+        stopOnInteraction: false,
+        stopOnFocusIn: false,
+      }),
+    ]
+  );
+
   return (
     <section className="w-full flex flex-col items-start justify-center gap-20 overflow-x-hidden">
       <motion.p
@@ -40,22 +57,20 @@ const TeamBehind = () => {
       </motion.p>
 
       <div className="w-full opacity-30">
-        <Carousel
-          speed={0.5}
-          gap={60}
-          className="w-full"
-          itemClassName="min-w-[73px]"
-        >
-          {images.map((item, index) => (
-            <Image
-              key={index}
-              src={item.src}
-              alt="brand logo"
-              width={item.width}
-              height={item.height}
-            />
-          ))}
-        </Carousel>
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {[...images, ...images, ...images].map((item, index) => (
+              <div key={index} className="flex-[0_0_auto] pr-[60px]">
+                <Image
+                  src={item.src}
+                  alt="brand logo"
+                  width={item.width}
+                  height={item.height}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

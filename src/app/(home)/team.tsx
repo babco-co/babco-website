@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 import Button from "@/components/ui/button";
 import { Spacer } from "@/components/layout/spacer";
-import Carousel from "@/components/ui/carousel";
 import BabcoLogo from "./hero/babco-logo";
 import member1 from "../../../public/member-1.webp";
 import member2 from "../../../public/member-2.webp";
@@ -40,6 +41,38 @@ const members = [
 
 const Team = () => {
   const { startTransition } = useTransition();
+
+  const [emblaRef1] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      containScroll: false,
+    },
+    [
+      AutoScroll({
+        playOnInit: true,
+        speed: 0.5,
+        stopOnInteraction: false,
+        stopOnFocusIn: false,
+      }),
+    ]
+  );
+
+  const [emblaRef2] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      containScroll: false,
+    },
+    [
+      AutoScroll({
+        playOnInit: true,
+        speed: 0.5,
+        stopOnInteraction: false,
+        stopOnFocusIn: false,
+      }),
+    ]
+  );
 
   return (
     <section className="w-full flex flex-col items-center justify-center overflow-x-hidden pt-[100px] border-t border-white/10">
@@ -78,28 +111,32 @@ const Team = () => {
         </motion.div>
       </Spacer>
 
-      <div className="w-full  flex flex-col items-center justify-center relative mt-[126px] mb-[-100px]">
-        <Carousel speed={0.5} gap={68} className="w-full">
-          {members.slice(0, 7).map((item, index) => (
-            <Image
-              className={item.className}
-              key={index}
-              src={item.src}
-              alt="member"
-            />
-          ))}
-        </Carousel>
+      <div className="w-full flex flex-col items-center justify-center relative mt-[126px] mb-[-100px]">
+        <div className="w-full overflow-hidden" ref={emblaRef1}>
+          <div className="flex">
+            {members.slice(0, 7).map((item, index) => (
+              <div
+                key={index}
+                className="flex-[0_0_auto] pr-[68px] first:pt-[100px] even:mt-10"
+              >
+                <Image className={item.className} src={item.src} alt="member" />
+              </div>
+            ))}
+          </div>
+        </div>
 
-        <Carousel speed={0.5} gap={68} className="w-full pt-[50px] pl-[500px]">
-          {members.slice(7, members.length).map((item, index) => (
-            <Image
-              className={item.className}
-              key={index}
-              src={item.src}
-              alt="member"
-            />
-          ))}
-        </Carousel>
+        <div
+          className="w-full overflow-hidden mt-[-150px] pl-[500px]"
+          ref={emblaRef2}
+        >
+          <div className="flex">
+            {members.slice(7, members.length).map((item, index) => (
+              <div key={index} className="flex-[0_0_auto] pr-[68px] odd:mt-10">
+                <Image className={item.className} src={item.src} alt="member" />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="w-full h-fit flex items-end justify-center z-10">

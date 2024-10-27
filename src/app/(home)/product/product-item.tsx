@@ -15,11 +15,7 @@ const ProductItem = ({
   return (
     <section className="w-full flex flex-col items-start justify-center gap-8">
       <div className="w-full overflow-x-hidden">
-        <GallerySlider
-          items={images}
-          containerHeight={541}
-          identifier={title.toLowerCase().replace(/\s+/g, "-")}
-        />
+        <GallerySlider items={images} containerHeight={541} />
       </div>
 
       <motion.div

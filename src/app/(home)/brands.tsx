@@ -1,7 +1,8 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
-import Carousel from "@/components/ui/carousel";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 import line from "../../../public/line.svg";
 import lineMobile from "../../../public/line-mobile.svg";
 import tembo from "../../../public/carousel-brands/tembo-brand.svg";
@@ -58,26 +59,41 @@ const carouselImages: (ImageData | ImageData[])[] = [
     { src: brand8, width: 523, height: 374 },
     { src: brand9, width: 523, height: 149 },
   ],
-  [
-    { src: brand1, width: 349, height: 291 },
-    { src: brand2, width: 349, height: 244 },
-  ],
-  [
-    { src: brand3, width: 425, height: 359 },
-    { src: brand4, width: 425, height: 168 },
-  ],
-  [{ src: brand5, width: 456, height: 541 }],
-  [
-    { src: brand6, width: 256, height: 179 },
-    { src: brand7, width: 256, height: 348 },
-  ],
-  [
-    { src: brand8, width: 523, height: 374 },
-    { src: brand9, width: 523, height: 149 },
-  ],
 ];
 
 const Brands = () => {
+  const [emblaRef1] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      containScroll: false,
+    },
+    [
+      AutoScroll({
+        playOnInit: true,
+        speed: 1,
+        stopOnInteraction: false,
+        stopOnFocusIn: false,
+      }),
+    ]
+  );
+
+  const [emblaRef2] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      containScroll: false,
+    },
+    [
+      AutoScroll({
+        playOnInit: true,
+        speed: 0.5,
+        stopOnInteraction: false,
+        stopOnFocusIn: false,
+      }),
+    ]
+  );
+
   return (
     <section className="w-full flex flex-col gap-10 lg:gap-32 overflow-x-hidden">
       <motion.div
@@ -97,39 +113,49 @@ const Brands = () => {
         <Image className="hidden lg:block" src={line} alt="line" />
         <Image className="block lg:hidden" src={lineMobile} alt="line" />
 
-        <motion.div variants={YScrollVariants}>
-          <Carousel speed={0.5} gap={68} className="w-full">
-            {carouselBrandImages.map((item, index) => (
-              <Image key={index} src={item.src} alt="brand logo" />
-            ))}
-          </Carousel>
+        <motion.div variants={YScrollVariants} className="w-full">
+          <div className="overflow-hidden" ref={emblaRef1}>
+            <div className="flex items-center">
+              {[...carouselBrandImages, ...carouselBrandImages].map(
+                (item, index) => (
+                  <div key={index} className="flex-[0_0_auto] pl-16">
+                    <Image src={item.src} alt="brand logo" />
+                  </div>
+                )
+              )}
+            </div>
+          </div>
         </motion.div>
       </motion.div>
 
-      <Carousel speed={0.5} gap={16} className="w-full">
-        {carouselImages.map((imageGroup, index) => (
-          <div key={index} className="flex flex-col gap-4">
-            {Array.isArray(imageGroup) ? (
-              imageGroup.map((item: ImageData, subIndex) => (
-                <Image
-                  key={`${index}-${subIndex}`}
-                  src={item.src}
-                  width={item.width}
-                  height={item.height}
-                  alt="brand logo"
-                />
-              ))
-            ) : (
-              <Image
-                src={imageGroup.src}
-                width={imageGroup.width}
-                height={imageGroup.height}
-                alt="brand logo"
-              />
-            )}
-          </div>
-        ))}
-      </Carousel>
+      <div className="overflow-hidden" ref={emblaRef2}>
+        <div className="flex gap-4">
+          {[...carouselImages, ...carouselImages].map((imageGroup, index) => (
+            <div key={index} className="flex-[0_0_auto]">
+              <div className="flex flex-col gap-4">
+                {Array.isArray(imageGroup) ? (
+                  imageGroup.map((item, subIndex) => (
+                    <Image
+                      key={`${index}-${subIndex}`}
+                      src={item.src}
+                      width={item.width}
+                      height={item.height}
+                      alt="brand logo"
+                    />
+                  ))
+                ) : (
+                  <Image
+                    src={imageGroup.src}
+                    width={imageGroup.width}
+                    height={imageGroup.height}
+                    alt="brand logo"
+                  />
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
