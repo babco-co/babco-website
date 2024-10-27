@@ -113,13 +113,13 @@ const Team = () => {
         </motion.div>
       </Spacer>
 
-      <div className="w-full flex flex-col items-center justify-center relative mt-[126px] mb-[-100px]">
+      <div className="w-full flex flex-col items-center justify-center relative mt-[126px] mb-[-280px]">
         <div className="w-full overflow-hidden" ref={emblaRef1}>
           <div className="flex">
             {members.slice(0, 7).map((item, index) => (
               <div
                 key={index}
-                className="flex-[0_0_auto] pr-[68px] first:pt-[100px] even:mt-10"
+                className="flex-[0_0_auto] pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
               >
                 <Image className={item.className} src={item.src} alt="member" />
               </div>
@@ -128,12 +128,12 @@ const Team = () => {
         </div>
 
         <div
-          className="w-full overflow-hidden mt-[-150px] pl-[500px]"
+          className="w-full overflow-hidden mt-16"
           ref={emblaRef2}
         >
           <div className="flex">
             {members.slice(7, members.length).map((item, index) => (
-              <div key={index} className="flex-[0_0_auto] pr-[68px] odd:mt-10">
+              <div key={index} className="flex-[0_0_auto] pr-[68px] odd:mt-20">
                 <Image className={item.className} src={item.src} alt="member" />
               </div>
             ))}
