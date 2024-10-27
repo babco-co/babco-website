@@ -77,7 +77,10 @@ const Team = () => {
   );
 
   return (
-    <section className="w-full flex flex-col items-center justify-center overflow-x-hidden pt-[100px] border-t border-white/10">
+    <section
+      className="w-full flex flex-col items-center justify-center 
+      overflow-x-hidden pt-[100px] border-t border-white/10 relative"
+    >
       <Spacer horizontal className="w-full">
         <motion.div
           className="w-full flex flex-col items-start gap-5"
@@ -113,26 +116,32 @@ const Team = () => {
         </motion.div>
       </Spacer>
 
-      <div className="w-full flex flex-col items-center justify-center relative mt-[126px] mb-[-280px]">
+      <div className="w-full flex flex-col items-center justify-center relative mt-[126px]">
         <div className="w-full overflow-hidden" ref={emblaRef1}>
           <div className="flex">
-            {members.slice(0, 7).map((item, index) => (
-              <div
-                key={index}
-                className="flex-[0_0_auto] pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
-              >
-                <Image className={item.className} src={item.src} alt="member" />
-              </div>
-            ))}
+            {[...members.slice(0, 7), ...members.slice(0, 7)].map(
+              (item, index) => (
+                <div
+                  key={index}
+                  className="flex-[0_0_auto] pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
+                >
+                  <Image
+                    className={item.className}
+                    src={item.src}
+                    alt="member"
+                  />
+                </div>
+              )
+            )}
           </div>
         </div>
 
-        <div
-          className="w-full overflow-hidden mt-16"
-          ref={emblaRef2}
-        >
+        <div className="w-full overflow-hidden mt-4 2xl:mt-16" ref={emblaRef2}>
           <div className="flex">
-            {members.slice(7, members.length).map((item, index) => (
+            {[
+              ...members.slice(7, members.length),
+              ...members.slice(7, members.length),
+            ].map((item, index) => (
               <div key={index} className="flex-[0_0_auto] pr-[68px] odd:mt-20">
                 <Image className={item.className} src={item.src} alt="member" />
               </div>
@@ -141,7 +150,7 @@ const Team = () => {
         </div>
       </div>
 
-      <div className="w-full h-fit flex items-end justify-center z-10">
+      <div className="w-full h-fit absolute bottom-0 z-10">
         <BabcoLogo fill={"#fff"} />
       </div>
     </section>
