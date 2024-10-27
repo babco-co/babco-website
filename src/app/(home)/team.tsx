@@ -47,6 +47,7 @@ const Team = () => {
       loop: true,
       align: "start",
       containScroll: false,
+      watchDrag: false,
     },
     [
       AutoScroll({
@@ -63,6 +64,7 @@ const Team = () => {
       loop: true,
       align: "start",
       containScroll: false,
+      watchDrag: false,
     },
     [
       AutoScroll({

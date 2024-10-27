@@ -67,6 +67,7 @@ const Brands = () => {
       loop: true,
       align: "start",
       containScroll: false,
+      watchDrag: false,
     },
     [
       AutoScroll({

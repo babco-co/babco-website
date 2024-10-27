@@ -32,6 +32,7 @@ const TeamBehind = () => {
       loop: true,
       align: "start",
       containScroll: false,
+      watchDrag: false,
     },
     [
       AutoScroll({
