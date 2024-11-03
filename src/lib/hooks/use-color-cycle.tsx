@@ -1,19 +1,46 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-export const useColorCycle = (initialColor = "#FFC0F1", interval = 2000) => {
-  const [color, setColor] = useState(initialColor);
+// Shared state outside of the hook
+let globalColorIndex = 0;
+const colors = ["#FFC0F1", "#CAF4CB", "#F7F272", "#83B2F0"];
+const subscribers = new Set<(color: string) => void>();
+let intervalId: NodeJS.Timeout | null = null;
+
+const startColorCycle = (interval: number) => {
+  if (intervalId) return; // Prevent multiple intervals
+
+  intervalId = setInterval(() => {
+    globalColorIndex = (globalColorIndex + 1) % colors.length;
+    // Notify all subscribers of the color change
+    subscribers.forEach(callback => callback(colors[globalColorIndex]));
+  }, interval);
+};
+
+const stopColorCycle = () => {
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+};
+
+export const useColorCycle = (interval = 2000) => {
+  const [color, setColor] = useState(colors[globalColorIndex]);
 
   useEffect(() => {
-    const colors = ["#FFC0F1", "#CAF4CB", "#F7F272", "#83B2F0"];
-    let colorIndex = colors.indexOf(initialColor);
+    // Add this component's setColor function to subscribers
+    subscribers.add(setColor);
+    
+    // Start the interval if it's not already running
+    startColorCycle(interval);
 
-    const timer = setInterval(() => {
-      colorIndex = (colorIndex + 1) % colors.length;
-      setColor(colors[colorIndex]);
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [initialColor, interval]);
+    // Cleanup: remove this component's subscriber and stop interval if no subscribers left
+    return () => {
+      subscribers.delete(setColor);
+      if (subscribers.size === 0) {
+        stopColorCycle();
+      }
+    };
+  }, [interval]);
 
   return color;
 };

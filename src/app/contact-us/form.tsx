@@ -9,6 +9,7 @@ import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import SelectField from "./select-field";
 import Button from "@/components/ui/button";
 import arrowRightIcon from "../../../public/arrow-right-icon.svg";
+import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 
 const ContactForm = () => {
   const {
@@ -18,6 +19,7 @@ const ContactForm = () => {
     reset,
     control,
   } = useForm<FormInputs>({ resolver: yupResolver(schema) });
+  const color = useColorCycle();
 
   const [isLoading, setIsLoading] = useState(false);
   const [apiRes, setApiRes] = useState<{
@@ -119,48 +121,71 @@ const ContactForm = () => {
         className="w-full flex flex-col items-start justify-center gap-8"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="w-full flex flex-col items-start justify-center gap-6 mb-4">
-          <InputField
-            name="name"
-            register={register}
-            errors={errors}
-            placeholder="Name"
-            label="Enter your name"
-          />
+        <div className="w-full flex flex-col items-start justify-center gap-[70px] mb-4">
+          <label className="text-sm font-medium leading-[24px] text-primary-white">
+            Contact Us
+          </label>
 
-          <InputField
-            name="email"
-            register={register}
-            errors={errors}
-            placeholder="Email"
-            label="Enter your email"
-          />
+          <div
+            className="w-full flex flex-col lg:flex-row 
+              items-start lg:items-end justify-start gap-[100px]"
+          >
+            <div className="w-full sm:max-w-[412px]">
+              <InputField
+                name="name"
+                register={register}
+                errors={errors}
+                placeholder="Name"
+                label="Enter your name"
+              />
+            </div>
 
-          <InputField
-            name="company"
-            register={register}
-            errors={errors}
-            placeholder="Company"
-            label="Enter company name"
-          />
+            <div className="w-full sm:max-w-[412px]">
+              <InputField
+                name="email"
+                register={register}
+                errors={errors}
+                placeholder="Email"
+                label="Enter your email"
+              />
+            </div>
+          </div>
 
-          <SelectField
-            name="service"
-            control={control}
-            errors={errors}
-            label="What services do you need from our agency?"
-            options={serviceOptions}
-          />
+          <div
+            className="w-full flex flex-col lg:flex-row 
+              items-start lg:items-end justify-start gap-[100px]"
+          >
+            <div className="w-full sm:max-w-[412px]">
+              <InputField
+                name="company"
+                register={register}
+                errors={errors}
+                placeholder="Company"
+                label="Enter company name"
+              />
+            </div>
+
+            <div className="w-full sm:max-w-[412px]">
+              <SelectField
+                name="service"
+                control={control}
+                errors={errors}
+                label="What services do you need from our agency?"
+                options={serviceOptions}
+              />
+            </div>
+
+            <Button
+              className="w-[167px] h-[44px] gap-2 text-lg"
+              variant="primary"
+              disabled={isLoading}
+              style={{ backgroundColor: color }}
+            >
+              {isLoading ? "Sending..." : "Talk to us"}
+              <Image src={arrowRightIcon} alt="arrow" width={22} height={16} />
+            </Button>
+          </div>
         </div>
-
-        <Button
-          className="w-[167px] h-[44px] gap-2 text-lg self-center"
-          variant="primary"
-          disabled={isLoading}
-        >
-          {isLoading ? "Sending..." : "Talk to us"}
-          <Image src={arrowRightIcon} alt="arrow" width={22} height={16} />
-        </Button>
       </form>
     </div>
   );

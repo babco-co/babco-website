@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 
 type TransitionContextType = {
   isTransitioning: boolean;
@@ -21,6 +22,7 @@ export const TransitionProvider = ({
   children: React.ReactNode;
 }) => {
   const router = useRouter();
+  const color = useColorCycle();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [displayText, setDisplayText] = useState("");
   const text = "BABCO";
@@ -53,11 +55,12 @@ export const TransitionProvider = ({
       <AnimatePresence>
         {isTransitioning && (
           <motion.div
+            className="flex items-center justify-center fixed inset-0 z-50"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="flex items-center justify-center fixed inset-0 bg-primary-pink z-50"
+            style={{ backgroundColor: color }}
           >
             <motion.p
               initial={{ opacity: 0 }}

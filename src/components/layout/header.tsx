@@ -49,7 +49,7 @@ const Header = () => {
     <header className="w-full px-4 sm:px-5 py-5">
       <nav className="w-full flex items-center justify-between">
         {/* This left logo and text are fixed on desktop and mobile */}
-        <div className="flex items-center justify-start gap-3 z-50">
+        <Link className="flex items-center justify-start gap-3 z-50" href="./">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="38"
@@ -71,7 +71,7 @@ const Header = () => {
           >
             Design & Engineering Firm
           </p>
-        </div>
+        </Link>
 
         <div className="flex items-center justify-end gap-5">
           <Link
