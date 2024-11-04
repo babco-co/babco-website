@@ -1,6 +1,6 @@
 import { Control, FieldErrors, Controller } from "react-hook-form";
 import Select, { DropdownIndicatorProps, StylesConfig, components } from "react-select";
-import { FormInputs, SelectOption } from "./schema";
+import { FormInputs, SelectOption } from "../schema";
 
 const SelectField = ({
   name,

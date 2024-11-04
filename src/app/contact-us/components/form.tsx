@@ -3,12 +3,12 @@ import Image from "next/image";
 import emailjs from "@emailjs/browser";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormInputs, schema, serviceOptions } from "./schema";
+import { FormInputs, schema, serviceOptions } from "../schema";
 import InputField from "./input";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import SelectField from "./select-field";
 import Button from "@/components/ui/button";
-import arrowRightIcon from "../../../public/arrow-right-icon.svg";
+import arrowRightIcon from "../../../../public/arrow-right-icon.svg";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 
 const ContactForm = () => {

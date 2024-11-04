@@ -1,10 +1,10 @@
-import Hero from "./(home)/hero/hero";
-import TeamBehind from "./(home)/team-behind";
-import Brands from "./(home)/brands";
-import Product from "./(home)/product/product";
-import Offer from "./(home)/offer";
-import Team from "./(home)/team";
 import { Spacer } from "@/components/layout/spacer";
+import Hero from "./(home)/components/hero/hero";
+import Brands from "./(home)/components/brands";
+import TeamBehind from "./(home)/components/team-behind";
+import Product from "./(home)/components/product/product";
+import Offer from "./(home)/components/offer";
+import Team from "./(home)/components/team";
 
 export default function Page() {
   return (

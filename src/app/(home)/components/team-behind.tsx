@@ -3,15 +3,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import airbnb from "../../../public/airbnb-logo.svg";
-import google from "../../../public/google-logo.svg";
-import apple from "../../../public/apple-logo.svg";
-import meta from "../../../public/meta-logo.svg";
-import amazon from "../../../public/amazon-logo.svg";
-import instagram from "../../../public/instagram-logo.svg";
-import Braun from "../../../public/Braun-logo.svg";
-import king from "../../../public/king-logo.svg";
-import samsung from "../../../public/samsung-logo.svg";
+import airbnb from "../../../../public/airbnb-logo.svg";
+import google from "../../../../public/google-logo.svg";
+import apple from "../../../../public/apple-logo.svg";
+import meta from "../../../../public/meta-logo.svg";
+import amazon from "../../../../public/amazon-logo.svg";
+import instagram from "../../../../public/instagram-logo.svg";
+import Braun from "../../../../public/Braun-logo.svg";
+import king from "../../../../public/king-logo.svg";
+import samsung from "../../../../public/samsung-logo.svg";
 import { YScrollVariants } from "@/lib/utils/animations";
 
 const images = [

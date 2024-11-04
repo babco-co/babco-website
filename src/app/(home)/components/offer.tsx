@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import arrow from "../../../public/arrow-right-circle.svg";
+import arrow from "../../../../public/arrow-right-circle.svg";
 import { YScrollVariants } from "@/lib/utils/animations";
 
 const Offer = () => {

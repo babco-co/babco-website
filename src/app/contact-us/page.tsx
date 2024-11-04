@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import ContactForm from "./form";
+import ContactForm from "./components/form";
 import { pageVariants } from "@/lib/utils/animations";
 import { Spacer } from "@/components/layout/spacer";
 
