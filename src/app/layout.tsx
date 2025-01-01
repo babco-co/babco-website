@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Header from "@/components/layout/header";
-import { TransitionProvider } from "@/components/ui/page-transition";
+import Header from "@/components/header";
+import { TransitionProvider } from "@/components/page-transition";
 import { geistMono, geistSans, inter } from "@/styles/fonts";
 import "../styles/globals.css";
 
