@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import Button from "../ui/button";
+import Button from "@/components/button";
 import { LINKEDIN } from "@/lib/utils/constants";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";
-import arrowRightIcon from "../../../public/arrow-right-icon.svg";
-import menuIcon from "../../../public/hamburger-icon.svg";
-import closeIcon from "../../../public/close-icon.svg";
-import { useTransition } from "../ui/page-transition";
+import arrowRightIcon from "../../public/icons/arrow-right-icon.svg";
+import menuIcon from "../../public/icons/hamburger-icon.svg";
+import closeIcon from "../../public/icons/close-icon.svg";
+import { useTransition } from "@/components/page-transition";
 
 const Header = () => {
   const color = useColorCycle();

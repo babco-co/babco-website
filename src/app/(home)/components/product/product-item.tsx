@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import GallerySlider, { SliderItem } from "@/components/ui/gallery-slider";
+import GallerySlider, { SliderItem } from "@/components/gallery-slider";
 import { YScrollVariants } from "@/lib/utils/animations";
 
 const ProductItem = ({

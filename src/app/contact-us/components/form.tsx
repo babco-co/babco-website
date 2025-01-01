@@ -7,8 +7,8 @@ import { FormInputs, schema, serviceOptions } from "../schema";
 import InputField from "./input";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import SelectField from "./select-field";
-import Button from "@/components/ui/button";
-import arrowRightIcon from "../../../../public/arrow-right-icon.svg";
+import Button from "@/components/button";
+import arrowRightIcon from "../../../../public/icons/arrow-right-icon.svg";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 
 const ContactForm = () => {

@@ -3,7 +3,7 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import arrowBtn from "../../../public/arrow-btn.svg";
+import arrowBtn from "../../public/icons/arrow-btn.svg";
 import { fadeInVariants } from "@/lib/utils/animations";
 
 export type SliderItem = {

@@ -1,4 +1,4 @@
-import { Spacer } from "@/components/layout/spacer";
+import { Spacer } from "@/components/spacer";
 import Hero from "./(home)/components/hero/hero";
 import Brands from "./(home)/components/brands";
 import TeamBehind from "./(home)/components/team-behind";
@@ -9,7 +9,7 @@ import Team from "./(home)/components/team";
 export default function Page() {
   return (
     <div className="w-full min-h-screen font-[family-name:var(--font-inter)]">
-      <Spacer horizontal vertical className="mt-[240px]">
+      <Spacer>
         <Hero />
       </Spacer>
 

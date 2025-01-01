@@ -1,22 +1,15 @@
 "use client";
-import { useColorCycle } from "@/lib/hooks/use-color-cycle";
-import BabcoLogo from "./babco-logo";
-import { motion } from "framer-motion";
-import { bounceVariants } from "@/lib/utils/animations";
+import RiveWrapper from "@/components/rive-wrapper";
 
 const Hero = () => {
-  const color = useColorCycle();
-
   return (
-    <section className="w-full flex flex-col items-center justify-center">
-      <motion.div
-        className="w-full h-fit flex justify-center"
-        initial="initial"
-        animate="animate"
-        variants={bounceVariants}
-      >
-        <BabcoLogo fill={color} className="w-full h-auto" />
-      </motion.div>
+    <section className="w-full h-full flex flex-col items-center justify-center">
+      <RiveWrapper
+        src="animations/logo.riv"
+        autoplay={true}
+        playOnView={false}
+        containerClassName="w-full h-[800px]"
+      />
     </section>
   );
 };
