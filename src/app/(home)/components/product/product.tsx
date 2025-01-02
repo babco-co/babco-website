@@ -11,7 +11,7 @@ import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.svg";
 import sqlit5 from "../../../../../public/images/carousel-sqlite/sqlit-5.webp";
 import sqlit6 from "../../../../../public/images/carousel-sqlite/sqlit-6.webp";
 import tembo1 from "../../../../../public/images/carousel-tembo/tembo-1.webp";
-import tembo2 from "../../../../../public/images/carousel-brands/brand-9.webp";
+import tembo2 from "../../../../../public/images/carousel-tembo/tembo-2.webp";
 import tembo3 from "../../../../../public/images/carousel-tembo/tembo-3.webp";
 import tembo4 from "../../../../../public/images/carousel-tembo/tembo-4.webp";
 import omlet1 from "../../../../../public/images/carousel-omlet/omlet-1.svg";
@@ -29,7 +29,7 @@ import apolitical2 from "../../../../../public/images/carousel-apolitical/apolit
 import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
 import apolitical4 from "../../../../../public/images/carousel-apolitical/apolitical-4.webp";
 import oumi1 from "../../../../../public/images/carousel-oumi/oumi-1.webp";
-import oumi2 from "../../../../../public/images/carousel-brands/brand-8.svg";
+import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
 import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
 
 import ProductItem from "./product-item";
