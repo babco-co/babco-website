@@ -25,7 +25,7 @@ const Hero = () => {
         </p>
 
         <Button
-          className="hidden sm:flex ml-4 gap-2 text-xs font-black"
+          className="flex gap-2 text-xs font-black"
           variant="primary"
           bgColor={color}
           onClick={() => {

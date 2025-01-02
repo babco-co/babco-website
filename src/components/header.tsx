@@ -69,52 +69,45 @@ const Header = () => {
         </Link>
 
         <div className="flex flex-1 items-center justify-center gap-5">
-          <Link
-            className="hidden sm:block text-xs font-normal text-primary-white uppercase"
+          <NavigationLink
             href="/works"
-            onClick={(e) => {
-              e.preventDefault();
-              startTransition("/works");
-            }}
+            className="hidden sm:block text-xs font-normal text-primary-white uppercase"
           >
             Works
-          </Link>
+          </NavigationLink>
 
           <div className="hidden sm:flex items-start justify-center text-center">
             <p className="mb-2">.</p>
           </div>
 
-          <Link
-            className="hidden sm:block text-xs font-normal text-primary-white uppercase"
+          <NavigationLink
             href="/merch"
-            target="_blank"
-            rel="noopener noreferrer"
+            className="hidden sm:block text-xs font-normal text-primary-white uppercase"
+            external
           >
             Merch
-          </Link>
+          </NavigationLink>
 
           <div className="hidden sm:flex items-start justify-center text-center">
             <p className="mb-2">.</p>
           </div>
 
-          <Link
-            className="hidden sm:block text-xs font-normal text-primary-white uppercase"
+          <NavigationLink
             href={LINKEDIN}
-            target="_blank"
-            rel="noopener noreferrer"
+            className="hidden sm:block text-xs font-normal text-primary-white uppercase"
+            external
           >
             Follow
-          </Link>
+          </NavigationLink>
         </div>
 
+        {/* CTA Button and Mobile Menu */}
         <div className="flex flex-1 items-center justify-end gap-5">
           <Button
             className="hidden sm:flex ml-4 gap-2 text-xs"
             variant="primary"
             bgColor={color}
-            onClick={() => {
-              startTransition("/contact-us");
-            }}
+            onClick={() => startTransition("/contact-us")}
           >
             Talk to us
             <Image src={arrowRightIcon} alt="arrow" />
@@ -143,14 +136,12 @@ const Header = () => {
              z-40 overflow-y-hidden bg-primary-pink"
           >
             <nav className="w-full h-full flex flex-col items-center justify-center gap-10">
-              <Link
+              <NavigationLink
+                href="/works"
                 className="text-4xl font-extralight text-primary-black uppercase"
-                href="/merch"
-                target="_blank"
-                rel="noopener noreferrer"
               >
-                Merch
-              </Link>
+                Works
+              </NavigationLink>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -165,19 +156,39 @@ const Header = () => {
                 />
               </svg>
 
-              <Link
+              <NavigationLink
+                href="/merch"
                 className="text-4xl font-extralight text-primary-black uppercase"
+                external
+              >
+                Merch
+              </NavigationLink>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2"
+                height="4"
+                viewBox="0 0 2 4"
+                fill="none"
+              >
+                <path
+                  d="M0.0703125 0H1.90631V3.708H0.0703125V0Z"
+                  fill="black"
+                />
+              </svg>
+
+              <NavigationLink
                 href={LINKEDIN}
-                target="_blank"
-                rel="noopener noreferrer"
+                className="text-4xl font-extralight text-primary-black uppercase"
+                external
               >
                 Follow
-              </Link>
+              </NavigationLink>
 
               <Button
                 className="w-full h-[68px] text-lg font-black leading-[120%] text-primary-pink gap-2 mt-5"
                 variant="primary"
-                bgColor={"black"}
+                bgColor="black"
                 onClick={() => {
                   handleToggleMenu();
                   startTransition("/contact-us");
@@ -206,3 +217,45 @@ const Header = () => {
 };
 
 export default Header;
+
+interface NavigationLinkProps {
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+  external?: boolean;
+}
+
+const NavigationLink = ({
+  href,
+  className,
+  children,
+  external = false,
+}: NavigationLinkProps) => {
+  const { startTransition } = useTransition();
+
+  if (external) {
+    return (
+      <Link
+        href={href}
+        className={className}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      className={className}
+      onClick={(e) => {
+        e.preventDefault();
+        startTransition(href);
+      }}
+    >
+      {children}
+    </Link>
+  );
+};
