@@ -13,7 +13,7 @@ const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  const baseClasses = "flex items-center justify-center px-4 py-3 rounded-sm";
+  const baseClasses = "flex items-center justify-center px-4 py-3 rounded";
 
   const variantClasses = {
     primary: "bg-primary-pink font-black leading-[120%] text-black",

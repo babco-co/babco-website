@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/header";
 import { TransitionProvider } from "@/components/page-transition";
 import { geistMono, geistSans, inter } from "@/styles/fonts";
 import "../styles/globals.css";
@@ -19,10 +18,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <TransitionProvider>
-          <Header />
-          {children}
-        </TransitionProvider>
+        <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
   );

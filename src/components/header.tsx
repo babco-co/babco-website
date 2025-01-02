@@ -46,10 +46,13 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full px-4 sm:px-5 py-5">
+    <header className="w-full px-4 sm:px-5 py-6">
       <nav className="w-full flex items-center justify-between">
         {/* This left logo and text are fixed on desktop and mobile */}
-        <Link className="flex items-center justify-start gap-3 z-50" href="./">
+        <Link
+          className="flex flex-1 items-center justify-start gap-3 z-50"
+          href="./"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="38"
@@ -63,17 +66,24 @@ const Header = () => {
               fill={isMenuOpen ? "#FFC0F1" : "#000"}
             />
           </svg>
-
-          <p
-            className={`text-xs font-normal ${
-              isMenuOpen ? "text-primary-black" : "text-primary-white"
-            } uppercase`}
-          >
-            Design & Engineering Firm
-          </p>
         </Link>
 
-        <div className="flex items-center justify-end gap-5">
+        <div className="flex flex-1 items-center justify-center gap-5">
+          <Link
+            className="hidden sm:block text-xs font-normal text-primary-white uppercase"
+            href="/works"
+            onClick={(e) => {
+              e.preventDefault();
+              startTransition("/works");
+            }}
+          >
+            Works
+          </Link>
+
+          <div className="hidden sm:flex items-start justify-center text-center">
+            <p className="mb-2">.</p>
+          </div>
+
           <Link
             className="hidden sm:block text-xs font-normal text-primary-white uppercase"
             href="/merch"
@@ -95,7 +105,9 @@ const Header = () => {
           >
             Follow
           </Link>
+        </div>
 
+        <div className="flex flex-1 items-center justify-end gap-5">
           <Button
             className="hidden sm:flex ml-4 gap-2 text-xs"
             variant="primary"

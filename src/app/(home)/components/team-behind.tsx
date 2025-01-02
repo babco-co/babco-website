@@ -45,17 +45,19 @@ const TeamBehind = () => {
   );
 
   return (
-    <section className="w-full flex flex-col items-start justify-center gap-20 overflow-x-hidden">
-      <motion.p
-        className="text-[26px] lg:text-[66px] font-bold text-[#333333] leading-[100%] uppercase"
-        initial="hidden"
-        whileInView="visible"
-        variants={YScrollVariants}
-        transition={{ duration: 0.4 }}
-        viewport={{ once: true }}
-      >
-        From the team behind
-      </motion.p>
+    <section className="w-full flex flex-col items-center justify-center gap-2 overflow-x-hidden">
+      <div className="w-full h-[74px] flex justify-center items-center">
+        <motion.p
+          className="text-xl font-bold text-white/30 leading-[100%] uppercase"
+          initial="hidden"
+          whileInView="visible"
+          variants={YScrollVariants}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+        >
+          From the team behind
+        </motion.p>
+      </div>
 
       <div className="w-full opacity-30">
         <div className="overflow-hidden" ref={emblaRef}>

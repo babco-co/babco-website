@@ -3,10 +3,15 @@ import { motion } from "framer-motion";
 import ContactForm from "./components/form";
 import { pageVariants } from "@/lib/utils/animations";
 import { Spacer } from "@/components/spacer";
+import Header from "@/components/header";
 
 export default function Page() {
   return (
     <Spacer className="mb-10">
+      <Spacer className="w-full  mt-5 px-5">
+        <Header />
+      </Spacer>
+
       <motion.div
         className="w-full flex flex-shrink-0 flex-col items-start justify-center 
           gap-10 sm:gap-[76px] p-10"
