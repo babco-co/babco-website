@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import arrowWhiteIcon from "../../../../public/icons/arrow-white-icon.svg";
 import { YScrollVariants } from "@/lib/utils/animations";
 

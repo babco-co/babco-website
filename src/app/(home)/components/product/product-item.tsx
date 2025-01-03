@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import GallerySlider, { SliderItem } from "@/components/gallery-slider";
 import { YScrollVariants } from "@/lib/utils/animations";
 import arrowWhiteIcon from "../../../../../public/icons/arrow-white-icon.svg";

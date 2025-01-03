@@ -10,6 +10,37 @@ export type SliderItem = {
   src: string | StaticImageData;
   width: number;
   height: number;
+  type?: "video" | "image";
+  autoplay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+};
+
+const MediaComponent = ({ item }: { item: SliderItem }) => {
+  if (item.type === "video") {
+    console.log('item', item)
+    return (
+      <video
+        src={item.src as string}
+        width={item.width}
+        height={item.height}
+        autoPlay={item.autoplay}
+        loop={item.loop}
+        muted={item.muted}
+        playsInline
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={item.src}
+      alt="Carousel item"
+      width={item.width}
+      height={item.height}
+      className="w-full h-auto object-cover"
+    />
+  );
 };
 
 const GallerySlider = ({
@@ -58,13 +89,7 @@ const GallerySlider = ({
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.4, delay: index * 0.2 }}
                     >
-                      <Image
-                        src={item.src}
-                        alt="Carousel image"
-                        width={item.width}
-                        height={item.height}
-                        className="w-full h-auto object-cover"
-                      />
+                      <MediaComponent item={item} />
                     </motion.div>
                   ))}
                 </div>
@@ -84,14 +109,14 @@ const GallerySlider = ({
         <div className="flex space-x-2">
           <button
             onClick={scrollPrev}
-            className={`rotate-180 transition-opacity duration-200 hover:opacity-80`}
+            className="rotate-180 transition-opacity duration-200 hover:opacity-80"
             aria-label="Previous slide"
           >
             <Image src={arrowCircleBtn} alt="prev" width={44} height={44} />
           </button>
           <button
             onClick={scrollNext}
-            className={`transition-opacity duration-200 hover:opacity-80`}
+            className="transition-opacity duration-200 hover:opacity-80"
             aria-label="Next slide"
           >
             <Image src={arrowCircleBtn} alt="next" width={44} height={44} />

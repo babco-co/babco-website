@@ -1,19 +1,40 @@
+// hooks/useColorCycle.ts
 import { useState, useEffect } from 'react';
 
 // Shared state outside of the hook
 let globalColorIndex = 0;
-const colors = ["#F571B7", "#FF4365", "#9574E1", "#0FE4FF"];
+const colors = ["white", "#F571B7", "#FF4365", "#9574E1", "#0FE4FF"];
 const subscribers = new Set<(color: string) => void>();
 let intervalId: NodeJS.Timeout | null = null;
 
-const startColorCycle = (interval: number) => {
-  if (intervalId) return; // Prevent multiple intervals
+// Animation timing (in milliseconds) - TO BE UPDATED with exact values from animator
+const TIMINGS = {
+  TOTAL_DURATION: 23000,    // Total duration of one complete cycle
+  COLOR_DURATIONS: [       // Duration each color should show
+    7000,  // white
+    4000,  // pink
+    4000,  // red
+    4000,  // purple
+    4000   // blue
+  ]
+};
 
-  intervalId = setInterval(() => {
-    globalColorIndex = (globalColorIndex + 1) % colors.length;
-    // Notify all subscribers of the color change
-    subscribers.forEach(callback => callback(colors[globalColorIndex]));
-  }, interval);
+const startColorCycle = () => {
+  if (intervalId) return;
+
+  let currentIndex = 0;
+  
+  const scheduleNextColor = () => {
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % colors.length;
+      globalColorIndex = currentIndex;
+      subscribers.forEach(callback => callback(colors[currentIndex]));
+      scheduleNextColor();
+    }, TIMINGS.COLOR_DURATIONS[currentIndex]);
+  };
+
+  // Start the cycle
+  scheduleNextColor();
 };
 
 const stopColorCycle = () => {
@@ -23,24 +44,20 @@ const stopColorCycle = () => {
   }
 };
 
-export const useColorCycle = (interval = 2000) => {
+export const useColorCycle = () => {
   const [color, setColor] = useState(colors[globalColorIndex]);
 
   useEffect(() => {
-    // Add this component's setColor function to subscribers
     subscribers.add(setColor);
-    
-    // Start the interval if it's not already running
-    startColorCycle(interval);
+    startColorCycle();
 
-    // Cleanup: remove this component's subscriber and stop interval if no subscribers left
     return () => {
       subscribers.delete(setColor);
       if (subscribers.size === 0) {
         stopColorCycle();
       }
     };
-  }, [interval]);
+  }, []);
 
   return color;
 };

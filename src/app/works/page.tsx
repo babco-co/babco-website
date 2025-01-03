@@ -1,18 +1,18 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Header from "@/components/header";
 import { Spacer } from "@/components/spacer";
 import Product from "../(home)/components/product/product";
 import { YScrollVariants } from "@/lib/utils/animations";
 
-export default function MerchPage() {
+export default function WorksPage() {
   return (
     <div className="w-full min-h-screen">
       <Spacer className="w-full  mt-5 px-5">
         <Header />
       </Spacer>
 
-      <Spacer horizontal className="mt-[120px] mb-[100px]">
+      <Spacer horizontal className="my-16 lg:mt-[120px] lg:mb-[100px]">
         <motion.div
           className="w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center justify-between cursor-pointer"
           initial="hidden"
@@ -22,7 +22,7 @@ export default function MerchPage() {
           viewport={{ once: true }}
         >
           <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
-            <p className="max-w-[440px] text-3xl lg:text-[80px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-medium-gray">
+            <p className="max-w-[440px] text-[32px] lg:text-[80px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-medium-gray">
               Our work
             </p>
           </div>

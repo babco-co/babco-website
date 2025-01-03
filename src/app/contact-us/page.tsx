@@ -1,11 +1,11 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import ContactForm from "./components/form";
 import { pageVariants } from "@/lib/utils/animations";
 import { Spacer } from "@/components/spacer";
 import Header from "@/components/header";
 
-export default function Page() {
+export default function ContactUsPage() {
   return (
     <Spacer className="mb-10">
       <Spacer className="w-full  mt-5 px-5">

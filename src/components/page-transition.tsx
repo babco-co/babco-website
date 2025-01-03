@@ -1,5 +1,5 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import Button from "@/components/button";
 import { LINKEDIN } from "@/lib/utils/constants";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";

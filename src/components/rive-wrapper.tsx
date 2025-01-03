@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { useInView } from "framer-motion";
+import { useInView } from "motion/react";
 import { Alignment, Fit, Layout, useRive } from "@rive-app/react-canvas";
 
 interface RiveWrapperProps {
