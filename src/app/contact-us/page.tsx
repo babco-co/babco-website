@@ -7,7 +7,7 @@ import Header from "@/components/header";
 
 export default function ContactUsPage() {
   return (
-    <Spacer className="mb-10">
+    <Spacer className="mb-10 font-helvetica">
       <Spacer className="w-full  mt-5 px-5">
         <Header />
       </Spacer>

@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        helvetica: ["var(--font-helvetica)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

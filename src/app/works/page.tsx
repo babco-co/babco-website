@@ -7,7 +7,7 @@ import { YScrollVariants } from "@/lib/utils/animations";
 
 export default function WorksPage() {
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-screen font-helvetica">
       <Spacer className="w-full  mt-5 px-5">
         <Header />
       </Spacer>

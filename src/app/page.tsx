@@ -8,7 +8,7 @@ import Header from "@/components/header";
 
 export default function Page() {
   return (
-    <div className="w-full min-h-screen font-[family-name:var(--font-inter)]">
+    <div className="w-full min-h-screen font-helvetica">
       <Spacer className="mb-[82px] mx-5 mt-5 border-[0.5px] border-white/20 rounded-[10px]">
         <Header />
         <Hero />

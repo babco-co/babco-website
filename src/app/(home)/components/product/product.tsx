@@ -6,7 +6,6 @@ import arch5 from "../../../../../public/images/carousel-arch/arch-5.webp";
 import arch6 from "../../../../../public/images/carousel-arch/arch-6.webp";
 import sqlit1 from "../../../../../public/images/carousel-sqlite/sqlit-1.svg";
 import sqlit2 from "../../../../../public/images/carousel-sqlite/sqlit-2.webp";
-import sqlit3 from "../../../../../public/images/carousel-sqlite/sqlit-3.webp";
 import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.svg";
 import sqlit5 from "../../../../../public/images/carousel-sqlite/sqlit-5.webp";
 import sqlit6 from "../../../../../public/images/carousel-sqlite/sqlit-6.webp";

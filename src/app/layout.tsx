@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { TransitionProvider } from "@/components/page-transition";
-import { geistMono, geistSans, inter } from "@/styles/fonts";
+import { helveticaNeue, inter } from "@/styles/fonts";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+        className={`${helveticaNeue.variable} ${inter.variable} antialiased`}
       >
         <TransitionProvider>{children}</TransitionProvider>
       </body>
