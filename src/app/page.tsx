@@ -9,7 +9,7 @@ import Header from "@/components/header";
 export default function Page() {
   return (
     <div className="w-full min-h-screen font-helvetica">
-      <Spacer className="mb-[82px] mx-5 mt-5 border-[0.5px] border-white/20 rounded-[10px]">
+      <Spacer className="mb-[82px] mx-3 sm:mx-5 mt-5 border-[0.5px] border-white/20 rounded-[10px]">
         <Header />
         <Hero />
       </Spacer>
@@ -18,15 +18,15 @@ export default function Page() {
         <TeamBehind />
       </Spacer>
 
-      <Spacer horizontal vertical>
+      <Spacer horizontal className="pb-16">
         <Product />
       </Spacer>
 
-      <Spacer horizontal className="py-[90px]">
+      <Spacer horizontal className="pb-[100px]">
         <Offer />
       </Spacer>
 
-      <Spacer>
+      <Spacer className="mx-3 sm:mx-5 border-[0.5px] border-white/20 rounded-[10px] bg-[#0C0C0C]">
         <Team />
       </Spacer>
     </div>

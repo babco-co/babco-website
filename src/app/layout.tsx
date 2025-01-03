@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { TransitionProvider } from "@/components/page-transition";
-import Footer from "@/components/footer";
+import TransitionProvider from "@/components/page-transition";
 import { helveticaNeue, inter } from "@/styles/fonts";
 import "../styles/globals.css";
 
@@ -19,10 +18,7 @@ export default function RootLayout({
       <body
         className={`${helveticaNeue.variable} ${inter.variable} antialiased`}
       >
-        <TransitionProvider>
-          {children}
-          <Footer />
-        </TransitionProvider>
+        <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
   );

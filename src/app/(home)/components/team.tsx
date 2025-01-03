@@ -5,7 +5,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Button from "@/components/button";
 import { Spacer } from "@/components/spacer";
-import BabcoLogo from "./hero/babco-logo";
+import BabcoLogo from "@/components/babco-logo";
+import { useTransition } from "@/components/page-transition";
 import member1 from "../../../../public/images/members/member-1.webp";
 import member2 from "../../../../public/images/members/member-2.webp";
 import member3 from "../../../../public/images/members/member-3.webp";
@@ -19,8 +20,8 @@ import member10 from "../../../../public/images/members/member-10.webp";
 import member11 from "../../../../public/images/members/member-11.webp";
 import member12 from "../../../../public/images/members/member-12.webp";
 import member13 from "../../../../public/images/members/member-13.webp";
+import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
 import { YScrollVariants } from "@/lib/utils/animations";
-import { useTransition } from "@/components/page-transition";
 
 const members = [
   { src: member1, className: "w-[435px] h-[401px]" },
@@ -79,9 +80,12 @@ const Team = () => {
   return (
     <section
       className="w-full flex flex-col items-center justify-center 
-      overflow-x-hidden pt-[100px] relative"
+      overflow-x-hidden pt-[80px] relative"
     >
-      <Spacer horizontal className="w-full">
+      <Spacer
+        horizontal
+        className="w-full flex flex-col sm:flex-row gap-10 justify-between items-start"
+      >
         <motion.div
           className="w-full flex flex-col items-start gap-5 lg:gap-16"
           initial="hidden"
@@ -91,40 +95,29 @@ const Team = () => {
           viewport={{ once: true }}
         >
           <p className="max-w-[329px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
-            Create something intentionally great with us
+            Build something iconic with us
           </p>
 
           <Button
-            className="w-[156px] h-[56px] gap-2 text-base font-medium"
+            className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
             variant="primary"
             onClick={() => startTransition("/contact-us")}
           >
-            Let&apos;s talk
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-            >
-              <rect width="32" height="32" fill="#FF4365" />
-              <path
-                d="M8.75098 23.248L21.7773 10.2217"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M21.7806 22.9499L21.7806 10.222L9.05265 10.222"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <p className="text-base leading-[75%]">Contact Us</p>
+
+            <Image
+              className="w-6 h-6 -rotate-45"
+              src={arrowBlackIcon}
+              alt="arrow"
+            />
           </Button>
         </motion.div>
+
+        <div className="w-full flex justify-start sm:justify-end">
+          <p className="text-sm font-light leading-[100%] text-white/30">
+            ©2024 BABCO. All Rights Reserved.
+          </p>
+        </div>
       </Spacer>
 
       <div className="w-full flex flex-col items-center justify-center relative mt-[126px]">

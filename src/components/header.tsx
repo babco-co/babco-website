@@ -78,7 +78,7 @@ const Header = () => {
           </NavigationLink>
 
           <div className="hidden sm:flex items-start justify-center text-center">
-            <p className="mb-2">.</p>
+            <p className="text-light-gray mb-2">.</p>
           </div>
 
           <NavigationLink
@@ -90,7 +90,7 @@ const Header = () => {
           </NavigationLink>
 
           <div className="hidden sm:flex items-start justify-center text-center">
-            <p className="mb-2">.</p>
+            <p className="text-light-gray mb-2">.</p>
           </div>
 
           <NavigationLink
@@ -105,17 +105,17 @@ const Header = () => {
         {/* CTA Button and Mobile Menu */}
         <div className="flex flex-1 items-center justify-end gap-5">
           <Button
-            className="hidden sm:flex ml-4 gap-2 text-xs"
+            className="hidden sm:flex ml-4 gap-2"
             variant="primary"
             bgColor={color}
             onClick={() => startTransition("/contact-us")}
           >
-            Contact us
-            <Image src={arrowBlackIcon} alt="arrow" />
+            Contact Us
+            <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
           </Button>
 
           <button
-            className="w-6 h-6 flex sm:hidden items-center justify-center rounded-sm z-50 bg-primary-pink"
+            className="w-[38px] h-[38px] flex sm:hidden items-center justify-center rounded-full z-50 bg-primary-pink"
             style={{ backgroundColor: color }}
             onClick={handleToggleMenu}
           >

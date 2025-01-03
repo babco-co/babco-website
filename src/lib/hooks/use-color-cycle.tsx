@@ -1,4 +1,3 @@
-// hooks/useColorCycle.ts
 import { useState, useEffect } from 'react';
 
 // Shared state outside of the hook

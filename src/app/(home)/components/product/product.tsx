@@ -1,6 +1,5 @@
 import arch1 from "../../../../../public/images/carousel-arch/arch-1.webp";
 import arch2 from "../../../../../public/images/carousel-arch/arch-2.webp";
-import arch3 from "../../../../../public/images/carousel-arch/arch-3.webp";
 import arch4 from "../../../../../public/images/carousel-arch/arch-4.webp";
 import arch5 from "../../../../../public/images/carousel-arch/arch-5.webp";
 import arch6 from "../../../../../public/images/carousel-arch/arch-6.webp";
@@ -9,7 +8,6 @@ import sqlit2 from "../../../../../public/images/carousel-sqlite/sqlit-2.webp";
 import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.svg";
 import sqlit5 from "../../../../../public/images/carousel-sqlite/sqlit-5.webp";
 import sqlit6 from "../../../../../public/images/carousel-sqlite/sqlit-6.webp";
-import tembo1 from "../../../../../public/images/carousel-tembo/tembo-1.webp";
 import tembo2 from "../../../../../public/images/carousel-tembo/tembo-2.webp";
 import tembo3 from "../../../../../public/images/carousel-tembo/tembo-3.webp";
 import tembo4 from "../../../../../public/images/carousel-tembo/tembo-4.webp";
@@ -21,16 +19,11 @@ import gitar1 from "../../../../../public/images/carousel-gitar/gitar-1.svg";
 import gitar2 from "../../../../../public/images/carousel-gitar/gitar-2.webp";
 import gitar3 from "../../../../../public/images/carousel-gitar/gitar-3.webp";
 import gitar4 from "../../../../../public/images/carousel-gitar/gitar-4.webp";
-import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.svg";
-import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.svg";
+import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
+import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
 import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
-import apolitical4 from "../../../../../public/images/carousel-apolitical/apolitical-4.webp";
-import apolitical5 from "../../../../../public/images/carousel-apolitical/apolitical-5.webp";
-import apolitical6 from "../../../../../public/images/carousel-apolitical/apolitical-6.webp";
-import apolitical7 from "../../../../../public/images/carousel-apolitical/apolitical-7.webp";
-import apolitical8 from "../../../../../public/images/carousel-apolitical/apolitical-8.webp";
-import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
-import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
+// import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
+// import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
 import ProductItem from "./product-item";
 import { StaticImageData } from "next/image";
 import { SliderItem } from "@/components/gallery-slider";
@@ -85,21 +78,31 @@ const createRiveSlide = (
 
 const archCarousel: SliderItem[][] = [
   [createImageSlide(arch1, 349, 256), createImageSlide(arch2, 349, 268)],
-  [createImageSlide(arch3, 834, 540)],
+  [
+    createRiveSlide("/images/carousel-arch/arch-video.riv", 883, 540, {
+      autoplay: true,
+      fit: Fit.Cover,
+    }),
+  ],
   [createImageSlide(arch4, 540, 381), createImageSlide(arch5, 540, 143)],
   [createImageSlide(arch6, 680, 540)],
   [createImageSlide(arch1, 349, 256), createImageSlide(arch2, 349, 268)],
-  [createImageSlide(arch3, 834, 540)],
+  [
+    createRiveSlide("/images/carousel-arch/arch-video.riv", 883, 540, {
+      autoplay: true,
+      fit: Fit.Cover,
+    }),
+  ],
   [createImageSlide(arch4, 540, 381), createImageSlide(arch5, 540, 143)],
   [createImageSlide(arch6, 680, 540)],
 ];
 
-const oumiCarousel: SliderItem[][] = [
-  [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
-  [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
-  [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
-  [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
-];
+// const oumiCarousel: SliderItem[][] = [
+//   [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
+//   [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
+//   [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
+//   [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
+// ];
 
 const sqliteCarousel: SliderItem[][] = [
   [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
@@ -118,7 +121,7 @@ const temboCarousel: SliderItem[][] = [
   [createVideoSlide("/images/carousel-tembo/tembo-video.mp4", 743, 540)],
   [createImageSlide(tembo2, 483, 149), createImageSlide(tembo3, 483, 375)],
   [createImageSlide(tembo4, 540, 540)],
-  [createImageSlide(tembo1, 743, 540)],
+  [createVideoSlide("/images/carousel-tembo/tembo-video.mp4", 743, 540)],
   [createImageSlide(tembo2, 483, 149), createImageSlide(tembo3, 483, 375)],
   [createImageSlide(tembo4, 540, 540)],
 ];
@@ -154,19 +157,16 @@ const gitarCarousel: SliderItem[][] = [
 ];
 
 const apoliticalCarousel: SliderItem[][] = [
-  [createImageSlide(apolitical1, 344, 251), createImageSlide(apolitical2, 344, 273)],
-  [createImageSlide(apolitical3, 827, 540)],
-  [createImageSlide(apolitical4, 540, 540)],
-  [createImageSlide(apolitical5, 344, 251), createImageSlide(apolitical6, 344, 273)],
-  [createImageSlide(apolitical7, 540, 540)],
-  [createImageSlide(apolitical8, 540, 540)],
+  [createImageSlide(apolitical1, 827, 540)],
+  [createImageSlide(apolitical2, 540, 540)],
+  [createImageSlide(apolitical3, 540, 540)],
 ];
 
 const Product = () => {
   return (
     <section className="w-full flex flex-col items-start justify-center gap-16 lg:gap-[200px]">
       <ProductItem title={"Arch"} subtitle={"AI"} images={archCarousel} />
-      <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} />
+      {/* <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} /> */}
       <ProductItem
         title={"SQLite Cloud"}
         subtitle={"Dev Infrastructure"}

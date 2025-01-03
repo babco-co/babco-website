@@ -8,15 +8,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = ({
   variant = "primary",
-  bgColor = "#FF4365",
+  bgColor = "#FFC0F1",
   className = "",
   children,
   ...props
 }: ButtonProps) => {
-  const baseClasses = "flex items-center justify-center px-4 py-3 rounded";
+  const baseClasses = "flex flex-row items-center justify-center px-4 py-3 rounded";
 
   const variantClasses = {
-    primary: "bg-primary-pink font-black leading-[120%] text-black",
+    primary: "bg-primary-pink text-xs font-medium leading-[120%] text-black",
   };
 
   return (
