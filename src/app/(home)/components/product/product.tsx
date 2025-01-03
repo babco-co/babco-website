@@ -15,23 +15,26 @@ import tembo3 from "../../../../../public/images/carousel-tembo/tembo-3.webp";
 import tembo4 from "../../../../../public/images/carousel-tembo/tembo-4.webp";
 import omlet1 from "../../../../../public/images/carousel-omlet/omlet-1.svg";
 import omlet2 from "../../../../../public/images/carousel-omlet/omlet-2.webp";
-import omlet3 from "../../../../../public/images/carousel-omlet/omlet-3.webp";
 import omlet4 from "../../../../../public/images/carousel-omlet/omlet-4.webp";
-import omlet5 from "../../../../../public/images/carousel-omlet/omlet-5.webp";
-import omlet6 from "../../../../../public/images/carousel-omlet/omlet-6.svg";
-import gitar1 from "../../../../../public/images/carousel-gitar/gitar-1.webp";
+import omlet5 from "../../../../../public/images/carousel-omlet/omlet-5.svg";
+import gitar1 from "../../../../../public/images/carousel-gitar/gitar-1.svg";
 import gitar2 from "../../../../../public/images/carousel-gitar/gitar-2.webp";
 import gitar3 from "../../../../../public/images/carousel-gitar/gitar-3.webp";
-import gitar4 from "../../../../../public/images/carousel-gitar/gitar-4.svg";
-import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
-import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
+import gitar4 from "../../../../../public/images/carousel-gitar/gitar-4.webp";
+import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.svg";
+import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.svg";
 import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
 import apolitical4 from "../../../../../public/images/carousel-apolitical/apolitical-4.webp";
+import apolitical5 from "../../../../../public/images/carousel-apolitical/apolitical-5.webp";
+import apolitical6 from "../../../../../public/images/carousel-apolitical/apolitical-6.webp";
+import apolitical7 from "../../../../../public/images/carousel-apolitical/apolitical-7.webp";
+import apolitical8 from "../../../../../public/images/carousel-apolitical/apolitical-8.webp";
 import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
 import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
 import ProductItem from "./product-item";
 import { StaticImageData } from "next/image";
 import { SliderItem } from "@/components/gallery-slider";
+import { Alignment, Fit } from "@rive-app/react-canvas";
 
 // Helper function to create image slides
 const createImageSlide = (
@@ -61,6 +64,23 @@ const createVideoSlide = (
   autoplay,
   loop,
   muted,
+});
+
+const createRiveSlide = (
+  src: string,
+  width: number,
+  height: number,
+  options: Partial<SliderItem> = {}
+): SliderItem => ({
+  src,
+  width,
+  height,
+  type: "rive" as const,
+  autoplay: true,
+  fit: Fit.FitWidth,
+  alignment: Alignment.Center,
+  stateMachines: "State Machine 1",
+  ...options,
 });
 
 const archCarousel: SliderItem[][] = [
@@ -105,35 +125,41 @@ const temboCarousel: SliderItem[][] = [
 
 const omletCarousel: SliderItem[][] = [
   [createImageSlide(omlet1, 349, 251), createImageSlide(omlet2, 349, 273)],
-  [createImageSlide(omlet3, 653, 540)],
+  [
+    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 653, 540, {
+      autoplay: true,
+      fit: Fit.Cover,
+    }),
+  ],
   [createImageSlide(omlet4, 440, 540)],
   [createImageSlide(omlet5, 540, 540)],
-  [createImageSlide(omlet6, 540, 540)],
   [createImageSlide(omlet1, 349, 251), createImageSlide(omlet2, 349, 273)],
-  [createImageSlide(omlet3, 653, 540)],
+  [
+    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 653, 540, {
+      autoplay: true,
+      fit: Fit.Cover,
+    }),
+  ],
   [createImageSlide(omlet4, 440, 540)],
   [createImageSlide(omlet5, 540, 540)],
-  [createImageSlide(omlet6, 540, 540)],
 ];
 
 const gitarCarousel: SliderItem[][] = [
-  [createImageSlide(gitar1, 472, 234), createImageSlide(gitar2, 472, 290)],
-  [createImageSlide(gitar3, 440, 540)],
+  [createImageSlide(gitar1, 259, 234), createImageSlide(gitar2, 259, 290)],
+  [createImageSlide(gitar3, 540, 540)],
   [createImageSlide(gitar4, 540, 540)],
-  [createImageSlide(gitar1, 472, 234), createImageSlide(gitar2, 472, 290)],
-  [createImageSlide(gitar3, 440, 540)],
+  [createImageSlide(gitar1, 259, 234), createImageSlide(gitar2, 259, 290)],
+  [createImageSlide(gitar3, 540, 540)],
   [createImageSlide(gitar4, 540, 540)],
 ];
 
 const apoliticalCarousel: SliderItem[][] = [
-  [createImageSlide(apolitical1, 791, 540)],
-  [createImageSlide(apolitical2, 540, 540)],
-  [createImageSlide(apolitical3, 540, 540)],
+  [createImageSlide(apolitical1, 344, 251), createImageSlide(apolitical2, 344, 273)],
+  [createImageSlide(apolitical3, 827, 540)],
   [createImageSlide(apolitical4, 540, 540)],
-  [createImageSlide(apolitical1, 791, 540)],
-  [createImageSlide(apolitical2, 540, 540)],
-  [createImageSlide(apolitical3, 540, 540)],
-  [createImageSlide(apolitical4, 540, 540)],
+  [createImageSlide(apolitical5, 344, 251), createImageSlide(apolitical6, 344, 273)],
+  [createImageSlide(apolitical7, 540, 540)],
+  [createImageSlide(apolitical8, 540, 540)],
 ];
 
 const Product = () => {

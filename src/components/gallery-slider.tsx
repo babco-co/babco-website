@@ -5,20 +5,37 @@ import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import arrowCircleBtn from "../../public/icons/arrow-circle-btn.svg";
 import { fadeInVariants } from "@/lib/utils/animations";
+import { Alignment, Fit } from "@rive-app/react-canvas";
+import RiveWrapper from "./rive-wrapper";
 
 export type SliderItem = {
   src: string | StaticImageData;
   width: number;
   height: number;
-  type?: "video" | "image";
+  type?: "video" | "image" | "rive";
   autoplay?: boolean;
   loop?: boolean;
   muted?: boolean;
+  stateMachines?: string;
+  fit?: Fit;
+  alignment?: Alignment;
 };
 
 const MediaComponent = ({ item }: { item: SliderItem }) => {
+  if (item.type === "rive") {
+    return (
+      <RiveWrapper
+        src={item.src as string}
+        stateMachines={item.stateMachines}
+        autoplay={item.autoplay}
+        fit={item.fit}
+        alignment={item.alignment}
+        containerClassName="w-[709px] h-[540px]"
+      />
+    );
+  }
+
   if (item.type === "video") {
-    console.log('item', item)
     return (
       <video
         src={item.src as string}
