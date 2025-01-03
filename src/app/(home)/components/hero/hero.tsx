@@ -4,7 +4,7 @@ import Button from "@/components/button";
 import RiveWrapper from "@/components/rive-wrapper";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 import { useTransition } from "@/components/page-transition";
-import arrowRightIcon from "../../../../../public/icons/arrow-right-icon.svg";
+import arrowBlackIcon from "../../../../../public/icons/arrow-black-icon.svg";
 
 const Hero = () => {
   const color = useColorCycle();
@@ -33,7 +33,7 @@ const Hero = () => {
           }}
         >
           Contact us
-          <Image src={arrowRightIcon} alt="arrow" />
+          <Image src={arrowBlackIcon} alt="arrow" />
         </Button>
       </div>
     </section>

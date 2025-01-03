@@ -3,7 +3,7 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import arrowBtn from "../../public/icons/arrow-btn.svg";
+import arrowCircleBtn from "../../public/icons/arrow-circle-btn.svg";
 import { fadeInVariants } from "@/lib/utils/animations";
 
 export type SliderItem = {
@@ -87,14 +87,14 @@ const GallerySlider = ({
             className={`rotate-180 transition-opacity duration-200 hover:opacity-80`}
             aria-label="Previous slide"
           >
-            <Image src={arrowBtn} alt="prev" width={44} height={44} />
+            <Image src={arrowCircleBtn} alt="prev" width={44} height={44} />
           </button>
           <button
             onClick={scrollNext}
             className={`transition-opacity duration-200 hover:opacity-80`}
             aria-label="Next slide"
           >
-            <Image src={arrowBtn} alt="next" width={44} height={44} />
+            <Image src={arrowCircleBtn} alt="next" width={44} height={44} />
           </button>
         </div>
       </motion.div>

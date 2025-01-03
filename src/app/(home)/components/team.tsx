@@ -79,37 +79,48 @@ const Team = () => {
   return (
     <section
       className="w-full flex flex-col items-center justify-center 
-      overflow-x-hidden pt-[100px] border-t border-white/10 relative"
+      overflow-x-hidden pt-[100px] relative"
     >
       <Spacer horizontal className="w-full">
         <motion.div
-          className="w-full flex flex-col items-start gap-5"
+          className="w-full flex flex-col items-start gap-5 lg:gap-16"
           initial="hidden"
           whileInView="visible"
           variants={YScrollVariants}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
-          <p className="max-w-[329px] lg:max-w-full text-[32px] lg:text-[100px] font-extralight text-primary-white leading-[100%]">
+          <p className="max-w-[329px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
             Create something intentionally great with us
           </p>
 
           <Button
-            className="w-[176px] h-[68px] gap-2 text-lg"
+            className="w-[156px] h-[56px] gap-2 text-base font-medium"
             variant="primary"
             onClick={() => startTransition("/contact-us")}
           >
-            Talk to us
+            Let&apos;s talk
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="23"
-              height="24"
-              viewBox="0 0 23 24"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
               fill="none"
             >
+              <rect width="32" height="32" fill="#FF4365" />
               <path
-                d="M1.5 10.5L-1.31134e-07 10.5L1.31134e-07 13.5L1.5 13.5L1.5 10.5ZM22.5607 13.0607C23.1464 12.4749 23.1464 11.5251 22.5607 10.9393L13.0147 1.3934C12.4289 0.807611 11.4792 0.807611 10.8934 1.3934C10.3076 1.97918 10.3076 2.92893 10.8934 3.51472L19.3787 12L10.8934 20.4853C10.3076 21.0711 10.3076 22.0208 10.8934 22.6066C11.4792 23.1924 12.4289 23.1924 13.0147 22.6066L22.5607 13.0607ZM1.5 13.5L21.5 13.5L21.5 10.5L1.5 10.5L1.5 13.5Z"
-                fill="#000"
+                d="M8.75098 23.248L21.7773 10.2217"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M21.7806 22.9499L21.7806 10.222L9.05265 10.222"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
           </Button>

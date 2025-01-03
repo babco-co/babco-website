@@ -6,9 +6,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import Button from "@/components/button";
 import { LINKEDIN } from "@/lib/utils/constants";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";
-import arrowRightIcon from "../../public/icons/arrow-right-icon.svg";
+import arrowBlackIcon from "../../public/icons/arrow-black-icon.svg";
 import menuIcon from "../../public/icons/hamburger-icon.svg";
 import closeIcon from "../../public/icons/close-icon.svg";
+import dotBlack from "../../public/images/dot-black.svg";
 import { useTransition } from "@/components/page-transition";
 
 const Header = () => {
@@ -109,8 +110,8 @@ const Header = () => {
             bgColor={color}
             onClick={() => startTransition("/contact-us")}
           >
-            Talk to us
-            <Image src={arrowRightIcon} alt="arrow" />
+            Contact us
+            <Image src={arrowBlackIcon} alt="arrow" />
           </Button>
 
           <button
@@ -143,18 +144,7 @@ const Header = () => {
                 Works
               </NavigationLink>
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="2"
-                height="4"
-                viewBox="0 0 2 4"
-                fill="none"
-              >
-                <path
-                  d="M0.0703125 0H1.90631V3.708H0.0703125V0Z"
-                  fill="black"
-                />
-              </svg>
+              <Image src={dotBlack} alt="dot" />
 
               <NavigationLink
                 href="/merch"
@@ -164,18 +154,7 @@ const Header = () => {
                 Merch
               </NavigationLink>
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="2"
-                height="4"
-                viewBox="0 0 2 4"
-                fill="none"
-              >
-                <path
-                  d="M0.0703125 0H1.90631V3.708H0.0703125V0Z"
-                  fill="black"
-                />
-              </svg>
+              <Image src={dotBlack} alt="dot" />
 
               <NavigationLink
                 href={LINKEDIN}
@@ -194,7 +173,7 @@ const Header = () => {
                   startTransition("/contact-us");
                 }}
               >
-                Talk to us
+                Contact us
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="23"

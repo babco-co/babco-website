@@ -8,7 +8,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = ({
   variant = "primary",
-  bgColor = "#FFC0F1",
+  bgColor = "#FF4365",
   className = "",
   children,
   ...props

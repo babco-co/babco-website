@@ -8,7 +8,7 @@ import InputField from "./input";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import SelectField from "./select-field";
 import Button from "@/components/button";
-import arrowRightIcon from "../../../../public/icons/arrow-right-icon.svg";
+import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
 import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 
 const ContactForm = () => {
@@ -182,7 +182,7 @@ const ContactForm = () => {
               style={{ backgroundColor: color }}
             >
               {isLoading ? "Sending..." : "Talk to us"}
-              <Image src={arrowRightIcon} alt="arrow" width={22} height={16} />
+              <Image src={arrowBlackIcon} alt="arrow" width={22} height={16} />
             </Button>
           </div>
         </div>
