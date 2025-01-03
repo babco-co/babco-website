@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 // Shared state outside of the hook
 let globalColorIndex = 0;
-const colors = ["#FFC0F1", "#CAF4CB", "#F7F272", "#83B2F0"];
+const colors = ["#F571B7", "#FF4365", "#9574E1", "#0FE4FF"];
 const subscribers = new Set<(color: string) => void>();
 let intervalId: NodeJS.Timeout | null = null;
 
