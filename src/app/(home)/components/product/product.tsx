@@ -106,12 +106,12 @@ const archCarousel: SliderItem[][] = [
 
 const sqliteCarousel: SliderItem[][] = [
   [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
-  [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 688, 540)],
+  [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
   [createImageSlide(sqlit4, 168, 540)],
   [createImageSlide(sqlit5, 540, 540)],
   [createImageSlide(sqlit6, 540, 540)],
   [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
-  [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 688, 540)],
+  [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
   [createImageSlide(sqlit4, 168, 540)],
   [createImageSlide(sqlit5, 540, 540)],
   [createImageSlide(sqlit6, 540, 540)],
@@ -129,7 +129,7 @@ const temboCarousel: SliderItem[][] = [
 const omletCarousel: SliderItem[][] = [
   [createImageSlide(omlet1, 349, 251), createImageSlide(omlet2, 349, 273)],
   [
-    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 653, 540, {
+    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 709, 540, {
       autoplay: true,
       fit: Fit.Cover,
     }),
@@ -138,7 +138,7 @@ const omletCarousel: SliderItem[][] = [
   [createImageSlide(omlet5, 540, 540)],
   [createImageSlide(omlet1, 349, 251), createImageSlide(omlet2, 349, 273)],
   [
-    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 653, 540, {
+    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 709, 540, {
       autoplay: true,
       fit: Fit.Cover,
     }),

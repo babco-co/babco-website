@@ -1,7 +1,6 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Button / DLS Button Primary">
-<rect width="24" height="24" rx="2" fill="#FFC0F1"/>
-<path id="Arrow 2" d="M8.10938 12.8906L15.8875 5.11245" stroke="black" stroke-linecap="square"/>
-<path id="Arrow 4" d="M8 5L15.7782 12.7782" stroke="black" stroke-linecap="square"/>
+<path id="Arrow 2" d="M5.19531 16.3887L18.8892 2.6948" stroke="black" stroke-linecap="square"/>
+<path id="Arrow 4" d="M5 2.5L18.6939 16.1939" stroke="black" stroke-linecap="square"/>
 </g>
 </svg>

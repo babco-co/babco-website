@@ -136,8 +136,8 @@ const ContactForm = () => {
                 name="name"
                 register={register}
                 errors={errors}
-                placeholder="Name"
-                label="Enter your name"
+                placeholder="Your Name"
+                label="01 /"
               />
             </div>
 
@@ -146,8 +146,8 @@ const ContactForm = () => {
                 name="email"
                 register={register}
                 errors={errors}
-                placeholder="Email"
-                label="Enter your email"
+                placeholder="Company Email"
+                label="02 /"
               />
             </div>
           </div>
@@ -161,8 +161,8 @@ const ContactForm = () => {
                 name="company"
                 register={register}
                 errors={errors}
-                placeholder="Company"
-                label="Enter company name"
+                placeholder="Company Name"
+                label="03 /"
               />
             </div>
 
@@ -171,19 +171,19 @@ const ContactForm = () => {
                 name="service"
                 control={control}
                 errors={errors}
-                label="What services do you need from our agency?"
+                label="04 /"
                 options={serviceOptions}
               />
             </div>
 
             <Button
-              className="w-[167px] h-[44px] gap-2 text-lg"
+              className="gap-2"
               variant="primary"
               disabled={isLoading}
               style={{ backgroundColor: color }}
             >
-              {isLoading ? "Sending..." : "Talk to us"}
-              <Image src={arrowBlackIcon} alt="arrow" width={22} height={16} />
+              <p className="text-base">{isLoading ? "Sending..." : "Submit"}</p>
+              <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
             </Button>
           </div>
         </div>

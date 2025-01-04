@@ -115,8 +115,8 @@ const Header = () => {
           </Button>
 
           <button
-            className="w-[38px] h-[38px] flex sm:hidden items-center justify-center rounded-full z-50 bg-primary-pink"
-            style={{ backgroundColor: color }}
+            className="w-[38px] h-[38px] flex sm:hidden items-center justify-center rounded-full z-50"
+            style={{ backgroundColor: isMenuOpen ? "#FFC0F1" : color }}
             onClick={handleToggleMenu}
           >
             <Image src={isMenuOpen ? closeIcon : menuIcon} alt="menu" />
@@ -136,36 +136,38 @@ const Header = () => {
             className="w-full min-h-screen fixed inset-0 px-4 sm:px-5 py-5
              z-40 overflow-y-hidden bg-primary-pink"
           >
-            <nav className="w-full h-full flex flex-col items-center justify-center gap-10">
-              <NavigationLink
-                href="/works"
-                className="text-4xl font-extralight text-primary-black uppercase"
-              >
-                Works
-              </NavigationLink>
+            <nav className="w-full h-full flex flex-col items-center justify-between gap-10 pt-[243px]">
+              <div className="flex flex-col items-center justify-center gap-8">
+                <NavigationLink
+                  href="/works"
+                  className="text-4xl font-extralight text-primary-black leading-[120%]"
+                >
+                  Works
+                </NavigationLink>
 
-              <Image src={dotBlack} alt="dot" />
+                <Image src={dotBlack} alt="dot" />
 
-              <NavigationLink
-                href="/merch"
-                className="text-4xl font-extralight text-primary-black uppercase"
-                external
-              >
-                Merch
-              </NavigationLink>
+                <NavigationLink
+                  href="/merch"
+                  className="text-4xl font-extralight text-primary-black leading-[120%]"
+                  external
+                >
+                  Merch
+                </NavigationLink>
 
-              <Image src={dotBlack} alt="dot" />
+                <Image src={dotBlack} alt="dot" />
 
-              <NavigationLink
-                href={LINKEDIN}
-                className="text-4xl font-extralight text-primary-black uppercase"
-                external
-              >
-                Follow
-              </NavigationLink>
+                <NavigationLink
+                  href={LINKEDIN}
+                  className="text-4xl font-extralight text-primary-black leading-[120%]"
+                  external
+                >
+                  Follow
+                </NavigationLink>
+              </div>
 
               <Button
-                className="w-full h-[68px] text-lg font-black leading-[120%] text-primary-pink gap-2 mt-5"
+                className="w-full h-14 self-end gap-2 mt-5"
                 variant="primary"
                 bgColor="black"
                 onClick={() => {
@@ -173,17 +175,35 @@ const Header = () => {
                   startTransition("/contact-us");
                 }}
               >
-                Contact us
+                <p className="text-base font-medium leading-[120%] text-primary-pink">
+                  Contact Us
+                </p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="23"
-                  height="24"
-                  viewBox="0 0 23 24"
+                  width="33"
+                  height="32"
+                  viewBox="0 0 33 32"
                   fill="none"
                 >
+                  <rect
+                    width="32"
+                    height="32"
+                    transform="translate(0.5)"
+                    fill="black"
+                  />
                   <path
-                    d="M1.5 10.5L-1.31134e-07 10.5L1.31134e-07 13.5L1.5 13.5L1.5 10.5ZM22.5607 13.0607C23.1464 12.4749 23.1464 11.5251 22.5607 10.9393L13.0147 1.3934C12.4289 0.807611 11.4792 0.807611 10.8934 1.3934C10.3076 1.97918 10.3076 2.92893 10.8934 3.51472L19.3787 12L10.8934 20.4853C10.3076 21.0711 10.3076 22.0208 10.8934 22.6066C11.4792 23.1924 12.4289 23.1924 13.0147 22.6066L22.5607 13.0607ZM1.5 13.5L21.5 13.5L21.5 10.5L1.5 10.5L1.5 13.5Z"
-                    fill="#FFC0F1"
+                    d="M9.25098 23.2471L22.2773 10.2207"
+                    stroke="#FFC0F1"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M22.2806 22.9499L22.2806 10.222L9.55265 10.222"
+                    stroke="#FFC0F1"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </Button>

@@ -4,11 +4,13 @@ import ContactForm from "./components/form";
 import { pageVariants } from "@/lib/utils/animations";
 import { Spacer } from "@/components/spacer";
 import Header from "@/components/header";
+import Image from "next/image";
+import arrowWhiteIcon from "../../../public/icons/arrow-white-icon.svg";
 
 export default function ContactUsPage() {
   return (
     <Spacer className="mb-10 font-helvetica">
-      <Spacer className="w-full  mt-5 px-5">
+      <Spacer className="w-full mt-5 px-5">
         <Header />
       </Spacer>
 
@@ -20,11 +22,17 @@ export default function ContactUsPage() {
         whileInView="visible"
         exit="exit"
       >
-        <div className="w-full flex gap-4 items-center justify-start">
-          <p className="text-3xl sm:text-[100px] font-extralight leading-[100%] text-primary-white">
-            Create something intentionally great with us
+        <div className="w-full sm:max-w-[316px] flex items-center justify-start group">
+          <p className="text-3xl sm:text-[42px] font-extralight leading-[100%] text-primary-white">
+            Build something iconic with us
           </p>
+          <Image
+            src={arrowWhiteIcon}
+            alt="arrow"
+            className="hidden sm:block w-[22px] h-auto rotate-90 translate-y-6 -translate-x-8"
+          />
         </div>
+
         <ContactForm />
       </motion.div>
     </Spacer>

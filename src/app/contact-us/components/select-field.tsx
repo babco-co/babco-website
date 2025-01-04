@@ -133,7 +133,7 @@ const SelectField = ({
               DropdownIndicator,
               IndicatorSeparator: null,
             }}
-            placeholder="Select services"
+            placeholder="Services"
             className="w-full"
             menuPlacement="top"
             value={options.filter((option) =>
