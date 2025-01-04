@@ -123,10 +123,6 @@ const ContactForm = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="w-full flex flex-col items-start justify-center gap-[70px] mb-4">
-          <label className="text-sm font-medium leading-[24px] text-primary-white">
-            Contact Us
-          </label>
-
           <div
             className="w-full flex flex-col lg:flex-row 
               items-start lg:items-end justify-start gap-[100px]"
@@ -183,7 +179,7 @@ const ContactForm = () => {
               style={{ backgroundColor: color }}
             >
               <p className="text-base">{isLoading ? "Sending..." : "Submit"}</p>
-              <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
+              <Image className="mb-1 -rotate-45" src={arrowBlackIcon} alt="arrow" />
             </Button>
           </div>
         </div>

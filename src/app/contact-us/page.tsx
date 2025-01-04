@@ -16,7 +16,7 @@ export default function ContactUsPage() {
 
       <motion.div
         className="w-full flex flex-shrink-0 flex-col items-start justify-center 
-          gap-10 sm:gap-[76px] p-10"
+          gap-10 sm:gap-[76px] p-10 mt-[100px]"
         variants={pageVariants}
         initial="hidden"
         whileInView="visible"

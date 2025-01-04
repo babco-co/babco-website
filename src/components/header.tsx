@@ -111,7 +111,11 @@ const Header = () => {
             onClick={() => startTransition("/contact-us")}
           >
             Contact Us
-            <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
+            <Image
+              className="mb-1 -rotate-45"
+              src={arrowBlackIcon}
+              alt="arrow"
+            />
           </Button>
 
           <button
@@ -179,6 +183,7 @@ const Header = () => {
                   Contact Us
                 </p>
                 <svg
+                  className="mb-1"
                   xmlns="http://www.w3.org/2000/svg"
                   width="33"
                   height="32"

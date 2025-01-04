@@ -132,25 +132,37 @@ const WorkWithUsItem = ({
     </div>
 
     <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-8">
-      <div className="w-full flex flex-row items-center justify-between border-b-[0.5px] border-white/30">
+      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
         <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray">
           {descFirst}
         </p>
-        <Image src={arrowPinkSquareIcon} alt="arrow" />
+        <Image
+          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
+          src={arrowPinkSquareIcon}
+          alt="arrow"
+        />
       </div>
 
-      <div className="w-full flex flex-row items-center justify-between border-b-[0.5px] border-white/30">
+      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
         <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray">
           {descSec}
         </p>
-        <Image src={arrowPinkSquareIcon} alt="arrow" />
+        <Image
+          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
+          src={arrowPinkSquareIcon}
+          alt="arrow"
+        />
       </div>
 
-      <div className="w-full flex flex-row items-center justify-between border-b-[0.5px] border-white/30">
+      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
         <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray">
           {descThird}
         </p>
-        <Image src={arrowPinkSquareIcon} alt="arrow" />
+        <Image
+          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
+          src={arrowPinkSquareIcon}
+          alt="arrow"
+        />
       </div>
     </div>
   </motion.div>
