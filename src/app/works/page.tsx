@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
 import Product from "../(home)/components/product/product";
 import { YScrollVariants } from "@/lib/utils/animations";

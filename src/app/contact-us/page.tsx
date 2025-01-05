@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import ContactForm from "./components/form";
 import { pageVariants } from "@/lib/utils/animations";
 import { Spacer } from "@/components/spacer";
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import Image from "next/image";
 import arrowWhiteIcon from "../../../public/icons/arrow-white-icon.svg";
 
