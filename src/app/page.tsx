@@ -21,7 +21,7 @@ export default function Page() {
         <TeamBehind />
       </Spacer>
 
-      <Spacer horizontal className="pb-16">
+      <Spacer horizontal vertical>
         <Product />
       </Spacer>
 

@@ -14,7 +14,7 @@ const Offer = () => {
   };
 
   return (
-    <section className="w-full flex flex-col gap-8">
+    <section className="w-full flex flex-col gap-4 lg:gap-8">
       <RegularItem
         title="We build iconic UI + brands"
         tag="About us"
@@ -61,7 +61,7 @@ const RegularItem = ({
   onItemClick?: () => void;
 }) => (
   <motion.div
-    className="w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center justify-between py-[91px] cursor-pointer"
+    className="w-full flex flex-col lg:flex-row gap-10 items-center justify-between py-8 lg:py-[91px] cursor-pointer"
     initial="hidden"
     whileInView="visible"
     variants={YScrollVariants}
@@ -111,7 +111,7 @@ const WorkWithUsItem = ({
   onItemClick?: () => void;
 }) => (
   <motion.div
-    className="w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center justify-between py-[91px] cursor-pointer"
+    className="w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center justify-between py-8 lg:py-[91px] cursor-pointer"
     initial="hidden"
     whileInView="visible"
     variants={YScrollVariants}

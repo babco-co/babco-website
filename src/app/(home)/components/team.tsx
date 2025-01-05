@@ -78,56 +78,77 @@ const Team = () => {
   );
 
   return (
-    <section
-      className="w-full flex flex-col items-center justify-center 
-      overflow-x-hidden pt-[80px] relative"
-    >
-      <Spacer
-        horizontal
-        className="w-full flex flex-col sm:flex-row gap-10 justify-between items-start"
-      >
-        <motion.div
-          className="w-full flex flex-col items-start gap-5 lg:gap-16"
-          initial="hidden"
-          whileInView="visible"
-          variants={YScrollVariants}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
+    <section className="w-full flex flex-col relative">
+      <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-[80px]">
+        <Spacer
+          horizontal
+          className="w-full flex flex-col sm:flex-row gap-10 justify-between items-start"
         >
-          <p className="max-w-[329px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
-            Build something iconic with us
-          </p>
-
-          <Button
-            className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
-            variant="primary"
-            onClick={() => startTransition("/contact-us")}
+          <motion.div
+            className="w-full flex flex-col items-start gap-5 lg:gap-16"
+            initial="hidden"
+            whileInView="visible"
+            variants={YScrollVariants}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
           >
-            <p className="text-base leading-[75%]">Contact Us</p>
+            <p className="max-w-[329px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
+              Build something iconic with us
+            </p>
 
-            <Image
-              className="w-6 h-6 -rotate-45"
-              src={arrowBlackIcon}
-              alt="arrow"
-            />
-          </Button>
-        </motion.div>
+            <Button
+              className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
+              variant="primary"
+              onClick={() => startTransition("/contact-us")}
+            >
+              <p className="text-base leading-[75%]">Contact Us</p>
+              <Image
+                className="w-6 h-6 -rotate-45"
+                src={arrowBlackIcon}
+                alt="arrow"
+              />
+            </Button>
+          </motion.div>
 
-        <div className="w-full flex justify-start sm:justify-end">
-          <p className="text-sm font-light leading-[100%] text-white/30">
-            ©2024 BABCO. All Rights Reserved.
-          </p>
-        </div>
-      </Spacer>
+          <div className="w-full flex justify-start sm:justify-end">
+            <p className="text-sm font-light leading-[100%] text-white/30">
+              ©2024 BABCO. All Rights Reserved.
+            </p>
+          </div>
+        </Spacer>
 
-      <div className="w-full flex flex-col items-center justify-center relative mt-[126px]">
-        <div className="w-full overflow-hidden" ref={emblaRef1}>
-          <div className="flex">
-            {[...members.slice(0, 7), ...members.slice(0, 7)].map(
-              (item, index) => (
+        <div className="w-full flex flex-col items-center justify-center relative mt-[126px]">
+          <div className="w-full overflow-hidden" ref={emblaRef1}>
+            <div className="flex">
+              {[...members.slice(0, 7), ...members.slice(0, 7)].map(
+                (item, index) => (
+                  <div
+                    key={index}
+                    className="flex-[0_0_auto] pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
+                  >
+                    <Image
+                      className={item.className}
+                      src={item.src}
+                      alt="member"
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+          <div
+            className="w-full overflow-hidden mt-4 2xl:mt-16"
+            ref={emblaRef2}
+          >
+            <div className="flex">
+              {[
+                ...members.slice(7, members.length),
+                ...members.slice(7, members.length),
+              ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex-[0_0_auto] pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
+                  className="flex-[0_0_auto] pr-[68px] odd:mt-20"
                 >
                   <Image
                     className={item.className}
@@ -135,26 +156,13 @@ const Team = () => {
                     alt="member"
                   />
                 </div>
-              )
-            )}
-          </div>
-        </div>
-
-        <div className="w-full overflow-hidden mt-4 2xl:mt-16" ref={emblaRef2}>
-          <div className="flex">
-            {[
-              ...members.slice(7, members.length),
-              ...members.slice(7, members.length),
-            ].map((item, index) => (
-              <div key={index} className="flex-[0_0_auto] pr-[68px] odd:mt-20">
-                <Image className={item.className} src={item.src} alt="member" />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="w-full h-fit absolute bottom-0 z-10">
+      <div className="w-full absolute bottom-0 z-10">
         <BabcoLogo fill={"#fff"} />
       </div>
     </section>
