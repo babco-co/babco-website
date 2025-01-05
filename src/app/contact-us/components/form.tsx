@@ -10,7 +10,6 @@ import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import SelectField from "./select-field";
 import Button from "@/components/button";
 import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
-import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 
 const ContactForm = () => {
   const {
@@ -20,7 +19,6 @@ const ContactForm = () => {
     reset,
     control,
   } = useForm<FormInputs>({ resolver: yupResolver(schema) });
-  const color = useColorCycle();
 
   const [isLoading, setIsLoading] = useState(false);
   const [apiRes, setApiRes] = useState<{
@@ -172,14 +170,13 @@ const ContactForm = () => {
               />
             </div>
 
-            <Button
-              className="gap-2"
-              variant="primary"
-              disabled={isLoading}
-              style={{ backgroundColor: color }}
-            >
+            <Button className="gap-2" variant="primary" disabled={isLoading}>
               <p className="text-base">{isLoading ? "Sending..." : "Submit"}</p>
-              <Image className="mb-1 -rotate-45" src={arrowBlackIcon} alt="arrow" />
+              <Image
+                className="mb-1 -rotate-45"
+                src={arrowBlackIcon}
+                alt="arrow"
+              />
             </Button>
           </div>
         </div>
