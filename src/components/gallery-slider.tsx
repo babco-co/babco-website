@@ -30,7 +30,8 @@ const MediaComponent = ({ item }: { item: SliderItem }) => {
         autoplay={item.autoplay}
         fit={item.fit}
         alignment={item.alignment}
-        containerClassName={`w-[${item.width}px] h-[${item.height}px]`}
+        width={item.width}
+        height={item.height}
       />
     );
   }

@@ -105,13 +105,13 @@ const archCarousel: SliderItem[][] = [
 // ];
 
 const sqliteCarousel: SliderItem[][] = [
-  [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
   [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
+  [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
   [createImageSlide(sqlit4, 168, 540)],
   [createImageSlide(sqlit5, 540, 540)],
   [createImageSlide(sqlit6, 540, 540)],
-  [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
   [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
+  [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
   [createImageSlide(sqlit4, 168, 540)],
   [createImageSlide(sqlit5, 540, 540)],
   [createImageSlide(sqlit6, 540, 540)],

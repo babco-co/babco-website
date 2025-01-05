@@ -12,6 +12,8 @@ interface RiveWrapperProps {
   fit?: Fit;
   alignment?: Alignment;
   containerClassName?: string;
+  width?: number;
+  height?: number;
 }
 
 const RiveWrapper = ({
@@ -22,6 +24,8 @@ const RiveWrapper = ({
   fit = Fit.FitWidth,
   alignment = Alignment.Center,
   containerClassName = "",
+  width,
+  height,
 }: RiveWrapperProps) => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.5 });
@@ -43,7 +47,15 @@ const RiveWrapper = ({
   }, [isInView, rive, playOnView]);
 
   return (
-    <div ref={containerRef} className={containerClassName}>
+    <div
+      ref={containerRef}
+      className={containerClassName}
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+        maxWidth: "100%",
+      }}
+    >
       <RiveComponent />
     </div>
   );
