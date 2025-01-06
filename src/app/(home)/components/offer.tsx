@@ -76,7 +76,7 @@ const RegularItem = ({
         {tag}
       </p>
 
-      <p className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-medium-gray">
+      <p className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-primary-pink">
         {title}
       </p>
     </div>
@@ -126,7 +126,7 @@ const WorkWithUsItem = ({
         {tag}
       </p>
 
-      <p className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-medium-gray">
+      <p className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-primary-pink">
         {title}
       </p>
     </div>

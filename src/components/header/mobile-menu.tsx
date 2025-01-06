@@ -58,16 +58,13 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
             <Button
               className="w-full h-14 self-end gap-2 mt-5"
-              variant="primary"
-              bgColor="black"
+              variant="secondary"
               onClick={() => {
                 onClose();
                 startTransition("/contact-us");
               }}
             >
-              <p className="text-base font-medium leading-[120%] text-primary-pink">
-                Contact Us
-              </p>
+              <p>Contact Us</p>
               <svg
                 className="mb-1"
                 xmlns="http://www.w3.org/2000/svg"

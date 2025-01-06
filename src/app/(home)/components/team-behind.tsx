@@ -109,7 +109,7 @@ const TeamBehind = () => {
         viewport={{ once: true }}
       >
         <motion.p
-          className="min-w-[127px] sm:min-w-[158px] text-lg sm:text-2xl font-extralight leading-[35px]"
+          className="min-w-[127px] sm:min-w-[158px] text-lg sm:text-2xl font-extralight leading-tight sm:leading-tight"
           variants={YScrollVariants}
         >
           From the

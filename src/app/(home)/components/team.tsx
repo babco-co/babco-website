@@ -24,20 +24,20 @@ import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
 import { YScrollVariants } from "@/lib/utils/animations";
 
 const members = [
-  { src: member1, className: "w-[435px] h-[401px]" },
-  { src: member2, className: "w-[304px] h-[256px]" },
-  { src: member7, className: "w-[205px] h-[223px]" },
-  { src: member5, className: "w-[222px] h-[255px]" },
-  { src: member13, className: "w-[269px] h-[196px]" },
-  { src: member10, className: "w-[119px] h-[124px]" },
-  { src: member11, className: "w-[232px] h-[232px]" },
-
-  { src: member3, className: "w-[227px] h-[227px]" },
-  { src: member6, className: "w-[246px] h-[271px]" },
-  { src: member4, className: "w-[154px] h-[196px]" },
-  { src: member9, className: "w-[325px] h-[325px]" },
-  { src: member8, className: "w-[179px] h-[179px]" },
-  { src: member12, className: "w-[370px] h-[362px]" },
+  { src: member1, className: "w-[260px] sm:w-[435px] h-[240px] sm:h-[401px]" },
+  { src: member2, className: "w-[182px] sm:w-[304px] h-[153px] sm:h-[256px]" },
+  { src: member7, className: "w-[123px] sm:w-[205px] h-[134px] sm:h-[223px]" },
+  { src: member5, className: "w-[133px] sm:w-[222px] h-[153px] sm:h-[255px]" },
+  { src: member13, className: "w-[161px] sm:w-[269px] h-[117px] sm:h-[196px]" },
+  { src: member10, className: "w-[71px] sm:w-[119px] h-[74px] sm:h-[124px]" },
+  { src: member11, className: "w-[139px] sm:w-[232px] h-[139px] sm:h-[232px]" },
+  
+  { src: member3, className: "w-[136px] sm:w-[227px] h-[136px] sm:h-[227px]" },
+  { src: member6, className: "w-[147px] sm:w-[246px] h-[162px] sm:h-[271px]" },
+  { src: member4, className: "w-[92px] sm:w-[154px] h-[117px] sm:h-[196px]" },
+  { src: member9, className: "w-[195px] sm:w-[325px] h-[195px] sm:h-[325px]" },
+  { src: member8, className: "w-[107px] sm:w-[179px] h-[107px] sm:h-[179px]" },
+  { src: member12, className: "w-[222px] sm:w-[370px] h-[217px] sm:h-[362px]" },
 ];
 
 const Team = () => {
@@ -92,7 +92,7 @@ const Team = () => {
             transition={{ duration: 0.4 }}
             viewport={{ once: true }}
           >
-            <p className="max-w-[329px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
+            <p className="max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
               Build something iconic with us
             </p>
 
@@ -124,7 +124,7 @@ const Team = () => {
                 (item, index) => (
                   <div
                     key={index}
-                    className="flex-[0_0_auto] pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
+                    className="flex-[0_0_auto] pr-[20px] sm:pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
                   >
                     <Image
                       className={item.className}
@@ -148,7 +148,7 @@ const Team = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex-[0_0_auto] pr-[68px] odd:mt-20"
+                  className="flex-[0_0_auto] pr-[20px] sm:pr-[68px] odd:mt-20"
                 >
                   <Image
                     className={item.className}
