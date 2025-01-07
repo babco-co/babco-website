@@ -133,7 +133,7 @@ const WorkWithUsItem = ({
 
     <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-8">
       <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray">
+        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
           {descFirst}
         </p>
         <Image
@@ -144,7 +144,7 @@ const WorkWithUsItem = ({
       </div>
 
       <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray">
+        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
           {descSec}
         </p>
         <Image
@@ -155,7 +155,7 @@ const WorkWithUsItem = ({
       </div>
 
       <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray">
+        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
           {descThird}
         </p>
         <Image

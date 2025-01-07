@@ -28,7 +28,7 @@ const members = [
   { src: member1, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
   { src: member2, className: "w-[140px] sm:w-[234px] h-[120px] sm:h-[196px]" },
   { src: member7, className: "w-[95px] sm:w-[155px] h-[104px] sm:h-[173px]" },
-  { src: member5, className: "w-[103px] sm:w-[172px] h-[120px] sm:h-[195px]" },
+  { src: member5, className: "w-[103px] sm:w-[155px] h-[120px] sm:h-[173px]" },
   { src: member13, className: "w-[125px] sm:w-[209px] h-[90px] sm:h-[146px]" },
   { src: member10, className: "w-[55px] sm:w-[89px] h-[57px] sm:h-[94px]" },
   { src: member11, className: "w-[107px] sm:w-[182px] h-[107px] sm:h-[182px]" },
@@ -110,7 +110,7 @@ const Team = () => {
           </motion.div>
         </Spacer>
 
-        <div className="w-full flex flex-col items-center justify-center gap-10 relative mt-[126px]">
+        <div className="w-full flex flex-col items-center justify-center gap-2 relative mt-[126px]">
           <div className="w-full overflow-hidden" ref={emblaRef1}>
             <div className="flex">
               {[...members.slice(0, 7), ...members.slice(0, 7)].map(

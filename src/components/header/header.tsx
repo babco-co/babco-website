@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/button";
@@ -10,10 +10,71 @@ import MobileMenu from "@/components/header/mobile-menu";
 import arrowBlackIcon from "../../../public/icons/arrow-black-icon.svg";
 import menuIcon from "../../../public/icons/hamburger-icon.svg";
 import closeIcon from "../../../public/icons/close-icon.svg";
+import muteIcon from "../../../public/icons/mute-icon.svg";
+import unmuteIcon from "../../../public/icons/unmute-icon.svg";
 
 const Header = () => {
   const { startTransition } = useTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    // Initialize audio
+    audioRef.current = new Audio("/music/babco.mp3");
+    audioRef.current.loop = true;
+
+    // Cleanup
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (!isMuted) {
+        // Fade in audio
+        audioRef.current.volume = 0;
+        audioRef.current.play().catch(() => {
+          // Handle autoplay restrictions
+          setIsMuted(true);
+        });
+
+        const fadeIn = setInterval(() => {
+          if (audioRef.current && audioRef.current.volume < 0.8) {
+            audioRef.current.volume = Math.min(
+              audioRef.current.volume + 0.1,
+              0.8
+            );
+          } else {
+            clearInterval(fadeIn);
+          }
+        }, 100);
+
+        return () => clearInterval(fadeIn);
+      } else {
+        // Fade out audio
+        const fadeOut = setInterval(() => {
+          if (audioRef.current && audioRef.current.volume > 0.1) {
+            audioRef.current.volume = Math.max(
+              audioRef.current.volume - 0.1,
+              0
+            );
+          } else {
+            if (audioRef.current) {
+              audioRef.current.pause();
+            }
+            clearInterval(fadeOut);
+          }
+        }, 100);
+
+        return () => clearInterval(fadeOut);
+      }
+    }
+  }, [isMuted]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -44,10 +105,14 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleToggleAudio = () => {
+    setIsMuted(!isMuted);
+  };
+
   return (
     <header className="w-full px-4 sm:px-5 py-6">
       <nav className="w-full flex items-center justify-between">
-        {/* This left logo is fixed on desktop and mobile */}
+        {/* Left logo section */}
         <Link className="flex flex-1 items-center justify-start z-50" href="./">
           <div
             className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${
@@ -72,6 +137,7 @@ const Header = () => {
           </div>
         </Link>
 
+        {/* Center navigation */}
         <div className="flex flex-1 items-center justify-center gap-5">
           {/* <NavigationLink
             href="/works"
@@ -105,22 +171,34 @@ const Header = () => {
           </NavigationLink>
         </div>
 
-        {/* CTA Button and Mobile Menu */}
+        {/* Right section with audio control and menu */}
         <div className="flex flex-1 items-center justify-end gap-5">
+          <button
+            className="flex-shrink-0 group relative"
+            onClick={handleToggleAudio}
+            aria-label={isMuted ? "Unmute" : "Mute"}
+          >
+            <Image
+              src={isMuted ? muteIcon : unmuteIcon}
+              alt={isMuted ? "mute" : "unmute"}
+              className="transition-transform duration-200 group-hover:scale-110"
+            />
+            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-primary-white opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              {isMuted ? "Unmute" : "Mute"}
+            </span>
+          </button>
+
           <Button
             className="h-[38px] hidden sm:flex gap-2 text-center"
             variant="changing"
             onClick={() => startTransition("/contact-us")}
           >
             <p className="pt-1">Contact Us</p>
-            <Image
-              className="-rotate-45"
-              src={arrowBlackIcon}
-              alt="arrow"
-            />
+            <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
           </Button>
+
           <button
-            className={`w-[38px] h-[38px] flex sm:hidden items-center justify-center rounded-full z-50 ${
+            className={`w-[38px] h-[38px] flex sm:hidden flex-shrink-0 items-center justify-center rounded-full z-50 ${
               isMenuOpen
                 ? "bg-primary-pink"
                 : "bg-gradient-to-r from-white via-primary-pink to-white bg-[length:400%_400%] animate-gradient"
