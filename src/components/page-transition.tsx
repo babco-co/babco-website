@@ -2,7 +2,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useColorCycle } from "@/lib/hooks/use-color-cycle";
 
 type TransitionContextType = {
   isTransitioning: boolean;
@@ -18,7 +17,6 @@ export const useTransition = () => useContext(TransitionContext);
 
 const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
-  const color = useColorCycle();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [displayText, setDisplayText] = useState("");
   const text = "BABCO";
@@ -42,7 +40,7 @@ const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
         setIsTransitioning(false);
         setDisplayText(""); // Reset text for next transition
       }, 800); // Match this with animation duration
-    }, 500); // Time before route change
+    }, 2000); // Time before route change
   };
 
   return (
@@ -51,12 +49,11 @@ const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
       <AnimatePresence>
         {isTransitioning && (
           <motion.div
-            className="flex items-center justify-center fixed inset-0 z-50"
+            className="flex items-center justify-center fixed inset-0 z-50 bg-gradient-to-r from-white via-primary-pink to-white bg-[length:400%_400%] animate-gradient"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            style={{ backgroundColor: color }}
           >
             <motion.p
               initial={{ opacity: 0 }}

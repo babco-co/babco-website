@@ -8,7 +8,7 @@ const Hero = () => {
         src="animations/logo.riv"
         autoplay={true}
         playOnView={false}
-        containerClassName="w-full h-[600px] sm:min-h-screen"
+        containerClassName="w-full h-[500px] sm:min-h-screen"
       />
     </section>
   );

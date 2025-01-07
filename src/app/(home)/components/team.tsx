@@ -20,24 +20,26 @@ import member10 from "../../../../public/images/members/member-10.webp";
 import member11 from "../../../../public/images/members/member-11.webp";
 import member12 from "../../../../public/images/members/member-12.webp";
 import member13 from "../../../../public/images/members/member-13.webp";
+import member14 from "../../../../public/images/members/member-14.webp";
 import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
 import { YScrollVariants } from "@/lib/utils/animations";
 
 const members = [
-  { src: member1, className: "w-[260px] sm:w-[435px] h-[240px] sm:h-[401px]" },
-  { src: member2, className: "w-[182px] sm:w-[304px] h-[153px] sm:h-[256px]" },
-  { src: member7, className: "w-[123px] sm:w-[205px] h-[134px] sm:h-[223px]" },
-  { src: member5, className: "w-[133px] sm:w-[222px] h-[153px] sm:h-[255px]" },
-  { src: member13, className: "w-[161px] sm:w-[269px] h-[117px] sm:h-[196px]" },
-  { src: member10, className: "w-[71px] sm:w-[119px] h-[74px] sm:h-[124px]" },
-  { src: member11, className: "w-[139px] sm:w-[232px] h-[139px] sm:h-[232px]" },
-  
-  { src: member3, className: "w-[136px] sm:w-[227px] h-[136px] sm:h-[227px]" },
-  { src: member6, className: "w-[147px] sm:w-[246px] h-[162px] sm:h-[271px]" },
-  { src: member4, className: "w-[92px] sm:w-[154px] h-[117px] sm:h-[196px]" },
-  { src: member9, className: "w-[195px] sm:w-[325px] h-[195px] sm:h-[325px]" },
-  { src: member8, className: "w-[107px] sm:w-[179px] h-[107px] sm:h-[179px]" },
-  { src: member12, className: "w-[222px] sm:w-[370px] h-[217px] sm:h-[362px]" },
+  { src: member1, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
+  { src: member2, className: "w-[140px] sm:w-[234px] h-[120px] sm:h-[196px]" },
+  { src: member7, className: "w-[95px] sm:w-[155px] h-[104px] sm:h-[173px]" },
+  { src: member5, className: "w-[103px] sm:w-[172px] h-[120px] sm:h-[195px]" },
+  { src: member13, className: "w-[125px] sm:w-[209px] h-[90px] sm:h-[146px]" },
+  { src: member10, className: "w-[55px] sm:w-[89px] h-[57px] sm:h-[94px]" },
+  { src: member11, className: "w-[107px] sm:w-[182px] h-[107px] sm:h-[182px]" },
+
+  { src: member3, className: "w-[105px] sm:w-[177px] h-[105px] sm:h-[177px]" },
+  { src: member6, className: "w-[113px] sm:w-[186px] h-[125px] sm:h-[211px]" },
+  { src: member4, className: "w-[71px] sm:w-[124px] h-[90px] sm:h-[146px]" },
+  { src: member9, className: "w-[150px] sm:w-[255px] h-[150px] sm:h-[255px]" },
+  { src: member8, className: "w-[82px] sm:w-[139px] h-[82px] sm:h-[139px]" },
+  { src: member12, className: "w-[170px] sm:w-[290px] h-[167px] sm:h-[282px]" },
+  { src: member14, className: "w-[105px] sm:w-[180px] h-[102px] sm:h-[176px]" },
 ];
 
 const Team = () => {
@@ -80,10 +82,7 @@ const Team = () => {
   return (
     <section className="w-full flex flex-col relative">
       <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-[80px]">
-        <Spacer
-          horizontal
-          className="w-full flex flex-col sm:flex-row gap-10 justify-between items-start"
-        >
+        <Spacer horizontal className="w-full flex justify-between items-start">
           <motion.div
             className="w-full flex flex-col items-start gap-5 lg:gap-16"
             initial="hidden"
@@ -98,10 +97,10 @@ const Team = () => {
 
             <Button
               className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
-              variant="primary"
+              variant="changing"
               onClick={() => startTransition("/contact-us")}
             >
-              <p className="text-base leading-[75%]">Contact Us</p>
+              <p className="pt-1 text-base leading-[75%]">Contact Us</p>
               <Image
                 className="w-6 h-6 -rotate-45"
                 src={arrowBlackIcon}
@@ -109,22 +108,16 @@ const Team = () => {
               />
             </Button>
           </motion.div>
-
-          <div className="w-full flex justify-start sm:justify-end">
-            <p className="text-sm font-light leading-[100%] text-white/30">
-              ©2024 BABCO. All Rights Reserved.
-            </p>
-          </div>
         </Spacer>
 
-        <div className="w-full flex flex-col items-center justify-center relative mt-[126px]">
+        <div className="w-full flex flex-col items-center justify-center gap-10 relative mt-[126px]">
           <div className="w-full overflow-hidden" ref={emblaRef1}>
             <div className="flex">
               {[...members.slice(0, 7), ...members.slice(0, 7)].map(
                 (item, index) => (
                   <div
                     key={index}
-                    className="flex-[0_0_auto] pr-[20px] sm:pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
+                    className="flex-[0_0_auto] pr-[12px] sm:pr-[40px] even:self-end"
                   >
                     <Image
                       className={item.className}
@@ -138,7 +131,7 @@ const Team = () => {
           </div>
 
           <div
-            className="w-full overflow-hidden mt-4 2xl:mt-16"
+            className="w-full overflow-hidden mt-3 2xl:mt-12"
             ref={emblaRef2}
           >
             <div className="flex">
@@ -148,7 +141,7 @@ const Team = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex-[0_0_auto] pr-[20px] sm:pr-[68px] odd:mt-20"
+                  className="flex-[0_0_auto] pr-[12px] sm:pr-[40px] odd:mt-12"
                 >
                   <Image
                     className={item.className}

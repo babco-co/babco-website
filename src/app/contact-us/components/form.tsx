@@ -170,13 +170,13 @@ const ContactForm = () => {
               />
             </div>
 
-            <Button className="gap-2" variant="primary" disabled={isLoading}>
-              <p className="text-base">{isLoading ? "Sending..." : "Submit"}</p>
-              <Image
-                className="mb-1 -rotate-45"
-                src={arrowBlackIcon}
-                alt="arrow"
-              />
+            <Button
+              className="h-[38px] gap-2"
+              variant="changing"
+              disabled={isLoading}
+            >
+              <p className="pt-1">{isLoading ? "Sending..." : "Submit"}</p>
+              <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
             </Button>
           </div>
         </div>

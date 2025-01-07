@@ -64,9 +64,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 startTransition("/contact-us");
               }}
             >
-              <p>Contact Us</p>
+              <p className="pt-1">Contact Us</p>
               <svg
-                className="mb-1"
                 xmlns="http://www.w3.org/2000/svg"
                 width="33"
                 height="32"
