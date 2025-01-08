@@ -14,16 +14,16 @@ import sqlit3 from "../../../../../public/images/carousel-sqlite/sqlit-3.webp";
 import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.webp";
 import tembo1 from "../../../../../public/images/carousel-tembo/tembo-1.webp";
 import tembo2 from "../../../../../public/images/carousel-tembo/tembo-2.webp";
-import omlet1 from "../../../../../public/images/carousel-omlet/omlet-1.svg";
+import omlet1 from "../../../../../public/images/carousel-omlet/omlet-1.webp";
 import omlet2 from "../../../../../public/images/carousel-omlet/omlet-2.webp";
 import omlet3 from "../../../../../public/images/carousel-omlet/omlet-3.webp";
 // import gitar1 from "../../../../../public/images/carousel-gitar/gitar-1.svg";
 // import gitar2 from "../../../../../public/images/carousel-gitar/gitar-2.webp";
 // import gitar3 from "../../../../../public/images/carousel-gitar/gitar-3.webp";
 // import gitar4 from "../../../../../public/images/carousel-gitar/gitar-4.webp";
-import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
-import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
-import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
+// import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
+// import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
+// import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
 // import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
 // import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
 import ProductItem from "./product-item";
@@ -85,7 +85,7 @@ const archCarousel: SliderItem[][] = [
       fit: Fit.Cover,
     }),
   ],
-  [createImageSlide(arch1, 384, 268), createImageSlide(arch2, 349, 256)],
+  [createImageSlide(arch1, 384, 268), createImageSlide(arch2, 384, 256)],
   [createImageSlide(arch3, 349, 268), createImageSlide(arch4, 349, 256)],
   [
     createRiveSlide("/images/carousel-arch/arch-video.riv", 883, 540, {
