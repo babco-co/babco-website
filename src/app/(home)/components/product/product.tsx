@@ -1,12 +1,17 @@
 import arch1 from "../../../../../public/images/carousel-arch/arch-1.webp";
 import arch2 from "../../../../../public/images/carousel-arch/arch-2.webp";
+import arch3 from "../../../../../public/images/carousel-arch/arch-3.webp";
 import arch4 from "../../../../../public/images/carousel-arch/arch-4.webp";
-import arch5 from "../../../../../public/images/carousel-arch/arch-5.webp";
-import sqlit1 from "../../../../../public/images/carousel-sqlite/sqlit-1.svg";
+import brandmarch1 from "../../../../../public/images/carousel-brandmarch/brandmarch-1.webp";
+import brandmarch2 from "../../../../../public/images/carousel-brandmarch/brandmarch-2.webp";
+import brandmarch3 from "../../../../../public/images/carousel-brandmarch/brandmarch-3.webp";
+import brandmarch4 from "../../../../../public/images/carousel-brandmarch/brandmarch-4.webp";
+import brandmarch5 from "../../../../../public/images/carousel-brandmarch/brandmarch-5.webp";
+import brandmarch6 from "../../../../../public/images/carousel-brandmarch/brandmarch-6.webp";
+import sqlit1 from "../../../../../public/images/carousel-sqlite/sqlit-1.webp";
 import sqlit2 from "../../../../../public/images/carousel-sqlite/sqlit-2.webp";
-import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.svg";
-import sqlit5 from "../../../../../public/images/carousel-sqlite/sqlit-5.webp";
-import sqlit6 from "../../../../../public/images/carousel-sqlite/sqlit-6.webp";
+import sqlit3 from "../../../../../public/images/carousel-sqlite/sqlit-3.webp";
+import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.webp";
 import tembo2 from "../../../../../public/images/carousel-tembo/tembo-2.webp";
 import tembo3 from "../../../../../public/images/carousel-tembo/tembo-3.webp";
 import tembo4 from "../../../../../public/images/carousel-tembo/tembo-4.webp";
@@ -82,16 +87,39 @@ const archCarousel: SliderItem[][] = [
       fit: Fit.Cover,
     }),
   ],
-  [createImageSlide(arch1, 349, 256), createImageSlide(arch2, 349, 268)],
-  [createImageSlide(arch4, 540, 381), createImageSlide(arch5, 540, 143)],
+  [createImageSlide(arch1, 384, 268), createImageSlide(arch2, 349, 256)],
+  [createImageSlide(arch3, 349, 268), createImageSlide(arch4, 349, 256)],
   [
     createRiveSlide("/images/carousel-arch/arch-video.riv", 883, 540, {
       autoplay: true,
       fit: Fit.Cover,
     }),
   ],
-  [createImageSlide(arch1, 349, 256), createImageSlide(arch2, 349, 268)],
-  [createImageSlide(arch4, 540, 381), createImageSlide(arch5, 540, 143)],
+  [createImageSlide(arch1, 384, 268), createImageSlide(arch2, 349, 256)],
+  [createImageSlide(arch3, 349, 268), createImageSlide(arch4, 349, 256)],
+];
+
+const brandmarchCarousel: SliderItem[][] = [
+  [createImageSlide(brandmarch1, 827, 540)],
+  [
+    createImageSlide(brandmarch2, 344, 193),
+    createImageSlide(brandmarch3, 344, 331),
+  ],
+  [createImageSlide(brandmarch4, 540, 540)],
+  [
+    createImageSlide(brandmarch5, 344, 193),
+    createImageSlide(brandmarch6, 344, 331),
+  ],
+  [createImageSlide(brandmarch1, 827, 540)],
+  [
+    createImageSlide(brandmarch2, 344, 193),
+    createImageSlide(brandmarch3, 344, 331),
+  ],
+  [createImageSlide(brandmarch4, 540, 540)],
+  [
+    createImageSlide(brandmarch5, 344, 193),
+    createImageSlide(brandmarch6, 344, 331),
+  ],
 ];
 
 // const oumiCarousel: SliderItem[][] = [
@@ -103,15 +131,13 @@ const archCarousel: SliderItem[][] = [
 
 const sqliteCarousel: SliderItem[][] = [
   [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
-  [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
-  [createImageSlide(sqlit4, 168, 540)],
-  [createImageSlide(sqlit5, 540, 540)],
-  [createImageSlide(sqlit6, 540, 540)],
+  [createImageSlide(sqlit1, 168, 540)],
+  [createImageSlide(sqlit2, 798, 540)],
+  [createImageSlide(sqlit3, 258, 258), createImageSlide(sqlit4, 258, 266)],
   [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
-  [createImageSlide(sqlit1, 258, 258), createImageSlide(sqlit2, 258, 266)],
-  [createImageSlide(sqlit4, 168, 540)],
-  [createImageSlide(sqlit5, 540, 540)],
-  [createImageSlide(sqlit6, 540, 540)],
+  [createImageSlide(sqlit1, 168, 540)],
+  [createImageSlide(sqlit2, 798, 540)],
+  [createImageSlide(sqlit3, 258, 258), createImageSlide(sqlit4, 258, 266)],
 ];
 
 const temboCarousel: SliderItem[][] = [
@@ -153,16 +179,24 @@ const omletCarousel: SliderItem[][] = [
 //   [createImageSlide(gitar4, 540, 540)],
 // ];
 
-const apoliticalCarousel: SliderItem[][] = [
-  [createImageSlide(apolitical1, 827, 540)],
-  [createImageSlide(apolitical2, 540, 540)],
-  [createImageSlide(apolitical3, 540, 540)],
-];
+// const apoliticalCarousel: SliderItem[][] = [
+//   [createImageSlide(apolitical1, 827, 540)],
+//   [createImageSlide(apolitical2, 540, 540)],
+//   [createImageSlide(apolitical3, 540, 540)],
+//   [createImageSlide(apolitical1, 827, 540)],
+//   [createImageSlide(apolitical2, 540, 540)],
+//   [createImageSlide(apolitical3, 540, 540)],
+// ];
 
 const Product = () => {
   return (
     <section className="w-full flex flex-col items-start justify-center gap-16 lg:gap-[200px]">
       <ProductItem title={"Arch"} subtitle={"AI"} images={archCarousel} />
+      <ProductItem
+        title={"Brandmarch"}
+        subtitle={"Marketplaces"}
+        images={brandmarchCarousel}
+      />
       {/* <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} /> */}
       <ProductItem
         title={"SQLite Cloud"}
@@ -184,11 +218,11 @@ const Product = () => {
         subtitle={"Dev Tooling + AI"}
         images={gitarCarousel}
       /> */}
-      <ProductItem
+      {/* <ProductItem
         title={"Apolitical"}
         subtitle={"Government"}
         images={apoliticalCarousel}
-      />
+      /> */}
     </section>
   );
 };
