@@ -24,11 +24,14 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           exit={{ x: "100%" }}
           transition={{ type: "tween", duration: 0.3 }}
           id="mobile-menu"
-          className="w-full min-h-screen fixed inset-0 px-4 sm:px-5 py-5 z-40 overflow-y-hidden bg-primary-pink"
+          className="fixed inset-0 z-40 bg-primary-pink"
+          style={{ height: "100dvh" }}
         >
-          <nav className="w-full h-full flex flex-col items-center justify-between gap-10 pt-[243px]">
-            <div className="flex flex-col items-center justify-center gap-8">
-              {/* <NavigationLink
+          <div className="h-full overflow-y-auto p-4">
+            <nav className="min-h-full flex flex-col">
+              <div className="flex-grow">
+                <div className="flex flex-col items-center pt-[243px]">
+                  {/* <NavigationLink
                   href="/works"
                   className="text-4xl font-extralight text-primary-black leading-[120%]"
                 >
@@ -36,65 +39,70 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 </NavigationLink>
 
                 <Image src={dotBlack} alt="dot" /> */}
+                  <NavigationLink
+                    href="/merch"
+                    className="text-4xl font-extralight text-primary-black leading-[120%]"
+                    external
+                  >
+                    Merch
+                  </NavigationLink>
 
-              <NavigationLink
-                href="/merch"
-                className="text-4xl font-extralight text-primary-black leading-[120%]"
-                external
-              >
-                Merch
-              </NavigationLink>
+                  <div className="my-8">
+                    <Image src={dotBlack} alt="dot" />
+                  </div>
 
-              <Image src={dotBlack} alt="dot" />
+                  <NavigationLink
+                    href={LINKEDIN}
+                    className="text-4xl font-extralight text-primary-black leading-[120%]"
+                    external
+                  >
+                    Follow
+                  </NavigationLink>
+                </div>
+              </div>
 
-              <NavigationLink
-                href={LINKEDIN}
-                className="text-4xl font-extralight text-primary-black leading-[120%]"
-                external
-              >
-                Follow
-              </NavigationLink>
-            </div>
-
-            <Button
-              className="w-full h-14 self-end gap-2 mt-5"
-              variant="secondary"
-              onClick={() => {
-                onClose();
-                startTransition("/contact-us");
-              }}
-            >
-              <p className="pt-1">Contact Us</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="33"
-                height="32"
-                viewBox="0 0 33 32"
-                fill="none"
-              >
-                <rect
-                  width="32"
-                  height="32"
-                  transform="translate(0.5)"
-                  fill="black"
-                />
-                <path
-                  d="M9.25098 23.2471L22.2773 10.2207"
-                  stroke="#FFC0F1"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M22.2806 22.9499L22.2806 10.222L9.55265 10.222"
-                  stroke="#FFC0F1"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Button>
-          </nav>
+              <div className="mt-auto pt-10">
+                <Button
+                  className="w-full h-14 gap-2"
+                  variant="secondary"
+                  onClick={() => {
+                    onClose();
+                    startTransition("/contact-us");
+                  }}
+                >
+                  <p className="pt-1">Contact Us</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="33"
+                    height="32"
+                    viewBox="0 0 33 32"
+                    fill="none"
+                  >
+                    <rect
+                      width="32"
+                      height="32"
+                      transform="translate(0.5)"
+                      fill="black"
+                    />
+                    <path
+                      d="M9.25098 23.2471L22.2773 10.2207"
+                      stroke="#FFC0F1"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M22.2806 22.9499L22.2806 10.222L9.55265 10.222"
+                      stroke="#FFC0F1"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Button>
+              </div>
+            </nav>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

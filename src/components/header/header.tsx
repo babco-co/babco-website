@@ -18,64 +18,82 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const fadeRef = useRef<number | null>(null);
 
+  // Initialize audio once
   useEffect(() => {
-    // Initialize audio
     audioRef.current = new Audio("/music/babco.mp3");
     audioRef.current.loop = true;
+    audioRef.current.volume = 0;
 
-    // Cleanup
     return () => {
+      if (fadeRef.current) {
+        cancelAnimationFrame(fadeRef.current);
+      }
       if (audioRef.current) {
         audioRef.current.pause();
+        audioRef.current.src = "";
         audioRef.current = null;
       }
     };
   }, []);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      if (!isMuted) {
-        // Fade in audio
-        audioRef.current.volume = 0;
-        audioRef.current.play().catch(() => {
-          // Handle autoplay restrictions
-          setIsMuted(true);
-        });
+  const fadeAudio = (fadeIn: boolean) => {
+    if (!audioRef.current || fadeRef.current) return;
 
-        const fadeIn = setInterval(() => {
-          if (audioRef.current && audioRef.current.volume < 0.8) {
-            audioRef.current.volume = Math.min(
-              audioRef.current.volume + 0.1,
-              0.8
-            );
-          } else {
-            clearInterval(fadeIn);
+    const startTime = performance.now();
+    const duration = 500; // 500ms fade
+    const startVolume = audioRef.current.volume;
+    const targetVolume = fadeIn ? 0.8 : 0;
+
+    const fade = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      if (audioRef.current) {
+        audioRef.current.volume =
+          startVolume + (targetVolume - startVolume) * progress;
+
+        if (progress < 1) {
+          fadeRef.current = requestAnimationFrame(fade);
+        } else {
+          fadeRef.current = null;
+          if (!fadeIn && audioRef.current) {
+            audioRef.current.pause();
           }
-        }, 100);
-
-        return () => clearInterval(fadeIn);
-      } else {
-        // Fade out audio
-        const fadeOut = setInterval(() => {
-          if (audioRef.current && audioRef.current.volume > 0.1) {
-            audioRef.current.volume = Math.max(
-              audioRef.current.volume - 0.1,
-              0
-            );
-          } else {
-            if (audioRef.current) {
-              audioRef.current.pause();
-            }
-            clearInterval(fadeOut);
-          }
-        }, 100);
-
-        return () => clearInterval(fadeOut);
+        }
       }
-    }
-  }, [isMuted]);
+    };
 
+    fadeRef.current = requestAnimationFrame(fade);
+  };
+
+  const handleToggleAudio = () => {
+    if (!audioRef.current) return;
+
+    // Cancel any ongoing fade
+    if (fadeRef.current) {
+      cancelAnimationFrame(fadeRef.current);
+      fadeRef.current = null;
+    }
+
+    if (isMuted) {
+      audioRef.current
+        .play()
+        .then(() => {
+          fadeAudio(true);
+          setIsMuted(false);
+        })
+        .catch((error) => {
+          console.error("Audio playback failed:", error);
+        });
+    } else {
+      fadeAudio(false);
+      setIsMuted(true);
+    }
+  };
+
+  // Menu handling
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -103,10 +121,6 @@ const Header = () => {
 
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleToggleAudio = () => {
-    setIsMuted(!isMuted);
   };
 
   return (
@@ -174,7 +188,7 @@ const Header = () => {
         {/* Right section with audio control and menu */}
         <div className="flex flex-1 items-center justify-end gap-5">
           <button
-            className="flex-shrink-0 group relative"
+            className="flex-shrink-0 group relative touch-manipulation"
             onClick={handleToggleAudio}
             aria-label={isMuted ? "Unmute" : "Mute"}
           >

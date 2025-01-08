@@ -3,7 +3,6 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import arrowCircleBtn from "../../public/icons/arrow-circle-btn.svg";
 import { fadeInVariants } from "@/lib/utils/animations";
 import { Alignment, Fit } from "@rive-app/react-canvas";
 import RiveWrapper from "./rive-wrapper";
@@ -64,9 +63,11 @@ const MediaComponent = ({ item }: { item: SliderItem }) => {
 const GallerySlider = ({
   items,
   containerHeight,
+  onInit,
 }: {
   items: SliderItem[][];
   containerHeight: number;
+  onInit: (scrollPrev: () => void, scrollNext: () => void) => void;
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -77,13 +78,13 @@ const GallerySlider = ({
     skipSnaps: true,
   });
 
-  const scrollPrev = () => {
-    if (emblaApi) emblaApi.scrollPrev();
-  };
-
-  const scrollNext = () => {
-    if (emblaApi) emblaApi.scrollNext();
-  };
+  React.useEffect(() => {
+    if (emblaApi) {
+      const scrollPrev = () => emblaApi.scrollPrev();
+      const scrollNext = () => emblaApi.scrollNext();
+      onInit(scrollPrev, scrollNext);
+    }
+  }, [emblaApi, onInit]);
 
   return (
     <div className="w-full relative">
@@ -114,31 +115,6 @@ const GallerySlider = ({
               </div>
             ))}
           </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="w-[80px] flex items-center justify-between mt-2"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.4 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex space-x-2">
-          <button
-            onClick={scrollPrev}
-            className="rotate-180 transition-opacity duration-200 hover:opacity-80"
-            aria-label="Previous slide"
-          >
-            <Image src={arrowCircleBtn} alt="prev" width={44} height={44} />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="transition-opacity duration-200 hover:opacity-80"
-            aria-label="Next slide"
-          >
-            <Image src={arrowCircleBtn} alt="next" width={44} height={44} />
-          </button>
         </div>
       </motion.div>
     </div>

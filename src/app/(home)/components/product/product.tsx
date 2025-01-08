@@ -161,7 +161,7 @@ const apoliticalCarousel: SliderItem[][] = [
 
 const Product = () => {
   return (
-    <section className="w-full hidden lg:flex flex-col items-start justify-center gap-16 lg:gap-[200px]">
+    <section className="w-full flex flex-col items-start justify-center gap-16 lg:gap-[200px]">
       <ProductItem title={"Arch"} subtitle={"AI"} images={archCarousel} />
       {/* <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} /> */}
       <ProductItem

@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import arrowWhiteIcon from "../../../../public/icons/arrow-white-icon.svg";
 import arrowPinkSquareIcon from "../../../../public/icons/arrow-pink-square.svg";
 import { YScrollVariants } from "@/lib/utils/animations";
+import { useTransition } from "@/components/page-transition";
 
 const Offer = () => {
-  const router = useRouter();
+  const { startTransition } = useTransition();
 
   const handleItemClick = () => {
-    router.push("/contact-us");
+    startTransition("/contact-us");
   };
 
   return (
