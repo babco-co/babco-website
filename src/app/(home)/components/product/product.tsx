@@ -12,13 +12,11 @@ import sqlit1 from "../../../../../public/images/carousel-sqlite/sqlit-1.webp";
 import sqlit2 from "../../../../../public/images/carousel-sqlite/sqlit-2.webp";
 import sqlit3 from "../../../../../public/images/carousel-sqlite/sqlit-3.webp";
 import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.webp";
+import tembo1 from "../../../../../public/images/carousel-tembo/tembo-1.webp";
 import tembo2 from "../../../../../public/images/carousel-tembo/tembo-2.webp";
-import tembo3 from "../../../../../public/images/carousel-tembo/tembo-3.webp";
-import tembo4 from "../../../../../public/images/carousel-tembo/tembo-4.webp";
 import omlet1 from "../../../../../public/images/carousel-omlet/omlet-1.svg";
 import omlet2 from "../../../../../public/images/carousel-omlet/omlet-2.webp";
-import omlet4 from "../../../../../public/images/carousel-omlet/omlet-4.webp";
-import omlet5 from "../../../../../public/images/carousel-omlet/omlet-5.svg";
+import omlet3 from "../../../../../public/images/carousel-omlet/omlet-3.webp";
 // import gitar1 from "../../../../../public/images/carousel-gitar/gitar-1.svg";
 // import gitar2 from "../../../../../public/images/carousel-gitar/gitar-2.webp";
 // import gitar3 from "../../../../../public/images/carousel-gitar/gitar-3.webp";
@@ -142,32 +140,30 @@ const sqliteCarousel: SliderItem[][] = [
 
 const temboCarousel: SliderItem[][] = [
   [createVideoSlide("/images/carousel-tembo/tembo-video.mp4", 743, 540)],
-  [createImageSlide(tembo2, 483, 149), createImageSlide(tembo3, 483, 375)],
-  [createImageSlide(tembo4, 540, 540)],
+  [createImageSlide(tembo1, 173, 540)],
+  [createImageSlide(tembo2, 743, 540)],
   [createVideoSlide("/images/carousel-tembo/tembo-video.mp4", 743, 540)],
-  [createImageSlide(tembo2, 483, 149), createImageSlide(tembo3, 483, 375)],
-  [createImageSlide(tembo4, 540, 540)],
+  [createImageSlide(tembo1, 173, 540)],
+  [createImageSlide(tembo2, 743, 540)],
 ];
 
 const omletCarousel: SliderItem[][] = [
   [
-    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 709, 540, {
+    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 540, 540, {
       autoplay: true,
       fit: Fit.Cover,
     }),
   ],
-  [createImageSlide(omlet1, 349, 251), createImageSlide(omlet2, 349, 273)],
-  [createImageSlide(omlet4, 440, 540)],
-  [createImageSlide(omlet5, 540, 540)],
+  [createImageSlide(omlet1, 452, 314), createImageSlide(omlet2, 452, 210)],
+  [createImageSlide(omlet3, 540, 540)],
   [
-    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 709, 540, {
+    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 540, 540, {
       autoplay: true,
       fit: Fit.Cover,
     }),
   ],
-  [createImageSlide(omlet1, 349, 251), createImageSlide(omlet2, 349, 273)],
-  [createImageSlide(omlet4, 440, 540)],
-  [createImageSlide(omlet5, 540, 540)],
+  [createImageSlide(omlet1, 452, 314), createImageSlide(omlet2, 452, 210)],
+  [createImageSlide(omlet3, 540, 540)],
 ];
 
 // const gitarCarousel: SliderItem[][] = [
