@@ -3,21 +3,71 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import arrowBtn from "../../public/icons/arrow-btn.svg";
 import { fadeInVariants } from "@/lib/utils/animations";
+import { Alignment, Fit } from "@rive-app/react-canvas";
+import RiveWrapper from "./rive-wrapper";
 
 export type SliderItem = {
   src: string | StaticImageData;
   width: number;
   height: number;
+  type?: "video" | "image" | "rive";
+  autoplay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  stateMachines?: string;
+  fit?: Fit;
+  alignment?: Alignment;
+};
+
+const MediaComponent = ({ item }: { item: SliderItem }) => {
+  if (item.type === "rive") {
+    return (
+      <RiveWrapper
+        src={item.src as string}
+        stateMachines={item.stateMachines}
+        autoplay={item.autoplay}
+        fit={item.fit}
+        alignment={item.alignment}
+        width={item.width}
+        height={item.height}
+      />
+    );
+  }
+
+  if (item.type === "video") {
+    return (
+      <video
+        src={item.src as string}
+        width={item.width}
+        height={item.height}
+        autoPlay={item.autoplay}
+        loop={item.loop}
+        muted={item.muted}
+        playsInline
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={item.src}
+      alt="Carousel item"
+      width={item.width}
+      height={item.height}
+      className="w-full h-auto object-cover"
+    />
+  );
 };
 
 const GallerySlider = ({
   items,
   containerHeight,
+  onInit,
 }: {
   items: SliderItem[][];
   containerHeight: number;
+  onInit: (scrollPrev: () => void, scrollNext: () => void) => void;
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -28,13 +78,13 @@ const GallerySlider = ({
     skipSnaps: true,
   });
 
-  const scrollPrev = () => {
-    if (emblaApi) emblaApi.scrollPrev();
-  };
-
-  const scrollNext = () => {
-    if (emblaApi) emblaApi.scrollNext();
-  };
+  React.useEffect(() => {
+    if (emblaApi) {
+      const scrollPrev = () => emblaApi.scrollPrev();
+      const scrollNext = () => emblaApi.scrollNext();
+      onInit(scrollPrev, scrollNext);
+    }
+  }, [emblaApi, onInit]);
 
   return (
     <div className="w-full relative">
@@ -58,44 +108,13 @@ const GallerySlider = ({
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.4, delay: index * 0.2 }}
                     >
-                      <Image
-                        src={item.src}
-                        alt="Carousel image"
-                        width={item.width}
-                        height={item.height}
-                        className="w-full h-auto object-cover"
-                      />
+                      <MediaComponent item={item} />
                     </motion.div>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="w-[80px] flex items-center justify-between mt-2"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.4 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex space-x-2">
-          <button
-            onClick={scrollPrev}
-            className={`rotate-180 transition-opacity duration-200 hover:opacity-80`}
-            aria-label="Previous slide"
-          >
-            <Image src={arrowBtn} alt="prev" width={44} height={44} />
-          </button>
-          <button
-            onClick={scrollNext}
-            className={`transition-opacity duration-200 hover:opacity-80`}
-            aria-label="Next slide"
-          >
-            <Image src={arrowBtn} alt="next" width={44} height={44} />
-          </button>
         </div>
       </motion.div>
     </div>

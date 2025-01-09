@@ -1,5 +1,12 @@
+"use client";
+import { useEffect, useState } from "react";
 import { Control, FieldErrors, Controller } from "react-hook-form";
-import Select, { DropdownIndicatorProps, StylesConfig, components } from "react-select";
+import Select, {
+  DropdownIndicatorProps,
+  components,
+  StylesConfig,
+  InputProps,
+} from "react-select";
 import { FormInputs, SelectOption } from "../schema";
 
 const SelectField = ({
@@ -15,8 +22,13 @@ const SelectField = ({
   label: string;
   options: SelectOption[];
 }) => {
+  const [isMounted, setIsMounted] = useState(false);
   const hasError = !!errors[name];
   const errorMessage = errors[name]?.message;
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const customStyles: StylesConfig<SelectOption, true> = {
     control: (provided) => ({
@@ -93,7 +105,9 @@ const SelectField = ({
     }),
   };
 
-  const DropdownIndicator = (props: DropdownIndicatorProps<SelectOption, true>) => {
+  const DropdownIndicator = (
+    props: DropdownIndicatorProps<SelectOption, true>
+  ) => {
     return (
       <components.DropdownIndicator {...props}>
         <svg
@@ -111,6 +125,21 @@ const SelectField = ({
       </components.DropdownIndicator>
     );
   };
+
+  const CustomInput = (props: InputProps<SelectOption, true>) => {
+    return <components.Input {...props} aria-activedescendant={undefined} />;
+  };
+
+  if (!isMounted) {
+    return (
+      <div className="w-full flex flex-col gap-2 items-start justify-center">
+        <label className="text-sm font-medium leading-[24px] text-[#F2F2F2]">
+          {label}
+        </label>
+        <div className="w-full h-12 border-b border-[rgba(235,234,231,0.1)]" />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full flex flex-col gap-2 items-start justify-center">
@@ -132,15 +161,15 @@ const SelectField = ({
             components={{
               DropdownIndicator,
               IndicatorSeparator: null,
+              Input: CustomInput,
             }}
-            placeholder="Select services"
+            placeholder="Services"
             className="w-full"
             menuPlacement="top"
             value={options.filter((option) =>
               field.value?.includes(option.value)
             )}
             onChange={(newValue) => {
-              // Extract just the values from the selected options
               const selectedValues = newValue.map((item) => item.value);
               field.onChange(selectedValues);
             }}

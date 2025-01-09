@@ -1,19 +1,33 @@
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 
+export const helveticaNeue = localFont({
+  src: [
+    {
+      path: "./HelveticaNeue/HelveticaNeueRoman.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./HelveticaNeue/HelveticaNeueLight.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./HelveticaNeue/HelveticaNeueMedium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./HelveticaNeue/HelveticaNeueBold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-helvetica", // CSS variable
+});
+
 export const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-});
-
-export const geistSans = localFont({
-  src: "./GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-
-export const geistMono = localFont({
-  src: "./GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
 });

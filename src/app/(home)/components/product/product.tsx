@@ -2,157 +2,198 @@ import arch1 from "../../../../../public/images/carousel-arch/arch-1.webp";
 import arch2 from "../../../../../public/images/carousel-arch/arch-2.webp";
 import arch3 from "../../../../../public/images/carousel-arch/arch-3.webp";
 import arch4 from "../../../../../public/images/carousel-arch/arch-4.webp";
-import arch5 from "../../../../../public/images/carousel-arch/arch-5.webp";
-import arch6 from "../../../../../public/images/carousel-arch/arch-6.webp";
-import sqlit1 from "../../../../../public/images/carousel-sqlite/sqlit-1.svg";
+import brandmarch1 from "../../../../../public/images/carousel-brandmarch/brandmarch-1.webp";
+import brandmarch2 from "../../../../../public/images/carousel-brandmarch/brandmarch-2.webp";
+import brandmarch3 from "../../../../../public/images/carousel-brandmarch/brandmarch-3.webp";
+import brandmarch4 from "../../../../../public/images/carousel-brandmarch/brandmarch-4.webp";
+import brandmarch5 from "../../../../../public/images/carousel-brandmarch/brandmarch-5.webp";
+import brandmarch6 from "../../../../../public/images/carousel-brandmarch/brandmarch-6.webp";
+import sqlit1 from "../../../../../public/images/carousel-sqlite/sqlit-1.webp";
 import sqlit2 from "../../../../../public/images/carousel-sqlite/sqlit-2.webp";
 import sqlit3 from "../../../../../public/images/carousel-sqlite/sqlit-3.webp";
-import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.svg";
-import sqlit5 from "../../../../../public/images/carousel-sqlite/sqlit-5.webp";
-import sqlit6 from "../../../../../public/images/carousel-sqlite/sqlit-6.webp";
+import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.webp";
 import tembo1 from "../../../../../public/images/carousel-tembo/tembo-1.webp";
-import tembo2 from "../../../../../public/images/carousel-brands/brand-9.webp";
-import tembo3 from "../../../../../public/images/carousel-tembo/tembo-3.webp";
-import tembo4 from "../../../../../public/images/carousel-tembo/tembo-4.webp";
-import omlet1 from "../../../../../public/images/carousel-omlet/omlet-1.svg";
+import tembo2 from "../../../../../public/images/carousel-tembo/tembo-2.webp";
+import omlet1 from "../../../../../public/images/carousel-omlet/omlet-1.webp";
 import omlet2 from "../../../../../public/images/carousel-omlet/omlet-2.webp";
 import omlet3 from "../../../../../public/images/carousel-omlet/omlet-3.webp";
-import omlet4 from "../../../../../public/images/carousel-omlet/omlet-4.webp";
-import omlet5 from "../../../../../public/images/carousel-omlet/omlet-5.webp";
-import omlet6 from "../../../../../public/images/carousel-omlet/omlet-6.svg";
-import gitar1 from "../../../../../public/images/carousel-gitar/gitar-1.webp";
-import gitar2 from "../../../../../public/images/carousel-gitar/gitar-2.webp";
-import gitar3 from "../../../../../public/images/carousel-gitar/gitar-3.webp";
-import gitar4 from "../../../../../public/images/carousel-gitar/gitar-4.svg";
-import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
-import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
-import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
-import apolitical4 from "../../../../../public/images/carousel-apolitical/apolitical-4.webp";
-import oumi1 from "../../../../../public/images/carousel-oumi/oumi-1.webp";
-import oumi2 from "../../../../../public/images/carousel-brands/brand-8.svg";
-import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
-
+// import gitar1 from "../../../../../public/images/carousel-gitar/gitar-1.svg";
+// import gitar2 from "../../../../../public/images/carousel-gitar/gitar-2.webp";
+// import gitar3 from "../../../../../public/images/carousel-gitar/gitar-3.webp";
+// import gitar4 from "../../../../../public/images/carousel-gitar/gitar-4.webp";
+// import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
+// import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
+// import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
+// import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
+// import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
 import ProductItem from "./product-item";
+import { StaticImageData } from "next/image";
+import { SliderItem } from "@/components/gallery-slider";
+import { Alignment, Fit } from "@rive-app/react-canvas";
 
-const archCarousel = [
+// Helper function to create image slides
+const createImageSlide = (
+  src: StaticImageData,
+  width: number,
+  height: number
+): SliderItem => ({
+  src,
+  width,
+  height,
+  type: "image" as const,
+});
+
+// Helper function to create video slides
+const createVideoSlide = (
+  src: string,
+  width: number,
+  height: number,
+  autoplay = true,
+  loop = true,
+  muted = true
+): SliderItem => ({
+  src,
+  width,
+  height,
+  type: "video" as const,
+  autoplay,
+  loop,
+  muted,
+});
+
+const createRiveSlide = (
+  src: string,
+  width: number,
+  height: number,
+  options: Partial<SliderItem> = {}
+): SliderItem => ({
+  src,
+  width,
+  height,
+  type: "rive" as const,
+  autoplay: true,
+  fit: Fit.FitWidth,
+  alignment: Alignment.Center,
+  stateMachines: "State Machine 1",
+  ...options,
+});
+
+const archCarousel: SliderItem[][] = [
   [
-    { src: arch1, width: 349, height: 256 },
-    { src: arch2, width: 349, height: 268 },
+    createRiveSlide("/images/carousel-arch/arch-video.riv", 883, 540, {
+      autoplay: true,
+      fit: Fit.Cover,
+    }),
   ],
-  [{ src: arch3, width: 834, height: 540 }],
+  [createImageSlide(arch1, 384, 268), createImageSlide(arch2, 384, 256)],
+  [createImageSlide(arch3, 349, 268), createImageSlide(arch4, 349, 256)],
   [
-    { src: arch4, width: 540, height: 381 },
-    { src: arch5, width: 540, height: 143 },
+    createRiveSlide("/images/carousel-arch/arch-video.riv", 883, 540, {
+      autoplay: true,
+      fit: Fit.Cover,
+    }),
   ],
-  [{ src: arch6, width: 680, height: 540 }],
-  [
-    { src: arch1, width: 349, height: 256 },
-    { src: arch2, width: 349, height: 268 },
-  ],
-  [{ src: arch3, width: 834, height: 540 }],
-  [
-    { src: arch4, width: 540, height: 381 },
-    { src: arch5, width: 540, height: 143 },
-  ],
-  [{ src: arch6, width: 680, height: 540 }],
+  [createImageSlide(arch1, 384, 268), createImageSlide(arch2, 349, 256)],
+  [createImageSlide(arch3, 349, 268), createImageSlide(arch4, 349, 256)],
 ];
 
-const sqliteCarousel = [
+const brandmarchCarousel: SliderItem[][] = [
+  [createImageSlide(brandmarch1, 827, 540)],
   [
-    { src: sqlit1, width: 258, height: 258 },
-    { src: sqlit2, width: 258, height: 266 },
+    createImageSlide(brandmarch2, 344, 193),
+    createImageSlide(brandmarch3, 344, 331),
   ],
-  [{ src: sqlit3, width: 688, height: 540 }],
-  [{ src: sqlit4, width: 168, height: 540 }],
-  [{ src: sqlit5, width: 540, height: 540 }],
-  [{ src: sqlit6, width: 540, height: 540 }],
+  [createImageSlide(brandmarch4, 540, 540)],
   [
-    { src: sqlit1, width: 258, height: 258 },
-    { src: sqlit2, width: 258, height: 266 },
+    createImageSlide(brandmarch5, 344, 193),
+    createImageSlide(brandmarch6, 344, 331),
   ],
-  [{ src: sqlit3, width: 688, height: 540 }],
-  [{ src: sqlit4, width: 168, height: 540 }],
-  [{ src: sqlit5, width: 540, height: 540 }],
-  [{ src: sqlit6, width: 540, height: 540 }],
+  [createImageSlide(brandmarch1, 827, 540)],
+  [
+    createImageSlide(brandmarch2, 344, 193),
+    createImageSlide(brandmarch3, 344, 331),
+  ],
+  [createImageSlide(brandmarch4, 540, 540)],
+  [
+    createImageSlide(brandmarch5, 344, 193),
+    createImageSlide(brandmarch6, 344, 331),
+  ],
 ];
 
-const temboCarousel = [
-  [{ src: tembo1, width: 743, height: 540 }],
-  [
-    { src: tembo2, width: 483, height: 149 },
-    { src: tembo3, width: 483, height: 375 },
-  ],
-  [{ src: tembo4, width: 540, height: 540 }],
-  [{ src: tembo1, width: 743, height: 540 }],
-  [
-    { src: tembo2, width: 483, height: 149 },
-    { src: tembo3, width: 483, height: 375 },
-  ],
-  [{ src: tembo4, width: 540, height: 540 }],
+// const oumiCarousel: SliderItem[][] = [
+//   [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
+//   [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
+//   [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
+//   [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
+// ];
+
+const sqliteCarousel: SliderItem[][] = [
+  [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
+  [createImageSlide(sqlit1, 168, 540)],
+  [createImageSlide(sqlit2, 798, 540)],
+  [createImageSlide(sqlit3, 258, 258), createImageSlide(sqlit4, 258, 266)],
+  [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
+  [createImageSlide(sqlit1, 168, 540)],
+  [createImageSlide(sqlit2, 798, 540)],
+  [createImageSlide(sqlit3, 258, 258), createImageSlide(sqlit4, 258, 266)],
 ];
 
-const omletCarousel = [
-  [
-    { src: omlet1, width: 349, height: 251 },
-    { src: omlet2, width: 349, height: 273 },
-  ],
-  [{ src: omlet3, width: 653, height: 540 }],
-  [{ src: omlet4, width: 440, height: 540 }],
-  [{ src: omlet5, width: 540, height: 540 }],
-  [{ src: omlet6, width: 540, height: 540 }],
-  [
-    { src: omlet1, width: 349, height: 251 },
-    { src: omlet2, width: 349, height: 273 },
-  ],
-  [{ src: omlet3, width: 653, height: 540 }],
-  [{ src: omlet4, width: 440, height: 540 }],
-  [{ src: omlet5, width: 540, height: 540 }],
-  [{ src: omlet6, width: 540, height: 540 }],
+const temboCarousel: SliderItem[][] = [
+  [createVideoSlide("/images/carousel-tembo/tembo-video.mp4", 743, 540)],
+  [createImageSlide(tembo1, 173, 540)],
+  [createImageSlide(tembo2, 743, 540)],
+  [createVideoSlide("/images/carousel-tembo/tembo-video.mp4", 743, 540)],
+  [createImageSlide(tembo1, 173, 540)],
+  [createImageSlide(tembo2, 743, 540)],
 ];
 
-const gitarCarousel = [
+const omletCarousel: SliderItem[][] = [
   [
-    { src: gitar1, width: 472, height: 234 },
-    { src: gitar2, width: 472, height: 290 },
+    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 540, 540, {
+      autoplay: true,
+      fit: Fit.Cover,
+    }),
   ],
-  [{ src: gitar3, width: 440, height: 540 }],
-  [{ src: gitar4, width: 540, height: 540 }],
+  [createImageSlide(omlet1, 452, 314), createImageSlide(omlet2, 452, 210)],
+  [createImageSlide(omlet3, 540, 540)],
   [
-    { src: gitar1, width: 472, height: 234 },
-    { src: gitar2, width: 472, height: 290 },
+    createRiveSlide("/images/carousel-omlet/omlet-video.riv", 540, 540, {
+      autoplay: true,
+      fit: Fit.Cover,
+    }),
   ],
-  [{ src: gitar3, width: 440, height: 540 }],
-  [{ src: gitar4, width: 540, height: 540 }],
+  [createImageSlide(omlet1, 452, 314), createImageSlide(omlet2, 452, 210)],
+  [createImageSlide(omlet3, 540, 540)],
 ];
 
-const apoliticalCarousel = [
-  [{ src: apolitical1, width: 791, height: 540 }],
-  [{ src: apolitical2, width: 540, height: 540 }],
-  [{ src: apolitical3, width: 540, height: 540 }],
-  [{ src: apolitical4, width: 540, height: 540 }],
-  [{ src: apolitical1, width: 791, height: 540 }],
-  [{ src: apolitical2, width: 540, height: 540 }],
-  [{ src: apolitical3, width: 540, height: 540 }],
-  [{ src: apolitical4, width: 540, height: 540 }],
-];
+// const gitarCarousel: SliderItem[][] = [
+//   [createImageSlide(gitar1, 259, 234), createImageSlide(gitar2, 259, 290)],
+//   [createImageSlide(gitar3, 540, 540)],
+//   [createImageSlide(gitar4, 540, 540)],
+//   [createImageSlide(gitar1, 259, 234), createImageSlide(gitar2, 259, 290)],
+//   [createImageSlide(gitar3, 540, 540)],
+//   [createImageSlide(gitar4, 540, 540)],
+// ];
 
-const oumiCarousel = [
-  [{ src: oumi1, width: 981, height: 540 }],
-  [
-    { src: oumi2, width: 349, height: 251 },
-    { src: oumi3, width: 349, height: 268 },
-  ],
-  [{ src: oumi1, width: 981, height: 540 }],
-  [
-    { src: oumi2, width: 349, height: 251 },
-    { src: oumi3, width: 349, height: 268 },
-  ],
-];
+// const apoliticalCarousel: SliderItem[][] = [
+//   [createImageSlide(apolitical1, 827, 540)],
+//   [createImageSlide(apolitical2, 540, 540)],
+//   [createImageSlide(apolitical3, 540, 540)],
+//   [createImageSlide(apolitical1, 827, 540)],
+//   [createImageSlide(apolitical2, 540, 540)],
+//   [createImageSlide(apolitical3, 540, 540)],
+// ];
 
 const Product = () => {
   return (
     <section className="w-full flex flex-col items-start justify-center gap-16 lg:gap-[200px]">
       <ProductItem title={"Arch"} subtitle={"AI"} images={archCarousel} />
+      <ProductItem
+        title={"Brandmarch"}
+        subtitle={"Marketplaces"}
+        images={brandmarchCarousel}
+      />
+      {/* <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} /> */}
       <ProductItem
         title={"SQLite Cloud"}
         subtitle={"Dev Infrastructure"}
@@ -168,17 +209,16 @@ const Product = () => {
         subtitle={"Observability"}
         images={omletCarousel}
       />
-      <ProductItem
+      {/* <ProductItem
         title={"Gitar"}
         subtitle={"Dev Tooling + AI"}
         images={gitarCarousel}
-      />
-      <ProductItem
+      /> */}
+      {/* <ProductItem
         title={"Apolitical"}
         subtitle={"Government"}
         images={apoliticalCarousel}
-      />
-      <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} />
+      /> */}
     </section>
   );
 };

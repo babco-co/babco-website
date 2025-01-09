@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Header from "@/components/header";
-import { TransitionProvider } from "@/components/page-transition";
-import { geistMono, geistSans, inter } from "@/styles/fonts";
+import TransitionProvider from "@/components/page-transition";
+import { helveticaNeue, inter } from "@/styles/fonts";
 import "../styles/globals.css";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Babco.co",
@@ -17,11 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+        className={`${helveticaNeue.variable} ${inter.variable} antialiased`}
       >
         <TransitionProvider>
-          <Header />
           {children}
+          <Footer />
         </TransitionProvider>
       </body>
     </html>

@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        helvetica: ["var(--font-helvetica)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -21,6 +24,19 @@ const config: Config = {
         yellow: "#F7F272",
         blue: "#83B2F0",
         error: "#DD2E44",
+      },
+      animation: {
+        gradient: 'gradient 6s linear infinite',
+      },
+      keyframes: {
+        gradient: {
+          '0%, 100%': {
+            'background-position': '0% 50%',
+          },
+          '50%': {
+            'background-position': '100% 50%',
+          },
+        },
       },
     },
   },

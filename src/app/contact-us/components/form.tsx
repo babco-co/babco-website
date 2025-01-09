@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 import emailjs from "@emailjs/browser";
@@ -8,8 +9,7 @@ import InputField from "./input";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import SelectField from "./select-field";
 import Button from "@/components/button";
-import arrowRightIcon from "../../../../public/icons/arrow-right-icon.svg";
-import { useColorCycle } from "@/lib/hooks/use-color-cycle";
+import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
 
 const ContactForm = () => {
   const {
@@ -19,7 +19,6 @@ const ContactForm = () => {
     reset,
     control,
   } = useForm<FormInputs>({ resolver: yupResolver(schema) });
-  const color = useColorCycle();
 
   const [isLoading, setIsLoading] = useState(false);
   const [apiRes, setApiRes] = useState<{
@@ -122,10 +121,6 @@ const ContactForm = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="w-full flex flex-col items-start justify-center gap-[70px] mb-4">
-          <label className="text-sm font-medium leading-[24px] text-primary-white">
-            Contact Us
-          </label>
-
           <div
             className="w-full flex flex-col lg:flex-row 
               items-start lg:items-end justify-start gap-[100px]"
@@ -135,8 +130,8 @@ const ContactForm = () => {
                 name="name"
                 register={register}
                 errors={errors}
-                placeholder="Name"
-                label="Enter your name"
+                placeholder="Your Name"
+                label="01 /"
               />
             </div>
 
@@ -145,8 +140,8 @@ const ContactForm = () => {
                 name="email"
                 register={register}
                 errors={errors}
-                placeholder="Email"
-                label="Enter your email"
+                placeholder="Company Email"
+                label="02 /"
               />
             </div>
           </div>
@@ -160,8 +155,8 @@ const ContactForm = () => {
                 name="company"
                 register={register}
                 errors={errors}
-                placeholder="Company"
-                label="Enter company name"
+                placeholder="Company Name"
+                label="03 /"
               />
             </div>
 
@@ -170,19 +165,18 @@ const ContactForm = () => {
                 name="service"
                 control={control}
                 errors={errors}
-                label="What services do you need from our agency?"
+                label="04 /"
                 options={serviceOptions}
               />
             </div>
 
             <Button
-              className="w-[167px] h-[44px] gap-2 text-lg"
-              variant="primary"
+              className="h-[38px] gap-2"
+              variant="changing"
               disabled={isLoading}
-              style={{ backgroundColor: color }}
             >
-              {isLoading ? "Sending..." : "Talk to us"}
-              <Image src={arrowRightIcon} alt="arrow" width={22} height={16} />
+              <p className="pt-1">{isLoading ? "Sending..." : "Submit"}</p>
+              <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
             </Button>
           </div>
         </div>

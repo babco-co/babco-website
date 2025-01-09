@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Button from "@/components/button";
 import { Spacer } from "@/components/spacer";
-import BabcoLogo from "./hero/babco-logo";
+import BabcoLogo from "@/components/babco-logo";
+import { useTransition } from "@/components/page-transition";
 import member1 from "../../../../public/images/members/member-1.webp";
 import member2 from "../../../../public/images/members/member-2.webp";
 import member3 from "../../../../public/images/members/member-3.webp";
@@ -19,24 +20,26 @@ import member10 from "../../../../public/images/members/member-10.webp";
 import member11 from "../../../../public/images/members/member-11.webp";
 import member12 from "../../../../public/images/members/member-12.webp";
 import member13 from "../../../../public/images/members/member-13.webp";
+import member14 from "../../../../public/images/members/member-14.webp";
+import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
 import { YScrollVariants } from "@/lib/utils/animations";
-import { useTransition } from "@/components/page-transition";
 
 const members = [
-  { src: member1, className: "w-[435px] h-[401px]" },
-  { src: member2, className: "w-[304px] h-[256px]" },
-  { src: member7, className: "w-[205px] h-[223px]" },
-  { src: member5, className: "w-[222px] h-[255px]" },
-  { src: member13, className: "w-[269px] h-[196px]" },
-  { src: member10, className: "w-[119px] h-[124px]" },
-  { src: member11, className: "w-[232px] h-[232px]" },
+  { src: member1, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
+  { src: member2, className: "w-[140px] sm:w-[234px] h-[120px] sm:h-[196px]" },
+  { src: member7, className: "w-[95px] sm:w-[155px] h-[104px] sm:h-[173px]" },
+  { src: member5, className: "w-[103px] sm:w-[155px] h-[120px] sm:h-[173px]" },
+  { src: member13, className: "w-[125px] sm:w-[209px] h-[90px] sm:h-[146px]" },
+  { src: member10, className: "w-[55px] sm:w-[89px] h-[57px] sm:h-[94px]" },
+  { src: member11, className: "w-[107px] sm:w-[182px] h-[107px] sm:h-[182px]" },
 
-  { src: member3, className: "w-[227px] h-[227px]" },
-  { src: member6, className: "w-[246px] h-[271px]" },
-  { src: member4, className: "w-[154px] h-[196px]" },
-  { src: member9, className: "w-[325px] h-[325px]" },
-  { src: member8, className: "w-[179px] h-[179px]" },
-  { src: member12, className: "w-[370px] h-[362px]" },
+  { src: member3, className: "w-[105px] sm:w-[177px] h-[105px] sm:h-[177px]" },
+  { src: member6, className: "w-[113px] sm:w-[186px] h-[125px] sm:h-[211px]" },
+  { src: member4, className: "w-[71px] sm:w-[124px] h-[90px] sm:h-[146px]" },
+  { src: member9, className: "w-[150px] sm:w-[255px] h-[150px] sm:h-[255px]" },
+  { src: member8, className: "w-[82px] sm:w-[139px] h-[82px] sm:h-[139px]" },
+  { src: member12, className: "w-[170px] sm:w-[290px] h-[167px] sm:h-[282px]" },
+  { src: member14, className: "w-[105px] sm:w-[180px] h-[102px] sm:h-[176px]" },
 ];
 
 const Team = () => {
@@ -77,53 +80,68 @@ const Team = () => {
   );
 
   return (
-    <section
-      className="w-full flex flex-col items-center justify-center 
-      overflow-x-hidden pt-[100px] border-t border-white/10 relative"
-    >
-      <Spacer horizontal className="w-full">
-        <motion.div
-          className="w-full flex flex-col items-start gap-5"
-          initial="hidden"
-          whileInView="visible"
-          variants={YScrollVariants}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <p className="max-w-[329px] lg:max-w-full text-[32px] lg:text-[100px] font-extralight text-primary-white leading-[100%]">
-            Create something intentionally great with us
-          </p>
-
-          <Button
-            className="w-[176px] h-[68px] gap-2 text-lg"
-            variant="primary"
-            onClick={() => startTransition("/contact-us")}
+    <section className="w-full flex flex-col relative">
+      <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-[80px]">
+        <Spacer horizontal className="w-full flex justify-between items-start">
+          <motion.div
+            className="w-full flex flex-col items-start gap-5 lg:gap-16"
+            initial="hidden"
+            whileInView="visible"
+            variants={YScrollVariants}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
           >
-            Talk to us
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="23"
-              height="24"
-              viewBox="0 0 23 24"
-              fill="none"
-            >
-              <path
-                d="M1.5 10.5L-1.31134e-07 10.5L1.31134e-07 13.5L1.5 13.5L1.5 10.5ZM22.5607 13.0607C23.1464 12.4749 23.1464 11.5251 22.5607 10.9393L13.0147 1.3934C12.4289 0.807611 11.4792 0.807611 10.8934 1.3934C10.3076 1.97918 10.3076 2.92893 10.8934 3.51472L19.3787 12L10.8934 20.4853C10.3076 21.0711 10.3076 22.0208 10.8934 22.6066C11.4792 23.1924 12.4289 23.1924 13.0147 22.6066L22.5607 13.0607ZM1.5 13.5L21.5 13.5L21.5 10.5L1.5 10.5L1.5 13.5Z"
-                fill="#000"
-              />
-            </svg>
-          </Button>
-        </motion.div>
-      </Spacer>
+            <p className="max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
+              Build something iconic with us
+            </p>
 
-      <div className="w-full flex flex-col items-center justify-center relative mt-[126px]">
-        <div className="w-full overflow-hidden" ref={emblaRef1}>
-          <div className="flex">
-            {[...members.slice(0, 7), ...members.slice(0, 7)].map(
-              (item, index) => (
+            <Button
+              className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
+              variant="changing"
+              onClick={() => startTransition("/contact-us")}
+            >
+              <p className="pt-1 text-base leading-[75%]">Contact Us</p>
+              <Image
+                className="w-6 h-6 -rotate-45"
+                src={arrowBlackIcon}
+                alt="arrow"
+              />
+            </Button>
+          </motion.div>
+        </Spacer>
+
+        <div className="w-full flex flex-col items-center justify-center gap-2 relative mt-[126px]">
+          <div className="w-full overflow-hidden" ref={emblaRef1}>
+            <div className="flex">
+              {[...members.slice(0, 7), ...members.slice(0, 7)].map(
+                (item, index) => (
+                  <div
+                    key={index}
+                    className="flex-[0_0_auto] pr-[12px] sm:pr-[40px] even:self-end"
+                  >
+                    <Image
+                      className={item.className}
+                      src={item.src}
+                      alt="member"
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+          <div
+            className="w-full overflow-hidden mt-3 2xl:mt-12"
+            ref={emblaRef2}
+          >
+            <div className="flex">
+              {[
+                ...members.slice(7, members.length),
+                ...members.slice(7, members.length),
+              ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex-[0_0_auto] pr-[68px] even:mt-20 [&:nth-child(6)]:pt-32"
+                  className="flex-[0_0_auto] pr-[12px] sm:pr-[40px] odd:mt-12"
                 >
                   <Image
                     className={item.className}
@@ -131,26 +149,13 @@ const Team = () => {
                     alt="member"
                   />
                 </div>
-              )
-            )}
-          </div>
-        </div>
-
-        <div className="w-full overflow-hidden mt-4 2xl:mt-16" ref={emblaRef2}>
-          <div className="flex">
-            {[
-              ...members.slice(7, members.length),
-              ...members.slice(7, members.length),
-            ].map((item, index) => (
-              <div key={index} className="flex-[0_0_auto] pr-[68px] odd:mt-20">
-                <Image className={item.className} src={item.src} alt="member" />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="w-full h-fit absolute bottom-0 z-10">
+      <div className="w-full absolute bottom-0 z-10">
         <BabcoLogo fill={"#fff"} />
       </div>
     </section>
