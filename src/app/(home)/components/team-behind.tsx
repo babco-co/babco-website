@@ -122,7 +122,7 @@ const TeamBehind = () => {
                   >
                     <div className="relative">
                       <Image
-                        className="block lg:hidden invert"
+                        className="block lg:hidden invert dark:invert-0"
                         src={item.src}
                         alt="brand logo"
                         width={item.mobileWidth}
@@ -130,7 +130,7 @@ const TeamBehind = () => {
                         sizes="(min-width: 1024px) 100vw, 66vw"
                       />
                       <Image
-                        className="hidden lg:block invert"
+                        className="hidden lg:block invert dark:invert-0"
                         src={item.src}
                         alt="brand logo"
                         width={item.desktopWidth}
