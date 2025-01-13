@@ -3,7 +3,7 @@ import * as yup from "yup";
 export type ServiceType =
   | "Web Design"
   | "Motion"
-  | "Engenering"
+  | "Engineering"
   | "UI+UX Design"
   | "Merch"
   | "Illustration"
@@ -18,7 +18,7 @@ export interface SelectOption {
 export const serviceOptions: SelectOption[] = [
   { value: "Web Design", label: "Web Design" },
   { value: "Motion", label: "Motion" },
-  { value: "Engenering", label: "Engenering" },
+  { value: "Engineering", label: "Engineering" },
   { value: "UI+UX Design", label: "UI+UX Design" },
   { value: "Merch", label: "Merch" },
   { value: "Illustration", label: "Illustration" },
