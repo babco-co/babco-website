@@ -23,6 +23,7 @@ const Hero = () => {
           className="max-w-[670px] text-3xl lg:text-[80px] font-extralight leading-[108%] text-text-primary-light dark:text-text-primary-dark"
           variants={YScrollVariants}
           transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
         >
           Building tomorrows iconic brands
         </motion.p>

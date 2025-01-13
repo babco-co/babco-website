@@ -92,6 +92,7 @@ const Team = () => {
             initial="hidden"
             whileInView="visible"
             variants={containerVariants}
+            viewport={{ once: true }}
           >
             <motion.p
               className="max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-text-primary-light dark:text-text-primary-dark leading-[100%]"
