@@ -3,77 +3,67 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import airbnb from "../../../../public/images/team-behind/airbnb-logo.svg";
-import google from "../../../../public/images/team-behind/google-logo.svg";
-import apple from "../../../../public/images/team-behind/apple-logo.svg";
-import meta from "../../../../public/images/team-behind/meta-logo.svg";
-import amazon from "../../../../public/images/team-behind/amazon-logo.svg";
-import instagram from "../../../../public/images/team-behind/instagram-logo.svg";
-import Braun from "../../../../public/images/team-behind/Braun-logo.svg";
-import king from "../../../../public/images/team-behind/king-logo.svg";
-import samsung from "../../../../public/images/team-behind/samsung-logo.svg";
-import line from "../../../../public/images/line.svg";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 
 const images = [
   {
-    src: airbnb,
+    src: "/images/team-behind/airbnb-logo.svg",
     mobileWidth: 31,
     mobileHeight: 33,
     desktopWidth: 51,
     desktopHeight: 54,
   },
   {
-    src: google,
+    src: "/images/team-behind/google-logo.svg",
     mobileWidth: 33,
     mobileHeight: 33,
     desktopWidth: 54,
     desktopHeight: 54,
   },
   {
-    src: apple,
+    src: "/images/team-behind/apple-logo.svg",
     mobileWidth: 33,
     mobileHeight: 33,
     desktopWidth: 54,
     desktopHeight: 54,
   },
   {
-    src: meta,
+    src: "/images/team-behind/meta-logo.svg",
     mobileWidth: 54,
     mobileHeight: 36,
     desktopWidth: 81,
     desktopHeight: 54,
   },
   {
-    src: amazon,
+    src: "/images/team-behind/amazon-logo.svg",
     mobileWidth: 39,
     mobileHeight: 36,
     desktopWidth: 59,
     desktopHeight: 54,
   },
   {
-    src: instagram,
+    src: "/images/team-behind/instagram-logo.svg",
     mobileWidth: 36,
     mobileHeight: 36,
     desktopWidth: 54,
     desktopHeight: 54,
   },
   {
-    src: Braun,
+    src: "/images/team-behind/Braun-logo.svg",
     mobileWidth: 85,
     mobileHeight: 36,
     desktopWidth: 128,
     desktopHeight: 54,
   },
   {
-    src: king,
+    src: "/images/team-behind/king-logo.svg",
     mobileWidth: 53,
     mobileHeight: 36,
     desktopWidth: 80,
     desktopHeight: 54,
   },
   {
-    src: samsung,
+    src: "/images/team-behind/samsung-logo.svg",
     mobileWidth: 135,
     mobileHeight: 36,
     desktopWidth: 203,
@@ -116,7 +106,10 @@ const TeamBehind = () => {
           <br /> team behind
         </motion.p>
 
-        <Image src={line} alt="line" />
+        <div
+          className="w-[50px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+          style={{ transform: "rotate(-65.363deg)" }}
+        ></div>
 
         <motion.div variants={YScrollVariants} className="flex-1">
           <div className="w-full opacity-30">
@@ -129,17 +122,17 @@ const TeamBehind = () => {
                   >
                     <div className="relative">
                       <Image
+                        className="block lg:hidden invert"
                         src={item.src}
                         alt="brand logo"
-                        className="block lg:hidden"
                         width={item.mobileWidth}
                         height={item.mobileHeight}
                         sizes="(min-width: 1024px) 100vw, 66vw"
                       />
                       <Image
+                        className="hidden lg:block invert"
                         src={item.src}
                         alt="brand logo"
-                        className="hidden lg:block"
                         width={item.desktopWidth}
                         height={item.desktopHeight}
                         sizes="100vw"

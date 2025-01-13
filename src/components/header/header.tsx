@@ -155,7 +155,7 @@ const Header = () => {
         <div className="flex flex-1 items-center justify-center gap-5">
           {/* <NavigationLink
             href="/works"
-            className="hidden sm:block text-xs font-normal text-primary-white uppercase hover:text-primary-pink"
+            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink"
           >
             Works
           </NavigationLink>
@@ -166,7 +166,7 @@ const Header = () => {
 
           <NavigationLink
             href="/merch"
-            className="hidden sm:block text-xs font-normal text-primary-white uppercase hover:text-primary-pink"
+            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink"
             external
           >
             Merch
@@ -178,7 +178,7 @@ const Header = () => {
 
           <NavigationLink
             href={LINKEDIN}
-            className="hidden sm:block text-xs font-normal text-primary-white uppercase hover:text-primary-pink"
+            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink"
             external
           >
             Follow
@@ -195,9 +195,9 @@ const Header = () => {
             <Image
               src={isMuted ? muteIcon : unmuteIcon}
               alt={isMuted ? "mute" : "unmute"}
-              className="transition-transform duration-200 group-hover:scale-110"
+              className="transition-transform duration-200 group-hover:scale-110 invert dark:invert-0"
             />
-            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-primary-white opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-text-primary-light dark:text-text-primary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-200">
               {isMuted ? "Unmute" : "Mute"}
             </span>
           </button>
@@ -208,7 +208,7 @@ const Header = () => {
             onClick={() => startTransition("/contact-us")}
           >
             <p className="pt-1">Contact Us</p>
-            <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
+            <Image src={arrowBlackIcon} alt="arrow" />
           </Button>
 
           <button

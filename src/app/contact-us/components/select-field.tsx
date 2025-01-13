@@ -133,7 +133,7 @@ const SelectField = ({
   if (!isMounted) {
     return (
       <div className="w-full flex flex-col gap-2 items-start justify-center">
-        <label className="text-sm font-medium leading-[24px] text-[#F2F2F2]">
+        <label className="text-sm font-medium leading-[24px] text-text-primary-light dark:text-[#F2F2F2]">
           {label}
         </label>
         <div className="w-full h-12 border-b border-[rgba(235,234,231,0.1)]" />
@@ -144,7 +144,7 @@ const SelectField = ({
   return (
     <div className="w-full flex flex-col gap-2 items-start justify-center">
       <label
-        className="text-sm font-medium leading-[24px] text-[#F2F2F2]"
+        className="text-sm font-medium leading-[24px] text-text-primary-light dark:text-[#F2F2F2]"
         htmlFor={name}
       >
         {label}

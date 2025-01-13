@@ -23,7 +23,7 @@ export default function ContactUsPage() {
         exit="exit"
       >
         <div className="w-full sm:max-w-[316px] flex items-center justify-start group">
-          <p className="text-3xl sm:text-[42px] font-extralight leading-[100%] text-primary-white">
+          <p className="text-3xl sm:text-[42px] font-extralight leading-[100%] text-text-primary-light dark:text-text-primary-dark">
             Build something iconic with us
           </p>
           <Image

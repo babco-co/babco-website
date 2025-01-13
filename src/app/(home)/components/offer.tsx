@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import arrowWhiteIcon from "../../../../public/icons/arrow-white-icon.svg";
 import arrowPinkSquareIcon from "../../../../public/icons/arrow-pink-square.svg";
-import { YScrollVariants } from "@/lib/utils/animations";
+import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { useTransition } from "@/components/page-transition";
 
 const Offer = () => {
@@ -60,39 +60,68 @@ const RegularItem = ({
   descThird: string;
   onItemClick?: () => void;
 }) => (
-  <motion.div
+  <div
     className="w-full flex flex-col lg:flex-row gap-10 items-center justify-between py-8 lg:py-[91px] cursor-pointer"
-    initial="hidden"
-    whileInView="visible"
-    variants={YScrollVariants}
-    transition={{ duration: 0.4 }}
-    viewport={{ once: true }}
     onClick={onItemClick}
   >
-    <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
-      <Image src={arrowWhiteIcon} alt="arrow" className="mb-2" />
+    <motion.div
+      className="w-full lg:w-1/2 flex flex-col items-start justify-center"
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+    >
+      <Image
+        className="invert dark:invert-0 mb-2"
+        src={arrowWhiteIcon}
+        alt="arrow"
+      />
 
-      <p className="text-base font-extralight leading-[120%] text-dark-gray mb-5">
+      <motion.p
+        className="text-base font-extralight leading-[120%] text-dark-gray mb-5"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+      >
         {tag}
-      </p>
+      </motion.p>
 
-      <p className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-primary-pink">
+      <motion.p
+        className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-text-primary-light dark:text-text-primary-dark hover:text-primary-pink"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+      >
         {title}
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
 
-    <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-3 lg:gap-5">
-      <p className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray">
+    <motion.div
+      className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-3 lg:gap-5"
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+    >
+      <motion.p
+        className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+      >
         {descFirst}
-      </p>
-      <p className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray">
+      </motion.p>
+      <motion.p
+        className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+      >
         {descSec}
-      </p>
-      <p className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray">
+      </motion.p>
+      <motion.p
+        className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+      >
         {descThird}
-      </p>
-    </div>
-  </motion.div>
+      </motion.p>
+    </motion.div>
+  </div>
 );
 
 const WorkWithUsItem = ({
@@ -110,60 +139,107 @@ const WorkWithUsItem = ({
   descThird: string;
   onItemClick?: () => void;
 }) => (
-  <motion.div
+  <div
     className="w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center justify-between py-8 lg:py-[91px] cursor-pointer"
-    initial="hidden"
-    whileInView="visible"
-    variants={YScrollVariants}
-    transition={{ duration: 0.4 }}
-    viewport={{ once: true }}
     onClick={onItemClick}
   >
-    <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
-      <Image src={arrowWhiteIcon} alt="arrow" className="mb-2" />
+    <motion.div
+      className="w-full lg:w-1/2 flex flex-col items-start justify-center"
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+    >
+      <motion.div variants={YScrollVariants} transition={{ duration: 0.4 }}>
+        <Image
+          className="invert dark:invert-0 mb-2"
+          src={arrowWhiteIcon}
+          alt="arrow"
+        />
+      </motion.div>
 
-      <p className="text-base font-extralight leading-[120%] text-dark-gray mb-5">
+      <motion.p
+        className="text-base font-extralight leading-[120%] text-dark-gray mb-5"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+      >
         {tag}
-      </p>
+      </motion.p>
 
-      <p className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-primary-pink">
+      <motion.p
+        className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-text-primary-light dark:text-text-primary-dark hover:text-primary-pink"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+      >
         {title}
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
 
     <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-8">
-      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
+      <motion.div
+        className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-border-sec-light dark:border-border-sec-dark"
+        initial="hidden"
+        whileInView="visible"
+        variants={containerVariants}
+      >
+        <motion.p
+          className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink"
+          variants={YScrollVariants}
+          transition={{ duration: 0.4 }}
+        >
           {descFirst}
-        </p>
-        <Image
-          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
-          src={arrowPinkSquareIcon}
-          alt="arrow"
-        />
-      </div>
+        </motion.p>
+        <motion.div variants={YScrollVariants} transition={{ duration: 0.4 }}>
+          <Image
+            className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
+            src={arrowPinkSquareIcon}
+            alt="arrow"
+          />
+        </motion.div>
+      </motion.div>
 
-      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
+      <motion.div
+        className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-border-sec-light dark:border-border-sec-dark"
+        initial="hidden"
+        whileInView="visible"
+        variants={containerVariants}
+      >
+        <motion.p
+          className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink"
+          variants={YScrollVariants}
+          transition={{ duration: 0.4 }}
+        >
           {descSec}
-        </p>
-        <Image
-          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
-          src={arrowPinkSquareIcon}
-          alt="arrow"
-        />
-      </div>
+        </motion.p>
+        <motion.div variants={YScrollVariants} transition={{ duration: 0.4 }}>
+          <Image
+            className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
+            src={arrowPinkSquareIcon}
+            alt="arrow"
+          />
+        </motion.div>
+      </motion.div>
 
-      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
+      <motion.div
+        className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-border-sec-light dark:border-border-sec-dark"
+        initial="hidden"
+        whileInView="visible"
+        variants={containerVariants}
+      >
+        <motion.p
+          className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink"
+          variants={YScrollVariants}
+          transition={{ duration: 0.4 }}
+        >
           {descThird}
-        </p>
-        <Image
-          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
-          src={arrowPinkSquareIcon}
-          alt="arrow"
-        />
-      </div>
+        </motion.p>
+        <motion.div variants={YScrollVariants} transition={{ duration: 0.4 }}>
+          <Image
+            className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
+            src={arrowPinkSquareIcon}
+            alt="arrow"
+          />
+        </motion.div>
+      </motion.div>
     </div>
-  </motion.div>
+  </div>
 );

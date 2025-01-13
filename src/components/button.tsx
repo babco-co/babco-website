@@ -21,7 +21,7 @@ const Button = ({
     secondary:
       "bg-black hover:bg-[#2A2A2A] text-base font-medium leading-[120%] text-primary-pink",
     changing:
-      "text-xs font-medium leading-[120%] text-black bg-gradient-to-r from-white via-primary-pink to-white bg-[length:400%_400%] animate-gradient hover:opacity-90",
+      "text-xs font-medium leading-[120%] text-black bg-gradient-to-r from-[#FFF0FB] via-primary-pink to-[#FFF0FB] bg-[length:400%_400%] animate-gradient hover:opacity-90",
   };
 
   return (

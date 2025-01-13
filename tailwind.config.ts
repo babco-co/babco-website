@@ -6,14 +6,39 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         helvetica: ["var(--font-helvetica)"],
       },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: {
+          DEFAULT: "var(--background)",
+          dark: "#000",
+          light: "#FFF9F9",
+        },
+        foreground: {
+          DEFAULT: "var(--foreground)",
+          dark: "#ededed",
+          light: "#2E2E2E",
+        },
+        text: {
+          primary: {
+            light: "#2E2E2E",
+            dark: "#FFFFFF",
+          },
+        },
+        border: {
+          primary: {
+            light: "rgba(0, 0, 0, 0.27)",
+            dark: "rgba(255, 255, 255, 0.27)",
+          },
+          sec: {
+            light: "rgba(0, 0, 0, 0.30)",
+            dark: "rgba(255, 255, 255, 0.30)",
+          },
+        },
         "primary-black": "#0B0A07",
         "primary-white": "#FFFFFF",
         "primary-pink": "#FFC0F1",
@@ -26,15 +51,15 @@ const config: Config = {
         error: "#DD2E44",
       },
       animation: {
-        gradient: 'gradient 6s linear infinite',
+        gradient: "gradient 6s linear infinite",
       },
       keyframes: {
         gradient: {
-          '0%, 100%': {
-            'background-position': '0% 50%',
+          "0%, 100%": {
+            "background-position": "0% 50%",
           },
-          '50%': {
-            'background-position': '100% 50%',
+          "50%": {
+            "background-position": "100% 50%",
           },
         },
       },

@@ -176,7 +176,7 @@ const ContactForm = () => {
               disabled={isLoading}
             >
               <p className="pt-1">{isLoading ? "Sending..." : "Submit"}</p>
-              <Image className="-rotate-45" src={arrowBlackIcon} alt="arrow" />
+              <Image src={arrowBlackIcon} alt="arrow" />
             </Button>
           </div>
         </div>

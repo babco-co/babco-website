@@ -22,7 +22,8 @@ import member12 from "../../../../public/images/members/member-12.webp";
 import member13 from "../../../../public/images/members/member-13.webp";
 import member14 from "../../../../public/images/members/member-14.webp";
 import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
-import { YScrollVariants } from "@/lib/utils/animations";
+import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
+import { ThemeSelector } from "@/components/theme/theme-selector";
 
 const members = [
   { src: member1, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
@@ -82,32 +83,40 @@ const Team = () => {
   return (
     <section className="w-full flex flex-col relative">
       <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-[80px]">
-        <Spacer horizontal className="w-full flex justify-between items-start">
+        <Spacer
+          horizontal
+          className="w-full flex flex-row justify-between items-start"
+        >
           <motion.div
             className="w-full flex flex-col items-start gap-5 lg:gap-16"
             initial="hidden"
             whileInView="visible"
-            variants={YScrollVariants}
-            transition={{ duration: 0.4 }}
-            viewport={{ once: true }}
+            variants={containerVariants}
           >
-            <p className="max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
-              Build something iconic with us
-            </p>
-
-            <Button
-              className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
-              variant="changing"
-              onClick={() => startTransition("/contact-us")}
+            <motion.p
+              className="max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-text-primary-light dark:text-text-primary-dark leading-[100%]"
+              variants={YScrollVariants}
+              transition={{ duration: 0.4 }}
             >
-              <p className="pt-1 text-base leading-[75%]">Contact Us</p>
-              <Image
-                className="w-6 h-6 -rotate-45"
-                src={arrowBlackIcon}
-                alt="arrow"
-              />
-            </Button>
+              Build something iconic with us
+            </motion.p>
+
+            <motion.div
+              variants={YScrollVariants}
+              transition={{ duration: 0.4 }}
+            >
+              <Button
+                className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
+                variant="changing"
+                onClick={() => startTransition("/contact-us")}
+              >
+                <p className="pt-1 text-base leading-[75%]">Contact Us</p>
+                <Image className="w-6 h-6" src={arrowBlackIcon} alt="arrow" />
+              </Button>
+            </motion.div>
           </motion.div>
+
+          <ThemeSelector />
         </Spacer>
 
         <div className="w-full flex flex-col items-center justify-center gap-2 relative mt-[126px]">

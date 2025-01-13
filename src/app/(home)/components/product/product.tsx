@@ -1,3 +1,10 @@
+"use client";
+import { motion } from "motion/react";
+import ProductItem from "./product-item";
+import { StaticImageData } from "next/image";
+import { SliderItem } from "@/components/gallery-slider";
+import { Alignment, Fit } from "@rive-app/react-canvas";
+import { YScrollVariants } from "@/lib/utils/animations";
 import arch1 from "../../../../../public/images/carousel-arch/arch-1.webp";
 import arch2 from "../../../../../public/images/carousel-arch/arch-2.webp";
 import arch3 from "../../../../../public/images/carousel-arch/arch-3.webp";
@@ -26,10 +33,6 @@ import omlet3 from "../../../../../public/images/carousel-omlet/omlet-3.webp";
 // import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
 // import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
 // import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
-import ProductItem from "./product-item";
-import { StaticImageData } from "next/image";
-import { SliderItem } from "@/components/gallery-slider";
-import { Alignment, Fit } from "@rive-app/react-canvas";
 
 // Helper function to create image slides
 const createImageSlide = (
@@ -186,39 +189,53 @@ const omletCarousel: SliderItem[][] = [
 
 const Product = () => {
   return (
-    <section className="w-full flex flex-col items-start justify-center gap-16 lg:gap-[200px]">
-      <ProductItem title={"Arch"} subtitle={"AI"} images={archCarousel} />
-      <ProductItem
-        title={"Brandmarch"}
-        subtitle={"Marketplaces"}
-        images={brandmarchCarousel}
-      />
-      {/* <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} /> */}
-      <ProductItem
-        title={"SQLite Cloud"}
-        subtitle={"Dev Infrastructure"}
-        images={sqliteCarousel}
-      />
-      <ProductItem
-        title={"Tembo"}
-        subtitle={"Dev Infrastructure"}
-        images={temboCarousel}
-      />
-      <ProductItem
-        title={"Omlet"}
-        subtitle={"Observability"}
-        images={omletCarousel}
-      />
-      {/* <ProductItem
+    <section className="w-full flex flex-col items-start">
+      <motion.p
+        className="text-[88px] font-extralight leading-[93%] text-text-primary-light dark:text-text-primary-dark mb-12"
+        initial="hidden"
+        whileInView="visible"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+        viewport={{ once: true }}
+      >
+        Selected
+        <br /> Works
+      </motion.p>
+
+      <div className="w-full flex flex-col items-start justify-center gap-16 lg:gap-[200px">
+        <ProductItem title={"Arch"} subtitle={"AI"} images={archCarousel} />
+        <ProductItem
+          title={"Brandmarch"}
+          subtitle={"Marketplaces"}
+          images={brandmarchCarousel}
+        />
+        {/* <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} /> */}
+        <ProductItem
+          title={"SQLite Cloud"}
+          subtitle={"Dev Infrastructure"}
+          images={sqliteCarousel}
+        />
+        <ProductItem
+          title={"Tembo"}
+          subtitle={"Dev Infrastructure"}
+          images={temboCarousel}
+        />
+        <ProductItem
+          title={"Omlet"}
+          subtitle={"Observability"}
+          images={omletCarousel}
+        />
+        {/* <ProductItem
         title={"Gitar"}
         subtitle={"Dev Tooling + AI"}
         images={gitarCarousel}
       /> */}
-      {/* <ProductItem
+        {/* <ProductItem
         title={"Apolitical"}
         subtitle={"Government"}
         images={apoliticalCarousel}
       /> */}
+      </div>
     </section>
   );
 };
