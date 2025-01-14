@@ -24,7 +24,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           exit={{ x: "100%" }}
           transition={{ type: "tween", duration: 0.3 }}
           id="mobile-menu"
-          className="fixed inset-0 z-40 bg-primary-pink"
+          className="fixed inset-0 z-40 bg-brand-light dark:bg-brand-dark"
           style={{ height: "100dvh" }}
         >
           <div className="h-full overflow-y-auto p-4">
@@ -77,23 +77,24 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     height="32"
                     viewBox="0 0 33 32"
                     fill="none"
+                    className="text-brand-light dark:text-brand-dark"
                   >
                     <rect
                       width="32"
                       height="32"
                       transform="translate(0.5)"
-                      fill="black"
+                      className="fill-black"
                     />
                     <path
                       d="M9.25098 23.2471L22.2773 10.2207"
-                      stroke="#FFC0F1"
+                      className="stroke-current"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                     <path
                       d="M22.2806 22.9499L22.2806 10.222L9.55265 10.222"
-                      stroke="#FFC0F1"
+                      className="stroke-current"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"

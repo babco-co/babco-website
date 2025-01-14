@@ -126,7 +126,7 @@ const SelectField = ({
                   `!border-b ${
                     hasError
                       ? "!border-error"
-                      : "!border-border-sec-light dark:!border-border-sec-dark hover:!border-primary-pink"
+                      : "!border-border-sec-light dark:!border-border-sec-dark focus-within:!border-brand-light focus-within:dark:!border-brand-dark"
                   }`,
                 menu: () =>
                   "!bg-background-light dark:!bg-black !border !border-border-sec-light dark:!border-[rgba(255,255,255,0.30)]",
@@ -143,7 +143,7 @@ const SelectField = ({
                 multiValueLabel: () =>
                   "!text-text-primary-light dark:!text-[#F2F2F2] !text-sm",
                 multiValueRemove: () =>
-                  "hover:!bg-transparent hover:!text-primary-pink",
+                  "hover:!bg-transparent hover:!text-brand-light",
                 input: () => "!text-text-primary-light dark:!text-[#F2F2F2]",
               }}
               className="w-full"

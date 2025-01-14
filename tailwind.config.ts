@@ -16,7 +16,7 @@ const config: Config = {
         background: {
           DEFAULT: "var(--background)",
           dark: "#000",
-          light: "#FFF9F9",
+          light: "#f7f5f2",
         },
         foreground: {
           DEFAULT: "var(--foreground)",
@@ -39,9 +39,11 @@ const config: Config = {
             dark: "rgba(255, 255, 255, 0.30)",
           },
         },
+        brand: { light: "#FF4365", dark: "#FFC0F1" },
         "primary-black": "#0B0A07",
         "primary-white": "#FFFFFF",
         "primary-pink": "#FFC0F1",
+        "sec-pink": "#DE468A",
         "light-gray": "#808080",
         "medium-gray": "#8A8A8A",
         "dark-gray": "#6C6C6C",

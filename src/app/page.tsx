@@ -11,7 +11,7 @@ export default function Page() {
     <div className="w-full min-h-screen font-helvetica">
       <Spacer
         vertical
-        className="mx-3 sm:mx-5 mt-5 border-[0.5px] border-border-primary-light dark:border-border-primary-dark rounded-[10px] bg-white dark:bg-[#0C0C0C]"
+        className="mx-3 sm:mx-5 mt-5 border-[0.5px] border-border-primary-light dark:border-border-primary-dark rounded-[10px] bg-white/50 dark:bg-[#0C0C0C]"
       >
         <Header />
         <Hero />
@@ -29,7 +29,7 @@ export default function Page() {
         <Offer />
       </Spacer>
 
-      <Spacer className="mx-3 sm:mx-5 border-[0.5px] border-border-primary-light dark:border-border-primary-dark rounded-[10px] bg-white dark:bg-[#0C0C0C]">
+      <Spacer className="mx-3 sm:mx-5 border-[0.5px] border-border-primary-light dark:border-border-primary-dark rounded-[10px] bg-white/50 dark:bg-[#0C0C0C]">
         <Team />
       </Spacer>
     </div>

@@ -12,15 +12,17 @@ import menuIcon from "../../../public/icons/hamburger-icon.svg";
 import closeIcon from "../../../public/icons/close-icon.svg";
 import muteIcon from "../../../public/icons/mute-icon.svg";
 import unmuteIcon from "../../../public/icons/unmute-icon.svg";
+import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
 const Header = () => {
+  const { getFullGradientClass } = useThemeVariant();
   const { startTransition } = useTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeRef = useRef<number | null>(null);
 
-  // Initialize audio once
+  // Audio initialization and cleanup
   useEffect(() => {
     audioRef.current = new Audio("/music/babco.mp3");
     audioRef.current.loop = true;
@@ -38,11 +40,12 @@ const Header = () => {
     };
   }, []);
 
+  // Fade audio function
   const fadeAudio = (fadeIn: boolean) => {
     if (!audioRef.current || fadeRef.current) return;
 
     const startTime = performance.now();
-    const duration = 500; // 500ms fade
+    const duration = 500;
     const startVolume = audioRef.current.volume;
     const targetVolume = fadeIn ? 0.8 : 0;
 
@@ -71,7 +74,6 @@ const Header = () => {
   const handleToggleAudio = () => {
     if (!audioRef.current) return;
 
-    // Cancel any ongoing fade
     if (fadeRef.current) {
       cancelAnimationFrame(fadeRef.current);
       fadeRef.current = null;
@@ -130,9 +132,7 @@ const Header = () => {
         <Link className="flex flex-1 items-center justify-start z-50" href="./">
           <div
             className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${
-              isMenuOpen
-                ? "bg-black"
-                : "bg-gradient-to-r from-white via-primary-pink to-white bg-[length:400%_400%] animate-gradient"
+              isMenuOpen ? "bg-black" : getFullGradientClass()
             }`}
           >
             <svg
@@ -141,11 +141,12 @@ const Header = () => {
               height="38"
               viewBox="0 0 38 38"
               fill="none"
+              className="text-brand-light dark:text-brand-dark"
             >
               <circle cx="19" cy="19" r="19" />
               <path
                 d="M20.6453 28.885C24.9846 28.885 27.1543 26.2033 27.1543 23.5216C27.1543 21.0939 25.3691 18.6663 21.8262 18.2428C24.0783 17.396 25.4515 15.4482 25.4515 13.5569C25.4515 11.2986 23.4466 9.125 18.6129 9.125H12.4884V28.4333H12.4609V28.885H20.6453ZM20.3432 18.6098C22.9523 18.6098 24.2431 21.0657 24.2431 23.5216C24.2431 25.9775 22.9523 28.4333 20.3432 28.4333H14.9876V9.57666H18.4481C21.4143 9.57666 22.8973 11.6656 22.8973 13.8109C22.8973 16.041 21.3044 18.2993 18.1186 18.2993C17.3496 18.2993 16.4982 18.1864 15.5369 17.8759C16.8827 18.4404 18.1186 18.6945 19.2446 18.6945C19.6291 18.6945 19.9861 18.6663 20.3432 18.6098Z"
-                fill={isMenuOpen ? "#FFC0F1" : "#000"}
+                className={isMenuOpen ? "fill-current" : "fill-black"}
               />
             </svg>
           </div>
@@ -153,20 +154,9 @@ const Header = () => {
 
         {/* Center navigation */}
         <div className="flex flex-1 items-center justify-center gap-5">
-          {/* <NavigationLink
-            href="/works"
-            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink"
-          >
-            Works
-          </NavigationLink>
-
-          <div className="hidden sm:flex items-start justify-center text-center">
-            <p className="text-light-gray mb-2">.</p>
-          </div> */}
-
           <NavigationLink
             href="/merch"
-            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink"
+            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
             external
           >
             Merch
@@ -178,14 +168,14 @@ const Header = () => {
 
           <NavigationLink
             href={LINKEDIN}
-            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink"
+            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
             external
           >
             Follow
           </NavigationLink>
         </div>
 
-        {/* Right section with audio control and menu */}
+        {/* Right section */}
         <div className="flex flex-1 items-center justify-end gap-5">
           <button
             className="flex-shrink-0 group relative touch-manipulation"
@@ -214,8 +204,8 @@ const Header = () => {
           <button
             className={`w-[38px] h-[38px] flex sm:hidden flex-shrink-0 items-center justify-center rounded-full z-50 ${
               isMenuOpen
-                ? "bg-primary-pink"
-                : "bg-gradient-to-r from-white via-primary-pink to-white bg-[length:400%_400%] animate-gradient"
+                ? "bg-brand-light dark:bg-brand-dark"
+                : getFullGradientClass()
             }`}
             onClick={handleToggleMenu}
           >

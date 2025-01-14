@@ -10,26 +10,18 @@ const BabcoLogo = ({
   fill: string;
   className?: string;
 }) => {
-  const { theme, systemTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Define the gradient colors matching your button gradient
   const gradientFill = "url(#logoGradient)";
 
   const getCurrentFill = () => {
     if (!mounted) return fill;
-
-    // If theme is system, use systemTheme to determine the fill
-    if (theme === "system") {
-      return systemTheme === "light" ? gradientFill : fill;
-    }
-
-    // Otherwise use the explicitly set theme
-    return theme === "light" ? gradientFill : fill;
+    return resolvedTheme === "light" ? gradientFill : fill;
   };
 
   const currentFill = getCurrentFill();
@@ -45,9 +37,12 @@ const BabcoLogo = ({
     >
       <defs>
         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: "#FFF0FB" }} />
-          <stop offset="50%" style={{ stopColor: "#FF9DE3" }} />
-          <stop offset="100%" style={{ stopColor: "#FFF0FB" }} />
+          <stop offset="0%" style={{ stopColor: "#FF4365" }} />
+          <stop
+            offset="50%"
+            style={{ stopColor: "rgba(255, 67, 101, 0.34)" }}
+          />
+          <stop offset="100%" style={{ stopColor: "#FF4365" }} />
         </linearGradient>
       </defs>
 

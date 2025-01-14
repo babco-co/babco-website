@@ -1,4 +1,5 @@
 "use client";
+
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import RiveWrapper from "@/components/rive-wrapper";
@@ -6,32 +7,19 @@ import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { motion } from "motion/react";
 
 const Hero = () => {
-  const { theme, systemTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Handle mounting to avoid hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const getAnimationSrc = () => {
     if (!mounted) return "animations/logo.riv";
-
-    // If theme is system, use systemTheme to determine the animation
-    if (theme === "system") {
-      return systemTheme === "light"
-        ? "animations/logo-light.riv"
-        : "animations/logo.riv";
-    }
-
-    // Otherwise use the explicitly set theme
-    return theme === "light"
+    return resolvedTheme === "light"
       ? "animations/logo-light.riv"
       : "animations/logo.riv";
   };
-
-  // Get current theme for key prop to force re-render
-  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <section className="w-full h-full flex flex-col items-center justify-center">
@@ -40,7 +28,7 @@ const Hero = () => {
         autoplay={true}
         playOnView={false}
         containerClassName="w-full h-[500px] sm:h-[80vh]"
-        key={currentTheme} // Force re-render when theme changes
+        key={resolvedTheme} // Force re-render when theme changes
       />
 
       <motion.div

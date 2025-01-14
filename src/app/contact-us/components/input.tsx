@@ -33,7 +33,7 @@ const InputField = ({
             ? "border-error"
             : "border-border-sec-light dark:border-border-sec-dark"
         }
-        focus-within:border-primary-pink dark:focus-within:border-primary-pink outline-none bg-transparent 
+        focus-within:border-brand-light focus-within:dark:border-brand-dark outline-none bg-transparent 
         text-sm font-normal leading-[24px] text-text-primary-light dark:text-text-primary-dark placeholder-[#6E6E6E]
         [&:-webkit-autofill]:bg-black
         [&:-webkit-autofill]:shadow-[0_0_0_30px_black_inset]
