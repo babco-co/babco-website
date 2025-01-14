@@ -10,7 +10,7 @@ const BabcoLogo = ({
   fill: string;
   className?: string;
 }) => {
-  const { theme } = useTheme();
+  const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -19,7 +19,20 @@ const BabcoLogo = ({
 
   // Define the gradient colors matching your button gradient
   const gradientFill = "url(#logoGradient)";
-  const currentFill = mounted && theme === "light" ? gradientFill : fill;
+
+  const getCurrentFill = () => {
+    if (!mounted) return fill;
+
+    // If theme is system, use systemTheme to determine the fill
+    if (theme === "system") {
+      return systemTheme === "light" ? gradientFill : fill;
+    }
+
+    // Otherwise use the explicitly set theme
+    return theme === "light" ? gradientFill : fill;
+  };
+
+  const currentFill = getCurrentFill();
 
   return (
     <svg

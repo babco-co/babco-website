@@ -6,7 +6,7 @@ import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { motion } from "motion/react";
 
 const Hero = () => {
-  const { theme } = useTheme();
+  const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // Handle mounting to avoid hydration mismatch
@@ -16,10 +16,22 @@ const Hero = () => {
 
   const getAnimationSrc = () => {
     if (!mounted) return "animations/logo.riv";
-    return theme === "dark"
-      ? "animations/logo.riv"
-      : "animations/logo-light.riv";
+
+    // If theme is system, use systemTheme to determine the animation
+    if (theme === "system") {
+      return systemTheme === "light"
+        ? "animations/logo-light.riv"
+        : "animations/logo.riv";
+    }
+
+    // Otherwise use the explicitly set theme
+    return theme === "light"
+      ? "animations/logo-light.riv"
+      : "animations/logo.riv";
   };
+
+  // Get current theme for key prop to force re-render
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <section className="w-full h-full flex flex-col items-center justify-center">
@@ -28,7 +40,7 @@ const Hero = () => {
         autoplay={true}
         playOnView={false}
         containerClassName="w-full h-[500px] sm:h-[80vh]"
-        key={theme} // Force re-render when theme changes
+        key={currentTheme} // Force re-render when theme changes
       />
 
       <motion.div
