@@ -45,7 +45,7 @@ export const schema = yup.object().shape({
         .oneOf([
           "Web Design",
           "Motion",
-          "Engenering",
+          "Engineering",
           "UI+UX Design",
           "Merch",
           "Illustration",
