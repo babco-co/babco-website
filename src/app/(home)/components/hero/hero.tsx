@@ -14,13 +14,13 @@ const Hero = () => {
       />
 
       <motion.div
-        className="w-full flex flex-col sm:flex-row items-center justify-between gap-10 px-[44px] mb-[120px]"
+        className="w-full flex flex-row items-center justify-start gap-0 lg:gap-10 px-3 lg:px-[44px] mb-[120px]"
         initial="hidden"
         whileInView="visible"
         variants={containerVariants}
       >
         <motion.p
-          className="max-w-[670px] text-3xl lg:text-[80px] font-extralight leading-[108%] text-text-primary-light dark:text-text-primary-dark"
+          className="max-w-[162px] lg:max-w-[670px] text-[28px] lg:text-[80px] font-extralight leading-[108%] text-text-primary-light dark:text-text-primary-dark"
           variants={YScrollVariants}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
@@ -30,13 +30,13 @@ const Hero = () => {
 
         <motion.div variants={YScrollVariants} transition={{ duration: 0.4 }}>
           <div
-            className="w-[50px] sm:w-[140px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+            className="w-[80px] lg:w-[140px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
             style={{ transform: "rotate(-65.363deg)" }}
           />
         </motion.div>
 
         <motion.p
-          className="max-w-[422px] text-lg lg:text-[32px] font-extralight leading-[120%] text-text-primary-light dark:text-text-primary-dark"
+          className="max-w-[173px] lg:max-w-[422px] text-xs lg:text-[32px] font-extralight leading-[120%] text-text-primary-light dark:text-text-primary-dark"
           variants={YScrollVariants}
           transition={{ duration: 0.4 }}
         >

@@ -85,10 +85,10 @@ const Team = () => {
       <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-[80px]">
         <Spacer
           horizontal
-          className="w-full flex flex-row justify-between items-start"
+          className="w-full flex flex-col lg:flex-row justify-between items-start gap-10"
         >
           <motion.div
-            className="w-full flex flex-col items-start gap-5 lg:gap-16"
+            className="w-full flex flex-col items-start gap-10 lg:gap-16"
             initial="hidden"
             whileInView="visible"
             variants={containerVariants}
