@@ -54,9 +54,7 @@ export const TransitionProvider = ({
       <AnimatePresence>
         {isTransitioning && (
           <motion.div
-            className={`flex items-center justify-center fixed inset-0 z-50 ${getFullGradientClass(
-              "transition"
-            )}`}
+            className={`flex items-center justify-center fixed inset-0 z-50 ${getFullGradientClass()}`}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
