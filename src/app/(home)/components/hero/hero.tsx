@@ -1,16 +1,34 @@
 "use client";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import RiveWrapper from "@/components/rive-wrapper";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { motion } from "motion/react";
 
 const Hero = () => {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Handle mounting to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const getAnimationSrc = () => {
+    if (!mounted) return "animations/logo.riv";
+    return theme === "dark"
+      ? "animations/logo.riv"
+      : "animations/logo-light.riv";
+  };
+
   return (
     <section className="w-full h-full flex flex-col items-center justify-center">
       <RiveWrapper
-        src="animations/logo.riv"
+        src={getAnimationSrc()}
         autoplay={true}
         playOnView={false}
         containerClassName="w-full h-[500px] sm:h-[80vh]"
+        key={theme} // Force re-render when theme changes
       />
 
       <motion.div
