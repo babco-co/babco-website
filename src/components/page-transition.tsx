@@ -60,7 +60,7 @@ export const TransitionProvider = ({
             exit={{ y: "-100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
-            <AnimatedSvgLogo fill={"#000"} />
+            <AnimatedSvgLogo />
           </motion.div>
         )}
       </AnimatePresence>
@@ -85,9 +85,11 @@ const svgPaths = [
 ];
 
 // Animated SVG Component for Transition
-const AnimatedSvgLogo = ({ fill = "currentColor" }: { fill?: string }) => {
+const AnimatedSvgLogo = ({ fill }: { fill?: string }) => {
   const [visiblePaths, setVisiblePaths] = useState<number>(0);
   const { isTransitioning } = useTransition();
+  const { currentTheme } = useThemeVariant();
+  const fillColor = fill || (currentTheme === "light" ? "white" : "black");
 
   useEffect(() => {
     if (isTransitioning) {
@@ -125,12 +127,12 @@ const AnimatedSvgLogo = ({ fill = "currentColor" }: { fill?: string }) => {
             initial={{
               pathLength: 0,
               fill: "none",
-              stroke: fill,
+              stroke: fillColor,
               strokeWidth: 1,
             }}
             animate={{
               pathLength: index < visiblePaths ? 1 : 0,
-              fill: index < visiblePaths ? fill : "none",
+              fill: index < visiblePaths ? fillColor : "none",
               strokeWidth: index < visiblePaths ? [1, 0] : 1,
             }}
             transition={{
