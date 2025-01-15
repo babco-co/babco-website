@@ -1,11 +1,12 @@
 "use client";
 
 import React, { ButtonHTMLAttributes, ReactNode } from "react";
-import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant: "primary" | "secondary" | "changing";
-  bgColor?: string;
+  className?: string;
   children: ReactNode;
 }
 
@@ -15,9 +16,14 @@ const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  const { getFullGradientClass } = useThemeVariant();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const baseClasses =
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const baseClasses = 
     "flex flex-row items-center justify-center px-4 py-3 rounded transition-all duration-300";
 
   const variantClasses = {
@@ -25,8 +31,33 @@ const Button = ({
       "bg-brand-light dark:bg-brand-dark hover:opacity-90 text-xs font-medium leading-[120%] text-black",
     secondary:
       "bg-black hover:bg-[#2A2A2A] text-base font-medium leading-[120%] text-brand-light dark:text-brand-dark",
-    changing: `text-xs font-medium leading-[120%] text-black ${getFullGradientClass()} hover:opacity-90`,
+    changing: "text-xs font-medium leading-[120%] text-black hover:opacity-90",
   };
+
+  const getGradientClasses = () => {
+    if (!mounted) {
+      return "bg-gradient-to-r bg-[length:400%_400%] animate-gradient from-[#DE468A] via-[#FF4365] to-[#DE468A]";
+    }
+
+    const baseGradient = "bg-gradient-to-r bg-[length:400%_400%] animate-gradient";
+    return `${baseGradient} ${
+      resolvedTheme === "light"
+        ? "from-[#DE468A] via-[#FF4365] to-[#DE468A]"
+        : "from-white via-brand-dark to-white"
+    }`;
+  };
+
+  if (variant === "changing") {
+    return (
+      <button
+        suppressHydrationWarning
+        className={`${baseClasses} ${variantClasses[variant]} ${getGradientClasses()} ${className}`}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
 
   return (
     <button
