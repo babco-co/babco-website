@@ -32,7 +32,7 @@ export const TransitionProvider = ({
       setIsTransitioning(true);
 
       // Wait for the animation to complete
-      await new Promise((resolve) => setTimeout(resolve, 2500));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
       // Navigate to the new route
       await router.push(route);

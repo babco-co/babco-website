@@ -106,7 +106,7 @@ const brandmarchCarousel: SliderItem[][] = [
     createImageSlide(brandmarch2, 344, 193),
     createImageSlide(brandmarch3, 344, 331),
   ],
-  [createImageSlide(brandmarch4, 540, 540)],
+  [createImageSlide(brandmarch4, 720, 540)],
   [
     createImageSlide(brandmarch5, 344, 193),
     createImageSlide(brandmarch6, 344, 331),
@@ -116,7 +116,7 @@ const brandmarchCarousel: SliderItem[][] = [
     createImageSlide(brandmarch2, 344, 193),
     createImageSlide(brandmarch3, 344, 331),
   ],
-  [createImageSlide(brandmarch4, 540, 540)],
+  [createImageSlide(brandmarch4, 720, 540)],
   [
     createImageSlide(brandmarch5, 344, 193),
     createImageSlide(brandmarch6, 344, 331),
@@ -191,7 +191,7 @@ const Product = () => {
   return (
     <section className="w-full flex flex-col items-start">
       <motion.p
-        className="text-[88px] font-extralight leading-[93%] text-text-primary-light dark:text-text-primary-dark mb-12"
+        className="cursor-scale text-[88px] font-extralight leading-[93%] text-text-primary-light dark:text-text-primary-dark mb-12"
         initial="hidden"
         whileInView="visible"
         variants={YScrollVariants}

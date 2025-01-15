@@ -90,7 +90,7 @@ const TeamBehind = () => {
   );
 
   return (
-    <section className="w-full flex flex-col overflow-x-hidden">
+    <section className="cursor-scale w-full flex flex-col overflow-x-hidden">
       <motion.div
         className="w-full flex flex-row items-center justify-start"
         initial="hidden"

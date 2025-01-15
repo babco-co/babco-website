@@ -22,7 +22,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="w-full h-full flex flex-col items-center justify-center">
+    <section className="w-full h-full flex flex-col items-center justify-center overflow-x-hidden">
       <RiveWrapper
         src={getAnimationSrc()}
         autoplay={true}
@@ -32,13 +32,13 @@ const Hero = () => {
       />
 
       <motion.div
-        className="w-full flex flex-row items-center justify-start gap-0 lg:gap-10 px-3 lg:px-[44px] mb-[120px]"
+        className="cursor-scale w-full flex flex-row items-center justify-start gap-0 lg:gap-10 px-3 lg:px-[44px] mb-[120px]"
         initial="hidden"
         whileInView="visible"
         variants={containerVariants}
       >
         <motion.p
-          className="max-w-[162px] lg:max-w-[670px] text-[28px] lg:text-[80px] font-extralight leading-[108%] text-text-primary-light dark:text-text-primary-dark"
+          className="min-w-0 xs:min-w-[162px] lg:max-w-[670px] text-lg xs:text-[28px] lg:text-[80px] font-extralight leading-[108%] text-text-primary-light dark:text-text-primary-dark"
           variants={YScrollVariants}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
@@ -48,8 +48,13 @@ const Hero = () => {
 
         <motion.div variants={YScrollVariants} transition={{ duration: 0.4 }}>
           <div
-            className="w-[80px] lg:w-[140px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+            className="hidden sm:block w-[80px] lg:w-[140px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
             style={{ transform: "rotate(-65.363deg)" }}
+          />
+
+          <div
+            className="block sm:hidden w-[80px] lg:w-[140px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+            style={{ transform: "rotate(65.363deg)" }}
           />
         </motion.div>
 

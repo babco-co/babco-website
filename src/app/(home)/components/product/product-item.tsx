@@ -50,7 +50,7 @@ const ProductItem = ({
           </motion.div>
 
           <motion.p
-            className="text-[32px] lg:text-[42px] font-extralight leading-[120%] text-text-primary-light dark:text-text-primary-dark"
+            className="cursor-scale text-[32px] lg:text-[42px] font-extralight leading-[120%] text-text-primary-light dark:text-text-primary-dark"
             variants={YScrollVariants}
             transition={{ duration: 0.4 }}
           >

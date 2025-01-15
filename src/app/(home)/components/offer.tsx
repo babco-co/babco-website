@@ -146,7 +146,7 @@ const WorkWithUsDescription = ({
         viewport={{ once: true }}
       >
         <motion.p
-          className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-brand-light dark:hover:text-brand-dark"
+          className="cursor-scale text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-brand-light dark:hover:text-brand-dark"
           variants={YScrollVariants}
           transition={{ duration: 0.4 }}
         >
@@ -198,7 +198,7 @@ const ItemHeader = ({ tag, title }: { tag: string; title: string }) => (
     </motion.p>
 
     <motion.p
-      className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-text-primary-light dark:text-text-primary-dark hover:text-brand-light dark:hover:text-brand-dark"
+      className="cursor-scale max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-text-primary-light dark:text-text-primary-dark hover:text-brand-light dark:hover:text-brand-dark"
       variants={YScrollVariants}
       transition={{ duration: 0.4 }}
     >

@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import TransitionProvider from "@/components/page-transition";
 import { helveticaNeue, inter } from "@/styles/fonts";
 import Footer from "@/components/footer";
-import "../styles/globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import CustomCursor from "@/components/custom-cursor";
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Babco.co",
@@ -22,6 +23,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <TransitionProvider>
+            <CustomCursor />
             {children}
             <Footer />
           </TransitionProvider>

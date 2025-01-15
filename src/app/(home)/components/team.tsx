@@ -94,7 +94,7 @@ const Team = () => {
             viewport={{ once: true }}
           >
             <motion.p
-              className="max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-text-primary-light dark:text-text-primary-dark leading-[100%]"
+              className="cursor-scale max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-text-primary-light dark:text-text-primary-dark leading-[100%]"
               variants={YScrollVariants}
               transition={{ duration: 0.4 }}
             >
@@ -137,7 +137,7 @@ const Team = () => {
                 (item, index) => (
                   <div
                     key={index}
-                    className="flex-[0_0_auto] pr-[12px] sm:pr-[40px] even:self-end"
+                    className="cursor-scale flex-[0_0_auto] pr-[12px] sm:pr-[40px] even:self-end"
                   >
                     <Image
                       className={item.className}
@@ -161,7 +161,7 @@ const Team = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex-[0_0_auto] pr-[12px] sm:pr-[40px] odd:mt-12"
+                  className="cursor-scale flex-[0_0_auto] pr-[12px] sm:pr-[40px] odd:mt-12"
                 >
                   <Image
                     className={item.className}
