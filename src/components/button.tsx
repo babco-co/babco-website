@@ -23,7 +23,7 @@ const Button = ({
     setMounted(true);
   }, []);
 
-  const baseClasses = 
+  const baseClasses =
     "flex flex-row items-center justify-center px-4 py-3 rounded transition-all duration-300";
 
   const variantClasses = {
@@ -39,7 +39,8 @@ const Button = ({
       return "bg-gradient-to-r bg-[length:400%_400%] animate-gradient from-[#DE468A] via-[#FF4365] to-[#DE468A]";
     }
 
-    const baseGradient = "bg-gradient-to-r bg-[length:400%_400%] animate-gradient";
+    const baseGradient =
+      "bg-gradient-to-r bg-[length:400%_400%] animate-gradient";
     return `${baseGradient} ${
       resolvedTheme === "light"
         ? "from-[#DE468A] via-[#FF4365] to-[#DE468A]"
@@ -50,8 +51,10 @@ const Button = ({
   if (variant === "changing") {
     return (
       <button
-        suppressHydrationWarning
-        className={`${baseClasses} ${variantClasses[variant]} ${getGradientClasses()} ${className}`}
+        key={resolvedTheme}
+        className={`${baseClasses} ${
+          variantClasses[variant]
+        } ${getGradientClasses()} ${className}`}
         {...props}
       >
         {children}
