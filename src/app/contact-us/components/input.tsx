@@ -20,7 +20,7 @@ const InputField = ({
   return (
     <div className="w-full flex flex-col gap-2 items-start justify-center">
       <label
-        className="text-sm font-medium leading-[24px] text-[#F2F2F2]"
+        className="text-sm font-medium leading-[24px] text-text-primary-light dark:text-[#F2F2F2]"
         htmlFor={name}
       >
         {label}
@@ -28,13 +28,17 @@ const InputField = ({
 
       <input
         className={`w-full h-12 py-3 border-b 
-        ${hasError ? "border-error" : "border-[#EBEAE7]/10"}
-        focus-within:border-primary-pink outline-none bg-transparent 
-        text-sm font-normal leading-[24px] text-primary-white placeholder-[#6E6E6E]
+        ${
+          hasError
+            ? "border-error"
+            : "border-border-sec-light dark:border-border-sec-dark"
+        }
+        focus-within:border-brand-light focus-within:dark:border-brand-dark outline-none bg-transparent 
+        text-sm font-normal leading-[24px] text-text-primary-light dark:text-text-primary-dark placeholder-[#6E6E6E]
         [&:-webkit-autofill]:bg-black
         [&:-webkit-autofill]:shadow-[0_0_0_30px_black_inset]
-        [&:-webkit-autofill]:text-primary-white
-        [&:-webkit-autofill]:[-webkit-text-fill-color:#fff]
+        [&:-webkit-autofill]:text-text-primary-light dark:[&:-webkit-autofill]:text-text-primary-dark
+        [&:-webkit-autofill]:[-webkit-text-fill-color:text-text-primary-light] dark:[&:-webkit-autofill]:[-webkit-text-fill-color:text-text-primary-dark]
         [&:-webkit-autofill]:[transition-delay:9999s]
         [&:-webkit-autofill]:[-webkit-box-shadow:0_0_0_30px_black_inset]
         appearance-none

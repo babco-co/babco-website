@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { createContext, useContext } from "react";
 import { useRouter } from "next/navigation";
+import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
 type TransitionContextType = {
   isTransitioning: boolean;
@@ -24,6 +25,7 @@ export const TransitionProvider = ({
 }) => {
   const router = useRouter();
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const { getFullGradientClass } = useThemeVariant();
 
   const startTransition = async (route: string) => {
     try {
@@ -52,7 +54,7 @@ export const TransitionProvider = ({
       <AnimatePresence>
         {isTransitioning && (
           <motion.div
-            className="flex items-center justify-center fixed inset-0 z-50 bg-gradient-to-r from-white via-primary-pink to-white bg-[length:400%_400%] animate-gradient"
+            className={`flex items-center justify-center fixed inset-0 z-50 ${getFullGradientClass()}`}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}

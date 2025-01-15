@@ -1,13 +1,14 @@
 "use client";
 import Image from "next/image";
 import { motion } from "motion/react";
-import arrowWhiteIcon from "../../../../public/icons/arrow-white-icon.svg";
-import arrowPinkSquareIcon from "../../../../public/icons/arrow-pink-square.svg";
-import { YScrollVariants } from "@/lib/utils/animations";
+import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
+import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { useTransition } from "@/components/page-transition";
+import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
 const Offer = () => {
   const { startTransition } = useTransition();
+  const { getFullGradientClass } = useThemeVariant();
 
   const handleItemClick = () => {
     startTransition("/contact-us");
@@ -38,12 +39,23 @@ const Offer = () => {
         descSec="Product Design"
         descThird="Engineering"
         onItemClick={handleItemClick}
+        getFullGradientClass={getFullGradientClass}
       />
     </section>
   );
 };
 
 export default Offer;
+
+interface ItemProps {
+  title: string;
+  tag: string;
+  descFirst: string;
+  descSec: string;
+  descThird: string;
+  onItemClick?: () => void;
+  getFullGradientClass?: () => string;
+}
 
 const RegularItem = ({
   title,
@@ -52,46 +64,42 @@ const RegularItem = ({
   descSec,
   descThird,
   onItemClick,
-}: {
-  title: string;
-  tag: string;
-  descFirst: string;
-  descSec: string;
-  descThird: string;
-  onItemClick?: () => void;
-}) => (
-  <motion.div
+}: ItemProps) => (
+  <div
     className="w-full flex flex-col lg:flex-row gap-10 items-center justify-between py-8 lg:py-[91px] cursor-pointer"
-    initial="hidden"
-    whileInView="visible"
-    variants={YScrollVariants}
-    transition={{ duration: 0.4 }}
-    viewport={{ once: true }}
     onClick={onItemClick}
   >
-    <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
-      <Image src={arrowWhiteIcon} alt="arrow" className="mb-2" />
+    <ItemHeader tag={tag} title={title} />
+    <RegularDescription
+      descFirst={descFirst}
+      descSec={descSec}
+      descThird={descThird}
+    />
+  </div>
+);
 
-      <p className="text-base font-extralight leading-[120%] text-dark-gray mb-5">
-        {tag}
-      </p>
-
-      <p className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-primary-pink">
-        {title}
-      </p>
-    </div>
-
-    <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-3 lg:gap-5">
-      <p className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray">
-        {descFirst}
-      </p>
-      <p className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray">
-        {descSec}
-      </p>
-      <p className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray">
-        {descThird}
-      </p>
-    </div>
+const RegularDescription = ({
+  descFirst,
+  descSec,
+  descThird,
+}: Pick<ItemProps, "descFirst" | "descSec" | "descThird">) => (
+  <motion.div
+    className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-3 lg:gap-5"
+    initial="hidden"
+    whileInView="visible"
+    variants={containerVariants}
+    viewport={{ once: true }}
+  >
+    {[descFirst, descSec, descThird].map((desc, index) => (
+      <motion.p
+        key={index}
+        className="text-base lg:text-xl font-extralight leading-[100%] text-light-gray"
+        variants={YScrollVariants}
+        transition={{ duration: 0.4 }}
+      >
+        {desc}
+      </motion.p>
+    ))}
   </motion.div>
 );
 
@@ -102,68 +110,99 @@ const WorkWithUsItem = ({
   descSec,
   descThird,
   onItemClick,
-}: {
-  title: string;
-  tag: string;
-  descFirst: string;
-  descSec: string;
-  descThird: string;
-  onItemClick?: () => void;
-}) => (
-  <motion.div
+  getFullGradientClass,
+}: ItemProps) => (
+  <div
     className="w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center justify-between py-8 lg:py-[91px] cursor-pointer"
-    initial="hidden"
-    whileInView="visible"
-    variants={YScrollVariants}
-    transition={{ duration: 0.4 }}
-    viewport={{ once: true }}
     onClick={onItemClick}
   >
-    <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
-      <Image src={arrowWhiteIcon} alt="arrow" className="mb-2" />
+    <ItemHeader tag={tag} title={title} />
+    <WorkWithUsDescription
+      descFirst={descFirst}
+      descSec={descSec}
+      descThird={descThird}
+      getFullGradientClass={getFullGradientClass}
+    />
+  </div>
+);
 
-      <p className="text-base font-extralight leading-[120%] text-dark-gray mb-5">
-        {tag}
-      </p>
+const WorkWithUsDescription = ({
+  descFirst,
+  descSec,
+  descThird,
+  getFullGradientClass,
+}: Pick<
+  ItemProps,
+  "descFirst" | "descSec" | "descThird" | "getFullGradientClass"
+>) => (
+  <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-8">
+    {[descFirst, descSec, descThird].map((desc, index) => (
+      <motion.div
+        key={index}
+        className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-border-sec-light dark:border-border-sec-dark"
+        initial="hidden"
+        whileInView="visible"
+        variants={containerVariants}
+        viewport={{ once: true }}
+      >
+        <motion.p
+          className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-brand-light dark:hover:text-brand-dark"
+          variants={YScrollVariants}
+          transition={{ duration: 0.4 }}
+        >
+          {desc}
+        </motion.p>
+        <motion.div
+          className={`w-[55px] h-[55px] flex items-center justify-center rounded-lg ${getFullGradientClass?.()}`}
+          variants={YScrollVariants}
+          transition={{ duration: 0.4 }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="19"
+            height="17"
+            viewBox="0 0 19 17"
+            fill="none"
+          >
+            <path
+              d="M18.4676 3.11683C18.5318 2.56829 18.1392 2.07157 17.5906 2.00739L8.65161 0.961401C8.10307 0.897214 7.60636 1.28986 7.54217 1.8384C7.47798 2.38695 7.87063 2.88366 8.41917 2.94785L16.365 3.87761L15.4352 11.8234C15.371 12.3719 15.7637 12.8687 16.3122 12.9328C16.8607 12.997 17.3575 12.6044 17.4216 12.0558L18.4676 3.11683ZM1.62013 16.8079L18.0945 3.78511L16.8543 2.21611L0.379865 15.2389L1.62013 16.8079Z"
+              className="fill-white dark:fill-black"
+            />
+          </svg>
+        </motion.div>
+      </motion.div>
+    ))}
+  </div>
+);
 
-      <p className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-primary-pink">
-        {title}
-      </p>
-    </div>
+const ItemHeader = ({ tag, title }: { tag: string; title: string }) => (
+  <motion.div
+    className="w-full lg:w-1/2 flex flex-col items-start justify-center"
+    initial="hidden"
+    whileInView="visible"
+    variants={containerVariants}
+    viewport={{ once: true }}
+  >
+    <Image
+      className="invert-0 dark:invert mb-2"
+      src={arrowBlackIcon}
+      alt="arrow"
+    />
 
-    <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-8">
-      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
-          {descFirst}
-        </p>
-        <Image
-          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
-          src={arrowPinkSquareIcon}
-          alt="arrow"
-        />
-      </div>
+    <motion.p
+      className="text-base font-extralight leading-[120%] text-dark-gray mb-5"
+      variants={YScrollVariants}
+      transition={{ duration: 0.4 }}
+    >
+      {tag}
+    </motion.p>
 
-      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
-          {descSec}
-        </p>
-        <Image
-          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
-          src={arrowPinkSquareIcon}
-          alt="arrow"
-        />
-      </div>
-
-      <div className="w-full flex flex-row items-center justify-between pb-2 border-b-[0.5px] border-white/30">
-        <p className="text-2xl lg:text-[42px] font-extralight leading-[200%] text-medium-gray hover:text-primary-pink">
-          {descThird}
-        </p>
-        <Image
-          className="w-10 h-10 sm:w-[55px] sm:h-[55px]"
-          src={arrowPinkSquareIcon}
-          alt="arrow"
-        />
-      </div>
-    </div>
+    <motion.p
+      className="max-w-[440px] text-[32px] lg:text-[88px] font-extralight leading-normal lg:leading-[100%] text-text-primary-light dark:text-text-primary-dark hover:text-brand-light dark:hover:text-brand-dark"
+      variants={YScrollVariants}
+      transition={{ duration: 0.4 }}
+    >
+      {title}
+    </motion.p>
   </motion.div>
 );

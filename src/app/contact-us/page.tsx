@@ -5,7 +5,7 @@ import { pageVariants } from "@/lib/utils/animations";
 import { Spacer } from "@/components/spacer";
 import Header from "@/components/header/header";
 import Image from "next/image";
-import arrowWhiteIcon from "../../../public/icons/arrow-white-icon.svg";
+import arrowBlackIcon from "../../../public/icons/arrow-black-icon.svg";
 
 export default function ContactUsPage() {
   return (
@@ -23,13 +23,13 @@ export default function ContactUsPage() {
         exit="exit"
       >
         <div className="w-full sm:max-w-[316px] flex items-center justify-start group">
-          <p className="text-3xl sm:text-[42px] font-extralight leading-[100%] text-primary-white">
+          <p className="text-3xl sm:text-[42px] font-extralight leading-[100%] text-text-primary-light dark:text-text-primary-dark">
             Build something iconic with us
           </p>
           <Image
-            src={arrowWhiteIcon}
+            src={arrowBlackIcon}
             alt="arrow"
-            className="hidden sm:block w-[22px] h-auto rotate-90 translate-y-6 -translate-x-8"
+            className="hidden sm:block w-[22px] h-auto rotate-90 translate-y-6 -translate-x-8 invert-0 dark:invert"
           />
         </div>
 

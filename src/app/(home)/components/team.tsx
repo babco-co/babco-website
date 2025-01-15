@@ -21,14 +21,14 @@ import member11 from "../../../../public/images/members/member-11.webp";
 import member12 from "../../../../public/images/members/member-12.webp";
 import member13 from "../../../../public/images/members/member-13.webp";
 import member14 from "../../../../public/images/members/member-14.webp";
-import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
-import { YScrollVariants } from "@/lib/utils/animations";
+import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
+import { ThemeSelector } from "@/components/theme/theme-selector";
 
 const members = [
   { src: member1, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
   { src: member2, className: "w-[140px] sm:w-[234px] h-[120px] sm:h-[196px]" },
   { src: member7, className: "w-[95px] sm:w-[155px] h-[104px] sm:h-[173px]" },
-  { src: member5, className: "w-[103px] sm:w-[155px] h-[120px] sm:h-[173px]" },
+  { src: member5, className: "w-[113px] sm:w-[165px] h-[120px] sm:h-[173px]" },
   { src: member13, className: "w-[125px] sm:w-[209px] h-[90px] sm:h-[146px]" },
   { src: member10, className: "w-[55px] sm:w-[89px] h-[57px] sm:h-[94px]" },
   { src: member11, className: "w-[107px] sm:w-[182px] h-[107px] sm:h-[182px]" },
@@ -82,32 +82,52 @@ const Team = () => {
   return (
     <section className="w-full flex flex-col relative">
       <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-[80px]">
-        <Spacer horizontal className="w-full flex justify-between items-start">
+        <Spacer
+          horizontal
+          className="w-full flex flex-col lg:flex-row justify-between items-start gap-10"
+        >
           <motion.div
-            className="w-full flex flex-col items-start gap-5 lg:gap-16"
+            className="w-full flex flex-col items-start gap-10 lg:gap-16"
             initial="hidden"
             whileInView="visible"
-            variants={YScrollVariants}
-            transition={{ duration: 0.4 }}
+            variants={containerVariants}
             viewport={{ once: true }}
           >
-            <p className="max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-primary-white leading-[100%]">
-              Build something iconic with us
-            </p>
-
-            <Button
-              className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
-              variant="changing"
-              onClick={() => startTransition("/contact-us")}
+            <motion.p
+              className="max-w-[250px] lg:max-w-[470px] text-[32px] lg:text-[80px] font-extralight text-text-primary-light dark:text-text-primary-dark leading-[100%]"
+              variants={YScrollVariants}
+              transition={{ duration: 0.4 }}
             >
-              <p className="pt-1 text-base leading-[75%]">Contact Us</p>
-              <Image
-                className="w-6 h-6 -rotate-45"
-                src={arrowBlackIcon}
-                alt="arrow"
-              />
-            </Button>
+              Build something iconic with us
+            </motion.p>
+
+            <motion.div
+              variants={YScrollVariants}
+              transition={{ duration: 0.4 }}
+            >
+              <Button
+                className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
+                variant="changing"
+                onClick={() => startTransition("/contact-us")}
+              >
+                <p className="pt-1 text-base leading-[75%]">Contact Us</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="19"
+                  height="17"
+                  viewBox="0 0 19 17"
+                  fill="none"
+                >
+                  <path
+                    d="M18.4676 3.11683C18.5318 2.56829 18.1392 2.07157 17.5906 2.00739L8.65161 0.961401C8.10307 0.897214 7.60636 1.28986 7.54217 1.8384C7.47798 2.38695 7.87063 2.88366 8.41917 2.94785L16.365 3.87761L15.4352 11.8234C15.371 12.3719 15.7637 12.8687 16.3122 12.9328C16.8607 12.997 17.3575 12.6044 17.4216 12.0558L18.4676 3.11683ZM1.62013 16.8079L18.0945 3.78511L16.8543 2.21611L0.379865 15.2389L1.62013 16.8079Z"
+                    className="fill-white dark:fill-black"
+                  />
+                </svg>
+              </Button>
+            </motion.div>
           </motion.div>
+
+          <ThemeSelector />
         </Spacer>
 
         <div className="w-full flex flex-col items-center justify-center gap-2 relative mt-[126px]">

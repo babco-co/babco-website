@@ -13,7 +13,9 @@ export default function MerchPage() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <p>Redirecting to merch store...</p>
+      <p className="text-text-primary-light dark:text-text-primary-dark">
+        Redirecting to merch store...
+      </p>
     </div>
   );
 }

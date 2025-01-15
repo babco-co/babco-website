@@ -22,19 +22,19 @@ export default function WorksPage() {
           viewport={{ once: true }}
         >
           <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
-            <p className="max-w-[440px] text-[32px] lg:text-[80px] font-extralight leading-normal lg:leading-[100%] text-white hover:text-medium-gray">
+            <p className="max-w-[440px] text-[32px] lg:text-[80px] font-extralight leading-normal lg:leading-[100%] text-text-primary-light dark:text-text-primary-dark hover:text-medium-gray">
               Our work
             </p>
           </div>
 
           <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-3 lg:gap-5 pt-0 lg:pt-10">
-            <p className="text-base lg:text-xl font-extralight leading-[100%] text-white">
+            <p className="text-base lg:text-xl font-extralight leading-[100%] text-text-primary-light dark:text-text-primary-dark">
               OME COPY HERE. BABCO is a woman-led, global design firm. Our
               approach combines strategic thinking with world class execution.
               We embed seamlessly with your team, scaling our involvement based
               on your needs.
             </p>
-            <p className="text-base lg:text-xl font-extralight leading-[100%] text-white">
+            <p className="text-base lg:text-xl font-extralight leading-[100%] text-text-primary-light dark:text-text-primary-dark">
               What sets us apart is our ability to blend high-caliber design
               with deep technical understanding. Our global team of designers
               and engineers go beyond beautiful interfaces—we craft compelling
