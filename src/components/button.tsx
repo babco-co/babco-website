@@ -30,8 +30,8 @@ const Button = ({
     primary:
       "bg-brand-light dark:bg-brand-dark hover:opacity-90 text-xs font-medium leading-[120%] text-black",
     secondary:
-      "bg-black hover:bg-[#2A2A2A] text-base font-medium leading-[120%] text-brand-light dark:text-brand-dark",
-    changing: "text-xs font-medium leading-[120%] text-black hover:opacity-90",
+      "bg-white dark:bg-black hover:opacity-90 text-base font-medium leading-[120%] text-brand-light dark:text-brand-dark",
+    changing: "text-xs font-medium leading-[120%] text-white dark:text-black hover:opacity-90",
   };
 
   const getGradientClasses = () => {

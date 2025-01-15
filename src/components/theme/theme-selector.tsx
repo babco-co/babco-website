@@ -19,7 +19,7 @@ export function ThemeSelector() {
       <select
         value={theme}
         onChange={(e) => setTheme(e.target.value)}
-        className="flex flex-row items-center justify-center appearance-none w-full bg-white dark:bg-[#0C0C0C] text-foreground px-4 py-2 pr-8 border-b border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-pink"
+        className="w-full flex flex-row items-center justify-center appearance-none bg-transparent text-foreground px-4 py-2 pr-8 border-b border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-pink"
       >
         <option className="text-xs" value="light">
           Light
