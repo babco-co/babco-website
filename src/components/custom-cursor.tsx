@@ -60,7 +60,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`fixed pointer-events-none z-50 rounded-full bg-brand-light dark:bg-brand-dark mix-blend-difference transition-transform duration-300 ease-out
+      className={`fixed pointer-events-none z-[100] rounded-full bg-brand-light dark:bg-brand-dark mix-blend-difference transition-transform duration-300 ease-out
         ${
           isHovering
             ? "h-12 w-12 -translate-x-6 -translate-y-6"
