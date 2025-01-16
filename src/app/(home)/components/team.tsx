@@ -7,39 +7,37 @@ import Button from "@/components/button";
 import { Spacer } from "@/components/spacer";
 import BabcoLogo from "@/components/babco-logo";
 import { useTransition } from "@/components/page-transition";
-import member1 from "../../../../public/images/members/member-1.webp";
-import member2 from "../../../../public/images/members/member-2.webp";
-import member3 from "../../../../public/images/members/member-3.webp";
-import member4 from "../../../../public/images/members/member-4.webp";
-import member5 from "../../../../public/images/members/member-5.webp";
-import member6 from "../../../../public/images/members/member-6.webp";
-import member7 from "../../../../public/images/members/member-7.webp";
-import member8 from "../../../../public/images/members/member-8.webp";
-import member9 from "../../../../public/images/members/member-9.webp";
-import member10 from "../../../../public/images/members/member-10.webp";
-import member11 from "../../../../public/images/members/member-11.webp";
-import member12 from "../../../../public/images/members/member-12.webp";
-import member13 from "../../../../public/images/members/member-13.webp";
-import member14 from "../../../../public/images/members/member-14.webp";
+import olivia from "../../../../public/images/members/olivia.webp";
+import mia from "../../../../public/images/members/mia.webp";
+import andrea from "../../../../public/images/members/andrea.webp";
+import mahlet from "../../../../public/images/members/mahlet.webp";
+import mahshid from "../../../../public/images/members/mahshid.webp";
+import maria from "../../../../public/images/members/maria.webp";
+import anca from "../../../../public/images/members/anca.webp";
+import mahsa from "../../../../public/images/members/mahsa.webp";
+import barbara from "../../../../public/images/members/barbara.webp";
+import andreia from "../../../../public/images/members/andreia.webp";
+import rachel from "../../../../public/images/members/rachel.webp";
+import daria from "../../../../public/images/members/daria.webp";
+import kia from "../../../../public/images/members/kia.webp";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { ThemeSelector } from "@/components/theme/theme-selector";
 
 const members = [
-  { src: member1, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
-  { src: member2, className: "w-[140px] sm:w-[234px] h-[120px] sm:h-[196px]" },
-  { src: member7, className: "w-[95px] sm:w-[155px] h-[104px] sm:h-[173px]" },
-  { src: member5, className: "w-[113px] sm:w-[165px] h-[120px] sm:h-[173px]" },
-  { src: member13, className: "w-[125px] sm:w-[209px] h-[90px] sm:h-[146px]" },
-  { src: member10, className: "w-[55px] sm:w-[89px] h-[57px] sm:h-[94px]" },
-  { src: member11, className: "w-[107px] sm:w-[182px] h-[107px] sm:h-[182px]" },
+  { src: olivia, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
+  { src: mia, className: "w-[140px] sm:w-[234px] h-[120px] sm:h-[196px]" },
+  { src: anca, className: "w-[95px] sm:w-[155px] h-[104px] sm:h-[173px]" },
+  { src: mahshid, className: "w-[113px] sm:w-[165px] h-[120px] sm:h-[173px]" },
+  { src: daria, className: "w-[125px] sm:w-[209px] h-[90px] sm:h-[146px]" },
+  { src: andreia, className: "w-[107px] sm:w-[182px] h-[107px] sm:h-[182px]" },
 
-  { src: member3, className: "w-[105px] sm:w-[177px] h-[105px] sm:h-[177px]" },
-  { src: member6, className: "w-[113px] sm:w-[186px] h-[125px] sm:h-[211px]" },
-  { src: member4, className: "w-[71px] sm:w-[124px] h-[90px] sm:h-[146px]" },
-  { src: member9, className: "w-[150px] sm:w-[255px] h-[150px] sm:h-[255px]" },
-  { src: member8, className: "w-[82px] sm:w-[139px] h-[82px] sm:h-[139px]" },
-  { src: member12, className: "w-[170px] sm:w-[290px] h-[167px] sm:h-[282px]" },
-  { src: member14, className: "w-[105px] sm:w-[180px] h-[102px] sm:h-[176px]" },
+  { src: andrea, className: "w-[105px] sm:w-[177px] h-[105px] sm:h-[177px]" },
+  { src: maria, className: "w-[113px] sm:w-[186px] h-[125px] sm:h-[211px]" },
+  { src: mahlet, className: "w-[71px] sm:w-[124px] h-[90px] sm:h-[146px]" },
+  { src: barbara, className: "w-[150px] sm:w-[255px] h-[150px] sm:h-[255px]" },
+  { src: mahsa, className: "w-[82px] sm:w-[139px] h-[82px] sm:h-[139px]" },
+  { src: rachel, className: "w-[170px] sm:w-[290px] h-[167px] sm:h-[282px]" },
+  { src: kia, className: "w-[105px] sm:w-[180px] h-[102px] sm:h-[176px]" },
 ];
 
 const Team = () => {
