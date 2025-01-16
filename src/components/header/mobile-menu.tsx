@@ -31,14 +31,15 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <nav className="min-h-full flex flex-col">
               <div className="flex-grow">
                 <div className="flex flex-col items-center pt-[243px]">
-                  {/* <NavigationLink
-                  href="/works"
-                  className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
-                >
-                  Works
-                </NavigationLink>
+                  <NavigationLink
+                    href="/works"
+                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
+                  >
+                    Works
+                  </NavigationLink>
 
-                <Image src={dotBlack} alt="dot" /> */}
+                  <Image src={dotBlack} alt="dot" />
+
                   <NavigationLink
                     href="/merch"
                     className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
@@ -48,7 +49,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   </NavigationLink>
 
                   <div className="my-8">
-                    <Image className="invert dark:invert-0" src={dotBlack} alt="dot" />
+                    <Image
+                      className="invert dark:invert-0"
+                      src={dotBlack}
+                      alt="dot"
+                    />
                   </div>
 
                   <NavigationLink

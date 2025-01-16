@@ -158,6 +158,17 @@ const Header = () => {
         {/* Center navigation */}
         <div className="flex flex-1 items-center justify-center gap-5">
           <NavigationLink
+            href="/works"
+            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
+          >
+            Works
+          </NavigationLink>
+
+          <div className="hidden sm:flex items-start justify-center text-center">
+            <p className="text-light-gray mb-2">.</p>
+          </div>
+
+          <NavigationLink
             href="/merch"
             className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
             external

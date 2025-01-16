@@ -4,11 +4,17 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 const BabcoLogo = ({
-  fill,
+  width,
+  height,
   className,
+  useGradient = false,
+  staticColor,
 }: {
-  fill: string;
+  width?: number | string;
+  height?: number | string;
   className?: string;
+  useGradient?: boolean;
+  staticColor?: string;
 }) => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -20,31 +26,41 @@ const BabcoLogo = ({
   const gradientFill = "url(#logoGradient)";
 
   const getCurrentFill = () => {
-    if (!mounted) return fill;
-    return resolvedTheme === "light" ? gradientFill : fill;
+    if (staticColor) return staticColor;
+    if (!mounted) return "#000";
+    if (useGradient && resolvedTheme === "light") {
+      return gradientFill;
+    }
+    return resolvedTheme === "dark" ? "#FFFFFF" : "#000000";
   };
 
   const currentFill = getCurrentFill();
 
+  // Calculate dimensions while maintaining aspect ratio
+  const svgWidth = width || "100%";
+  const svgHeight = height || "100%";
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
+      width={svgWidth}
+      height={svgHeight}
       viewBox="0 0 1400 295"
       preserveAspectRatio="xMidYMid meet"
       className={className}
     >
-      <defs>
-        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: "#FF4365" }} />
-          <stop
-            offset="50%"
-            style={{ stopColor: "rgba(255, 67, 101, 0.34)" }}
-          />
-          <stop offset="100%" style={{ stopColor: "#FF4365" }} />
-        </linearGradient>
-      </defs>
+      {useGradient && (
+        <defs>
+          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style={{ stopColor: "#FF4365" }} />
+            <stop
+              offset="50%"
+              style={{ stopColor: "rgba(255, 67, 101, 0.34)" }}
+            />
+            <stop offset="100%" style={{ stopColor: "#FF4365" }} />
+          </linearGradient>
+        </defs>
+      )}
 
       <path
         d="M113.85 294.626C175.655 294.626 206.558 256.277 206.558 217.928C206.558 183.212 181.132 148.496 130.67 142.441C162.747 130.331 182.305 102.478 182.305 75.4316C182.305 43.1378 153.75 12.0551 84.9031 12.0551L-2.32854 12.0551L-2.32854 288.167H-2.71973L-2.71973 294.626H113.85ZM109.547 147.689C146.708 147.689 165.094 182.808 165.094 217.928C165.094 253.047 146.708 288.167 109.547 288.167H33.2682L33.2682 18.5138H82.556C124.803 18.5138 145.926 48.3856 145.926 79.0647C145.926 110.955 123.238 143.249 77.862 143.249C66.9091 143.249 54.7827 141.634 41.0916 137.193C60.2591 145.267 77.8619 148.9 93.9 148.9C99.3764 148.9 104.462 148.496 109.547 147.689Z"

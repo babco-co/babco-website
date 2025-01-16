@@ -174,7 +174,7 @@ const Team = () => {
       </div>
 
       <div className="w-full absolute bottom-0 z-10">
-        <BabcoLogo fill={"#fff"} />
+        <BabcoLogo useGradient={true} />
       </div>
     </section>
   );
