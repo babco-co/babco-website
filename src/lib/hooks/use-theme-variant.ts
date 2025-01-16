@@ -13,7 +13,7 @@ export const useThemeVariant = () => {
 
   const getGradientClass = () => {
     if (!mounted) {
-      return "from-[#DE468A] via-[#FF4365] to-[#DE468A]";
+      return "from-[#FFF] via-[#FFF] to-[#FFF]";
     }
     
     return resolvedTheme === "light" 

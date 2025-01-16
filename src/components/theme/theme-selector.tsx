@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import Select, { components, DropdownIndicatorProps } from "react-select";
 import arrowDownIcon from "../../../public/icons/arrow-down-icon.svg";
 
-
 export function ThemeSelector() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -39,7 +38,6 @@ export function ThemeSelector() {
         <p className="text-sm font-medium leading-[24px] text-text-primary-light dark:text-[#F2F2F2]">
           Interface Theme
         </p>
-        <div className="w-full h-12 border-b border-border-sec-light dark:border-border-sec-dark" />
       </div>
     );
   }
@@ -83,8 +81,8 @@ export function ThemeSelector() {
           input: (provided) => ({
             ...provided,
             color: "rgb(46, 46, 46)",
-            cursor: "pointer",  
-            // caretColor: "transparent", 
+            cursor: "pointer",
+            // caretColor: "transparent",
           }),
           menu: (provided) => ({
             ...provided,

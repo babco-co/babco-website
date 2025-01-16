@@ -31,12 +31,13 @@ const Button = ({
       "bg-brand-light dark:bg-brand-dark hover:opacity-90 text-xs font-medium leading-[120%] text-black",
     secondary:
       "bg-white dark:bg-black hover:opacity-90 text-base font-medium leading-[120%] text-brand-light dark:text-brand-dark",
-    changing: "text-xs font-medium leading-[120%] text-white dark:text-black hover:opacity-90",
+    changing:
+      "text-xs font-medium leading-[120%] text-white dark:text-black hover:opacity-90",
   };
 
   const getGradientClasses = () => {
     if (!mounted) {
-      return "bg-gradient-to-r bg-[length:400%_400%] animate-gradient from-[#DE468A] via-[#FF4365] to-[#DE468A]";
+      return "bg-gradient-to-r bg-[length:400%_400%] animate-gradient from-[#FFF] via-[#FFF] to-[#FFF]";
     }
 
     const baseGradient =
