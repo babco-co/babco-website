@@ -26,7 +26,7 @@ const content: GalleryContent[] = [
     type: "image",
     title: "Project 1",
     subtitle: "Branding & Digital Design",
-    backgroundColor: "bg-blue-500",
+    backgroundColor: "bg-[#005C44]",
     alt: "photo",
   },
   {
@@ -40,14 +40,14 @@ const content: GalleryContent[] = [
     type: "image",
     title: "Project 3",
     subtitle: "Branding & Digital Design",
-    backgroundColor: "bg-green-500",
+    backgroundColor: "bg-[#CCEBF9]",
     alt: "photo",
   },
   {
     type: "image",
     title: "Project 4",
     subtitle: "Branding & Digital Design",
-    backgroundColor: "bg-yellow-500",
+    backgroundColor: "bg-[#B7B0A4]",
     alt: "photo",
   },
   {
