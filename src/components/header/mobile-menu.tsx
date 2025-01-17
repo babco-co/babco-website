@@ -34,6 +34,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <NavigationLink
                     href="/works"
                     className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
+                    onClick={onClose}
                   >
                     Works
                   </NavigationLink>
