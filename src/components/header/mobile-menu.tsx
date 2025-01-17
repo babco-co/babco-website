@@ -38,7 +38,13 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     Works
                   </NavigationLink>
 
-                  <Image src={dotBlack} alt="dot" />
+                  <div className="my-8">
+                    <Image
+                      className="invert dark:invert-0"
+                      src={dotBlack}
+                      alt="dot"
+                    />
+                  </div>
 
                   <NavigationLink
                     href="/merch"
