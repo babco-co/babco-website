@@ -63,7 +63,8 @@ const Hero = () => {
           variants={YScrollVariants}
           transition={{ duration: 0.4 }}
         >
-          BABCO is a global branding, product design, and engineering firm.
+          BABCO is a global design powerhouse crafting the future of AI brands
+          and products.
         </motion.p>
       </motion.div>
     </section>
