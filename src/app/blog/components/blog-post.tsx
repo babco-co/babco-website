@@ -1,7 +1,9 @@
-"use client"
+"use client";
+import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { BlogPost } from "@/app/blog/types";
 import { fetchBlogPosts } from "../api";
+import { createSlug } from '@/lib/utils/helper';
 
 interface BlogPostsProps {
   username: string;
@@ -26,7 +28,6 @@ export function BlogPosts({ username }: BlogPostsProps) {
     }
     loadPosts();
   }, [username]);
-
 
   if (loading) {
     return (
@@ -65,14 +66,12 @@ export function BlogPosts({ username }: BlogPostsProps) {
               className="text-gray-700 mb-4 line-clamp-3"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
-            <a
-              href={post.link}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={`/blog/${createSlug(post.title)}`}
               className="inline-flex items-center text-blue-600 hover:text-blue-800"
             >
-              Read More 
-            </a>
+              Read More
+            </Link>
           </div>
         </article>
       ))}
