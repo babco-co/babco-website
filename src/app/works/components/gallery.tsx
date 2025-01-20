@@ -1,4 +1,8 @@
+// app/works/components/gallery.tsx
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { YScrollVariants } from "@/lib/utils/animations";
 import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
@@ -8,6 +12,7 @@ interface BaseContent {
   title: string;
   subtitle: string;
   backgroundColor: string;
+  slug: string; // Add slug for routing
 }
 
 interface ImageContent extends BaseContent {
@@ -28,6 +33,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-[#005C44]",
     alt: "photo",
+    slug: "project-1",
   },
   {
     type: "image",
@@ -35,6 +41,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-red-500",
     alt: "photo",
+    slug: "project-2",
   },
   {
     type: "image",
@@ -42,6 +49,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-[#CCEBF9]",
     alt: "photo",
+    slug: "project-3",
   },
   {
     type: "image",
@@ -49,6 +57,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-[#B7B0A4]",
     alt: "photo",
+    slug: "project-4",
   },
   {
     type: "image",
@@ -56,6 +65,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-purple-500",
     alt: "photo",
+    slug: "project-5",
   },
   {
     type: "image",
@@ -63,6 +73,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-pink-500",
     alt: "photo",
+    slug: "project-6",
   },
   {
     type: "image",
@@ -70,6 +81,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-indigo-500",
     alt: "photo",
+    slug: "project-7",
   },
   {
     type: "image",
@@ -77,6 +89,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-orange-500",
     alt: "photo",
+    slug: "project-8",
   },
   {
     type: "image",
@@ -84,6 +97,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-teal-500",
     alt: "photo",
+    slug: "project-9",
   },
   {
     type: "image",
@@ -91,6 +105,7 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-cyan-500",
     alt: "photo",
+    slug: "project-10",
   },
   {
     type: "image",
@@ -98,10 +113,17 @@ const content: GalleryContent[] = [
     subtitle: "Branding & Digital Design",
     backgroundColor: "bg-emerald-500",
     alt: "photo",
+    slug: "project-11",
   },
 ];
 
 const Gallery = () => {
+  const router = useRouter();
+
+  const handleProjectClick = (slug: string) => {
+    router.push(`/works/${slug}`);
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-[115px]">
       {content.map((item, index) => (
@@ -111,6 +133,7 @@ const Gallery = () => {
           whileInView="visible"
           viewport={{ once: true }}
           className="flex flex-col gap-6"
+          onClick={() => handleProjectClick(item.slug)}
         >
           <div className="relative w-full aspect-[0.84] rounded-lg overflow-hidden group cursor-pointer">
             {MediaComponent(item)}
