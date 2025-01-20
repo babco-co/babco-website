@@ -1,15 +1,16 @@
 "use client";
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BlogPost } from "@/app/blog/types";
 import { fetchBlogPosts } from "../api";
-import { createSlug } from '@/lib/utils/helper';
+import { createSlug } from "@/lib/utils/helper";
 
 interface BlogPostsProps {
   username: string;
 }
 
-export function BlogPosts({ username }: BlogPostsProps) {
+const BlogPosts = ({ username }: BlogPostsProps) => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -31,8 +32,8 @@ export function BlogPosts({ username }: BlogPostsProps) {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-[200px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+      <div className="min-h-[200px] flex justify-center items-center">
+        <div className="h-8 w-8 rounded-full border-b-2 border-gray-900 animate-spin"></div>
       </div>
     );
   }
@@ -46,10 +47,10 @@ export function BlogPosts({ username }: BlogPostsProps) {
       {posts.map((post) => (
         <article
           key={post.link}
-          className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+          className="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow bg-white"
         >
           {post.thumbnail && (
-            <img
+            <Image
               src={post.thumbnail}
               alt={post.title}
               className="w-full h-48 object-cover"
@@ -68,7 +69,7 @@ export function BlogPosts({ username }: BlogPostsProps) {
             />
             <Link
               href={`/blog/${createSlug(post.title)}`}
-              className="inline-flex items-center text-blue-600 hover:text-blue-800"
+              className="inline-flex items-center text-blue hover:text-brand-light"
             >
               Read More
             </Link>
@@ -77,4 +78,6 @@ export function BlogPosts({ username }: BlogPostsProps) {
       ))}
     </div>
   );
-}
+};
+
+export default BlogPosts;

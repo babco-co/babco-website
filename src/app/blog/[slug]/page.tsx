@@ -5,6 +5,8 @@ import { useParams } from "next/navigation";
 import { BlogPost } from "../types";
 import { fetchBlogPosts } from "../api";
 import { createSlug } from "@/lib/utils/helper";
+import { Spacer } from "@/components/spacer";
+import Header from "@/components/header/header";
 
 export default function BlogPostPage() {
   const params = useParams();
@@ -27,22 +29,28 @@ export default function BlogPostPage() {
   if (!post) return <div>Post not found</div>;
 
   return (
-    <article className="max-w-3xl mx-auto px-4 py-8">
-      {post.thumbnail && (
-        <Image
-          src={post.thumbnail}
-          alt={post.title}
-          className="w-full h-64 object-cover rounded-lg mb-8"
+    <div className="w-full min-h-screen font-helvetica">
+      <Spacer className="w-full mt-5 px-5">
+        <Header />
+      </Spacer>
+
+      <article className="max-w-3xl mx-auto px-4 py-8">
+        {post.thumbnail && (
+          <Image
+            src={post.thumbnail}
+            alt={post.title}
+            className="w-full h-64 object-cover rounded-lg mb-8"
+          />
+        )}
+        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+        <div className="text-gray-600 mb-8">
+          {post.pubDate} • {post.creator}
+        </div>
+        <div
+          className="prose prose-lg max-w-none"
+          dangerouslySetInnerHTML={{ __html: post.content }}
         />
-      )}
-      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-      <div className="text-gray-600 mb-8">
-        {post.pubDate} • {post.creator}
-      </div>
-      <div
-        className="prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
-    </article>
+      </article>
+    </div>
   );
 }
