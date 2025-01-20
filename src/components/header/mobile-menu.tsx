@@ -70,6 +70,22 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   >
                     Follow
                   </NavigationLink>
+
+                  <div className="my-8">
+                    <Image
+                      className="invert dark:invert-0"
+                      src={dotBlack}
+                      alt="dot"
+                    />
+                  </div>
+
+                  <NavigationLink
+                    href="/blog"
+                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
+                    onClick={onClose}
+                  >
+                    Blog
+                  </NavigationLink>
                 </div>
               </div>
 

@@ -1,4 +1,3 @@
-// app/blog/api/index.ts
 import { BlogPost } from "@/app/blog/types";
 
 interface RSS2JSONItem {
@@ -20,7 +19,7 @@ export async function fetchBlogPosts(username: string): Promise<BlogPost[]> {
     const response = await fetch(
       `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${username}`
     );
-    const data = await response.json() as RSS2JSONResponse;
+    const data = (await response.json()) as RSS2JSONResponse;
 
     if (data.status !== "ok") {
       throw new Error("Failed to fetch blog posts");
