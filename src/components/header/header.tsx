@@ -187,6 +187,17 @@ const Header = () => {
           >
             Follow
           </NavigationLink>
+
+          <div className="hidden sm:flex items-start justify-center text-center">
+            <p className="text-light-gray mb-2">.</p>
+          </div>
+
+          <NavigationLink
+            href="/blog"
+            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
+          >
+            Blog
+          </NavigationLink>
         </div>
 
         {/* Right section */}
