@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useInView } from "motion/react";
 import { Alignment, Fit, Layout, useRive } from "@rive-app/react-canvas";
 
@@ -29,6 +29,8 @@ const RiveWrapper = ({
 }: RiveWrapperProps) => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.5 });
+  const [retryCount, setRetryCount] = useState(0);
+  const maxRetries = 3;
 
   const { rive, RiveComponent } = useRive({
     src,
@@ -38,13 +40,20 @@ const RiveWrapper = ({
       fit,
       alignment,
     }),
+    onLoadError: () => {
+      if (retryCount < maxRetries) {
+        setTimeout(() => {
+          setRetryCount((prev) => prev + 1);
+        }, 1000);
+      }
+    },
   });
 
   useEffect(() => {
     if (playOnView && isInView && rive) {
       rive.play();
     }
-  }, [isInView, rive, playOnView]);
+  }, [isInView, rive, playOnView, retryCount]);
 
   return (
     <div
