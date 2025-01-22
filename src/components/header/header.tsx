@@ -156,10 +156,21 @@ const Header = () => {
         </Link>
 
         {/* Center navigation */}
-        <div className="flex flex-1 items-center justify-center gap-5">
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-5">
+          {/* <NavigationLink
+            href="/works"
+            className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
+          >
+            Works
+          </NavigationLink>
+
+          <div className="hidden sm:flex items-start justify-center text-center">
+            <p className="text-light-gray mb-2">.</p>
+          </div> */}
+
           <NavigationLink
             href="/merch"
-            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
+            className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
             external
           >
             Merch
@@ -171,10 +182,21 @@ const Header = () => {
 
           <NavigationLink
             href={LINKEDIN}
-            className="hidden sm:block text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
+            className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
             external
           >
             Follow
+          </NavigationLink>
+
+          <div className="hidden sm:flex items-start justify-center text-center">
+            <p className="text-light-gray mb-2">.</p>
+          </div>
+
+          <NavigationLink
+            href="/blog"
+            className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
+          >
+            Blog
           </NavigationLink>
         </div>
 
@@ -196,7 +218,7 @@ const Header = () => {
           </button>
 
           <Button
-            className="h-[38px] hidden sm:flex gap-2 text-center"
+            className="h-[38px] hidden lg:flex gap-2 text-center"
             variant="changing"
             onClick={() => startTransition("/contact-us")}
           >
@@ -209,7 +231,7 @@ const Header = () => {
           </Button>
 
           <button
-            className={`w-[38px] h-[38px] flex sm:hidden flex-shrink-0 items-center justify-center rounded-full z-50 ${
+            className={`w-[38px] h-[38px] flex lg:hidden flex-shrink-0 items-center justify-center rounded-full z-50 ${
               isMenuOpen
                 ? "bg-brand-light dark:bg-brand-dark"
                 : getFullGradientClass()

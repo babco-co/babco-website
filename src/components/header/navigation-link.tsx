@@ -7,6 +7,7 @@ interface NavigationLinkProps {
   className?: string;
   children: React.ReactNode;
   external?: boolean;
+  onClick?: () => void;
 }
 
 const NavigationLink = ({
@@ -14,8 +15,17 @@ const NavigationLink = ({
   className,
   children,
   external = false,
+  onClick,
 }: NavigationLinkProps) => {
   const { startTransition } = useTransition();
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (!external) {
+      e.preventDefault();
+      onClick?.();
+      startTransition(href);
+    }
+  };
 
   if (external) {
     return (
@@ -31,14 +41,7 @@ const NavigationLink = ({
   }
 
   return (
-    <Link
-      href={href}
-      className={className}
-      onClick={(e) => {
-        e.preventDefault();
-        startTransition(href);
-      }}
-    >
+    <Link href={href} className={className} onClick={handleClick}>
       {children}
     </Link>
   );

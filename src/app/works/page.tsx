@@ -2,8 +2,9 @@
 import { motion } from "motion/react";
 import Header from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
-import Product from "../(home)/components/product/product";
-import { YScrollVariants } from "@/lib/utils/animations";
+import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
+import BabcoLogo from "@/components/babco-logo";
+import Gallery from "@/app/works/components/gallery";
 
 export default function WorksPage() {
   return (
@@ -12,41 +13,47 @@ export default function WorksPage() {
         <Header />
       </Spacer>
 
-      <Spacer horizontal className="my-16 lg:mt-[120px] lg:mb-[100px]">
+      <Spacer horizontal vertical className="mt-16 lg:mt-[242px]">
         <motion.div
-          className="w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center justify-between cursor-pointer"
+          className="cursor-scale w-full flex flex-col items-center justify-start gap-4 lg:gap-16 mb-[240px]"
           initial="hidden"
           whileInView="visible"
-          variants={YScrollVariants}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
+          variants={containerVariants}
         >
-          <div className="w-full lg:w-1/2 flex flex-col items-start justify-center">
-            <p className="max-w-[440px] text-[32px] lg:text-[80px] font-extralight leading-normal lg:leading-[100%] text-text-primary-light dark:text-text-primary-dark hover:text-medium-gray">
-              Our work
-            </p>
-          </div>
+          <motion.div className="w-full flex flex-row items-center justify-start gap-4">
+            <motion.div
+              className="w-[668px] h-[140px]"
+              variants={YScrollVariants}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <BabcoLogo className="w-full" />
+            </motion.div>
 
-          <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-3 lg:gap-5 pt-0 lg:pt-10">
-            <p className="text-base lg:text-xl font-extralight leading-[100%] text-text-primary-light dark:text-text-primary-dark">
-              OME COPY HERE. BABCO is a woman-led, global design firm. Our
-              approach combines strategic thinking with world class execution.
-              We embed seamlessly with your team, scaling our involvement based
-              on your needs.
-            </p>
-            <p className="text-base lg:text-xl font-extralight leading-[100%] text-text-primary-light dark:text-text-primary-dark">
-              What sets us apart is our ability to blend high-caliber design
-              with deep technical understanding. Our global team of designers
-              and engineers go beyond beautiful interfaces—we craft compelling
-              brand narratives and user experiences that capture technical
-              audiences and drive real business outcomes.
-            </p>
-          </div>
+            <motion.div
+              variants={YScrollVariants}
+              transition={{ duration: 0.4 }}
+            >
+              <div
+                className="w-[80px] lg:w-[140px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+                style={{ transform: "rotate(-65.363deg)" }}
+              />
+            </motion.div>
+          </motion.div>
+
+          <motion.p
+            className="w-full text-lg lg:text-[40px] font-extralight leading-[131%] text-text-primary-light dark:text-text-primary-dark"
+            variants={YScrollVariants}
+            transition={{ duration: 0.4 }}
+          >
+            We turn bold ideas into stunning realities for tech startups and
+            innovators. Our powerhouse design team delivers high-impact results
+            that scale with your business, from magnetic brands to{" "}
+            <span className="font-normal">seamless product experiences.</span>
+          </motion.p>
         </motion.div>
-      </Spacer>
 
-      <Spacer horizontal vertical>
-        <Product />
+        <Gallery />
       </Spacer>
     </div>
   );

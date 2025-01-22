@@ -39,10 +39,7 @@ body {
   cursor: none;
 }
 
-a,
-button,
-input,
-textarea,
-select {
-  cursor: auto !important;
+.cursor-none,
+.cursor-none * {
+  cursor: none !important;
 }

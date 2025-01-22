@@ -30,15 +30,23 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           <div className="h-full overflow-y-auto p-4">
             <nav className="min-h-full flex flex-col">
               <div className="flex-grow">
-                <div className="flex flex-col items-center pt-[243px]">
+                <div className="flex flex-col items-center pt-[220px]">
                   {/* <NavigationLink
-                  href="/works"
-                  className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
-                >
-                  Works
-                </NavigationLink>
+                    href="/works"
+                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
+                    onClick={onClose}
+                  >
+                    Works
+                  </NavigationLink>
 
-                <Image src={dotBlack} alt="dot" /> */}
+                  <div className="my-8">
+                    <Image
+                      className="invert dark:invert-0"
+                      src={dotBlack}
+                      alt="dot"
+                    />
+                  </div> */}
+
                   <NavigationLink
                     href="/merch"
                     className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
@@ -48,7 +56,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   </NavigationLink>
 
                   <div className="my-8">
-                    <Image className="invert dark:invert-0" src={dotBlack} alt="dot" />
+                    <Image
+                      className="invert dark:invert-0"
+                      src={dotBlack}
+                      alt="dot"
+                    />
                   </div>
 
                   <NavigationLink
@@ -57,6 +69,22 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     external
                   >
                     Follow
+                  </NavigationLink>
+
+                  <div className="my-8">
+                    <Image
+                      className="invert dark:invert-0"
+                      src={dotBlack}
+                      alt="dot"
+                    />
+                  </div>
+
+                  <NavigationLink
+                    href="/blog"
+                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
+                    onClick={onClose}
+                  >
+                    Blog
                   </NavigationLink>
                 </div>
               </div>
