@@ -10,7 +10,7 @@ export default function BlogPage() {
       </Spacer>
 
       <Spacer className="w-full px-5 py-8">
-        <BlogPosts username="oliviabatraski" />
+        <BlogPosts username="babco" />
       </Spacer>
     </div>
   );

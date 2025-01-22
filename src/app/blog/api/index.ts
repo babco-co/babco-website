@@ -17,7 +17,7 @@ interface RSS2JSONResponse {
 export async function fetchBlogPosts(username: string): Promise<BlogPost[]> {
   try {
     const response = await fetch(
-      `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${username}`
+      `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${username}`
     );
     const data = (await response.json()) as RSS2JSONResponse;
 
