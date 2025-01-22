@@ -31,7 +31,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <nav className="min-h-full flex flex-col">
               <div className="flex-grow">
                 <div className="flex flex-col items-center pt-[220px]">
-                  <NavigationLink
+                  {/* <NavigationLink
                     href="/works"
                     className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
                     onClick={onClose}
@@ -45,7 +45,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       src={dotBlack}
                       alt="dot"
                     />
-                  </div>
+                  </div> */}
 
                   <NavigationLink
                     href="/merch"

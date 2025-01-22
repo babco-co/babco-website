@@ -89,8 +89,7 @@ export default function BlogPostPage() {
             prose-strong:text-text-primary-light dark:prose-strong:text-text-primary-dark
             prose-code:text-text-primary-light dark:prose-code:text-text-primary-dark
             prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800
-            prose-blockquote:border-l-brand-light dark:prose-blockquote:border-l-brand-dark
-            prose-img:rounded-xl prose-img:shadow-lg"
+            prose-blockquote:border-l-brand-light dark:prose-blockquote:border-l-brand-dark"
           dangerouslySetInnerHTML={{ __html: cleanedContent }}
         />
 

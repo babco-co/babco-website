@@ -157,7 +157,7 @@ const Header = () => {
 
         {/* Center navigation */}
         <div className="hidden lg:flex flex-1 items-center justify-center gap-5">
-          <NavigationLink
+          {/* <NavigationLink
             href="/works"
             className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
           >
@@ -166,7 +166,7 @@ const Header = () => {
 
           <div className="hidden sm:flex items-start justify-center text-center">
             <p className="text-light-gray mb-2">.</p>
-          </div>
+          </div> */}
 
           <NavigationLink
             href="/merch"

@@ -17,8 +17,24 @@ interface RSS2JSONResponse {
 export async function fetchBlogPosts(username: string): Promise<BlogPost[]> {
   try {
     const response = await fetch(
-      `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${username}`
+      `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${username}`,
+      {
+        next: {
+          revalidate: 60,
+          tags: ["blog-posts"],
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
+
+    console.log('response', response)
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = (await response.json()) as RSS2JSONResponse;
 
     if (data.status !== "ok") {
@@ -35,6 +51,6 @@ export async function fetchBlogPosts(username: string): Promise<BlogPost[]> {
     }));
   } catch (error) {
     console.error("Error fetching blog posts:", error);
-    return [];
+    throw error;
   }
 }
