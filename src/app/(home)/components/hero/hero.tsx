@@ -23,24 +23,24 @@ const Hero = () => {
   };
 
   return (
-    <section className="w-full h-full flex flex-col items-center justify-center overflow-x-hidden">
+    <section className="w-full h-full flex flex-col items-center justify-center overflow-hidden">
       <RiveWrapper
         src={getAnimationSrc()}
         autoplay={true}
         playOnView={false}
-        containerClassName="w-full h-[500px] sm:h-[80vh]"
+        containerClassName="w-full h-[400px] sm:h-[80vh]"
         key={resolvedTheme} // Force re-render when theme changes
         loadingComponent={<BabcoLogo useGradient className="w-[90%]" />}
       />
 
       <motion.div
-        className="cursor-scale w-full flex flex-row items-center justify-start gap-0 lg:gap-10 px-3 lg:px-[44px] mb-[120px]"
+        className="cursor-scale w-full flex flex-row items-center justify-start gap-0 lg:gap-10 px-3 lg:px-[44px] mb-16 lg:mb-[120px]"
         initial="hidden"
         whileInView="visible"
         variants={containerVariants}
       >
         <motion.p
-          className="min-w-0 xs:min-w-[162px] lg:max-w-[670px] text-lg xs:text-[28px] lg:text-[80px] font-extralight leading-[108%] text-text-primary-light dark:text-text-primary-dark"
+          className="min-w-[108px] xs:min-w-[162px] max-w-[162px] sm:max-w-[670px] text-lg xs:text-[28px] lg:text-[80px] font-extralight leading-[108%] text-text-primary-light dark:text-text-primary-dark"
           variants={YScrollVariants}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
