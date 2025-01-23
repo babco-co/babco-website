@@ -14,6 +14,7 @@ interface RiveWrapperProps {
   containerClassName?: string;
   width?: number;
   height?: number;
+  loadingComponent?: React.ReactNode;
 }
 
 const RiveWrapper = ({
@@ -26,10 +27,12 @@ const RiveWrapper = ({
   containerClassName = "",
   width,
   height,
+  loadingComponent,
 }: RiveWrapperProps) => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.5 });
   const [retryCount, setRetryCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const maxRetries = 3;
 
   const { rive, RiveComponent } = useRive({
@@ -40,6 +43,9 @@ const RiveWrapper = ({
       fit,
       alignment,
     }),
+    onLoad: () => {
+      setIsLoading(false);
+    },
     onLoadError: () => {
       if (retryCount < maxRetries) {
         setTimeout(() => {
@@ -65,6 +71,11 @@ const RiveWrapper = ({
         maxWidth: "100%",
       }}
     >
+      {isLoading && (
+        <div className="w-full h-full flex items-center justify-center">
+          {loadingComponent}
+        </div>
+      )}
       <RiveComponent />
     </div>
   );

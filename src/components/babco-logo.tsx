@@ -27,7 +27,7 @@ const BabcoLogo = ({
 
   const getCurrentFill = () => {
     if (staticColor) return staticColor;
-    if (!mounted) return "#000";
+    if (!mounted) return "transparent";
     if (useGradient && resolvedTheme === "light") {
       return gradientFill;
     }
@@ -48,6 +48,10 @@ const BabcoLogo = ({
       viewBox="0 0 1400 295"
       preserveAspectRatio="xMidYMid meet"
       className={className}
+      style={{
+        opacity: mounted ? 1 : 0, // Hide the logo until mounted
+        transition: "opacity 0.3s ease-in-out", // Smooth transition
+      }}
     >
       {useGradient && (
         <defs>

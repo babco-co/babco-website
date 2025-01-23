@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import RiveWrapper from "@/components/rive-wrapper";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { motion } from "motion/react";
+import BabcoLogo from "@/components/babco-logo";
 
 const Hero = () => {
   const { resolvedTheme } = useTheme();
@@ -29,6 +30,7 @@ const Hero = () => {
         playOnView={false}
         containerClassName="w-full h-[500px] sm:h-[80vh]"
         key={resolvedTheme} // Force re-render when theme changes
+        loadingComponent={<BabcoLogo useGradient className="w-[90%]" />}
       />
 
       <motion.div
