@@ -28,13 +28,14 @@ const Hero = () => {
         src={getAnimationSrc()}
         autoplay={true}
         playOnView={false}
-        containerClassName="w-full h-[500px] sm:h-[80vh]"
+        containerClassName="w-full h-[40vh] sm:h-[60vh] lg:h-[80vh] 2xl:h-[90vh]"
         key={resolvedTheme} // Force re-render when theme changes
         loadingComponent={<BabcoLogo useGradient className="w-[90%]" />}
       />
 
+      {/* Text section with adjusted margins for mobile */}
       <motion.div
-        className="cursor-scale w-full flex flex-row items-center justify-start gap-0 lg:gap-10 px-3 lg:px-[44px] mb-16 lg:mb-[120px]"
+        className="cursor-scale w-full flex flex-row items-center justify-start gap-0 lg:gap-10 px-3 lg:px-[44px] mt-8 sm:mt-16 lg:mt-24 2xl:mt-28 mb-16 lg:mb-[120px]"
         initial="hidden"
         whileInView="visible"
         variants={containerVariants}
