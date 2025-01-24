@@ -28,7 +28,7 @@ const Hero = () => {
         src={getAnimationSrc()}
         autoplay={true}
         playOnView={false}
-        containerClassName="w-full h-[50vh] sm:h-[60vh] lg:h-[88vh] 2xl:h-[90vh]"
+        containerClassName="w-full h-[50dvh] sm:h-[60dvh] lg:h-[88dvh] 2xl:h-[90dvh]"
         key={resolvedTheme} // Force re-render when theme changes
         loadingComponent={<BabcoLogo useGradient className="w-[90%]" />}
       />
