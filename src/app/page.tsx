@@ -11,7 +11,7 @@ export default function Page() {
     <div className="w-full min-h-screen font-helvetica overflow-x-hidden">
       <Spacer
         vertical
-        className="h-[calc(100dvh-100px)] lg:h-full flex flex-col mx-3 sm:mx-5 mt-5 border-[0.5px] border-border-primary-light dark:border-border-primary-dark rounded-[10px] bg-white/50 dark:bg-[#0C0C0C]"
+        className="h-[calc(100dvh-50px)] lg:h-full flex flex-col mx-3 sm:mx-5 mt-5 border-[0.5px] border-border-primary-light dark:border-border-primary-dark rounded-[10px] bg-white/50 dark:bg-[#0C0C0C]"
       >
         <Header />
         <Hero />
