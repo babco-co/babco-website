@@ -5,11 +5,12 @@ import emailjs from "@emailjs/browser";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormInputs, schema, serviceOptions } from "../schema";
-import InputField from "./input";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
-import SelectField from "./select-field";
 import Button from "@/components/button";
-import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
+import InputField from "./input";
+import SelectField from "./select-field";
+import TextAreaField from "./text-area-field";
+import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
 const ContactForm = () => {
   const {
@@ -31,7 +32,6 @@ const ContactForm = () => {
 
   const sendEmail = async (data: FormInputs) => {
     setIsLoading(true);
-    // setApiRes({ status: "success", message: "" });
 
     try {
       const response = await emailjs.send(
@@ -42,6 +42,7 @@ const ContactForm = () => {
           from_email: data.email,
           from_company: data.company,
           service_needed: data.service.join(", "),
+          message: data.message,
           to_name: "Babco.co",
           to_email: CONTACT_EMAIL,
         },
@@ -52,7 +53,7 @@ const ContactForm = () => {
         setApiRes({
           status: "success",
           message:
-            "Your request was successfully submited, Thanks for reaching out!",
+            "Your request was successfully submitted, Thanks for reaching out!",
         });
         reset();
       } else {
@@ -62,7 +63,7 @@ const ContactForm = () => {
       const errorMessage =
         error instanceof Error
           ? error.message
-          : "Your request was Not submitted, Please try agian.";
+          : "Your request was Not submitted, Please try again.";
       setApiRes({
         status: "fail",
         message: errorMessage,
@@ -77,7 +78,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center">
+    <div className="w-full flex flex-col items-start justify-center">
       {apiRes.message && (
         <div
           className={`w-full flex flex-row gap-2 items-center justify-start p-2 mb-10 rounded bg-white/10 ${
@@ -117,15 +118,12 @@ const ContactForm = () => {
       )}
 
       <form
-        className="w-full flex flex-col items-start justify-center gap-8"
+        className="w-full flex flex-col items-center justify-center gap-8"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="w-full flex flex-col items-start justify-center gap-[70px] mb-4">
-          <div
-            className="w-full flex flex-col lg:flex-row 
-              items-start lg:items-end justify-start gap-[100px]"
-          >
-            <div className="w-full sm:max-w-[412px]">
+          <div className="w-full flex flex-col lg:flex-row items-start lg:items-end justify-start gap-[100px]">
+            <div className="w-full lg:max-w-[412px]">
               <InputField
                 name="name"
                 register={register}
@@ -135,7 +133,7 @@ const ContactForm = () => {
               />
             </div>
 
-            <div className="w-full sm:max-w-[412px]">
+            <div className="w-full lg:max-w-[412px]">
               <InputField
                 name="email"
                 register={register}
@@ -146,11 +144,8 @@ const ContactForm = () => {
             </div>
           </div>
 
-          <div
-            className="w-full flex flex-col lg:flex-row 
-              items-start lg:items-end justify-start gap-[100px]"
-          >
-            <div className="w-full sm:max-w-[412px]">
+          <div className="w-full flex flex-col lg:flex-row items-start lg:items-end justify-start gap-[100px]">
+            <div className="w-full lg:max-w-[412px]">
               <InputField
                 name="company"
                 register={register}
@@ -160,7 +155,7 @@ const ContactForm = () => {
               />
             </div>
 
-            <div className="w-full sm:max-w-[412px]">
+            <div className="w-full lg:max-w-[412px]">
               <SelectField
                 name="service"
                 control={control}
@@ -169,7 +164,19 @@ const ContactForm = () => {
                 options={serviceOptions}
               />
             </div>
+          </div>
 
+          <div className="w-full lg:max-w-[919px]">
+            <TextAreaField
+              name="message"
+              register={register}
+              errors={errors}
+              placeholder="Tell us more about your request"
+              label="05 /"
+            />
+          </div>
+
+          <div className="w-full lg:max-w-[919px] flex justify-end">
             <Button
               className="h-[38px] gap-2"
               variant="changing"

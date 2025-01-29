@@ -31,6 +31,7 @@ export interface FormInputs {
   email: string;
   company: string;
   service: ServiceType[];
+  message: string; 
 }
 
 export const schema = yup.object().shape({
@@ -56,4 +57,5 @@ export const schema = yup.object().shape({
     )
     .min(1, "Please select at least one service")
     .required("Please select at least one service"),
+  message: yup.string().required("Message is required"),
 });
