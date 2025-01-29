@@ -2,54 +2,42 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { createContext, useContext } from "react";
-import { useRouter } from "next/navigation";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
 type TransitionContextType = {
   isTransitioning: boolean;
-  startTransition: (route: string) => void;
+  startTransition: () => Promise<void>;
+  endTransition: () => void;
 };
 
 const TransitionContext = createContext<TransitionContextType>({
   isTransitioning: false,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  startTransition: (_route: string) => {},
+  startTransition: async () => {},
+  endTransition: () => {},
 });
 
 export const useTransition = () => useContext(TransitionContext);
 
-export const TransitionProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  const router = useRouter();
+const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { getFullGradientClass } = useThemeVariant();
 
-  const startTransition = async (route: string) => {
-    try {
-      setIsTransitioning(true);
+  const startTransition = async () => {
+    setIsTransitioning(true);
+    // Return a promise that resolves when the initial animation is complete
+    return new Promise<void>((resolve) => setTimeout(resolve, 1500));
+  };
 
-      // Wait for the animation to complete
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // Navigate to the new route
-      await router.push(route);
-
-      // Reset transition state after navigation
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 1000);
-    } catch (error) {
-      // Reset transition state if navigation fails
+  const endTransition = () => {
+    setTimeout(() => {
       setIsTransitioning(false);
-      console.error("Navigation failed:", error);
-    }
+    }, 1000);
   };
 
   return (
-    <TransitionContext.Provider value={{ isTransitioning, startTransition }}>
+    <TransitionContext.Provider
+      value={{ isTransitioning, startTransition, endTransition }}
+    >
       {children}
       <AnimatePresence>
         {isTransitioning && (

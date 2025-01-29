@@ -6,7 +6,7 @@ import AutoScroll from "embla-carousel-auto-scroll";
 import Button from "@/components/button";
 import { Spacer } from "@/components/spacer";
 import BabcoLogo from "@/components/babco-logo";
-import { useTransition } from "@/components/page-transition";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import olivia from "../../../../public/images/members/olivia.webp";
 import mia from "../../../../public/images/members/mia.webp";
 import andrea from "../../../../public/images/members/andrea.webp";
@@ -29,19 +29,19 @@ const members = [
   { src: anca, className: "w-[95px] sm:w-[155px] h-[104px] sm:h-[173px]" },
   { src: mahshid, className: "w-[113px] sm:w-[165px] h-[120px] sm:h-[173px]" },
   { src: daria, className: "w-[125px] sm:w-[209px] h-[90px] sm:h-[146px]" },
-  { src: andreia, className: "w-[107px] sm:w-[182px] h-[107px] sm:h-[182px]" },
+  { src: andreia, className: "w-[107px] sm:w-[204px] h-[107px] sm:h-[204px]" },
 
   { src: andrea, className: "w-[105px] sm:w-[177px] h-[105px] sm:h-[177px]" },
   { src: maria, className: "w-[113px] sm:w-[186px] h-[125px] sm:h-[211px]" },
-  { src: mahlet, className: "w-[71px] sm:w-[124px] h-[90px] sm:h-[146px]" },
+  { src: mahlet, className: "w-[70px] sm:w-[160px] h-[76px] sm:h-[166px]" },
   { src: barbara, className: "w-[150px] sm:w-[255px] h-[150px] sm:h-[255px]" },
-  { src: mahsa, className: "w-[82px] sm:w-[139px] h-[82px] sm:h-[139px]" },
+  { src: mahsa, className: "w-[80px] sm:w-[160px] h-[86px] sm:h-[166px]" },
   { src: rachel, className: "w-[170px] sm:w-[290px] h-[167px] sm:h-[282px]" },
   { src: kia, className: "w-[105px] sm:w-[180px] h-[102px] sm:h-[176px]" },
 ];
 
 const Team = () => {
-  const { startTransition } = useTransition();
+  const handleContactClick = useTransitionClick("/contact-us");
 
   const [emblaRef1] = useEmblaCarousel(
     {
@@ -106,7 +106,7 @@ const Team = () => {
               <Button
                 className="w-[178px] h-[56px] gap-2 text-base leading-[75%]"
                 variant="changing"
-                onClick={() => startTransition("/contact-us")}
+                onClick={handleContactClick}
               >
                 <p className="pt-1 text-base leading-[75%]">Contact Us</p>
                 <svg

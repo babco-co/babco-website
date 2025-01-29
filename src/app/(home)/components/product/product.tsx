@@ -31,8 +31,8 @@ import omlet3 from "../../../../../public/images/carousel-omlet/omlet-3.webp";
 // import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
 // import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
 // import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
-// import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
-// import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
+import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
+import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
 
 // Helper function to create image slides
 const createImageSlide = (
@@ -123,12 +123,12 @@ const brandmarchCarousel: SliderItem[][] = [
   ],
 ];
 
-// const oumiCarousel: SliderItem[][] = [
-//   [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
-//   [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
-//   [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
-//   [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
-// ];
+const oumiCarousel: SliderItem[][] = [
+  [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
+  [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
+  [createVideoSlide("/images/carousel-oumi/oumi-video.mp4", 981, 540)],
+  [createImageSlide(oumi2, 349, 251), createImageSlide(oumi3, 349, 268)],
+];
 
 const sqliteCarousel: SliderItem[][] = [
   [createVideoSlide("/images/carousel-sqlite/sqlit-video.mp4", 834, 540)],
@@ -209,7 +209,7 @@ const Product = () => {
           subtitle={"Marketplaces"}
           images={brandmarchCarousel}
         />
-        {/* <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} /> */}
+        <ProductItem title={"Oumi"} subtitle={"AI"} images={oumiCarousel} />
         <ProductItem
           title={"SQLite Cloud"}
           subtitle={"Dev Infrastructure"}

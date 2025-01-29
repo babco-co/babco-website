@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Button from "@/components/button";
 import { LINKEDIN } from "@/lib/utils/constants";
-import { useTransition } from "@/components/page-transition";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import NavigationLink from "@/components/header/navigation-link";
 import dotBlack from "../../../public/images/dot-black.svg";
 
@@ -13,7 +13,7 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
-  const { startTransition } = useTransition();
+    const handleContactClick = useTransitionClick("/contact-us");
 
   return (
     <AnimatePresence>
@@ -95,7 +95,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   variant="secondary"
                   onClick={() => {
                     onClose();
-                    startTransition("/contact-us");
+                    handleContactClick();
                   }}
                 >
                   <p className="pt-1">Contact Us</p>

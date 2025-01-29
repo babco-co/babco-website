@@ -3,15 +3,15 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
-import { useTransition } from "@/components/page-transition";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 
 const Offer = () => {
-  const { startTransition } = useTransition();
+  const handleContactClick = useTransitionClick("/contact-us");
   const { getFullGradientClass } = useThemeVariant();
 
   const handleItemClick = () => {
-    startTransition("/contact-us");
+    handleContactClick();
   };
 
   return (

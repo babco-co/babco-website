@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useTransition } from "@/components/page-transition";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 
 interface NavigationLinkProps {
   href: string;
@@ -17,15 +17,7 @@ const NavigationLink = ({
   external = false,
   onClick,
 }: NavigationLinkProps) => {
-  const { startTransition } = useTransition();
-
-  const handleClick = (e: React.MouseEvent) => {
-    if (!external) {
-      e.preventDefault();
-      onClick?.();
-      startTransition(href);
-    }
-  };
+  const handleClick = useTransitionClick(href, onClick);
 
   if (external) {
     return (
@@ -41,7 +33,14 @@ const NavigationLink = ({
   }
 
   return (
-    <Link href={href} className={className} onClick={handleClick}>
+    <Link
+      href={href}
+      className={className}
+      onClick={(e) => {
+        e.preventDefault();
+        handleClick(e);
+      }}
+    >
       {children}
     </Link>
   );

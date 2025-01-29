@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/button";
 import { LINKEDIN } from "@/lib/utils/constants";
-import { useTransition } from "@/components/page-transition";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import NavigationLink from "@/components/header/navigation-link";
 import MobileMenu from "@/components/header/mobile-menu";
 import arrowBlackIcon from "../../../public/icons/arrow-black-icon.svg";
@@ -16,7 +16,7 @@ import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
 const Header = () => {
   const { getFullGradientClass } = useThemeVariant();
-  const { startTransition } = useTransition();
+  const handleContactClick = useTransitionClick("/contact-us");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -220,7 +220,7 @@ const Header = () => {
           <Button
             className="h-[38px] hidden lg:flex gap-2 text-center"
             variant="changing"
-            onClick={() => startTransition("/contact-us")}
+            onClick={handleContactClick}
           >
             <p className="pt-1">Contact Us</p>
             <Image
