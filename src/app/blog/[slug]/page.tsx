@@ -31,7 +31,7 @@ export default function BlogPostPage() {
         <Spacer className="w-full mt-5 px-5">
           <Header />
         </Spacer>
-        <div className="flex justify-center items-center min-h-[60vh]">
+        <div className="flex justify-center items-center min-h-[60vh] mt-[108px]">
           <div className="h-8 w-8 rounded-full border-b-2 border-brand-light dark:border-brand-dark animate-spin" />
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function BlogPostPage() {
         <Spacer className="w-full mt-5 px-5">
           <Header />
         </Spacer>
-        <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
+        <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 mt-[108px]">
           <h1 className="text-2xl font-bold text-text-primary-light dark:text-text-primary-dark mb-4">
             Post not found
           </h1>
@@ -67,7 +67,7 @@ export default function BlogPostPage() {
         <Header />
       </Spacer>
 
-      <article className="max-w-3xl mx-auto px-4 py-8">
+      <article className="max-w-3xl mx-auto px-4 py-8 mt-[108px]">
         {/* Article Header */}
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">

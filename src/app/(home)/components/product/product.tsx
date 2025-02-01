@@ -31,7 +31,7 @@ import omlet3 from "../../../../../public/images/carousel-omlet/omlet-3.webp";
 // import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
 // import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
 // import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
-import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.svg";
+import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.webp";
 import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
 
 // Helper function to create image slides

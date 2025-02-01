@@ -13,14 +13,28 @@ import closeIcon from "../../../public/icons/close-icon.svg";
 import muteIcon from "../../../public/icons/mute-icon.svg";
 import unmuteIcon from "../../../public/icons/unmute-icon.svg";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
+import { BIcon } from "../icons/b-icon";
+import BabcoLogo from "../babco-logo";
 
 const Header = () => {
   const { getFullGradientClass } = useThemeVariant();
   const handleContactClick = useTransitionClick("/contact-us");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeRef = useRef<number | null>(null);
+
+  // Scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Audio initialization and cleanup
   useEffect(() => {
@@ -126,38 +140,40 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full px-4 sm:px-5 py-6">
-      <nav className="w-full flex items-center justify-between">
-        {/* Left logo section */}
-        <Link className="flex flex-1 items-center justify-start z-50" href="./">
-          <div
-            className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${
-              isMenuOpen ? "bg-white dark:bg-black" : getFullGradientClass()
-            }`}
+    <header
+      className={`w-full py-6 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "shadow-md bg-background-light dark:bg-background-dark mt-0" : "mt-5"
+      }`}
+    >
+      <div className="mx-7 sm:mx-10">
+        <nav className="w-full flex items-center justify-between">
+          {/* Left logo section */}
+          <Link
+            className="flex flex-1 items-center justify-start z-50"
+            href="./"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="38"
-              height="38"
-              viewBox="0 0 38 38"
-              fill="none"
-            >
-              <circle cx="19" cy="19" r="19" />
-              <path
-                d="M20.6453 28.885C24.9846 28.885 27.1543 26.2033 27.1543 23.5216C27.1543 21.0939 25.3691 18.6663 21.8262 18.2428C24.0783 17.396 25.4515 15.4482 25.4515 13.5569C25.4515 11.2986 23.4466 9.125 18.6129 9.125H12.4884V28.4333H12.4609V28.885H20.6453ZM20.3432 18.6098C22.9523 18.6098 24.2431 21.0657 24.2431 23.5216C24.2431 25.9775 22.9523 28.4333 20.3432 28.4333H14.9876V9.57666H18.4481C21.4143 9.57666 22.8973 11.6656 22.8973 13.8109C22.8973 16.041 21.3044 18.2993 18.1186 18.2993C17.3496 18.2993 16.4982 18.1864 15.5369 17.8759C16.8827 18.4404 18.1186 18.6945 19.2446 18.6945C19.6291 18.6945 19.9861 18.6663 20.3432 18.6098Z"
-                className={
-                  isMenuOpen
-                    ? "fill-brand-light dark:fill-brand-dark"
-                    : "fill-white dark:fill-black"
-                }
-              />
-            </svg>
-          </div>
-        </Link>
+            {isScrolled ? (
+              <BabcoLogo className="w-[106px] h-[21px]" />
+            ) : (
+              <div
+                className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${
+                  isMenuOpen ? "bg-white dark:bg-black" : getFullGradientClass()
+                }`}
+              >
+                <BIcon
+                  className={
+                    isMenuOpen
+                      ? "fill-brand-light dark:fill-brand-dark"
+                      : "fill-white dark:fill-black"
+                  }
+                />
+              </div>
+            )}
+          </Link>
 
-        {/* Center navigation */}
-        <div className="hidden lg:flex flex-1 items-center justify-center gap-5">
-          {/* <NavigationLink
+          {/* Center navigation */}
+          <div className="hidden lg:flex flex-1 items-center justify-center gap-5">
+            {/* <NavigationLink
             href="/works"
             className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
           >
@@ -168,84 +184,85 @@ const Header = () => {
             <p className="text-light-gray mb-2">.</p>
           </div> */}
 
-          <NavigationLink
-            href="/merch"
-            className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
-            external
-          >
-            Merch
-          </NavigationLink>
+            <NavigationLink
+              href="/merch"
+              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
+              external
+            >
+              Merch
+            </NavigationLink>
 
-          <div className="hidden sm:flex items-start justify-center text-center">
-            <p className="text-light-gray mb-2">.</p>
+            <div className="hidden sm:flex items-start justify-center text-center">
+              <p className="text-light-gray mb-2">.</p>
+            </div>
+
+            <NavigationLink
+              href={LINKEDIN}
+              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
+              external
+            >
+              Follow
+            </NavigationLink>
+
+            <div className="hidden sm:flex items-start justify-center text-center">
+              <p className="text-light-gray mb-2">.</p>
+            </div>
+
+            <NavigationLink
+              href="/blog"
+              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
+            >
+              Blog
+            </NavigationLink>
           </div>
 
-          <NavigationLink
-            href={LINKEDIN}
-            className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
-            external
-          >
-            Follow
-          </NavigationLink>
+          {/* Right section */}
+          <div className="flex flex-1 items-center justify-end gap-5">
+            <button
+              className="flex-shrink-0 group relative touch-manipulation"
+              onClick={handleToggleAudio}
+              aria-label={isMuted ? "Unmute" : "Mute"}
+            >
+              <Image
+                src={isMuted ? muteIcon : unmuteIcon}
+                alt={isMuted ? "mute" : "unmute"}
+                className="transition-transform duration-200 group-hover:scale-110 invert dark:invert-0"
+              />
+              <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-text-primary-light dark:text-text-primary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {isMuted ? "Unmute" : "Mute"}
+              </span>
+            </button>
 
-          <div className="hidden sm:flex items-start justify-center text-center">
-            <p className="text-light-gray mb-2">.</p>
+            <Button
+              className="h-[38px] hidden lg:flex gap-2 text-center"
+              variant="changing"
+              onClick={handleContactClick}
+            >
+              <p className="pt-1">Contact Us</p>
+              <Image
+                className="invert dark:invert-0"
+                src={arrowBlackIcon}
+                alt="arrow"
+              />
+            </Button>
+
+            <button
+              className={`w-[38px] h-[38px] flex lg:hidden flex-shrink-0 items-center justify-center rounded-full z-50 ${
+                isMenuOpen
+                  ? "bg-brand-light dark:bg-brand-dark"
+                  : getFullGradientClass()
+              }`}
+              onClick={handleToggleMenu}
+            >
+              <Image
+                className="invert dark:invert-0"
+                src={isMenuOpen ? closeIcon : menuIcon}
+                alt="menu"
+              />
+            </button>
           </div>
-
-          <NavigationLink
-            href="/blog"
-            className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
-          >
-            Blog
-          </NavigationLink>
-        </div>
-
-        {/* Right section */}
-        <div className="flex flex-1 items-center justify-end gap-5">
-          <button
-            className="flex-shrink-0 group relative touch-manipulation"
-            onClick={handleToggleAudio}
-            aria-label={isMuted ? "Unmute" : "Mute"}
-          >
-            <Image
-              src={isMuted ? muteIcon : unmuteIcon}
-              alt={isMuted ? "mute" : "unmute"}
-              className="transition-transform duration-200 group-hover:scale-110 invert dark:invert-0"
-            />
-            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-text-primary-light dark:text-text-primary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              {isMuted ? "Unmute" : "Mute"}
-            </span>
-          </button>
-
-          <Button
-            className="h-[38px] hidden lg:flex gap-2 text-center"
-            variant="changing"
-            onClick={handleContactClick}
-          >
-            <p className="pt-1">Contact Us</p>
-            <Image
-              className="invert dark:invert-0"
-              src={arrowBlackIcon}
-              alt="arrow"
-            />
-          </Button>
-
-          <button
-            className={`w-[38px] h-[38px] flex lg:hidden flex-shrink-0 items-center justify-center rounded-full z-50 ${
-              isMenuOpen
-                ? "bg-brand-light dark:bg-brand-dark"
-                : getFullGradientClass()
-            }`}
-            onClick={handleToggleMenu}
-          >
-            <Image
-              className="invert dark:invert-0"
-              src={isMenuOpen ? closeIcon : menuIcon}
-              alt="menu"
-            />
-          </button>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
       <MobileMenu isOpen={isMenuOpen} onClose={handleToggleMenu} />
     </header>

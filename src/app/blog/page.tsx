@@ -12,7 +12,7 @@ export default async function BlogPage() {
         <Header />
       </Spacer>
 
-      <Spacer className="w-full px-5 py-8">
+      <Spacer className="w-full px-5 py-8 mt-[108px]">
         <BlogPosts posts={posts} />
       </Spacer>
     </div>
