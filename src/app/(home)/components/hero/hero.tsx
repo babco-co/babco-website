@@ -23,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="w-full h-full flex flex-col items-center justify-between gap-px overflow-hidden">
+    <section className="w-full h-full flex flex-col items-center justify-between gap-px mt-[108px] overflow-hidden">
       <RiveWrapper
         src={getAnimationSrc()}
         autoplay={true}
