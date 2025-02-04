@@ -14,7 +14,7 @@ import muteIcon from "../../../public/icons/mute-icon.svg";
 import unmuteIcon from "../../../public/icons/unmute-icon.svg";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 import { BIcon } from "../icons/b-icon";
-import BabcoLogo from "../babco-logo";
+import BabcoTMLogo from "../babco-tm-logo";
 
 const Header = () => {
   const { getFullGradientClass } = useThemeVariant();
@@ -153,7 +153,7 @@ const Header = () => {
             href="./"
           >
             {isScrolled ? (
-              <BabcoLogo className="w-[106px] h-[21px]" />
+              <BabcoTMLogo className="w-[106px] h-[21px]" />
             ) : (
               <div
                 className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${
