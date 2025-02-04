@@ -14,7 +14,7 @@ import muteIcon from "../../../public/icons/mute-icon.svg";
 import unmuteIcon from "../../../public/icons/unmute-icon.svg";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 import { BIcon } from "../icons/b-icon";
-import BabcoTMLogo from "../babco-tm-logo";
+import BabcoTMLogo from "../babco-TM-logo";
 
 const Header = () => {
   const { getFullGradientClass } = useThemeVariant();
