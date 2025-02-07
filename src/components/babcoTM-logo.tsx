@@ -9,12 +9,14 @@ const BabcoTMLogo = ({
   className,
   useGradient = false,
   staticColor,
+  isMenuOpen,
 }: {
   width?: number | string;
   height?: number | string;
   className?: string;
   useGradient?: boolean;
   staticColor?: string;
+  isMenuOpen?: boolean;
 }) => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -31,7 +33,13 @@ const BabcoTMLogo = ({
     if (useGradient && resolvedTheme === 'light') {
       return gradientFill;
     }
-    return resolvedTheme === 'dark' ? '#FFFFFF' : '#000000';
+    return resolvedTheme === 'dark'
+      ? isMenuOpen
+        ? '#000000'
+        : '#FFFFFF'
+      : isMenuOpen
+      ? '#FFFFFF'
+      : '#000000';
   };
 
   const currentFill = getCurrentFill();

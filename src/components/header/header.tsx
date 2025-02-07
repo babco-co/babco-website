@@ -142,34 +142,46 @@ const Header = () => {
   return (
     <header
       className={`w-full py-6 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "shadow-md bg-background-light dark:bg-background-dark mt-0" : "mt-5"
+        isScrolled
+          ? "shadow-md bg-background-light dark:bg-background-dark mt-0"
+          : "mt-5"
       }`}
     >
       <div className="mx-7 sm:mx-10">
         <nav className="w-full flex items-center justify-between">
           {/* Left logo section */}
-          <Link
-            className="flex flex-1 items-center justify-start z-50"
-            href="./"
-          >
-            {isScrolled ? (
-              <BabcoTMLogo className="w-[106px] h-[21px]" />
-            ) : (
-              <div
-                className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${
-                  isMenuOpen ? "bg-white dark:bg-black" : getFullGradientClass()
-                }`}
-              >
-                <BIcon
-                  className={
-                    isMenuOpen
-                      ? "fill-brand-light dark:fill-brand-dark"
-                      : "fill-white dark:fill-black"
-                  }
+          {isMenuOpen ? (
+            <div className="flex flex-1 items-center justify-start z-50">
+              {isScrolled ? (
+                <BabcoTMLogo
+                  className="w-[106px] h-[21px]"
+                  isMenuOpen={isMenuOpen}
                 />
-              </div>
-            )}
-          </Link>
+              ) : (
+                <div className="w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 bg-white dark:bg-black">
+                  <BIcon className="fill-brand-light dark:fill-brand-dark" />
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link
+              className="flex flex-1 items-center justify-start z-50"
+              href="./"
+            >
+              {isScrolled ? (
+                <BabcoTMLogo
+                  className="w-[106px] h-[21px]"
+                  isMenuOpen={isMenuOpen}
+                />
+              ) : (
+                <div
+                  className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${getFullGradientClass()}`}
+                >
+                  <BIcon className="fill-white dark:fill-black" />
+                </div>
+              )}
+            </Link>
+          )}
 
           {/* Center navigation */}
           <div className="hidden lg:flex flex-1 items-center justify-center gap-5">
