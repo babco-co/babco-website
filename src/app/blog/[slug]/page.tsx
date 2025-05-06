@@ -1,11 +1,13 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { BlogPost } from "../types";
-import { fetchBlogPosts } from "../api";
+import { BlogPost } from "@/app/blog/types";
+import { fetchBlogPosts } from "@/lib/services/blog";
 import { createSlug } from "@/lib/utils/helper";
 import { Spacer } from "@/components/spacer";
 import Header from "@/components/header/header";
+import BlogContentLoader from "@/app/blog/components/blog-content-loader";
 
 export default function BlogPostPage() {
   const params = useParams();
@@ -59,8 +61,6 @@ export default function BlogPostPage() {
     );
   }
 
-  const cleanedContent = post.content;
-
   return (
     <div className="w-full min-h-screen font-helvetica bg-background-light dark:bg-background-dark">
       <Spacer className="w-full mt-5 px-5">
@@ -68,6 +68,19 @@ export default function BlogPostPage() {
       </Spacer>
 
       <article className="max-w-3xl mx-auto px-4 py-8 mt-[108px]">
+        {/* Source Badge */}
+        <div className="mb-4">
+          <span className={`
+            px-3 py-1 rounded-full text-sm font-medium
+            ${post.source === 'medium' 
+              ? 'bg-black text-white' 
+              : 'bg-[#FF6719] text-white'
+            }
+          `}>
+            {post.source === 'medium' ? 'Medium' : 'Substack'}
+          </span>
+        </div>
+
         {/* Article Header */}
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">
@@ -81,17 +94,7 @@ export default function BlogPostPage() {
         </header>
 
         {/* Article Content */}
-        <div
-          className="prose prose-lg max-w-none dark:prose-invert
-            prose-headings:text-text-primary-light dark:prose-headings:text-text-primary-dark
-            prose-p:text-text-primary-light dark:prose-p:text-text-primary-dark
-            prose-a:text-brand-light dark:prose-a:text-brand-dark hover:prose-a:opacity-80
-            prose-strong:text-text-primary-light dark:prose-strong:text-text-primary-dark
-            prose-code:text-text-primary-light dark:prose-code:text-text-primary-dark
-            prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800
-            prose-blockquote:border-l-brand-light dark:prose-blockquote:border-l-brand-dark"
-          dangerouslySetInnerHTML={{ __html: cleanedContent }}
-        />
+        <BlogContentLoader post={post} />
 
         {/* Back Button */}
         <div className="mt-12 pt-8 border-t border-border-primary-light dark:border-border-primary-dark">
