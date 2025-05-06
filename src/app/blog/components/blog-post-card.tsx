@@ -50,7 +50,7 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
     >
       <article className="h-full overflow-hidden transition-all duration-300 bg-white/50 dark:bg-[#0C0C0C] relative">
         {/* Source Badge */}
-        <div className="absolute top-4 right-4 z-10">
+        {/* <div className="absolute top-4 right-4 z-10">
           <span className={`
             px-2 py-1 rounded-full text-xs font-medium
             ${post.source === 'medium' 
@@ -60,7 +60,7 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
           `}>
             {post.source === 'medium' ? 'Medium' : 'Substack'}
           </span>
-        </div>
+        </div> */}
 
         <div className="relative aspect-[16/9] overflow-hidden">
           {imageData ? (

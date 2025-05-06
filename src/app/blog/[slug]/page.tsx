@@ -69,7 +69,7 @@ export default function BlogPostPage() {
 
       <article className="max-w-3xl mx-auto px-4 py-8 mt-[108px]">
         {/* Source Badge */}
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <span className={`
             px-3 py-1 rounded-full text-sm font-medium
             ${post.source === 'medium' 
@@ -79,7 +79,7 @@ export default function BlogPostPage() {
           `}>
             {post.source === 'medium' ? 'Medium' : 'Substack'}
           </span>
-        </div>
+        </div> */}
 
         {/* Article Header */}
         <header className="mb-8">

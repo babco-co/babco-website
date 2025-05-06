@@ -87,11 +87,12 @@ function compareTitles(title1: string, title2: string): number {
 export async function fetchBlogPosts(mediumUsername: string): Promise<BlogPost[]> {
   try {
     // Fetch both feeds in parallel
-    const [mediumPosts, substackPosts] = await Promise.all([
-      fetchFromRSS2JSON(
+    const [/* mediumPosts, */ substackPosts] = await Promise.all([
+      // Comment out Medium fetch
+      /* fetchFromRSS2JSON(
         `https://medium.com/feed/${mediumUsername}`,
         'medium'
-      ),
+      ), */
       fetchFromRSS2JSON(
         'https://oliviabatraski.substack.com/feed',
         'substack'
@@ -99,7 +100,8 @@ export async function fetchBlogPosts(mediumUsername: string): Promise<BlogPost[]
     ]);
 
     // Combine posts
-    const allPosts = [...mediumPosts, ...substackPosts];
+    // const allPosts = [...mediumPosts, ...substackPosts];
+    const allPosts = [...substackPosts];
 
     // If no posts were fetched, throw an error
     if (allPosts.length === 0) {
@@ -115,7 +117,8 @@ export async function fetchBlogPosts(mediumUsername: string): Promise<BlogPost[]
 
       if (!isDuplicate) {
         acc.push(current);
-      } else {
+      }
+      /* else {
         // If duplicate, prefer the Medium post
         const existingIndex = acc.findIndex(post => 
           compareTitles(post.title, current.title) > 0.8
@@ -123,7 +126,7 @@ export async function fetchBlogPosts(mediumUsername: string): Promise<BlogPost[]
         if (existingIndex !== -1 && current.source === 'medium') {
           acc[existingIndex] = current;
         }
-      }
+      } */
       return acc;
     }, [] as BlogPost[]);
 
@@ -133,6 +136,6 @@ export async function fetchBlogPosts(mediumUsername: string): Promise<BlogPost[]
     });
   } catch (error) {
     console.error("Error fetching blog posts:", error);
-    throw error; // Propagate the error to be handled by the UI
+    throw error;
   }
 }
