@@ -22,7 +22,25 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
     return null;
   };
 
-  const imageData = getFirstImage(post.content);
+  // Clean up HTML entities in title
+  const cleanTitle = post.title
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ');
+
+  // Clean up HTML entities in content
+  const cleanContent = post.content
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ');
+
+  const imageData = getFirstImage(cleanContent);
 
   return (
     <Link
@@ -56,7 +74,7 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-50" />
+            <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-50 dark:from-gray-800 dark:to-gray-900" />
           )}
         </div>
         <div className="p-6">
@@ -65,13 +83,13 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
               {post.pubDate} • {post.creator}
             </p>
             <h3 className="text-xl font-semibold leading-snug text-text-primary-light dark:text-text-primary-dark group-hover:text-brand-light dark:group-hover:text-brand-dark transition-colors">
-              {post.title}
+              {cleanTitle}
             </h3>
           </div>
           <div
             className="text-dark-gray line-clamp-2 text-sm leading-relaxed"
             dangerouslySetInnerHTML={{
-              __html: post.content.replace(/<[^>]*>/g, "").trim(),
+              __html: cleanContent.replace(/<[^>]*>/g, "").trim(),
             }}
           />
         </div>
