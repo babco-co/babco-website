@@ -4,7 +4,7 @@ interface BlogContentLoaderProps {
   post: BlogPost;
 }
 
-export default function BlogContentLoader({ post }: BlogContentLoaderProps) {
+const BlogContentLoader = ({ post }: BlogContentLoaderProps) => {
   // For Medium posts, we already have good content from RSS
   // For Substack posts, the RSS content is sufficient for now
   return (
@@ -23,4 +23,6 @@ export default function BlogContentLoader({ post }: BlogContentLoaderProps) {
       />
     </div>
   );
-}
+};
+
+export default BlogContentLoader;
