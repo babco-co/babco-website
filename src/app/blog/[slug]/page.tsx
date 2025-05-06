@@ -17,7 +17,7 @@ export default function BlogPostPage() {
 
   useEffect(() => {
     async function loadPost() {
-      const posts = await fetchBlogPosts("babco");
+      const posts = await fetchBlogPosts();
       const currentPost = posts.find(
         (p) => createSlug(p.title) === params.slug
       );

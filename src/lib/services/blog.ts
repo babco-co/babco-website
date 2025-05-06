@@ -15,7 +15,10 @@ interface RSS2JSONResponse {
   items: RSS2JSONItem[];
 }
 
-async function fetchFromRSS2JSON(url: string, source: 'medium' | 'substack'): Promise<BlogPost[]> {
+async function fetchFromRSS2JSON(
+  url: string,
+  source: "medium" | "substack"
+): Promise<BlogPost[]> {
   try {
     const response = await fetch(
       `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`,
@@ -45,19 +48,21 @@ async function fetchFromRSS2JSON(url: string, source: 'medium' | 'substack'): Pr
     return data.items.map((item) => {
       // For Substack, if no thumbnail, use a placeholder
       let processedThumbnail = item.thumbnail;
-      if (source === 'substack' && !processedThumbnail) {
-        processedThumbnail = `/api/placeholder/800/400?text=${encodeURIComponent(item.title)}`;
+      if (source === "substack" && !processedThumbnail) {
+        processedThumbnail = `/api/placeholder/800/400?text=${encodeURIComponent(
+          item.title
+        )}`;
       }
 
       return {
         title: item.title,
         link: item.link,
         pubDate: new Date(item.pubDate).toLocaleDateString(),
-        creator: item.author || 'Olivia Batraski', // Fallback author
-        content: item.content || item.description || '',
+        creator: item.author || "Olivia Batraski", // Fallback author
+        content: item.content || item.description || "",
         thumbnail: processedThumbnail,
         source,
-        uniqueId: item.link.split('/').pop() || item.title
+        uniqueId: item.link.split("/").pop() || item.title,
       };
     });
   } catch (error) {
@@ -67,10 +72,11 @@ async function fetchFromRSS2JSON(url: string, source: 'medium' | 'substack'): Pr
 }
 
 function compareTitles(title1: string, title2: string): number {
-  const normalize = (str: string) => 
-    str.toLowerCase()
-       .replace(/[^a-z0-9\s]/g, '')
-       .trim();
+  const normalize = (str: string) =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, "")
+      .trim();
 
   const t1 = normalize(title1);
   const t2 = normalize(title2);
@@ -78,13 +84,13 @@ function compareTitles(title1: string, title2: string): number {
   const words1 = new Set(t1.split(/\s+/));
   const words2 = new Set(t2.split(/\s+/));
 
-  const intersection = new Set([...words1].filter(x => words2.has(x)));
+  const intersection = new Set([...words1].filter((x) => words2.has(x)));
   const union = new Set([...words1, ...words2]);
 
   return intersection.size / union.size;
 }
 
-export async function fetchBlogPosts(mediumUsername: string): Promise<BlogPost[]> {
+export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
     // Fetch both feeds in parallel
     const [/* mediumPosts, */ substackPosts] = await Promise.all([
@@ -93,10 +99,7 @@ export async function fetchBlogPosts(mediumUsername: string): Promise<BlogPost[]
         `https://medium.com/feed/${mediumUsername}`,
         'medium'
       ), */
-      fetchFromRSS2JSON(
-        'https://oliviabatraski.substack.com/feed',
-        'substack'
-      )
+      fetchFromRSS2JSON("https://oliviabatraski.substack.com/feed", "substack"),
     ]);
 
     // Combine posts
@@ -110,7 +113,7 @@ export async function fetchBlogPosts(mediumUsername: string): Promise<BlogPost[]
 
     // Remove duplicates
     const uniquePosts = allPosts.reduce((acc, current) => {
-      const isDuplicate = acc.some(post => {
+      const isDuplicate = acc.some((post) => {
         const similarity = compareTitles(post.title, current.title);
         return similarity > 0.8;
       });

@@ -13,7 +13,7 @@ const BlogPosts = () => {
   useEffect(() => {
     async function loadPosts() {
       try {
-        const fetchedPosts = await fetchBlogPosts("babco");
+        const fetchedPosts = await fetchBlogPosts();
         setPosts(fetchedPosts);
         setError(null);
       } catch (err) {
