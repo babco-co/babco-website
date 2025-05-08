@@ -5,4 +5,6 @@ export interface BlogPost {
   creator: string;
   content: string;
   thumbnail: string;
+  source: 'medium' | 'substack';
+  uniqueId: string;
 }
