@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SanityLive } from "@/sanity/lib/live";
 import TransitionProvider from "@/components/page-transition";
 import { helveticaNeue, inter } from "@/styles/fonts";
 import Footer from "@/components/footer";
@@ -25,6 +26,7 @@ export default function RootLayout({
           <TransitionProvider>
             <CustomCursor />
             {children}
+            <SanityLive />
             <Footer />
           </TransitionProvider>
         </ThemeProvider>
