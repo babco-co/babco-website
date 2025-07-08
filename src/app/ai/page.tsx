@@ -3,6 +3,8 @@ import { Spacer } from "@/components/spacer";
 import { sanityFetch } from "@/sanity/lib/live";
 import { defineQuery } from "next-sanity";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/../public/images/Ai·conic.svg";
 
 export interface SanityImage {
   asset: {
@@ -98,16 +100,18 @@ export default async function ServicesPage() {
         <Header />
       </Spacer>
 
-      <Spacer horizontal className="mt-[200px]">
+      <Spacer horizontal className="mt-[200px] overflow-hidden">
         {/* Header Section */}
         <div className="mb-[168px]">
-          <h1 className="text-[140px] font-normal leading-[140px] mb-16 text-text-primary-light dark:text-text-primary-dark">
-            Ai•conic
-            <span className="text-4xl align-top">™</span>
-            <span className="text-6xl text-light-gray dark:text-medium-gray ml-4">
-              /
-            </span>
-          </h1>
+          <div className="flex flex-row items-center justify-start mb-16">
+            <Image src={logo} alt="logo" />
+            <span className="text-base md:text-xl font-bold align-top mb-4">™</span>
+            <div
+              className="hidden sm:block w-[80px] lg:w-[140px] h-[2px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+              style={{ transform: "rotate(-65.363deg)" }}
+            />
+          </div>
+
           <p className="text-3xl font-[200] leading-[42.21px] text-black dark:text-medium-gray max-w-6xl">
             We don&apos;t just design AI products—we shape AI strategy, optimize
             workflows, and craft intelligent brand experiences that perform.
