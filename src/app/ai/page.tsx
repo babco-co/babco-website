@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "@/../public/images/Ai·conic.svg";
 
-export interface SanityImage {
+interface SanityImage {
   asset: {
     _ref: string;
     _type: string;
@@ -14,12 +14,12 @@ export interface SanityImage {
   alt?: string;
 }
 
-export interface SanitySlug {
+interface SanitySlug {
   current: string;
   _type: string;
 }
 
-export interface SanityBlock {
+interface SanityBlock {
   _type: string;
   _key: string;
   children: Array<{
@@ -38,7 +38,7 @@ export interface SanityBlock {
   level?: number;
 }
 
-export interface AIService {
+interface AIService {
   _id: string;
   title: string;
   slug: SanitySlug;
@@ -55,15 +55,7 @@ export interface AIService {
   };
 }
 
-export interface AIServiceDetailed extends AIService {
-  fullDescription: SanityBlock[];
-  metadata: {
-    metaTitle?: string;
-    metaDescription?: string;
-  };
-}
-
-export type AIServiceListItem = Pick<
+type AIServiceListItem = Pick<
   AIService,
   | "_id"
   | "title"
@@ -75,7 +67,7 @@ export type AIServiceListItem = Pick<
   | "order"
 >;
 
-export const AI_SERVICES_QUERY = defineQuery(`*[
+const AI_SERVICES_QUERY = defineQuery(`*[
   _type == "aiService" 
   && isActive == true
 ] | order(order asc) {
@@ -105,7 +97,9 @@ export default async function ServicesPage() {
         <div className="mb-[168px]">
           <div className="flex flex-row items-center justify-start mb-16">
             <Image src={logo} alt="logo" />
-            <span className="text-base md:text-xl font-bold align-top mb-4">™</span>
+            <span className="text-base md:text-xl font-bold align-top mb-4">
+              ™
+            </span>
             <div
               className="hidden sm:block w-[80px] lg:w-[140px] h-[2px] flex-shrink-0 bg-black/70 dark:bg-white/70"
               style={{ transform: "rotate(-65.363deg)" }}
