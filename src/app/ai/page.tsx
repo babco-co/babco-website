@@ -134,7 +134,7 @@ export default async function ServicesPage() {
                 {/* Service Content */}
                 <div className="flex-1">
                   <Link
-                    href={`/services/${service.slug.current}`}
+                    href={`/contact-us`}
                     className="group block"
                   >
                     <h3 className="text-4xl font-[200] leading-[35px] mb-3 text-text-primary-light dark:text-text-primary-dark group-hover:text-brand-light dark:group-hover:text-brand-dark transition-colors">
