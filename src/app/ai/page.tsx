@@ -1,9 +1,9 @@
+import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
 import { sanityFetch } from "@/sanity/lib/live";
 import { defineQuery } from "next-sanity";
-import Link from "next/link";
-import Image from "next/image";
 import logo from "@/../public/images/Ai·conic.svg";
 
 interface SanityImage {
