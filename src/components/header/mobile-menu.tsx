@@ -13,7 +13,7 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
-    const handleContactClick = useTransitionClick("/contact-us");
+  const handleContactClick = useTransitionClick("/contact-us");
 
   return (
     <AnimatePresence>
@@ -85,6 +85,22 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     onClick={onClose}
                   >
                     Blog
+                  </NavigationLink>
+
+                  <div className="my-8">
+                    <Image
+                      className="invert dark:invert-0"
+                      src={dotBlack}
+                      alt="dot"
+                    />
+                  </div>
+
+                  <NavigationLink
+                    href="/ai"
+                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
+                    onClick={onClose}
+                  >
+                    AI
                   </NavigationLink>
                 </div>
               </div>
