@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import RiveWrapper from "@/components/rive-wrapper";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { motion } from "motion/react";
-import BabcoLogo from "@/components/babco-logo";
+import BabcoLogo from "@/components/svg/babco-logo";
 
 const Hero = () => {
   const { resolvedTheme } = useTheme();

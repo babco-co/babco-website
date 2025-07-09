@@ -13,8 +13,8 @@ import closeIcon from "../../../public/icons/close-icon.svg";
 import muteIcon from "../../../public/icons/mute-icon.svg";
 import unmuteIcon from "../../../public/icons/unmute-icon.svg";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
-import { BIcon } from "../icons/b-icon";
-import BabcoTMLogo from "../babcoTM-logo";
+import { BIcon } from "@/components/svg/b-icon";
+import BabcoTMLogo from "@/components/svg/babcoTM-logo";
 
 const Header = () => {
   const { getFullGradientClass } = useThemeVariant();

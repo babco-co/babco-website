@@ -1,10 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 import Header from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
 import { sanityFetch } from "@/sanity/lib/live";
 import { defineQuery } from "next-sanity";
-import logo from "@/../public/images/Ai·conic.svg";
+import { AICONIC } from "@/components/svg/ai-coinc";
 
 interface SanityImage {
   asset: {
@@ -96,7 +95,7 @@ export default async function ServicesPage() {
         {/* Header Section */}
         <div className="mb-[168px]">
           <div className="flex flex-row items-center justify-start mb-16">
-            <Image src={logo} alt="logo" />
+            <AICONIC  className="fill-text-primary-light dark:fill-text-primary-dark" />
             <span className="text-base md:text-xl font-bold align-top mb-4">
               ™
             </span>

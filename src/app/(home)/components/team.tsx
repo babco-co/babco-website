@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Button from "@/components/button";
 import { Spacer } from "@/components/spacer";
-import BabcoLogo from "@/components/babco-logo";
+import BabcoLogo from "@/components/svg/babco-logo";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import olivia from "../../../../public/images/members/olivia.webp";
 import mia from "../../../../public/images/members/mia.webp";
