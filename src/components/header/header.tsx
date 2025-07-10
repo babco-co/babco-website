@@ -13,8 +13,8 @@ import closeIcon from "../../../public/icons/close-icon.svg";
 import muteIcon from "../../../public/icons/mute-icon.svg";
 import unmuteIcon from "../../../public/icons/unmute-icon.svg";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
-import { BIcon } from "../icons/b-icon";
-import BabcoTMLogo from "../babcoTM-logo";
+import { BIcon } from "@/components/svg/b-icon";
+import BabcoTMLogo from "@/components/svg/babcoTM-logo";
 
 const Header = () => {
   const { getFullGradientClass } = useThemeVariant();
@@ -143,7 +143,7 @@ const Header = () => {
     <header
       className={`w-full py-6 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "shadow-md bg-background-light dark:bg-background-dark mt-0"
+          ? "backdrop-blur-sm bg-background-light/60 dark:bg-background-dark/60 mt-0"
           : "mt-5"
       }`}
     >
@@ -186,15 +186,26 @@ const Header = () => {
           {/* Center navigation */}
           <div className="hidden lg:flex flex-1 items-center justify-center gap-5">
             {/* <NavigationLink
-            href="/works"
-            className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
-          >
-            Works
-          </NavigationLink>
+              href="/works"
+              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
+            >
+              Works
+            </NavigationLink>
 
-          <div className="hidden sm:flex items-start justify-center text-center">
-            <p className="text-light-gray mb-2">.</p>
-          </div> */}
+            <div className="hidden sm:flex items-start justify-center text-center">
+              <p className="text-light-gray mb-2">.</p>
+            </div> */}
+
+            <NavigationLink
+              href="/ai"
+              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
+            >
+              AI Services
+            </NavigationLink>
+
+            <div className="hidden sm:flex items-start justify-center text-center">
+              <p className="text-light-gray mb-2">.</p>
+            </div>
 
             <NavigationLink
               href="/merch"
@@ -209,11 +220,10 @@ const Header = () => {
             </div>
 
             <NavigationLink
-              href={LINKEDIN}
-              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
-              external
+              href="/blog"
+              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
             >
-              Follow
+              Blog
             </NavigationLink>
 
             <div className="hidden sm:flex items-start justify-center text-center">
@@ -221,10 +231,11 @@ const Header = () => {
             </div>
 
             <NavigationLink
-              href="/blog"
-              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
+              href={LINKEDIN}
+              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
+              external
             >
-              Blog
+              Follow
             </NavigationLink>
           </div>
 
