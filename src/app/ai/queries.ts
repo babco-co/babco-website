@@ -16,7 +16,6 @@ export const AI_SERVICES_QUERY = defineQuery(`*[
 
 export const AI_PAGE_HERO_QUERY = defineQuery(`*[
   _type == "aiPageHero"
-  && isActive == true
 ][0] {
   _id,
   title,
@@ -28,7 +27,6 @@ export const AI_PAGE_HERO_QUERY = defineQuery(`*[
 export const AI_PAGE_QUERY = defineQuery(`*[
   _type == "aiPage"
   && slug.current == "services"
-  && isActive == true
 ][0] {
   _id,
   title,
