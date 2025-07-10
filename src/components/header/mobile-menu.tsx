@@ -48,11 +48,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   </div> */}
 
                   <NavigationLink
-                    href="/merch"
+                    href="/ai"
                     className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
-                    external
+                    onClick={onClose}
                   >
-                    Merch
+                    AI Services
                   </NavigationLink>
 
                   <div className="my-8">
@@ -64,11 +64,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   </div>
 
                   <NavigationLink
-                    href={LINKEDIN}
-                    className="text-4xl font-extralight text-white dark:text-black  leading-[120%]"
+                    href="/merch"
+                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
                     external
                   >
-                    Follow
+                    Merch
                   </NavigationLink>
 
                   <div className="my-8">
@@ -96,11 +96,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   </div>
 
                   <NavigationLink
-                    href="/ai"
-                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
-                    onClick={onClose}
+                    href={LINKEDIN}
+                    className="text-4xl font-extralight text-white dark:text-black  leading-[120%]"
+                    external
                   >
-                    AI
+                    Follow
                   </NavigationLink>
                 </div>
               </div>

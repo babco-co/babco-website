@@ -30,7 +30,7 @@ export const aiServiceType = defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: (rule) => rule.required().max(500),
+      validation: (rule) => rule.required(),
       description: 'Brief description shown on the services page'
     }),
     defineField({

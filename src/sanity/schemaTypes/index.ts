@@ -1,6 +1,8 @@
-import { type SchemaTypeDefinition } from 'sanity'
-import {aiServiceType} from './aiServiceType'
+import { type SchemaTypeDefinition } from "sanity";
+import { aiServiceType } from "./aiServiceType";
+import { aiPageHeroType } from "./aiPageHeroType";
+import { aiPageType } from "./aiPageType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [aiServiceType],
-}
+  types: [aiServiceType, aiPageHeroType, aiPageType],
+};
