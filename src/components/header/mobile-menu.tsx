@@ -29,7 +29,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         >
           <div className="h-full overflow-y-auto p-4">
             <nav className="min-h-full flex flex-col">
-              <div className="flex-grow">
+              <div className="grow">
                 <div className="flex flex-col items-center pt-[220px]">
                   {/* <NavigationLink
                     href="/works"

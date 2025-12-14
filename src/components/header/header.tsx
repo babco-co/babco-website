@@ -143,7 +143,7 @@ const Header = () => {
     <header
       className={`w-full py-6 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "backdrop-blur-sm bg-background-light/60 dark:bg-background-dark/60 mt-0"
+          ? "backdrop-blur-xs bg-background-light/60 dark:bg-background-dark/60 mt-0"
           : "mt-5"
       }`}
     >
@@ -242,7 +242,7 @@ const Header = () => {
           {/* Right section */}
           <div className="flex flex-1 items-center justify-end gap-5">
             <button
-              className="flex-shrink-0 group relative touch-manipulation"
+              className="shrink-0 group relative touch-manipulation"
               onClick={handleToggleAudio}
               aria-label={isMuted ? "Unmute" : "Mute"}
             >
@@ -270,7 +270,7 @@ const Header = () => {
             </Button>
 
             <button
-              className={`w-[38px] h-[38px] flex lg:hidden flex-shrink-0 items-center justify-center rounded-full z-50 ${
+              className={`w-[38px] h-[38px] flex lg:hidden shrink-0 items-center justify-center rounded-full z-50 ${
                 isMenuOpen
                   ? "bg-brand-light dark:bg-brand-dark"
                   : getFullGradientClass()

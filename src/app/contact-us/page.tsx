@@ -15,7 +15,7 @@ export default function ContactUsPage() {
       </Spacer>
 
       <motion.div
-        className="w-full flex flex-shrink-0 flex-col items-start justify-center 
+        className="w-full flex shrink-0 flex-col items-start justify-center 
           gap-10 sm:gap-[76px] p-10 mt-[208px]"
         variants={pageVariants}
         initial="hidden"

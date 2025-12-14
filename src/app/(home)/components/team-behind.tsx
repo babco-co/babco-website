@@ -107,7 +107,7 @@ const TeamBehind = () => {
         </motion.p>
 
         <div
-          className="w-[50px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+          className="w-[50px] h-[0.5px] shrink-0 bg-black/70 dark:bg-white/70"
           style={{ transform: "rotate(-65.363deg)" }}
         ></div>
 

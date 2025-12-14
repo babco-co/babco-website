@@ -22,11 +22,11 @@ export const useThemeVariant = () => {
   };
 
   const getBaseGradientClass = () => {
-    return "bg-gradient-to-r";
+    return "bg-linear-to-r";
   };
 
   const getAnimationClass = () => {
-    return "bg-[length:400%_400%] animate-gradient";
+    return "bg-size-[400%_400%] animate-gradient";
   };
 
   const getFullGradientClass = () => {

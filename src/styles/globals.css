@@ -1,18 +1,78 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* :root {
-  --background: #fff9f9;
-  --foreground: #2e2e2e;
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-xs: 375px;
+
+  --font-helvetica: var(--font-helvetica);
+
+  --color-background: var(--background);
+  --color-background-dark: #000;
+  --color-background-light: #f7f5f2;
+
+  --color-foreground: var(--foreground);
+  --color-foreground-dark: #ededed;
+  --color-foreground-light: #2e2e2e;
+
+  --color-text-primary-light: #2e2e2e;
+  --color-text-primary-dark: #ffffff;
+
+  --color-border-primary-light: rgba(0, 0, 0, 0.27);
+  --color-border-primary-dark: rgba(255, 255, 255, 0.27);
+
+  --color-border-sec-light: rgba(0, 0, 0, 0.3);
+  --color-border-sec-dark: rgba(255, 255, 255, 0.3);
+
+  --color-brand-light: #ff4365;
+  --color-brand-dark: #ffc0f1;
+
+  --color-primary-black: #0b0a07;
+  --color-primary-white: #ffffff;
+  --color-primary-pink: #ffc0f1;
+  --color-sec-pink: #de468a;
+  --color-light-gray: #808080;
+  --color-medium-gray: #8a8a8a;
+  --color-dark-gray: #6c6c6c;
+  --color-green: #caf4cb;
+  --color-yellow: #f7f272;
+  --color-blue: #83b2f0;
+  --color-error: #dd2e44;
+
+  --animate-gradient: gradient 6s linear infinite;
+
+  @keyframes gradient {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000;
-    --foreground: #ededed;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
-} */
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
 
 @layer base {
   :root {
@@ -23,12 +83,6 @@
   .dark {
     --background: #000;
     --foreground: #ededed;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
   }
 }
 

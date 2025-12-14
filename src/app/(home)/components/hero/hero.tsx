@@ -50,12 +50,12 @@ const Hero = () => {
 
         <motion.div variants={YScrollVariants} transition={{ duration: 0.4 }}>
           <div
-            className="hidden sm:block w-[80px] lg:w-[140px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+            className="hidden sm:block w-[80px] lg:w-[140px] h-[0.5px] shrink-0 bg-black/70 dark:bg-white/70"
             style={{ transform: "rotate(-65.363deg)" }}
           />
 
           <div
-            className="block sm:hidden w-[80px] lg:w-[140px] h-[0.5px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+            className="block sm:hidden w-[80px] lg:w-[140px] h-[0.5px] shrink-0 bg-black/70 dark:bg-white/70"
             style={{ transform: "rotate(65.363deg)" }}
           />
         </motion.div>

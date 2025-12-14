@@ -92,19 +92,19 @@ export function ThemeSelector() {
         }}
         classNames={{
           control: () =>
-            "!border-b !border-border-sec-light dark:!border-border-sec-dark focus-within:!border-brand-light focus-within:dark:!border-brand-dark",
+            "border-b! border-border-sec-light! dark:border-border-sec-dark! focus-within:border-brand-light! dark:focus-within:border-brand-dark!",
           menu: () =>
-            "!bg-background-light dark:!bg-black !border !border-border-sec-light dark:!border-[rgba(255,255,255,0.30)]",
-          menuList: () => "!p-2",
+            "bg-background-light! dark:bg-black! border! border-border-sec-light! dark:border-border-sec-dark!",
+          menuList: () => "p-2!",
           option: (state) =>
-            `!text-text-primary-light dark:!text-[#808080] ${
+            `text-text-primary-light! dark:text-light-gray! ${
               state.isFocused
-                ? "!bg-border-sec-light/10 dark:!bg-[#2D2D2D]"
-                : "!bg-transparent"
+                ? "bg-border-sec-light/10! dark:bg-[#2D2D2D]!"
+                : "bg-transparent!"
             } !rounded`,
           singleValue: () =>
-            "!text-text-primary-light dark:!text-[#F2F2F2] !text-sm",
-          input: () => "!text-text-primary-light dark:!text-[#F2F2F2]",
+            "text-text-primary-light! dark:text-[#F2F2F2]! text-sm!",
+          input: () => "text-text-primary-light! dark:text-[#F2F2F2]!",
         }}
         className="w-[156px]"
         menuPlacement="auto"

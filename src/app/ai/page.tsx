@@ -115,13 +115,13 @@ export default async function ServicesPage() {
                 ™
               </span>
               <div
-                className="hidden sm:block w-[80px] lg:w-[140px] h-[2px] flex-shrink-0 bg-black/70 dark:bg-white/70"
+                className="hidden sm:block w-[80px] lg:w-[140px] h-[2px] shrink-0 bg-black/70 dark:bg-white/70"
                 style={{ transform: "rotate(-65.363deg)" }}
               />
             </div>
           )}
 
-          <p className="text-3xl font-[200] leading-[42.21px] text-black dark:text-medium-gray max-w-6xl">
+          <p className="text-3xl font-extralight leading-[42.21px] text-black dark:text-medium-gray max-w-6xl">
             {hero.subtitle}
           </p>
         </div>
@@ -136,11 +136,11 @@ export default async function ServicesPage() {
             {services.map((service: AIServiceListItem) => (
               <div key={service._id} className="flex items-start space-x-8">
                 {/* Service Number */}
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <span className="text-[40px] font-bold text-text-primary-light dark:text-text-primary-dark">
                     {service.serviceNumber}
                   </span>
-                  <span className="text-[40px] font-[200] text-light-gray dark:text-medium-gray ml-2">
+                  <span className="text-[40px] font-extralight text-light-gray dark:text-medium-gray ml-2">
                     /
                   </span>
                 </div>
@@ -148,7 +148,7 @@ export default async function ServicesPage() {
                 {/* Service Content */}
                 <div className="flex-1">
                   <Link href={`/contact-us`} className="group block">
-                    <h3 className="text-4xl font-[200] leading-[35px] mb-3 text-text-primary-light dark:text-text-primary-dark group-hover:text-brand-light dark:group-hover:text-brand-dark transition-colors">
+                    <h3 className="text-4xl font-extralight leading-[35px] mb-3 text-text-primary-light dark:text-text-primary-dark group-hover:text-brand-light dark:group-hover:text-brand-dark transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-lg font-light leading-[25px] text-light-gray dark:text-medium-gray">

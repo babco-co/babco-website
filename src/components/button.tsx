@@ -24,7 +24,7 @@ const Button = ({
   }, []);
 
   const baseClasses =
-    "flex flex-row items-center justify-center px-4 py-3 rounded transition-all duration-300";
+    "flex flex-row items-center justify-center px-4 py-3 rounded-sm transition-all duration-300";
 
   const variantClasses = {
     primary:
@@ -37,11 +37,11 @@ const Button = ({
 
   const getGradientClasses = () => {
     if (!mounted) {
-      return "bg-gradient-to-r bg-[length:400%_400%] animate-gradient from-[#FFF] via-[#FFF] to-[#FFF]";
+      return "bg-linear-to-r bg-size-[400%_400%] animate-gradient from-[#FFF] via-[#FFF] to-[#FFF]";
     }
 
     const baseGradient =
-      "bg-gradient-to-r bg-[length:400%_400%] animate-gradient";
+      "bg-linear-to-r bg-size-[400%_400%] animate-gradient";
     return `${baseGradient} ${
       resolvedTheme === "light"
         ? "from-[#DE468A] via-[#FF4365] to-[#DE468A]"

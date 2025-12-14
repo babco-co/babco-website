@@ -33,13 +33,13 @@ const TextAreaField = ({
               ? "border-error"
               : "border-border-sec-light dark:border-border-sec-dark"
           }
-          focus-within:border-brand-light focus-within:dark:border-brand-dark outline-none bg-transparent 
+          focus-within:border-brand-light dark:focus-within:border-brand-dark outline-hidden bg-transparent 
           text-sm font-normal leading-[24px] text-text-primary-light dark:text-text-primary-dark placeholder-[#6E6E6E]
           [&:-webkit-autofill]:bg-black
           [&:-webkit-autofill]:shadow-[0_0_0_30px_black_inset]
           [&:-webkit-autofill]:text-text-primary-light dark:[&:-webkit-autofill]:text-text-primary-dark
           [&:-webkit-autofill]:[-webkit-text-fill-color:text-text-primary-light] dark:[&:-webkit-autofill]:[-webkit-text-fill-color:text-text-primary-dark]
-          [&:-webkit-autofill]:[transition-delay:9999s]
+          [&:-webkit-autofill]:delay-[9999s]
           [&:-webkit-autofill]:[-webkit-box-shadow:0_0_0_30px_black_inset]
           appearance-none
           hover:bg-transparent focus:bg-transparent`}

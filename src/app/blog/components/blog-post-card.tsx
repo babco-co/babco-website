@@ -62,7 +62,7 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
           </span>
         </div> */}
 
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative aspect-video overflow-hidden">
           {imageData ? (
             <Image
               src={imageData.src}
@@ -74,7 +74,7 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-50 dark:from-gray-800 dark:to-gray-900" />
+            <div className="w-full h-full bg-linear-to-br from-gray-200 to-gray-50 dark:from-gray-800 dark:to-gray-900" />
           )}
         </div>
         <div className="p-6">

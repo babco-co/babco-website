@@ -113,28 +113,28 @@ const SelectField = ({
               placeholder="Services"
               classNames={{
                 control: () =>
-                  `!border-b ${
+                  `border-b! ${
                     hasError
-                      ? "!border-error"
-                      : "!border-border-sec-light dark:!border-border-sec-dark focus-within:!border-brand-light focus-within:dark:!border-brand-dark"
+                      ? "border-error!"
+                      : "border-border-sec-light! dark:border-border-sec-dark! focus-within:border-brand-light! dark:focus-within:border-brand-dark!"
                   }`,
                 menu: () =>
-                  "!bg-background-light dark:!bg-black !border !border-border-sec-light dark:!border-[rgba(255,255,255,0.30)]",
-                menuList: () => "!p-2",
+                  "bg-background-light! dark:bg-black! border! border-border-sec-light! dark:border-border-sec-dark!",
+                menuList: () => "p-2!",
                 option: (state) =>
-                  `!text-text-primary-light dark:!text-[#808080] ${
+                  `text-text-primary-light! dark:text-light-gray! ${
                     state.isFocused
-                      ? "!bg-border-sec-light/10 dark:!bg-[#2D2D2D]"
-                      : "!bg-transparent"
+                      ? "bg-border-sec-light/10! dark:bg-[#2D2D2D]!"
+                      : "bg-transparent!"
                   } !rounded`,
-                placeholder: () => "!text-dark-gray",
+                placeholder: () => "text-dark-gray!",
                 multiValue: () =>
-                  "!bg-border-sec-light/10 dark:!bg-[#292929] !rounded-md !px-1",
+                  "bg-border-sec-light/10! dark:bg-[#292929]! rounded-md! px-1!",
                 multiValueLabel: () =>
-                  "!text-text-primary-light dark:!text-[#F2F2F2] !text-sm",
+                  "text-text-primary-light! dark:text-[#F2F2F2]! text-sm!",
                 multiValueRemove: () =>
-                  "hover:!bg-transparent hover:!text-brand-light",
-                input: () => "!text-text-primary-light dark:!text-[#F2F2F2]",
+                  "hover:bg-transparent! hover:text-brand-light!",
+                input: () => "text-text-primary-light! dark:text-[#F2F2F2]!",
               }}
               className="w-full"
               menuPlacement="top"
