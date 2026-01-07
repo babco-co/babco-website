@@ -91,7 +91,17 @@ const createRiveSlide = (
 
 const onehealthCarousel: SliderItem[][] = [
   [createImageSlide(oneHealth1, 883, 540)],
-  [createImageSlide(oneHealth2, 377, 268), createImageSlide(oneHealth3, 377, 256)],
+  [
+    createImageSlide(oneHealth2, 377, 268),
+    createImageSlide(oneHealth3, 377, 256),
+  ],
+
+  [createImageSlide(oneHealth4, 540, 540)],
+  [createImageSlide(oneHealth1, 883, 540)],
+  [
+    createImageSlide(oneHealth2, 377, 268),
+    createImageSlide(oneHealth3, 377, 256),
+  ],
 
   [createImageSlide(oneHealth4, 540, 540)],
 ];
@@ -120,7 +130,7 @@ const naviiCarousel: SliderItem[][] = [
   [createImageSlide(navii2, 344, 193), createImageSlide(navii3, 344, 331)],
 
   [createImageSlide(navii4, 883, 540)],
-  [createVideoSlide("/images/carousel-navii/short-marketing.mp4", 883, 540)],
+  [createVideoSlide("/images/carousel-navii/short-marketing.mp4", 981, 540)],
 ];
 
 const brandmarchCarousel: SliderItem[][] = [
