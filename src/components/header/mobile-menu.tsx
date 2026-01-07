@@ -5,7 +5,7 @@ import Button from "@/components/button";
 import { LINKEDIN } from "@/lib/utils/constants";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import NavigationLink from "@/components/header/navigation-link";
-import dotBlack from "../../../public/images/dot-black.svg";
+import dotBlack from "@/../public/icons/dot-black.svg";
 
 interface MobileMenuProps {
   isOpen: boolean;

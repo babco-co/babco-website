@@ -5,34 +5,42 @@ import { StaticImageData } from "next/image";
 import { SliderItem } from "@/components/gallery-slider";
 import { Alignment, Fit } from "@rive-app/react-canvas";
 import { YScrollVariants } from "@/lib/utils/animations";
-import arch1 from "../../../../../public/images/carousel-arch/arch-1.webp";
-import arch2 from "../../../../../public/images/carousel-arch/arch-2.webp";
-import arch3 from "../../../../../public/images/carousel-arch/arch-3.webp";
-import arch4 from "../../../../../public/images/carousel-arch/arch-4.webp";
-import brandmarch1 from "../../../../../public/images/carousel-brandmarch/brandmarch-1.webp";
-import brandmarch2 from "../../../../../public/images/carousel-brandmarch/brandmarch-2.webp";
-import brandmarch3 from "../../../../../public/images/carousel-brandmarch/brandmarch-3.webp";
-import brandmarch4 from "../../../../../public/images/carousel-brandmarch/brandmarch-4.webp";
-import brandmarch5 from "../../../../../public/images/carousel-brandmarch/brandmarch-5.webp";
-import brandmarch6 from "../../../../../public/images/carousel-brandmarch/brandmarch-6.webp";
-import sqlit1 from "../../../../../public/images/carousel-sqlite/sqlit-1.webp";
-import sqlit2 from "../../../../../public/images/carousel-sqlite/sqlit-2.webp";
-import sqlit3 from "../../../../../public/images/carousel-sqlite/sqlit-3.webp";
-import sqlit4 from "../../../../../public/images/carousel-sqlite/sqlit-4.webp";
-import tembo1 from "../../../../../public/images/carousel-tembo/tembo-1.webp";
-import tembo2 from "../../../../../public/images/carousel-tembo/tembo-2.webp";
-import omlet1 from "../../../../../public/images/carousel-omlet/omlet-1.webp";
-import omlet2 from "../../../../../public/images/carousel-omlet/omlet-2.webp";
-import omlet3 from "../../../../../public/images/carousel-omlet/omlet-3.webp";
-// import gitar1 from "../../../../../public/images/carousel-gitar/gitar-1.svg";
-// import gitar2 from "../../../../../public/images/carousel-gitar/gitar-2.webp";
-// import gitar3 from "../../../../../public/images/carousel-gitar/gitar-3.webp";
-// import gitar4 from "../../../../../public/images/carousel-gitar/gitar-4.webp";
-// import apolitical1 from "../../../../../public/images/carousel-apolitical/apolitical-1.webp";
-// import apolitical2 from "../../../../../public/images/carousel-apolitical/apolitical-2.webp";
-// import apolitical3 from "../../../../../public/images/carousel-apolitical/apolitical-3.webp";
-import oumi2 from "../../../../../public/images/carousel-oumi/oumi-2.webp";
-import oumi3 from "../../../../../public/images/carousel-oumi/oumi-3.webp";
+import oneHealth1 from "@/../public/images/carousel-onehealth/onehealth-1.webp";
+import oneHealth2 from "@/../public/images/carousel-onehealth/onehealth-2.svg";
+import oneHealth3 from "@/../public/images/carousel-onehealth/onehealth-3.webp";
+import oneHealth4 from "@/../public/images/carousel-onehealth/onehealth-4.webp";
+import arch1 from "@/../public/images/carousel-arch/arch-1.webp";
+import arch2 from "@/../public/images/carousel-arch/arch-2.webp";
+import arch3 from "@/../public/images/carousel-arch/arch-3.webp";
+import arch4 from "@/../public/images/carousel-arch/arch-4.webp";
+import navii1 from "@/../public/images/carousel-navii/navii-1.webp";
+import navii2 from "@/../public/images/carousel-navii/navii-2.webp";
+import navii3 from "@/../public/images/carousel-navii/navii-3.webp";
+import navii4 from "@/../public/images/carousel-navii/navii-4.webp";
+import brandmarch1 from "@/../public/images/carousel-brandmarch/brandmarch-1.webp";
+import brandmarch2 from "@/../public/images/carousel-brandmarch/brandmarch-2.webp";
+import brandmarch3 from "@/../public/images/carousel-brandmarch/brandmarch-3.webp";
+import brandmarch4 from "@/../public/images/carousel-brandmarch/brandmarch-4.webp";
+import brandmarch5 from "@/../public/images/carousel-brandmarch/brandmarch-5.webp";
+import brandmarch6 from "@/../public/images/carousel-brandmarch/brandmarch-6.webp";
+import sqlit1 from "@/../public/images/carousel-sqlite/sqlit-1.webp";
+import sqlit2 from "@/../public/images/carousel-sqlite/sqlit-2.webp";
+import sqlit3 from "@/../public/images/carousel-sqlite/sqlit-3.webp";
+import sqlit4 from "@/../public/images/carousel-sqlite/sqlit-4.webp";
+import tembo1 from "@/../public/images/carousel-tembo/tembo-1.webp";
+import tembo2 from "@/../public/images/carousel-tembo/tembo-2.webp";
+import omlet1 from "@/../public/images/carousel-omlet/omlet-1.webp";
+import omlet2 from "@/../public/images/carousel-omlet/omlet-2.webp";
+import omlet3 from "@/../public/images/carousel-omlet/omlet-3.webp";
+// import gitar1 from "@/../public/images/carousel-gitar/gitar-1.svg";
+// import gitar2 from "@/../public/images/carousel-gitar/gitar-2.webp";
+// import gitar3 from "@/../public/images/carousel-gitar/gitar-3.webp";
+// import gitar4 from "@/../public/images/carousel-gitar/gitar-4.webp";
+// import apolitical1 from "@/../public/images/carousel-apolitical/apolitical-1.webp";
+// import apolitical2 from "@/../public/images/carousel-apolitical/apolitical-2.webp";
+// import apolitical3 from "@/../public/images/carousel-apolitical/apolitical-3.webp";
+import oumi2 from "@/../public/images/carousel-oumi/oumi-2.webp";
+import oumi3 from "@/../public/images/carousel-oumi/oumi-3.webp";
 
 // Helper function to create image slides
 const createImageSlide = (
@@ -81,6 +89,23 @@ const createRiveSlide = (
   ...options,
 });
 
+const onehealthCarousel: SliderItem[][] = [
+  [createImageSlide(oneHealth1, 883, 540)],
+  [
+    createImageSlide(oneHealth2, 377, 268),
+    createImageSlide(oneHealth3, 377, 256),
+  ],
+
+  [createImageSlide(oneHealth4, 540, 540)],
+  [createImageSlide(oneHealth1, 883, 540)],
+  [
+    createImageSlide(oneHealth2, 377, 268),
+    createImageSlide(oneHealth3, 377, 256),
+  ],
+
+  [createImageSlide(oneHealth4, 540, 540)],
+];
+
 const archCarousel: SliderItem[][] = [
   [
     createRiveSlide("/images/carousel-arch/arch-video.riv", 883, 540, {
@@ -98,6 +123,14 @@ const archCarousel: SliderItem[][] = [
   ],
   [createImageSlide(arch1, 384, 268), createImageSlide(arch2, 349, 256)],
   [createImageSlide(arch3, 349, 268), createImageSlide(arch4, 349, 256)],
+];
+
+const naviiCarousel: SliderItem[][] = [
+  [createVideoSlide("/images/carousel-navii/short-marketing.mp4", 981, 540)],
+  [createImageSlide(navii1, 883, 540)],
+  [createImageSlide(navii2, 344, 193), createImageSlide(navii3, 344, 331)],
+
+  [createImageSlide(navii4, 883, 540)],
 ];
 
 const brandmarchCarousel: SliderItem[][] = [
@@ -203,6 +236,12 @@ const Product = () => {
       </motion.p>
 
       <div className="w-full flex flex-col items-start justify-center gap-16 lg:gap-[200px">
+        <ProductItem
+          title={"Onehealth"}
+          subtitle={"Health Coverage"}
+          images={onehealthCarousel}
+        />
+        <ProductItem title={"Navii"} subtitle={"AI"} images={naviiCarousel} />
         <ProductItem title={"Arch"} subtitle={"AI"} images={archCarousel} />
         <ProductItem
           title={"Brandmarch"}
