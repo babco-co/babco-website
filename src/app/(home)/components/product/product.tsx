@@ -126,11 +126,11 @@ const archCarousel: SliderItem[][] = [
 ];
 
 const naviiCarousel: SliderItem[][] = [
+  [createVideoSlide("/images/carousel-navii/short-marketing.mp4", 981, 540)],
   [createImageSlide(navii1, 883, 540)],
   [createImageSlide(navii2, 344, 193), createImageSlide(navii3, 344, 331)],
 
   [createImageSlide(navii4, 883, 540)],
-  [createVideoSlide("/images/carousel-navii/short-marketing.mp4", 981, 540)],
 ];
 
 const brandmarchCarousel: SliderItem[][] = [
