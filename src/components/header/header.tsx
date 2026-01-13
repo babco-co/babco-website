@@ -1,20 +1,17 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Button from "@/components/button";
 import { LINKEDIN } from "@/lib/utils/constants";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
-import NavigationLink from "@/components/header/navigation-link";
 import MobileMenu from "@/components/header/mobile-menu";
+import DesktopNavigation from "@/components/header/desktop-navigation";
+import HeaderLogo from "@/components/header/header-logo";
+import AudioToggleButton from "@/components/header/audio-toggle-button";
+import MenuToggleButton from "@/components/header/menu-toggle-button";
+import type { MenuItem } from "@/components/header/types";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
-import menuIcon from "@/../public/icons/hamburger-icon.svg";
-import closeIcon from "@/../public/icons/close-icon.svg";
-import muteIcon from "@/../public/icons/mute-icon.svg";
-import unmuteIcon from "@/../public/icons/unmute-icon.svg";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
-import { BIcon } from "@/components/svg/b-icon";
-import BabcoTMLogo from "@/components/svg/babcoTM-logo";
 
 const Header = () => {
   const { getFullGradientClass } = useThemeVariant();
@@ -24,6 +21,28 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeRef = useRef<number | null>(null);
+
+  // Menu items configuration
+  const menuItems: MenuItem[] = [
+    {
+      text: "AI Services",
+      href: "/ai",
+    },
+    {
+      text: "Merch",
+      href: "/merch",
+      external: true,
+    },
+    {
+      text: "Blog",
+      href: "/blog",
+    },
+    {
+      text: "Follow",
+      href: LINKEDIN,
+      external: true,
+    },
+  ];
 
   // Scroll handler
   useEffect(() => {
@@ -149,112 +168,20 @@ const Header = () => {
     >
       <div className="mx-7 sm:mx-10">
         <nav className="w-full flex items-center justify-between">
-          {/* Left logo section */}
-          {isMenuOpen ? (
-            <div className="flex flex-1 items-center justify-start z-50">
-              {isScrolled ? (
-                <BabcoTMLogo
-                  className="w-[106px] h-[21px]"
-                  isMenuOpen={isMenuOpen}
-                />
-              ) : (
-                <div className="w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 bg-white dark:bg-black">
-                  <BIcon className="fill-brand-light dark:fill-brand-dark" />
-                </div>
-              )}
-            </div>
-          ) : (
-            <Link
-              className="flex flex-1 items-center justify-start z-50"
-              href="./"
-            >
-              {isScrolled ? (
-                <BabcoTMLogo
-                  className="w-[106px] h-[21px]"
-                  isMenuOpen={isMenuOpen}
-                />
-              ) : (
-                <div
-                  className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${getFullGradientClass()}`}
-                >
-                  <BIcon className="fill-white dark:fill-black" />
-                </div>
-              )}
-            </Link>
-          )}
+          <HeaderLogo
+            isScrolled={isScrolled}
+            isMenuOpen={isMenuOpen}
+            getFullGradientClass={getFullGradientClass}
+          />
 
-          {/* Center navigation */}
-          <div className="hidden lg:flex flex-1 items-center justify-center gap-5">
-            {/* <NavigationLink
-              href="/works"
-              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
-            >
-              Works
-            </NavigationLink>
-
-            <div className="hidden sm:flex items-start justify-center text-center">
-              <p className="text-light-gray mb-2">.</p>
-            </div> */}
-
-            <NavigationLink
-              href="/ai"
-              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
-            >
-              AI Services
-            </NavigationLink>
-
-            <div className="hidden sm:flex items-start justify-center text-center">
-              <p className="text-light-gray mb-2">.</p>
-            </div>
-
-            <NavigationLink
-              href="/merch"
-              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
-              external
-            >
-              Merch
-            </NavigationLink>
-
-            <div className="hidden sm:flex items-start justify-center text-center">
-              <p className="text-light-gray mb-2">.</p>
-            </div>
-
-            <NavigationLink
-              href="/blog"
-              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-primary-pink hover:text-brand-light dark:hover:text-brand-dark"
-            >
-              Blog
-            </NavigationLink>
-
-            <div className="hidden sm:flex items-start justify-center text-center">
-              <p className="text-light-gray mb-2">.</p>
-            </div>
-
-            <NavigationLink
-              href={LINKEDIN}
-              className="text-xs font-normal text-text-primary-light dark:text-text-primary-dark uppercase hover:text-brand-light dark:hover:text-brand-dark"
-              external
-            >
-              Follow
-            </NavigationLink>
-          </div>
+          <DesktopNavigation menuItems={menuItems} />
 
           {/* Right section */}
           <div className="flex flex-1 items-center justify-end gap-5">
-            <button
-              className="shrink-0 group relative touch-manipulation"
+            <AudioToggleButton
+              isMuted={isMuted}
               onClick={handleToggleAudio}
-              aria-label={isMuted ? "Unmute" : "Mute"}
-            >
-              <Image
-                src={isMuted ? muteIcon : unmuteIcon}
-                alt={isMuted ? "mute" : "unmute"}
-                className="transition-transform duration-200 group-hover:scale-110 invert dark:invert-0"
-              />
-              <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-text-primary-light dark:text-text-primary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                {isMuted ? "Unmute" : "Mute"}
-              </span>
-            </button>
+            />
 
             <Button
               className="h-[38px] hidden lg:flex gap-2 text-center"
@@ -269,25 +196,20 @@ const Header = () => {
               />
             </Button>
 
-            <button
-              className={`w-[38px] h-[38px] flex lg:hidden shrink-0 items-center justify-center rounded-full z-50 ${
-                isMenuOpen
-                  ? "bg-brand-light dark:bg-brand-dark"
-                  : getFullGradientClass()
-              }`}
+            <MenuToggleButton
+              isOpen={isMenuOpen}
               onClick={handleToggleMenu}
-            >
-              <Image
-                className="invert dark:invert-0"
-                src={isMenuOpen ? closeIcon : menuIcon}
-                alt="menu"
-              />
-            </button>
+              getFullGradientClass={getFullGradientClass}
+            />
           </div>
         </nav>
       </div>
 
-      <MobileMenu isOpen={isMenuOpen} onClose={handleToggleMenu} />
+      <MobileMenu
+        menuItems={menuItems}
+        isOpen={isMenuOpen}
+        onClose={handleToggleMenu}
+      />
     </header>
   );
 };
