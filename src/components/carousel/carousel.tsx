@@ -102,18 +102,6 @@ const Carousel = ({
   return (
     <CarouselContext.Provider value={carouselContextValue}>
       <div className={className}>
-        {/* Navigation Arrows */}
-        {showArrows && (
-          <div className="flex justify-end -translate-y-10 2xl:-translate-y-30">
-            <CarouselArrows
-              onPrev={scrollPrev}
-              onNext={scrollNext}
-              canScrollPrev={canScrollPrev}
-              canScrollNext={canScrollNext}
-            />
-          </div>
-        )}
-
         {/* Carousel */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className={`flex ${gap} ${itemsAlign}`}>
@@ -135,6 +123,18 @@ const Carousel = ({
             ))}
           </div>
         </div>
+
+        {/* Navigation Arrows */}
+        {showArrows && (
+          <div className="flex justify-start mt-4">
+            <CarouselArrows
+              onPrev={scrollPrev}
+              onNext={scrollNext}
+              canScrollPrev={canScrollPrev}
+              canScrollNext={canScrollNext}
+            />
+          </div>
+        )}
       </div>
     </CarouselContext.Provider>
   );
