@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import useEmblaCarousel from "embla-carousel-react";
-import AutoScroll from "embla-carousel-auto-scroll";
+import Carousel from "@/components/carousel/carousel";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 
 const images = [
@@ -73,23 +72,6 @@ const images = [
 ];
 
 const TeamBehind = () => {
-  const [emblaRef] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      containScroll: false,
-      watchDrag: false,
-    },
-    [
-      AutoScroll({
-        playOnInit: true,
-        speed: 1,
-        stopOnInteraction: false,
-        stopOnFocusIn: false,
-      }),
-    ]
-  );
-
   return (
     <section className="cursor-scale w-full flex flex-col overflow-x-hidden">
       <motion.div
@@ -114,35 +96,35 @@ const TeamBehind = () => {
 
         <motion.div variants={YScrollVariants} className="flex-1">
           <div className="w-full opacity-30">
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {[...images, ...images, ...images].map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex-[0_0_auto] pr-6 lg:pr-[60px] flex items-center"
-                  >
-                    <div className="relative">
-                      <Image
-                        className="block lg:hidden invert dark:invert-0"
-                        src={item.src}
-                        alt="brand logo"
-                        width={item.mobileWidth}
-                        height={item.mobileHeight}
-                        sizes="(min-width: 1024px) 100vw, 66vw"
-                      />
-                      <Image
-                        className="hidden lg:block invert dark:invert-0"
-                        src={item.src}
-                        alt="brand logo"
-                        width={item.desktopWidth}
-                        height={item.desktopHeight}
-                        sizes="100vw"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <Carousel
+              showArrows={false}
+              autoScroll={true}
+              autoScrollSpeed={1}
+              gap="gap-6 lg:gap-[60px]"
+              align="start"
+              itemsAlign="items-center"
+            >
+              {[...images, ...images, ...images].map((item, index) => (
+                <div key={index} className="relative">
+                  <Image
+                    className="block lg:hidden invert dark:invert-0"
+                    src={item.src}
+                    alt="brand logo"
+                    width={item.mobileWidth}
+                    height={item.mobileHeight}
+                    sizes="(min-width: 1024px) 100vw, 66vw"
+                  />
+                  <Image
+                    className="hidden lg:block invert dark:invert-0"
+                    src={item.src}
+                    alt="brand logo"
+                    width={item.desktopWidth}
+                    height={item.desktopHeight}
+                    sizes="100vw"
+                  />
+                </div>
+              ))}
+            </Carousel>
           </div>
         </motion.div>
       </motion.div>
