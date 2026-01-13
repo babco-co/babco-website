@@ -23,21 +23,21 @@ const HeaderLogo = ({
     </div>
   );
 
-  if (isMenuOpen) {
-    return (
-      <div className="flex flex-1 items-center justify-start z-50">
-        {isScrolled ? (
-          <BabcoTMLogo className="w-[106px] h-[21px]" isMenuOpen={isMenuOpen} />
-        ) : (
-          <div
-            className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${getFullGradientClass()}`}
-          >
-            <BIcon className="fill-white dark:fill-black" />
-          </div>
-        )}
-      </div>
-    );
-  }
+  // if (isMenuOpen) {
+  //   return (
+  //     <div className="flex flex-1 items-center justify-start z-50">
+  //       {isScrolled ? (
+  //         <BabcoTMLogo className="w-[106px] h-[21px]" isMenuOpen={isMenuOpen} />
+  //       ) : (
+  //         <div
+  //           className={`w-[38px] h-[38px] flex items-center justify-center rounded-full z-50 ${getFullGradientClass()}`}
+  //         >
+  //           <BIcon className="fill-white dark:fill-black" />
+  //         </div>
+  //       )}
+  //     </div>
+  //   );
+  // }
 
   return (
     <Link className="flex flex-1 items-center justify-start z-50" href="./">
