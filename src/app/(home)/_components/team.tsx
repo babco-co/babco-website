@@ -1,81 +1,46 @@
 "use client";
 import Image from "next/image";
 import { motion } from "motion/react";
-import useEmblaCarousel from "embla-carousel-react";
-import AutoScroll from "embla-carousel-auto-scroll";
 import Button from "@/components/button";
 import { Spacer } from "@/components/spacer";
 import BabcoLogo from "@/components/svg/babco-logo";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
+import Carousel from "@/components/carousel/carousel";
 import olivia from "@/../public/images/members/olivia.webp";
 import mia from "@/../public/images/members/mia.webp";
 import andrea from "@/../public/images/members/andrea.webp";
-import mahlet from "@/../public/images/members/mahlet.webp";
 import mahshid from "@/../public/images/members/mahshid.webp";
-import maria from "@/../public/images/members/maria.webp";
-import anca from "@/../public/images/members/anca.webp";
-import mahsa from "@/../public/images/members/mahsa.webp";
-import barbara from "@/../public/images/members/barbara.webp";
-import andreia from "@/../public/images/members/andreia.webp";
-import rachel from "@/../public/images/members/rachel.webp";
+import mahlet from "@/../public/images/members/mahlet.webp";
 import daria from "@/../public/images/members/daria.webp";
-import kia from "@/../public/images/members/kia.webp";
+import mahsa from "@/../public/images/members/mahsa.webp";
+import lena from "@/../public/images/members/lena.webp";
+import lucia from "@/../public/images/members/lucia.webp";
+import tyra from "@/../public/images/members/tyra.webp";
+import paula from "@/../public/images/members/paula.webp";
+import naomi from "@/../public/images/members/naomi.webp";
+import guillem from "@/../public/images/members/guillem.webp";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { ThemeSelector } from "@/components/theme/theme-selector";
 
 const members = [
   { src: olivia, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
   { src: mia, className: "w-[140px] sm:w-[234px] h-[120px] sm:h-[196px]" },
-  { src: anca, className: "w-[95px] sm:w-[155px] h-[104px] sm:h-[173px]" },
   { src: mahshid, className: "w-[113px] sm:w-[165px] h-[120px] sm:h-[173px]" },
-  { src: daria, className: "w-[125px] sm:w-[209px] h-[90px] sm:h-[146px]" },
-  { src: andreia, className: "w-[107px] sm:w-[204px] h-[107px] sm:h-[204px]" },
+  { src: daria, className: "w-[125px] sm:w-[219px] h-[125px] sm:h-[219px]" },
+  { src: lena, className: "w-[107px] sm:w-[207px] h-[107px] sm:h-[207px]" },
+  { src: naomi, className: "w-[105px] sm:w-[197px] h-[102px] sm:h-[203px]" },
 
   { src: andrea, className: "w-[105px] sm:w-[177px] h-[105px] sm:h-[177px]" },
-  { src: maria, className: "w-[113px] sm:w-[186px] h-[125px] sm:h-[211px]" },
+  { src: tyra, className: "w-[150px] sm:w-[165px] h-[130px] sm:h-[165px]" },
+  { src: guillem, className: "w-[130px] sm:w-[200px] h-[130px] sm:h-[212px]" },
   { src: mahlet, className: "w-[70px] sm:w-[160px] h-[76px] sm:h-[166px]" },
-  { src: barbara, className: "w-[150px] sm:w-[255px] h-[150px] sm:h-[255px]" },
   { src: mahsa, className: "w-[80px] sm:w-[160px] h-[86px] sm:h-[166px]" },
-  { src: rachel, className: "w-[170px] sm:w-[290px] h-[167px] sm:h-[282px]" },
-  { src: kia, className: "w-[105px] sm:w-[180px] h-[102px] sm:h-[176px]" },
+  { src: lucia, className: "w-[170px] sm:w-[203px] h-[167px] sm:h-[212px]" },
+  { src: paula, className: "w-[150px] sm:w-[220px] h-[150px] sm:h-[220px]" },
 ];
 
 const Team = () => {
   const handleContactClick = useTransitionClick("/contact-us");
-
-  const [emblaRef1] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      containScroll: false,
-      watchDrag: false,
-    },
-    [
-      AutoScroll({
-        playOnInit: true,
-        speed: 0.5,
-        stopOnInteraction: false,
-        stopOnFocusIn: false,
-      }),
-    ]
-  );
-
-  const [emblaRef2] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      containScroll: false,
-      watchDrag: false,
-    },
-    [
-      AutoScroll({
-        playOnInit: true,
-        speed: 0.5,
-        stopOnInteraction: false,
-        stopOnFocusIn: false,
-      }),
-    ]
-  );
 
   return (
     <section className="w-full flex flex-col relative">
@@ -129,37 +94,20 @@ const Team = () => {
         </Spacer>
 
         <div className="w-full flex flex-col items-center justify-center gap-2 relative mt-[126px]">
-          <div className="w-full overflow-hidden" ref={emblaRef1}>
-            <div className="flex">
-              {[...members.slice(0, 7), ...members.slice(0, 7)].map(
-                (item, index) => (
-                  <div
-                    key={index}
-                    className="cursor-scale flex-[0_0_auto] pr-[12px] sm:pr-[40px] even:self-end"
-                  >
-                    <Image
-                      className={item.className}
-                      src={item.src}
-                      alt="member"
-                    />
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-
-          <div
-            className="w-full overflow-hidden mt-3 2xl:mt-12"
-            ref={emblaRef2}
+          <Carousel
+            showArrows={false}
+            gap="gap-0"
+            align="start"
+            itemsAlign="items-start"
+            autoScroll={true}
+            autoScrollSpeed={0.5}
+            className="w-full"
           >
-            <div className="flex">
-              {[
-                ...members.slice(7, members.length),
-                ...members.slice(7, members.length),
-              ].map((item, index) => (
+            {[...members.slice(0, 7), ...members.slice(0, 7)].map(
+              (item, index) => (
                 <div
                   key={index}
-                  className="cursor-scale flex-[0_0_auto] pr-[12px] sm:pr-[40px] odd:mt-12"
+                  className={`cursor-scale pr-3 sm:pr-10 ${index % 2 === 1 ? "mt-12" : ""}`}
                 >
                   <Image
                     className={item.className}
@@ -167,9 +115,35 @@ const Team = () => {
                     alt="member"
                   />
                 </div>
-              ))}
-            </div>
-          </div>
+              )
+            )}
+          </Carousel>
+
+          <Carousel
+            showArrows={false}
+            gap="gap-0"
+            align="start"
+            itemsAlign="items-start"
+            autoScroll={true}
+            autoScrollSpeed={0.5}
+            className="w-full mt-3 2xl:mt-12"
+          >
+            {[
+              ...members.slice(7, members.length),
+              ...members.slice(7, members.length),
+            ].map((item, index) => (
+              <div
+                key={index}
+                className={`cursor-scale pr-3 sm:pr-10 ${index % 2 === 0 ? "mt-12" : ""}`}
+              >
+                <Image
+                  className={item.className}
+                  src={item.src}
+                  alt="member"
+                />
+              </div>
+            ))}
+          </Carousel>
         </div>
       </div>
 
