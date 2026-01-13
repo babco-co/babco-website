@@ -6,7 +6,6 @@ import { fadeInVariants } from "@/lib/utils/animations";
 import { Alignment, Fit } from "@rive-app/react-canvas";
 import RiveWrapper from "@/components/rive-wrapper";
 import Carousel from "@/components/carousel/carousel";
-import { useCarouselControls } from "@/components/carousel/carousel-context";
 
 export type SliderItem = {
   src: string | StaticImageData;
