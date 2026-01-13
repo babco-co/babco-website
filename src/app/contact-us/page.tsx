@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "motion/react";
-import ContactForm from "./components/form";
+import Image from "next/image";
+import ContactForm from "@/app/contact-us/_components/form";
 import { pageVariants } from "@/lib/utils/animations";
 import { Spacer } from "@/components/spacer";
 import Header from "@/components/header/header";
-import Image from "next/image";
-import arrowBlackIcon from "../../../public/icons/arrow-black-icon.svg";
+import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
 export default function ContactUsPage() {
   return (

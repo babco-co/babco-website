@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import ProductItem from "./product-item";
+import ProductItem from "@/app/(home)/_components/product/product-item";
 import { StaticImageData } from "next/image";
 import { SliderItem } from "@/components/gallery-slider";
 import { Alignment, Fit } from "@rive-app/react-canvas";

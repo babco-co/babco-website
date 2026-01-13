@@ -4,7 +4,7 @@ import React, { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import GallerySlider, { SliderItem } from "@/components/gallery-slider";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
-import arrowBlackIcon from "../../../../../public/icons/arrow-black-icon.svg";
+import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
 const ProductItem = ({
   title,

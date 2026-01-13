@@ -8,8 +8,8 @@ import Select, {
   StylesConfig,
   InputProps,
 } from "react-select";
-import { FormInputs, SelectOption } from "../schema";
-import arrowDownIcon from "../../../../public/icons/arrow-down-icon.svg";
+import { FormInputs, SelectOption } from "@/app/contact-us/schema";
+import arrowDownIcon from "@/../public/icons/arrow-down-icon.svg";
 
 const SelectField = ({
   name,

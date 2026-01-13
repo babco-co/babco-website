@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { fadeInVariants } from "@/lib/utils/animations";
 import { Alignment, Fit } from "@rive-app/react-canvas";
-import RiveWrapper from "./rive-wrapper";
+import RiveWrapper from "@/components/rive-wrapper";
 
 export type SliderItem = {
   src: string | StaticImageData;

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import Select, { components, DropdownIndicatorProps } from "react-select";
-import arrowDownIcon from "../../../public/icons/arrow-down-icon.svg";
+import arrowDownIcon from "@/../public/icons/arrow-down-icon.svg";
 
 export function ThemeSelector() {
   const { theme, setTheme } = useTheme();

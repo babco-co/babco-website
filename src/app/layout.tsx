@@ -5,7 +5,7 @@ import { helveticaNeue, inter } from "@/styles/fonts";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import CustomCursor from "@/components/custom-cursor";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Babco.co",
