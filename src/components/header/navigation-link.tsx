@@ -1,47 +1,33 @@
-"use client";
+import { cn } from "@/lib/utils/cn";
 import Link from "next/link";
-import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 
-interface NavigationLinkProps {
+type NavigationLinkProps = {
   href: string;
-  className?: string;
-  children: React.ReactNode;
+  text: string;
   external?: boolean;
-  onClick?: () => void;
-}
+  className?: string;
+};
 
 const NavigationLink = ({
   href,
+  text,
+  external,
   className,
-  children,
-  external = false,
-  onClick,
 }: NavigationLinkProps) => {
-  const handleClick = useTransitionClick(href, onClick);
-
-  if (external) {
-    return (
-      <Link
-        href={href}
-        className={className}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {children}
-      </Link>
-    );
-  }
-
   return (
     <Link
       href={href}
-      className={className}
-      onClick={(e) => {
-        e.preventDefault();
-        handleClick(e);
-      }}
+      className={cn(
+        "text-xs font-normal uppercase",
+        "text-text-primary-light dark:text-text-primary-dark",
+        "hover:text-brand-light dark:hover:text-brand-dark",
+        "transition-colors duration-200",
+        className
+      )}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
     >
-      {children}
+      {text}
     </Link>
   );
 };

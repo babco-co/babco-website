@@ -1,11 +1,23 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-  --breakpoint-xs: 375px;
+@layer base {
+  :root {
+    --background: #f7f5f2;
+    --foreground: #2e2e2e;
+  }
 
+  .dark {
+    --background: #000;
+    --foreground: #ededed;
+  }
+}
+
+@theme {
   --font-helvetica: var(--font-helvetica);
+
+  --breakpoint-xs: 375px;
 
   --color-background: var(--background);
   --color-background-dark: #000;
@@ -72,18 +84,6 @@
 
 @utility text-balance {
   text-wrap: balance;
-}
-
-@layer base {
-  :root {
-    --background: #f7f5f2;
-    --foreground: #2e2e2e;
-  }
-
-  .dark {
-    --background: #000;
-    --foreground: #ededed;
-  }
 }
 
 body {

@@ -1,6 +1,6 @@
 import Header from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
-import BlogPosts from "./components/blog-posts";
+import BlogPosts from "@/app/blog/_components/blog-posts";
 
 export default function BlogPage() {
   return (

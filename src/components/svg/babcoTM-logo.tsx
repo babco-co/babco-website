@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const BabcoTMLogo = ({
   width,
@@ -25,28 +25,28 @@ const BabcoTMLogo = ({
     setMounted(true);
   }, []);
 
-  const gradientFill = 'url(#logoGradient)';
+  const gradientFill = "url(#logoGradient)";
 
   const getCurrentFill = () => {
     if (staticColor) return staticColor;
-    if (!mounted) return 'transparent';
-    if (useGradient && resolvedTheme === 'light') {
+    if (!mounted) return "transparent";
+    if (useGradient && resolvedTheme === "light") {
       return gradientFill;
     }
-    return resolvedTheme === 'dark'
+    return resolvedTheme === "dark"
       ? isMenuOpen
-        ? '#000000'
-        : '#FFFFFF'
+        ? "#FFFFFF"
+        : "#FFFFFF"
       : isMenuOpen
-      ? '#FFFFFF'
-      : '#000000';
+        ? "#000000"
+        : "#000000";
   };
 
   const currentFill = getCurrentFill();
 
   // Calculate dimensions while maintaining aspect ratio
-  const svgWidth = width || '100%';
-  const svgHeight = height || '100%';
+  const svgWidth = width || "100%";
+  const svgHeight = height || "100%";
 
   return (
     <svg
@@ -58,18 +58,18 @@ const BabcoTMLogo = ({
       className={className}
       style={{
         opacity: mounted ? 1 : 0,
-        transition: 'opacity 0.3s ease-in-out',
+        transition: "opacity 0.3s ease-in-out",
       }}
     >
       {useGradient && (
         <defs>
           <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: '#FF4365' }} />
+            <stop offset="0%" style={{ stopColor: "#FF4365" }} />
             <stop
               offset="50%"
-              style={{ stopColor: 'rgba(255, 67, 101, 0.34)' }}
+              style={{ stopColor: "rgba(255, 67, 101, 0.34)" }}
             />
-            <stop offset="100%" style={{ stopColor: '#FF4365' }} />
+            <stop offset="100%" style={{ stopColor: "#FF4365" }} />
           </linearGradient>
         </defs>
       )}

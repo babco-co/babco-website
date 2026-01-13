@@ -1,15 +1,16 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import emailjs from "@emailjs/browser";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormInputs, schema, serviceOptions } from "../schema";
+import { FormInputs, schema, serviceOptions } from "@/app/contact-us/schema";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import Button from "@/components/button";
-import InputField from "./input";
-import SelectField from "./select-field";
-import TextAreaField from "./text-area-field";
+import InputField from "@/app/contact-us/_components/input";
+import SelectField from "@/app/contact-us/_components/select-field";
+import TextAreaField from "@/app/contact-us/_components/text-area-field";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
 const ContactForm = () => {

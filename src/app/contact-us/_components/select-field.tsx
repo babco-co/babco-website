@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Control, FieldErrors, Controller } from "react-hook-form";
@@ -8,8 +9,8 @@ import Select, {
   StylesConfig,
   InputProps,
 } from "react-select";
-import { FormInputs, SelectOption } from "../schema";
-import arrowDownIcon from "../../../../public/icons/arrow-down-icon.svg";
+import { FormInputs, SelectOption } from "@/app/contact-us/schema";
+import arrowDownIcon from "@/../public/icons/arrow-down-icon.svg";
 
 const SelectField = ({
   name,

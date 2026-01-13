@@ -1,4 +1,4 @@
-import { BlogPost } from "../types";
+import { BlogPost } from "@/app/blog/types";
 
 interface BlogContentLoaderProps {
   post: BlogPost;
