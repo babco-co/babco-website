@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { motion } from "motion/react";
 import Button from "@/components/button";

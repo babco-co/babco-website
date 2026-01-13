@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";

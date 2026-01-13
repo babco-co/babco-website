@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { motion } from "motion/react";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";

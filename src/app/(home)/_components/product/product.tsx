@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "motion/react";
 import ProductItem from "@/app/(home)/_components/product/product-item";
 import { StaticImageData } from "next/image";

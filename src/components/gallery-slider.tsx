@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { fadeInVariants } from "@/lib/utils/animations";
