@@ -9,6 +9,7 @@ import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import Carousel from "@/components/carousel/carousel";
 import olivia from "@/../public/images/members/olivia.webp";
 import mia from "@/../public/images/members/mia.webp";
+import mariana from "@/../public/images/members/mariana.webp";
 import andrea from "@/../public/images/members/andrea.webp";
 import mahshid from "@/../public/images/members/mahshid.webp";
 import mahlet from "@/../public/images/members/mahlet.webp";
@@ -16,28 +17,33 @@ import daria from "@/../public/images/members/daria.webp";
 import mahsa from "@/../public/images/members/mahsa.webp";
 import lena from "@/../public/images/members/lena.webp";
 import lucia from "@/../public/images/members/lucia.webp";
+import chelsey from "@/../public/images/members/chelsey.webp";
 import tyra from "@/../public/images/members/tyra.webp";
 import paula from "@/../public/images/members/paula.webp";
 import naomi from "@/../public/images/members/naomi.webp";
 import guillem from "@/../public/images/members/guillem.webp";
+import alice from "@/../public/images/members/alice.webp";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { ThemeSelector } from "@/components/theme/theme-selector";
 
 const members = [
-  { src: olivia, className: "w-[200px] sm:w-[335px] h-[180px] sm:h-[301px]" },
-  { src: mia, className: "w-[140px] sm:w-[234px] h-[120px] sm:h-[196px]" },
-  { src: mahshid, className: "w-[113px] sm:w-[165px] h-[120px] sm:h-[173px]" },
-  { src: daria, className: "w-[125px] sm:w-[219px] h-[125px] sm:h-[219px]" },
-  { src: lena, className: "w-[107px] sm:w-[207px] h-[107px] sm:h-[207px]" },
-  { src: naomi, className: "w-[105px] sm:w-[197px] h-[102px] sm:h-[203px]" },
+  { src: mia, className: "w-[132px] sm:w-[264px] h-[112px] sm:h-[224px]" },
+  { src: mariana, className: "w-[90px] sm:w-[180px] h-[101px] sm:h-[202px]" },
+  { src: mahshid, className: "w-[115px] sm:w-[230px] h-[115px] sm:h-[230px]" },
+  { src: daria, className: "w-[135px] sm:w-[270px] h-[135px] sm:h-[270px]" },
+  { src: lucia, className: "w-[130px] sm:w-[260px] h-[155px] sm:h-[310px]" },
+  { src: chelsey, className: "w-[80px] sm:w-[160px] h-[80px] sm:h-[160px]" },
+  { src: lena, className: "w-[103px] sm:w-[206px] h-[103px] sm:h-[206px]" },
+  { src: tyra, className: "w-[128px] sm:w-[255px] h-[128px] sm:h-[255px]" },
 
-  { src: andrea, className: "w-[105px] sm:w-[177px] h-[105px] sm:h-[177px]" },
-  { src: tyra, className: "w-[150px] sm:w-[165px] h-[130px] sm:h-[165px]" },
-  { src: guillem, className: "w-[130px] sm:w-[200px] h-[130px] sm:h-[212px]" },
-  { src: mahlet, className: "w-[70px] sm:w-[160px] h-[76px] sm:h-[166px]" },
-  { src: mahsa, className: "w-[80px] sm:w-[160px] h-[86px] sm:h-[166px]" },
-  { src: lucia, className: "w-[170px] sm:w-[203px] h-[167px] sm:h-[212px]" },
-  { src: paula, className: "w-[150px] sm:w-[220px] h-[150px] sm:h-[220px]" },
+  { src: olivia, className: "w-[191px] sm:w-[382px] h-[176px] sm:h-[352px]" },
+  { src: andrea, className: "w-[100px] sm:w-[200px] h-[100px] sm:h-[200px]" },
+  { src: alice, className: "w-[108px] sm:w-[216px] h-[119px] sm:h-[238px]" },
+  { src: mahlet, className: "w-[80px] sm:w-[160px] h-[83px] sm:h-[166px]" },
+  { src: mahsa, className: "w-[80px] sm:w-[160px] h-[83px] sm:h-[166px]" },
+  { src: paula, className: "w-[110px] sm:w-[220px] h-[110px] sm:h-[220px]" },
+  { src: naomi, className: "w-[135px] sm:w-[270px] h-[130px] sm:h-[260px]" },
+  { src: guillem, className: "w-[100px] sm:w-[200px] h-[106px] sm:h-[212px]" },
 ];
 
 const Team = () => {
@@ -104,11 +110,11 @@ const Team = () => {
             autoScrollSpeed={0.5}
             className="w-full"
           >
-            {[...members.slice(0, 7), ...members.slice(0, 7)].map(
+            {[...members.slice(0, 8), ...members.slice(0, 8)].map(
               (item, index) => (
                 <div
                   key={index}
-                  className={`cursor-scale pr-3 sm:pr-10 ${index % 2 === 1 ? "mt-12" : ""}`}
+                  className={`cursor-scale pr-3 sm:pr-10 ${index % 2 === 1 ? "" : "mt-12"}`}
                 >
                   <Image
                     className={item.className}
@@ -116,7 +122,7 @@ const Team = () => {
                     alt="member"
                   />
                 </div>
-              )
+              ),
             )}
           </Carousel>
 
@@ -130,18 +136,14 @@ const Team = () => {
             className="w-full mt-3 2xl:mt-12"
           >
             {[
-              ...members.slice(7, members.length),
-              ...members.slice(7, members.length),
+              ...members.slice(8, members.length),
+              ...members.slice(8, members.length),
             ].map((item, index) => (
               <div
                 key={index}
-                className={`cursor-scale pr-3 sm:pr-10 ${index % 2 === 0 ? "mt-12" : ""}`}
+                className={`cursor-scale pr-3 sm:pr-10 ${index % 2 === 0 ? "" : "mt-12"}`}
               >
-                <Image
-                  className={item.className}
-                  src={item.src}
-                  alt="member"
-                />
+                <Image className={item.className} src={item.src} alt="member" />
               </div>
             ))}
           </Carousel>
