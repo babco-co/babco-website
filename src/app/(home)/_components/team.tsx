@@ -16,10 +16,10 @@ import daria from "@/../public/images/members/daria.webp";
 import mahsa from "@/../public/images/members/mahsa.webp";
 import lena from "@/../public/images/members/lena.webp";
 import lucia from "@/../public/images/members/lucia.webp";
-import chelsey from "@/../public/images/members/chelsey.webp";
+// import chelsey from "@/../public/images/members/chelsey.webp";
 import tyra from "@/../public/images/members/tyra.webp";
 import naomi from "@/../public/images/members/naomi.webp";
-import guillem from "@/../public/images/members/guillem.webp";
+// import guillem from "@/../public/images/members/guillem.webp";
 import alice from "@/../public/images/members/alice.webp";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { ThemeSelector } from "@/components/theme/theme-selector";
@@ -32,8 +32,7 @@ const memberColumns = [
   { top: daria, bottom: mahshid },
   { top: mahsa, bottom: mahlet },
   { top: lucia, bottom: naomi },
-  { top: lena, bottom: guillem },
-  { top: chelsey, bottom: mariana },
+  { top: lena, bottom: mariana },
 ];
 
 const Team = () => {
