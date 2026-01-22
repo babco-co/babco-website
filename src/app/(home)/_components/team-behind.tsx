@@ -100,7 +100,7 @@ const TeamBehind = () => {
               showArrows={false}
               autoScroll={true}
               autoScrollSpeed={1}
-              gap="gap-6 lg:gap-[60px]"
+              gap={48}
               align="start"
               itemsAlign="items-center"
             >

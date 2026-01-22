@@ -79,7 +79,7 @@ const GallerySlider = ({
       >
         <Carousel
           showArrows={true}
-          gap="gap-0"
+          gap={0}
           align="start"
           slidesToScroll={1}
           autoScroll={false}

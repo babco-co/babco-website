@@ -17,12 +17,21 @@ export const CarouselContext = createContext<CarouselContextType | null>(null);
 export const useCarouselContext = () => {
   const context = useContext(CarouselContext);
   if (!context) {
-    return { currentIndex: 0, totalItems: 0, scrollToIndex: () => {}, scrollPrev: () => {}, scrollNext: () => {}, canScrollPrev: false, canScrollNext: false };
+    return {
+      currentIndex: 0,
+      totalItems: 0,
+      scrollToIndex: () => {},
+      scrollPrev: () => {},
+      scrollNext: () => {},
+      canScrollPrev: false,
+      canScrollNext: false,
+    };
   }
   return context;
 };
 
 export const useCarouselControls = () => {
-  const { scrollPrev, scrollNext, canScrollPrev, canScrollNext } = useCarouselContext();
+  const { scrollPrev, scrollNext, canScrollPrev, canScrollNext } =
+    useCarouselContext();
   return { scrollPrev, scrollNext, canScrollPrev, canScrollNext };
 };

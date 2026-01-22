@@ -5,12 +5,16 @@ import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import CarouselArrows from "@/components/carousel/carousel-arrows";
+import CarouselDots from "@/components/carousel/carousel-dots";
 import { CarouselContext } from "@/components/carousel/carousel-context";
 
 interface CarouselProps {
   children: React.ReactNode[];
   showArrows?: boolean;
-  gap?: string;
+  showDots?: boolean;
+  dotsClassName?: string;
+  /** Gap between slides in pixels */
+  gap?: number;
   align?: "start" | "center" | "end";
   itemsAlign?: "items-start" | "items-center" | "items-end";
   slidesToScroll?: number;
@@ -22,7 +26,9 @@ interface CarouselProps {
 const Carousel = ({
   children,
   showArrows = true,
-  gap = "gap-0",
+  showDots = false,
+  dotsClassName,
+  gap = 0,
   align = "start",
   itemsAlign = "items-start",
   slidesToScroll = 1,
@@ -33,8 +39,8 @@ const Carousel = ({
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       align,
-      containScroll: "trimSnaps",
-      dragFree: false,
+      containScroll: autoScroll ? false : "trimSnaps",
+      dragFree: autoScroll,
       slidesToScroll,
       skipSnaps: false,
       loop: autoScroll,
@@ -47,7 +53,7 @@ const Carousel = ({
             stopOnInteraction: false,
           }),
         ]
-      : []
+      : [],
   );
 
   const [canScrollPrev, setCanScrollPrev] = useState(false);
@@ -66,7 +72,7 @@ const Carousel = ({
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
     },
-    [emblaApi]
+    [emblaApi],
   );
 
   const onSelect = useCallback(() => {
@@ -104,19 +110,22 @@ const Carousel = ({
       <div className={className}>
         {/* Carousel */}
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className={`flex ${gap} ${itemsAlign}`}>
+          <div className={`flex ${itemsAlign}`}>
             {children.map((child, index) => (
               <motion.div
                 key={index}
                 className="flex-[0_0_auto]"
-                initial={{ opacity: 0, y: 5 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                  ease: "easeOut",
-                }}
+                style={{ paddingLeft: gap > 0 ? `${gap}px` : undefined }}
+                {...(!autoScroll && {
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: true },
+                  transition: {
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: "easeOut",
+                  },
+                })}
               >
                 {child}
               </motion.div>
@@ -135,6 +144,9 @@ const Carousel = ({
             />
           </div>
         )}
+
+        {/* Dot Pagination */}
+        {showDots && <CarouselDots className={dotsClassName} />}
       </div>
     </CarouselContext.Provider>
   );

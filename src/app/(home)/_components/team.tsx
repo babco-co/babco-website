@@ -10,7 +10,6 @@ import Carousel from "@/components/carousel/carousel";
 import olivia from "@/../public/images/members/olivia.webp";
 import mia from "@/../public/images/members/mia.webp";
 import mariana from "@/../public/images/members/mariana.webp";
-import andrea from "@/../public/images/members/andrea.webp";
 import mahshid from "@/../public/images/members/mahshid.webp";
 import mahlet from "@/../public/images/members/mahlet.webp";
 import daria from "@/../public/images/members/daria.webp";
@@ -19,31 +18,21 @@ import lena from "@/../public/images/members/lena.webp";
 import lucia from "@/../public/images/members/lucia.webp";
 import chelsey from "@/../public/images/members/chelsey.webp";
 import tyra from "@/../public/images/members/tyra.webp";
-import paula from "@/../public/images/members/paula.webp";
 import naomi from "@/../public/images/members/naomi.webp";
 import guillem from "@/../public/images/members/guillem.webp";
 import alice from "@/../public/images/members/alice.webp";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { ThemeSelector } from "@/components/theme/theme-selector";
 
-const members = [
-  { src: mia, className: "w-[132px] sm:w-[264px] h-[112px] sm:h-[224px]" },
-  { src: mariana, className: "w-[90px] sm:w-[180px] h-[101px] sm:h-[202px]" },
-  { src: mahshid, className: "w-[115px] sm:w-[230px] h-[115px] sm:h-[230px]" },
-  { src: daria, className: "w-[135px] sm:w-[270px] h-[135px] sm:h-[270px]" },
-  { src: lucia, className: "w-[130px] sm:w-[260px] h-[155px] sm:h-[310px]" },
-  { src: chelsey, className: "w-[80px] sm:w-[160px] h-[80px] sm:h-[160px]" },
-  { src: lena, className: "w-[103px] sm:w-[206px] h-[103px] sm:h-[206px]" },
-  { src: tyra, className: "w-[128px] sm:w-[255px] h-[128px] sm:h-[255px]" },
-
-  { src: olivia, className: "w-[191px] sm:w-[382px] h-[176px] sm:h-[352px]" },
-  { src: andrea, className: "w-[100px] sm:w-[200px] h-[100px] sm:h-[200px]" },
-  { src: alice, className: "w-[108px] sm:w-[216px] h-[119px] sm:h-[238px]" },
-  { src: mahlet, className: "w-[80px] sm:w-[160px] h-[83px] sm:h-[166px]" },
-  { src: mahsa, className: "w-[80px] sm:w-[160px] h-[83px] sm:h-[166px]" },
-  { src: paula, className: "w-[110px] sm:w-[220px] h-[110px] sm:h-[220px]" },
-  { src: naomi, className: "w-[135px] sm:w-[270px] h-[130px] sm:h-[260px]" },
-  { src: guillem, className: "w-[100px] sm:w-[200px] h-[106px] sm:h-[212px]" },
+// Each column has a top and bottom image
+const memberColumns = [
+  { top: olivia, bottom: tyra },
+  { top: alice, bottom: mia },
+  { top: daria, bottom: mahshid },
+  { top: mahsa, bottom: mahlet },
+  { top: lucia, bottom: naomi },
+  { top: lena, bottom: guillem },
+  { top: chelsey, bottom: mariana },
 ];
 
 const Team = () => {
@@ -51,7 +40,7 @@ const Team = () => {
 
   return (
     <section className="w-full flex flex-col relative">
-      <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-[80px]">
+      <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-20">
         <Spacer
           horizontal
           className="w-full flex flex-col lg:flex-row justify-between items-start gap-10"
@@ -100,50 +89,31 @@ const Team = () => {
           <ThemeSelector />
         </Spacer>
 
-        <div className="w-full flex flex-col items-center justify-center gap-2 relative mt-[126px]">
+        <div className="w-full flex items-start justify-center relative mt-[126px]">
           <Carousel
             showArrows={false}
-            gap="gap-0"
+            gap={0}
             align="start"
             itemsAlign="items-start"
             autoScroll={true}
             autoScrollSpeed={0.5}
             className="w-full"
           >
-            {[...members.slice(0, 8), ...members.slice(0, 8)].map(
-              (item, index) => (
-                <div
-                  key={index}
-                  className={`cursor-scale pr-3 sm:pr-10 ${index % 2 === 1 ? "" : "mt-12"}`}
-                >
-                  <Image
-                    className={item.className}
-                    src={item.src}
-                    alt="member"
-                  />
-                </div>
-              ),
-            )}
-          </Carousel>
-
-          <Carousel
-            showArrows={false}
-            gap="gap-0"
-            align="start"
-            itemsAlign="items-start"
-            autoScroll={true}
-            autoScrollSpeed={0.5}
-            className="w-full mt-3 2xl:mt-12"
-          >
-            {[
-              ...members.slice(8, members.length),
-              ...members.slice(8, members.length),
-            ].map((item, index) => (
+            {[...memberColumns, ...memberColumns].map((column, index) => (
               <div
                 key={index}
-                className={`cursor-scale pr-3 sm:pr-10 ${index % 2 === 0 ? "" : "mt-12"}`}
+                className={`cursor-scale flex flex-col gap-2 sm:gap-3 pr-2 sm:pr-3 ${index % 2 === 0 ? "" : "mt-12 sm:mt-20"}`}
               >
-                <Image className={item.className} src={item.src} alt="member" />
+                <Image
+                  className="w-[100px] sm:w-[180px] h-[127px] sm:h-[228px] object-cover"
+                  src={column.top}
+                  alt="member"
+                />
+                <Image
+                  className="w-[100px] sm:w-[180px] h-[127px] sm:h-[228px] object-cover"
+                  src={column.bottom}
+                  alt="member"
+                />
               </div>
             ))}
           </Carousel>
