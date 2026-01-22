@@ -23,6 +23,7 @@ import guillem from "@/../public/images/members/guillem.webp";
 import alice from "@/../public/images/members/alice.webp";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { ThemeSelector } from "@/components/theme/theme-selector";
+import { cn } from "@/lib/utils/cn";
 
 // Each column has a top and bottom image
 const memberColumns = [
@@ -102,7 +103,10 @@ const Team = () => {
             {[...memberColumns, ...memberColumns].map((column, index) => (
               <div
                 key={index}
-                className={`cursor-scale flex flex-col gap-2 sm:gap-3 pr-2 sm:pr-3 ${index % 2 === 0 ? "" : "mt-12 sm:mt-20"}`}
+                className={cn(
+                  "cursor-scale flex flex-col gap-2 sm:gap-2.5 pr-2 sm:pr-2.5",
+                  `${index % 2 === 0 ? "" : "mt-12 sm:mt-20"}`,
+                )}
               >
                 <Image
                   className="w-[100px] sm:w-[180px] h-[127px] sm:h-[228px] object-cover"
