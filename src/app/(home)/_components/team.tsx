@@ -21,6 +21,8 @@ import tyra from "@/../public/images/members/tyra.webp";
 import naomi from "@/../public/images/members/naomi.webp";
 // import guillem from "@/../public/images/members/guillem.webp";
 import alice from "@/../public/images/members/alice.webp";
+import rachel from "@/../public/images/members/rachel.webp";
+import barbara from "@/../public/images/members/barbara.webp";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { ThemeSelector } from "@/components/theme/theme-selector";
 import { cn } from "@/lib/utils/cn";
@@ -33,6 +35,7 @@ const memberColumns = [
   { top: mahsa, bottom: mahlet },
   { top: lucia, bottom: naomi },
   { top: lena, bottom: mariana },
+  { top: rachel, bottom: barbara },
 ];
 
 const Team = () => {
