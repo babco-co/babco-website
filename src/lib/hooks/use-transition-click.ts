@@ -6,24 +6,27 @@ type ClickHandler = (e?: React.MouseEvent) => void;
 
 export const useTransitionClick = (route: string, onClick?: ClickHandler) => {
   const router = useRouter();
-  const { startTransition, endTransition } = useTransition();
+  const { startTransition } = useTransition();
 
-  const handleClick = useCallback(async (e?: React.MouseEvent) => {
-    try {
-      // Call original onClick if provided
-      if (onClick) {
-        onClick(e);
-      }
-      
-      // Start transition and navigate
-      await startTransition();
-      await router.push(route);
-      endTransition();
-    } catch (error) {
-      console.error("Navigation failed:", error);
-      endTransition();
+  const handleClick = useCallback((e?: React.MouseEvent) => {
+    // Prevent default if it's a link
+    if (e) {
+      e.preventDefault();
     }
-  }, [route, router, startTransition, endTransition, onClick]);
+
+    // Call original onClick if provided
+    if (onClick) {
+      onClick(e);
+    }
+    
+    // Start transition animation
+    startTransition();
+    
+    // Navigate after animation starts
+    setTimeout(() => {
+      router.push(route);
+    }, 500);
+  }, [route, router, startTransition, onClick]);
 
   return handleClick;
 };

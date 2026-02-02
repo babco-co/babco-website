@@ -1,7 +1,8 @@
 "use client";
+
 import Image from "next/image";
 import { motion } from "motion/react";
-import arrowBlackIcon from "../../../../public/icons/arrow-black-icon.svg";
+import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";

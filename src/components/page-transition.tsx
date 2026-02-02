@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { createContext, useContext } from "react";
@@ -6,14 +7,12 @@ import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
 type TransitionContextType = {
   isTransitioning: boolean;
-  startTransition: () => Promise<void>;
-  endTransition: () => void;
+  startTransition: () => void;
 };
 
 const TransitionContext = createContext<TransitionContextType>({
   isTransitioning: false,
-  startTransition: async () => {},
-  endTransition: () => {},
+  startTransition: () => {},
 });
 
 export const useTransition = () => useContext(TransitionContext);
@@ -22,21 +21,17 @@ const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { getFullGradientClass } = useThemeVariant();
 
-  const startTransition = async () => {
+  const startTransition = () => {
     setIsTransitioning(true);
-    // Return a promise that resolves when the initial animation is complete
-    return new Promise<void>((resolve) => setTimeout(resolve, 1500));
-  };
-
-  const endTransition = () => {
+    // Auto-end transition after animation completes
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 1000);
+    }, 1500);
   };
 
   return (
     <TransitionContext.Provider
-      value={{ isTransitioning, startTransition, endTransition }}
+      value={{ isTransitioning, startTransition }}
     >
       {children}
       <AnimatePresence>

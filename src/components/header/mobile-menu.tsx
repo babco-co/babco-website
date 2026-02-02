@@ -1,136 +1,97 @@
 "use client";
-import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
-import Button from "@/components/button";
-import { LINKEDIN } from "@/lib/utils/constants";
-import { useTransitionClick } from "@/lib/hooks/use-transition-click";
-import NavigationLink from "@/components/header/navigation-link";
-import dotBlack from "@/../public/icons/dot-black.svg";
 
-interface MobileMenuProps {
+import { motion, AnimatePresence, Variants } from "motion/react";
+import Image from "next/image";
+import type { MenuItem } from "@/components/header/types";
+import MobileNavigationLink from "@/components/header/mobile-navigation-link";
+import Button from "@/components/button";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
+import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
+
+const mobileMenuVariants: Variants = {
+  closed: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.2,
+      ease: "easeInOut",
+    },
+  },
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    },
+  },
+};
+
+type MobileMenuProps = {
   isOpen: boolean;
   onClose: () => void;
-}
+  menuItems: MenuItem[];
+};
 
-const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
   const handleContactClick = useTransitionClick("/contact-us");
+
+  const handleNavigation = () => {
+    onClose();
+  };
+
+  const handleContactButtonClick = () => {
+    onClose();
+    handleContactClick();
+  };
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "100%" }}
-          transition={{ type: "tween", duration: 0.3 }}
-          id="mobile-menu"
-          className="fixed inset-0 z-40 bg-brand-light dark:bg-brand-dark"
-          style={{ height: "100dvh" }}
+          className="2xl:hidden fixed inset-0 pt-[107px] z-40 bg-background min-h-screen w-full overflow-y-auto flex flex-col"
+          variants={mobileMenuVariants}
+          initial="closed"
+          animate="open"
+          exit="closed"
         >
-          <div className="h-full overflow-y-auto p-4">
-            <nav className="min-h-full flex flex-col">
-              <div className="grow">
-                <div className="flex flex-col items-center pt-[220px]">
-                  {/* <NavigationLink
-                    href="/works"
-                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
-                    onClick={onClose}
-                  >
-                    Works
-                  </NavigationLink>
-
-                  <div className="my-8">
-                    <Image
-                      className="invert dark:invert-0"
-                      src={dotBlack}
-                      alt="dot"
-                    />
-                  </div> */}
-
-                  <NavigationLink
-                    href="/ai"
-                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
-                    onClick={onClose}
-                  >
-                    AI Services
-                  </NavigationLink>
-
-                  <div className="my-8">
-                    <Image
-                      className="invert dark:invert-0"
-                      src={dotBlack}
-                      alt="dot"
-                    />
-                  </div>
-
-                  <NavigationLink
-                    href="/merch"
-                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
-                    external
-                  >
-                    Merch
-                  </NavigationLink>
-
-                  <div className="my-8">
-                    <Image
-                      className="invert dark:invert-0"
-                      src={dotBlack}
-                      alt="dot"
-                    />
-                  </div>
-
-                  <NavigationLink
-                    href="/blog"
-                    className="text-4xl font-extralight text-white dark:text-black leading-[120%]"
-                    onClick={onClose}
-                  >
-                    Blog
-                  </NavigationLink>
-
-                  <div className="my-8">
-                    <Image
-                      className="invert dark:invert-0"
-                      src={dotBlack}
-                      alt="dot"
-                    />
-                  </div>
-
-                  <NavigationLink
-                    href={LINKEDIN}
-                    className="text-4xl font-extralight text-white dark:text-black  leading-[120%]"
-                    external
-                  >
-                    Follow
-                  </NavigationLink>
+          <div className="px-6 py-8 flex-1">
+            <motion.nav
+              className="flex flex-col"
+              initial="closed"
+              animate="open"
+            >
+              {menuItems.map((item, index) => (
+                <div key={index}>
+                  <MobileNavigationLink
+                    item={item}
+                    onNavigate={handleNavigation}
+                    index={index}
+                  />
                 </div>
-              </div>
-
-              <div className="mt-auto pt-10">
-                <Button
-                  className="w-full h-14 gap-2"
-                  variant="secondary"
-                  onClick={() => {
-                    onClose();
-                    handleContactClick();
-                  }}
-                >
-                  <p className="pt-1">Contact Us</p>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="19"
-                    height="17"
-                    viewBox="0 0 19 17"
-                    fill="none"
-                  >
-                    <path
-                      d="M18.4676 3.11683C18.5318 2.56829 18.1392 2.07157 17.5906 2.00739L8.65161 0.961401C8.10307 0.897214 7.60636 1.28986 7.54217 1.8384C7.47798 2.38695 7.87063 2.88366 8.41917 2.94785L16.365 3.87761L15.4352 11.8234C15.371 12.3719 15.7637 12.8687 16.3122 12.9328C16.8607 12.997 17.3575 12.6044 17.4216 12.0558L18.4676 3.11683ZM1.62013 16.8079L18.0945 3.78511L16.8543 2.21611L0.379865 15.2389L1.62013 16.8079Z"
-                      className="fill-brand-light dark:fill-brand-dark"
-                    />
-                  </svg>
-                </Button>
-              </div>
-            </nav>
+              ))}
+            </motion.nav>
           </div>
+
+          <motion.div
+            className="px-6 pb-8 pt-4 border-t border-border-primary-light dark:border-border-primary-dark"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.3 }}
+          >
+            <Button
+              className="w-full h-12 flex items-center justify-center gap-2"
+              variant="changing"
+              onClick={handleContactButtonClick}
+            >
+              <p className="pt-1">Contact Us</p>
+              <Image
+                className="invert dark:invert-0"
+                src={arrowBlackIcon}
+                alt="arrow"
+              />
+            </Button>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

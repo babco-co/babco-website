@@ -1,5 +1,4 @@
-import React from "react";
-import { Spacer } from "./spacer";
+import { Spacer } from "@/components/spacer";
 
 const Footer = () => {
   return (

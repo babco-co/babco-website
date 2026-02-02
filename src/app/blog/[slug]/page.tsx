@@ -7,7 +7,7 @@ import { fetchBlogPosts } from "@/lib/services/blog";
 import { createSlug } from "@/lib/utils/helper";
 import { Spacer } from "@/components/spacer";
 import Header from "@/components/header/header";
-import BlogContentLoader from "@/app/blog/components/blog-content-loader";
+import BlogContentLoader from "@/app/blog/_components/blog-content-loader";
 
 export default function BlogPostPage() {
   const params = useParams();
