@@ -69,27 +69,27 @@ const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
                 </div>
               ))}
             </motion.nav>
-          </div>
 
-          <motion.div
-            className="px-6 pb-8 pt-4 border-t border-border-primary-light dark:border-border-primary-dark"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.3 }}
-          >
-            <Button
-              className="w-full h-12 flex items-center justify-center gap-2"
-              variant="changing"
-              onClick={handleContactButtonClick}
+            <motion.div
+              className="px-6 py-10"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
             >
-              <p className="pt-1">Contact Us</p>
-              <Image
-                className="invert dark:invert-0"
-                src={arrowBlackIcon}
-                alt="arrow"
-              />
-            </Button>
-          </motion.div>
+              <Button
+                className="w-full h-12 flex items-center justify-center gap-2"
+                variant="changing"
+                onClick={handleContactButtonClick}
+              >
+                <p className="pt-1">Contact Us</p>
+                <Image
+                  className="invert dark:invert-0"
+                  src={arrowBlackIcon}
+                  alt="arrow"
+                />
+              </Button>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
