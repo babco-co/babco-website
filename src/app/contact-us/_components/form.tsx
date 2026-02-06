@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import emailjs from "@emailjs/browser";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormInputs, schema, serviceOptions } from "@/app/contact-us/schema";
-import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import Button from "@/components/button";
 import InputField from "@/app/contact-us/_components/input";
 import SelectField from "@/app/contact-us/_components/select-field";
@@ -35,22 +33,15 @@ const ContactForm = () => {
     setIsLoading(true);
 
     try {
-      const response = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
-        {
-          from_name: data.name,
-          from_email: data.email,
-          from_company: data.company,
-          service_needed: data.service.join(", "),
-          message: data.message,
-          to_name: "Babco.co",
-          to_email: CONTACT_EMAIL,
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? ""
-      );
+        body: JSON.stringify(data),
+      });
 
-      if (response.status === 200) {
+      if (response.ok) {
         setApiRes({
           status: "success",
           message:
@@ -58,13 +49,19 @@ const ContactForm = () => {
         });
         reset();
       } else {
-        throw new Error("Failed to send email");
+        const responseData =
+          (await response.json().catch(() => null)) as
+            | { error?: string }
+            | null;
+        throw new Error(
+          responseData?.error ?? "Your request was not submitted."
+        );
       }
     } catch (error) {
       const errorMessage =
         error instanceof Error
           ? error.message
-          : "Your request was Not submitted, Please try again.";
+          : "Your request was not submitted, please try again.";
       setApiRes({
         status: "fail",
         message: errorMessage,
