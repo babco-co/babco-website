@@ -23,7 +23,6 @@ const Header = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeRef = useRef<number | null>(null);
 
-  // Menu items configuration
   const menuItems: MenuItem[] = [
     {
       text: "AI Services",
