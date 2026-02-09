@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import Button from "@/components/button";
 import { Spacer } from "@/components/spacer";
 import BabcoLogo from "@/components/svg/babco-logo";
-import { useTransitionClick } from "@/lib/hooks/use-transition-click";
+import { CONTACT_EMAIL } from "@/lib/utils/constants";
 import Carousel from "@/components/carousel/carousel";
 import olivia from "@/../public/images/members/olivia.webp";
 import mia from "@/../public/images/members/mia.webp";
@@ -39,7 +39,9 @@ const memberColumns = [
 ];
 
 const Team = () => {
-  const handleContactClick = useTransitionClick("/contact-us");
+  const handleContactClick = () => {
+    window.location.href = `mailto:${CONTACT_EMAIL}`;
+  };
 
   return (
     <section className="w-full flex flex-col relative">
