@@ -3,7 +3,8 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Button from "@/components/button";
-import { CONTACT_EMAIL, LINKEDIN } from "@/lib/utils/constants";
+import { LINKEDIN } from "@/lib/utils/constants";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import MobileMenu from "@/components/header/mobile-menu";
 import DesktopNavigation from "@/components/header/desktop-navigation";
 import HeaderLogo from "@/components/header/header-logo";
@@ -15,9 +16,7 @@ import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
 const Header = () => {
   const { getFullGradientClass } = useThemeVariant();
-  const handleContactClick = () => {
-    window.location.href = `mailto:${CONTACT_EMAIL}`;
-  };
+  const handleContactClick = useTransitionClick("/contact-us");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -180,10 +179,7 @@ const Header = () => {
 
           {/* Right section */}
           <div className="flex flex-1 items-center justify-end gap-5">
-            <AudioToggleButton
-              isMuted={isMuted}
-              onClick={handleToggleAudio}
-            />
+            <AudioToggleButton isMuted={isMuted} onClick={handleToggleAudio} />
 
             <Button
               className="h-[38px] hidden lg:flex gap-2 text-center"
