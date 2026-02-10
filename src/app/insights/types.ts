@@ -1,10 +1,10 @@
 export interface BlogPost {
   title: string;
+  slug: string;
   link: string;
-  pubDate: string;
+  pubDateISO: string;
   creator: string;
+  description: string;
   content: string;
-  thumbnail: string;
-  source: 'medium' | 'substack';
-  uniqueId: string;
+  thumbnail: string | null;
 }
