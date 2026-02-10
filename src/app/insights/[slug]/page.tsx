@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { BlogPost } from "@/app/blog/types";
+import { BlogPost } from "@/app/insights/types";
 import { fetchBlogPosts } from "@/lib/services/blog";
 import { createSlug } from "@/lib/utils/helper";
 import { Spacer } from "@/components/spacer";
 import Header from "@/components/header/header";
-import BlogContentLoader from "@/app/blog/_components/blog-content-loader";
+import BlogContentLoader from "@/app/insights/_components/blog-content-loader";
 
 export default function BlogPostPage() {
   const params = useParams();
