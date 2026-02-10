@@ -46,7 +46,7 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
     <Link
       className="group block"
       key={post.link}
-      href={`/blog/${createSlug(post.title)}`}
+      href={`/insights/${createSlug(post.title)}`}
     >
       <article className="h-full overflow-hidden transition-all duration-300 bg-white/50 dark:bg-[#0C0C0C] relative">
         {/* Source Badge */}
