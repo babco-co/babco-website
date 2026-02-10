@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BlogPost } from "@/app/blog/types";
+import { BlogPost } from "@/app/insights/types";
 import { createSlug } from "@/lib/utils/helper";
 
 interface BlogPostCardProps {
