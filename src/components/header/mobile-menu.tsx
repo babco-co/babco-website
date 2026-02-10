@@ -5,7 +5,7 @@ import Image from "next/image";
 import type { MenuItem } from "@/components/header/types";
 import MobileNavigationLink from "@/components/header/mobile-navigation-link";
 import Button from "@/components/button";
-import { CONTACT_EMAIL } from "@/lib/utils/constants";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
 const mobileMenuVariants: Variants = {
@@ -34,13 +34,15 @@ type MobileMenuProps = {
 };
 
 const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
+  const handleContactClick = useTransitionClick("/contact-us");
+
   const handleNavigation = () => {
     onClose();
   };
 
   const handleContactButtonClick = () => {
     onClose();
-    window.location.href = `mailto:${CONTACT_EMAIL}`;
+    handleContactClick();
   };
 
   return (

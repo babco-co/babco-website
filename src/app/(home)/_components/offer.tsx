@@ -5,13 +5,14 @@ import { motion } from "motion/react";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
-import { CONTACT_EMAIL } from "@/lib/utils/constants";
+import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 
 const Offer = () => {
+  const handleContactClick = useTransitionClick("/contact-us");
   const { getFullGradientClass } = useThemeVariant();
 
   const handleItemClick = () => {
-    window.location.href = `mailto:${CONTACT_EMAIL}`;
+    handleContactClick();
   };
 
   return (
