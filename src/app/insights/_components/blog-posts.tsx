@@ -1,7 +1,7 @@
 "use client";
 
-import { BlogPost } from "@/app/blog/types";
-import BlogPostCard from "@/app/blog/_components/blog-post-card";
+import { BlogPost } from "@/app/insights/types";
+import BlogPostCard from "@/app/insights/_components/blog-post-card";
 import { useEffect, useState } from "react";
 import { fetchBlogPosts } from "@/lib/services/blog";
 

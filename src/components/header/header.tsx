@@ -34,8 +34,8 @@ const Header = () => {
       external: true,
     },
     {
-      text: "Blog",
-      href: "/blog",
+      text: "Insights",
+      href: "/insights",
     },
     {
       text: "Follow",
