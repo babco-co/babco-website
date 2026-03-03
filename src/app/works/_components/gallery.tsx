@@ -115,4 +115,4 @@ function MediaComponent(item: GalleryContent) {
       </div>
     );
   }
-}}
+}
