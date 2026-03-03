@@ -18,7 +18,7 @@ interface NavigationDropdownProps {
   className?: string;
 }
 
-const NavigationDropdown = ({ text, items, className }: NavigationDropdownProps) => {
+export default function NavigationDropdown({ text, items, className }: NavigationDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -78,6 +78,4 @@ const NavigationDropdown = ({ text, items, className }: NavigationDropdownProps)
       </AnimatePresence>
     </div>
   );
-};
-
-export default NavigationDropdown;
+}

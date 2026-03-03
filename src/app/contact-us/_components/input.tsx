@@ -1,7 +1,7 @@
 import { UseFormRegister, FieldErrors } from "react-hook-form";
 import { FormInputs } from "@/app/contact-us/schema";
 
-const InputField = ({
+export default function InputField({
   name,
   register,
   errors,
@@ -13,7 +13,7 @@ const InputField = ({
   errors: FieldErrors<FormInputs>;
   placeholder: string;
   label: string;
-}) => {
+}) {
   const hasError = !!errors[name];
   const errorMessage = errors[name]?.message;
 
@@ -57,6 +57,4 @@ const InputField = ({
       )}
     </div>
   );
-};
-
-export default InputField;
+}

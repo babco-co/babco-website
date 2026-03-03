@@ -11,7 +11,7 @@ import SelectField from "@/app/contact-us/_components/select-field";
 import TextAreaField from "@/app/contact-us/_components/text-area-field";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
-const ContactForm = () => {
+export default function ContactForm() {
   const {
     register,
     handleSubmit,
@@ -195,6 +195,4 @@ const ContactForm = () => {
       </form>
     </div>
   );
-};
-
-export default ContactForm;
+}

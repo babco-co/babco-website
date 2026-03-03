@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const BabcoLogo = ({
+export default function BabcoLogo({
   width,
   height,
   className,
@@ -15,7 +15,7 @@ const BabcoLogo = ({
   className?: string;
   useGradient?: boolean;
   staticColor?: string;
-}) => {
+}) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -88,6 +88,4 @@ const BabcoLogo = ({
       />
     </svg>
   );
-};
-
-export default BabcoLogo;
+}

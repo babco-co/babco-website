@@ -33,7 +33,7 @@ type MobileMenuProps = {
   menuItems: MenuItem[];
 };
 
-const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
+export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuProps) {
   const handleContactClick = useTransitionClick("/contact-us");
 
   const handleNavigation = () => {
@@ -96,6 +96,4 @@ const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
       )}
     </AnimatePresence>
   );
-};
-
-export default MobileMenu;
+}

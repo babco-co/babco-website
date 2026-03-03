@@ -10,12 +10,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-const Button = ({
+export default function Button({
   variant = "primary",
   className = "",
   children,
   ...props
-}: ButtonProps) => {
+}: ButtonProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -71,6 +71,4 @@ const Button = ({
       {children}
     </button>
   );
-};
-
-export default Button;
+}

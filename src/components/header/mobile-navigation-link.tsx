@@ -29,11 +29,11 @@ interface MobileNavigationLinkProps {
   index: number;
 }
 
-const MobileNavigationLink = ({
+export default function MobileNavigationLink({
   item,
   onNavigate,
   index,
-}: MobileNavigationLinkProps) => {
+}: MobileNavigationLinkProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -128,6 +128,4 @@ const MobileNavigationLink = ({
       </AnimatePresence>
     </motion.div>
   );
-};
-
-export default MobileNavigationLink;
+}

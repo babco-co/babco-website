@@ -7,7 +7,7 @@ import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { motion } from "motion/react";
 import BabcoLogo from "@/components/svg/babco-logo";
 
-const Hero = () => {
+export default function Hero() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -71,6 +71,4 @@ const Hero = () => {
       </motion.div>
     </section>
   );
-};
-
-export default Hero;
+}

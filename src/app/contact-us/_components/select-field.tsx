@@ -12,7 +12,7 @@ import Select, {
 import { FormInputs, SelectOption } from "@/app/contact-us/schema";
 import arrowDownIcon from "@/../public/icons/arrow-down-icon.svg";
 
-const SelectField = ({
+export default function SelectField({
   name,
   control,
   errors,
@@ -24,7 +24,7 @@ const SelectField = ({
   errors: FieldErrors<FormInputs>;
   label: string;
   options: SelectOption[];
-}) => {
+}) {
   const [isMounted, setIsMounted] = useState(false);
   const hasError = !!errors[name];
   const errorMessage = errors[name]?.message;
@@ -164,6 +164,4 @@ const SelectField = ({
       )}
     </div>
   );
-};
-
-export default SelectField;
+}

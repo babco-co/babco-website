@@ -71,7 +71,7 @@ const images = [
   },
 ];
 
-const TeamBehind = () => {
+export default function TeamBehind() {
   return (
     <section className="cursor-scale w-full flex flex-col overflow-x-hidden">
       <motion.div
@@ -130,6 +130,4 @@ const TeamBehind = () => {
       </motion.div>
     </section>
   );
-};
-
-export default TeamBehind;
+}

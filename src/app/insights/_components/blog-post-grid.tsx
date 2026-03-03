@@ -5,7 +5,7 @@ interface BlogPostGridProps {
   posts: BlogPost[];
 }
 
-const BlogPostGrid = ({ posts }: BlogPostGridProps) => {
+export default function BlogPostGrid({ posts }: BlogPostGridProps) {
   if (posts.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
@@ -23,6 +23,4 @@ const BlogPostGrid = ({ posts }: BlogPostGridProps) => {
       ))}
     </div>
   );
-};
-
-export default BlogPostGrid;
+}

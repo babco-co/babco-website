@@ -8,11 +8,11 @@ type HeaderLogoProps = {
   getFullGradientClass: () => string;
 };
 
-const HeaderLogo = ({
+export default function HeaderLogo({
   isScrolled,
   isMenuOpen,
   getFullGradientClass,
-}: HeaderLogoProps) => {
+}: HeaderLogoProps) {
   const content = isScrolled ? (
     <BabcoTMLogo className="w-[106px] h-[21px]" isMenuOpen={isMenuOpen} />
   ) : (
@@ -44,6 +44,4 @@ const HeaderLogo = ({
       {content}
     </Link>
   );
-};
-
-export default HeaderLogo;
+}

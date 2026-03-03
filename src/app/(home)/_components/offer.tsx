@@ -7,7 +7,7 @@ import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 
-const Offer = () => {
+export default function Offer() {
   const handleContactClick = useTransitionClick("/contact-us");
   const { getFullGradientClass } = useThemeVariant();
 
@@ -44,9 +44,7 @@ const Offer = () => {
       />
     </section>
   );
-};
-
-export default Offer;
+}
 
 interface ItemProps {
   title: string;
@@ -58,14 +56,15 @@ interface ItemProps {
   getFullGradientClass?: () => string;
 }
 
-const RegularItem = ({
+function RegularItem({
   title,
   tag,
   descFirst,
   descSec,
   descThird,
   onItemClick,
-}: ItemProps) => (
+}: ItemProps) {
+  return (
   <div
     className="w-full flex flex-col lg:flex-row gap-10 items-center justify-between py-8 lg:py-[91px] cursor-pointer"
     onClick={onItemClick}
@@ -77,13 +76,15 @@ const RegularItem = ({
       descThird={descThird}
     />
   </div>
-);
+  );
+}
 
-const RegularDescription = ({
+function RegularDescription({
   descFirst,
   descSec,
   descThird,
-}: Pick<ItemProps, "descFirst" | "descSec" | "descThird">) => (
+}: Pick<ItemProps, "descFirst" | "descSec" | "descThird">) {
+  return (
   <motion.div
     className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-3 lg:gap-5"
     initial="hidden"
@@ -102,9 +103,10 @@ const RegularDescription = ({
       </motion.p>
     ))}
   </motion.div>
-);
+  );
+}
 
-const WorkWithUsItem = ({
+function WorkWithUsItem({
   title,
   tag,
   descFirst,
@@ -112,7 +114,8 @@ const WorkWithUsItem = ({
   descThird,
   onItemClick,
   getFullGradientClass,
-}: ItemProps) => (
+}: ItemProps) {
+  return (
   <div
     className="w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center justify-between py-8 lg:py-[91px] cursor-pointer"
     onClick={onItemClick}
@@ -125,9 +128,10 @@ const WorkWithUsItem = ({
       getFullGradientClass={getFullGradientClass}
     />
   </div>
-);
+  );
+}
 
-const WorkWithUsDescription = ({
+function WorkWithUsDescription({
   descFirst,
   descSec,
   descThird,
@@ -135,7 +139,8 @@ const WorkWithUsDescription = ({
 }: Pick<
   ItemProps,
   "descFirst" | "descSec" | "descThird" | "getFullGradientClass"
->) => (
+>) {
+  return (
   <div className="w-full lg:w-2/3 flex flex-col items-start justify-center text-start gap-8">
     {[descFirst, descSec, descThird].map((desc, index) => (
       <motion.div
@@ -174,9 +179,11 @@ const WorkWithUsDescription = ({
       </motion.div>
     ))}
   </div>
-);
+  );
+}
 
-const ItemHeader = ({ tag, title }: { tag: string; title: string }) => (
+function ItemHeader({ tag, title }: { tag: string; title: string }) {
+  return (
   <motion.div
     className="w-full lg:w-1/2 flex flex-col items-start justify-center"
     initial="hidden"
@@ -206,4 +213,5 @@ const ItemHeader = ({ tag, title }: { tag: string; title: string }) => (
       {title}
     </motion.p>
   </motion.div>
-);
+  );
+}

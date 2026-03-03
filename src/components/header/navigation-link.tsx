@@ -8,12 +8,12 @@ type NavigationLinkProps = {
   className?: string;
 };
 
-const NavigationLink = ({
+export default function NavigationLink({
   href,
   text,
   external,
   className,
-}: NavigationLinkProps) => {
+}: NavigationLinkProps) {
   return (
     <Link
       href={href}
@@ -30,6 +30,4 @@ const NavigationLink = ({
       {text}
     </Link>
   );
-};
-
-export default NavigationLink;
+}

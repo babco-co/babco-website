@@ -1,7 +1,7 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { FormInputs } from "@/app/contact-us/schema";
 
-const TextAreaField = ({
+export default function TextAreaField({
     name,
     register,
     errors,
@@ -13,7 +13,7 @@ const TextAreaField = ({
     errors: FieldErrors<FormInputs>;
     placeholder: string;
     label: string;
-  }) => {
+  }) {
     const hasError = !!errors[name];
     const errorMessage = errors[name]?.message;
   
@@ -61,6 +61,4 @@ const TextAreaField = ({
         )}
       </div>
     );
-  };
-  
-  export default TextAreaField;
+  }

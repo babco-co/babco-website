@@ -6,7 +6,7 @@ interface CarouselDotsProps {
   className?: string;
 }
 
-const CarouselDots = ({ className = "justify-start" }: CarouselDotsProps) => {
+export default function CarouselDots({ className = "justify-start" }: CarouselDotsProps) {
   const { currentIndex, totalItems, scrollToIndex } = useCarouselContext();
 
   return (
@@ -34,6 +34,4 @@ const CarouselDots = ({ className = "justify-start" }: CarouselDotsProps) => {
       ))}
     </div>
   );
-};
-
-export default CarouselDots;
+}

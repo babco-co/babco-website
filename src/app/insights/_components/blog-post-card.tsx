@@ -6,7 +6,7 @@ interface BlogPostCardProps {
   post: BlogPost;
 }
 
-const BlogPostCard = ({ post }: BlogPostCardProps) => {
+export default function BlogPostCard({ post }: BlogPostCardProps) {
   const formattedDate = new Date(post.pubDateISO).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -50,6 +50,4 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
       </article>
     </Link>
   );
-};
-
-export default BlogPostCard;
+}

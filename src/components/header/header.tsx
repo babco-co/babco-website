@@ -14,7 +14,7 @@ import type { MenuItem } from "@/components/header/types";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
-const Header = () => {
+export default function Header() {
   const { getFullGradientClass } = useThemeVariant();
   const handleContactClick = useTransitionClick("/contact-us");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -209,6 +209,4 @@ const Header = () => {
       />
     </header>
   );
-};
-
-export default Header;
+}

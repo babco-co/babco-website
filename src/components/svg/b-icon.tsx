@@ -4,7 +4,7 @@ type Props = {
   stroke?: string;
 };
 
-export const BIcon = ({ className, fill = 'none' }: Props) => {
+export function BIcon({ className, fill = 'none' }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,4 +20,4 @@ export const BIcon = ({ className, fill = 'none' }: Props) => {
       />
     </svg>
   );
-};
+}

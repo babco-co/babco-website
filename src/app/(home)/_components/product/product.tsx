@@ -221,7 +221,7 @@ const omletCarousel: SliderItem[][] = [
 //   [createImageSlide(apolitical3, 540, 540)],
 // ];
 
-const Product = () => {
+export default function Product() {
   return (
     <section className="w-full flex flex-col items-start">
       <motion.p
@@ -278,6 +278,4 @@ const Product = () => {
       </div>
     </section>
   );
-};
-
-export default Product;
+}

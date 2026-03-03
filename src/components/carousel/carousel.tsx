@@ -23,7 +23,7 @@ interface CarouselProps {
   autoScrollSpeed?: number;
 }
 
-const Carousel = ({
+export default function Carousel({
   children,
   showArrows = true,
   showDots = false,
@@ -35,7 +35,7 @@ const Carousel = ({
   className = "",
   autoScroll = false,
   autoScrollSpeed = 1,
-}: CarouselProps) => {
+}: CarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       align,
@@ -150,6 +150,4 @@ const Carousel = ({
       </div>
     </CarouselContext.Provider>
   );
-};
-
-export default Carousel;
+}

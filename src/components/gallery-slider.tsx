@@ -20,7 +20,7 @@ export type SliderItem = {
   alignment?: Alignment;
 };
 
-const MediaComponent = ({ item }: { item: SliderItem }) => {
+function MediaComponent({ item }: { item: SliderItem }) {
   if (item.type === "rive") {
     return (
       <RiveWrapper
@@ -60,13 +60,13 @@ const MediaComponent = ({ item }: { item: SliderItem }) => {
   );
 };
 
-const GallerySlider = ({
+export default function GallerySlider({
   items,
   containerHeight,
 }: {
   items: SliderItem[][];
   containerHeight: number;
-}) => {
+}) {
   return (
     <div className="w-full relative">
       <motion.div
@@ -103,6 +103,4 @@ const GallerySlider = ({
       </motion.div>
     </div>
   );
-};
-
-export default GallerySlider;
+}

@@ -7,7 +7,7 @@ type DesktopNavigationProps = {
   menuItems: MenuItem[];
 };
 
-const DesktopNavigation = ({ menuItems }: DesktopNavigationProps) => {
+export default function DesktopNavigation({ menuItems }: DesktopNavigationProps) {
   return (
     <motion.nav className="hidden lg:flex flex-1 items-center justify-center gap-5">
       {menuItems.map((item, index) => (
@@ -30,6 +30,4 @@ const DesktopNavigation = ({ menuItems }: DesktopNavigationProps) => {
       ))}
     </motion.nav>
   );
-};
-
-export default DesktopNavigation;
+}
