@@ -137,4 +137,4 @@ function AnimatedSvgLogo({ fill }: { fill?: string }) {
       </g>
     </svg>
   );
-}}
+}
