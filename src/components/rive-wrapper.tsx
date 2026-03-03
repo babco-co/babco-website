@@ -17,7 +17,7 @@ interface RiveWrapperProps {
   loadingComponent?: React.ReactNode;
 }
 
-const RiveWrapper = ({
+export default function RiveWrapper({
   src,
   stateMachines = "State Machine 1",
   autoplay = false,
@@ -28,7 +28,7 @@ const RiveWrapper = ({
   width,
   height,
   loadingComponent,
-}: RiveWrapperProps) => {
+}: RiveWrapperProps) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.5 });
   const [retryCount, setRetryCount] = useState(0);
@@ -79,6 +79,4 @@ const RiveWrapper = ({
       <RiveComponent />
     </div>
   );
-};
-
-export default RiveWrapper;
+}

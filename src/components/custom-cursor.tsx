@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 
-const CustomCursor = () => {
+export default function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -72,6 +72,4 @@ const CustomCursor = () => {
       }}
     />
   );
-};
-
-export default CustomCursor;
+}

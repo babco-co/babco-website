@@ -17,7 +17,7 @@ const TransitionContext = createContext<TransitionContextType>({
 
 export const useTransition = () => useContext(TransitionContext);
 
-const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
+export default function TransitionProvider({ children }: { children: React.ReactNode }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { getFullGradientClass } = useThemeVariant();
 
@@ -49,9 +49,7 @@ const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
       </AnimatePresence>
     </TransitionContext.Provider>
   );
-};
-
-export default TransitionProvider;
+}
 
 // SVG paths for each letter
 const svgPaths = [
@@ -68,7 +66,7 @@ const svgPaths = [
 ];
 
 // Animated SVG Component for Transition
-const AnimatedSvgLogo = ({ fill }: { fill?: string }) => {
+function AnimatedSvgLogo({ fill }: { fill?: string }) {
   const [visiblePaths, setVisiblePaths] = useState<number>(0);
   const { isTransitioning } = useTransition();
   const { currentTheme } = useThemeVariant();
@@ -139,4 +137,4 @@ const AnimatedSvgLogo = ({ fill }: { fill?: string }) => {
       </g>
     </svg>
   );
-};
+}}

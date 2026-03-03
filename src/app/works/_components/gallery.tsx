@@ -36,7 +36,7 @@ const content: GalleryContent[] = [
   },
 ];
 
-const Gallery = () => {
+export default function Gallery() {
   const router = useRouter();
 
   const handleProjectClick = (slug: string) => {
@@ -93,11 +93,9 @@ const Gallery = () => {
       ))}
     </div>
   );
-};
+}
 
-export default Gallery;
-
-const MediaComponent = (item: GalleryContent) => {
+function MediaComponent(item: GalleryContent) {
   if (item.type === "image") {
     return (
       <div
@@ -117,4 +115,4 @@ const MediaComponent = (item: GalleryContent) => {
       </div>
     );
   }
-};
+}}

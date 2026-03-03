@@ -1,6 +1,6 @@
 import { Spacer } from "@/components/spacer";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <div className="w-full h-fit">
       <Spacer className="mx-3 sm:mx-5">
@@ -12,6 +12,4 @@ const Footer = () => {
       </Spacer>
     </div>
   );
-};
-
-export default Footer;
+}

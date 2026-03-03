@@ -8,11 +8,11 @@ type MenuToggleButtonProps = {
   getFullGradientClass: () => string;
 };
 
-const MenuToggleButton = ({
+export default function MenuToggleButton({
   isOpen,
   onClick,
   getFullGradientClass,
-}: MenuToggleButtonProps) => {
+}: MenuToggleButtonProps) {
   return (
     <button
       className={`w-[38px] h-[38px] flex lg:hidden shrink-0 items-center justify-center rounded-full z-50 ${
@@ -30,6 +30,4 @@ const MenuToggleButton = ({
       />
     </button>
   );
-};
-
-export default MenuToggleButton;
+}

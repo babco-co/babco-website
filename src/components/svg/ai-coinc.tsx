@@ -4,7 +4,7 @@ type Props = {
   stroke?: string;
 };
 
-export const AICONIC = ({ className, fill = "black" }: Props) => {
+export function AICONIC({ className, fill = "black" }: Props) {
   return (
     <svg
       width="510"
@@ -20,4 +20,4 @@ export const AICONIC = ({ className, fill = "black" }: Props) => {
       />
     </svg>
   );
-};
+}

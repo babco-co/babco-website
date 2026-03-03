@@ -6,7 +6,7 @@ import GallerySlider, { SliderItem } from "@/components/gallery-slider";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
-const ProductItem = ({
+export default function ProductItem({
   title,
   subtitle,
   images,
@@ -14,7 +14,7 @@ const ProductItem = ({
   title: string;
   subtitle: string;
   images: SliderItem[][];
-}) => {
+}) {
   return (
     <section className="w-full flex flex-col items-start justify-center gap-2">
       <div className="w-full overflow-hidden">
@@ -56,6 +56,4 @@ const ProductItem = ({
       </motion.div>
     </section>
   );
-};
-
-export default ProductItem;
+}

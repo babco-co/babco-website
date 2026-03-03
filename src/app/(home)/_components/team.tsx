@@ -38,7 +38,7 @@ const memberColumns = [
   { top: rachel, bottom: barbara },
 ];
 
-const Team = () => {
+export default function Team() {
   const handleContactClick = useTransitionClick("/contact-us");
 
   return (
@@ -131,6 +131,4 @@ const Team = () => {
       </div>
     </section>
   );
-};
-
-export default Team;
+}

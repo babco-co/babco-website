@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils/cn";
 
-const CarouselArrows = ({
+export default function CarouselArrows({
   onPrev,
   onNext,
   canScrollPrev,
@@ -11,7 +11,7 @@ const CarouselArrows = ({
   onNext: () => void;
   canScrollPrev: boolean;
   canScrollNext: boolean;
-}) => {
+}) {
   return (
     <div className="flex items-center gap-1">
       <button
@@ -69,6 +69,4 @@ const CarouselArrows = ({
       </button>
     </div>
   );
-};
-
-export default CarouselArrows;
+}
