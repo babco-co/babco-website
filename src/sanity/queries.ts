@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 
 export const AI_SERVICES_QUERY = defineQuery(`*[
-  _type == "aiService" 
+  _type == "aiService"
   && isActive == true
 ] | order(order asc) {
   _id,
@@ -14,16 +14,6 @@ export const AI_SERVICES_QUERY = defineQuery(`*[
   order
 }`);
 
-export const AI_PAGE_HERO_QUERY = defineQuery(`*[
-  _type == "aiPageHero"
-][0] {
-  _id,
-  title,
-  showTrademark,
-  subtitle,
-  sectionTitle
-}`);
-
 export const AI_PAGE_QUERY = defineQuery(`*[
   _type == "aiPage"
   && slug.current == "services"
@@ -31,5 +21,6 @@ export const AI_PAGE_QUERY = defineQuery(`*[
   _id,
   title,
   slug,
+  hero,
   seoMetadata
 }`);
