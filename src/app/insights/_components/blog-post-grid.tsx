@@ -1,4 +1,4 @@
-import { BlogPost } from "@/app/insights/types";
+import { BlogPost } from "@/lib/blog/types";
 import { BlogPostCard } from "@/app/insights/_components/blog-post-card";
 
 interface BlogPostGridProps {

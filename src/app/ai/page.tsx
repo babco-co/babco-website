@@ -1,39 +1,27 @@
 import Link from "next/link";
 import { Header } from "@/components/header/header";
-import { Spacer } from "@/components/spacer";
 import { sanityFetch } from "@/sanity/lib/live";
 import { AICONIC } from "@/components/svg/ai-coinc";
 import { Team } from "@/app/(home)/_components/team";
 import { Metadata } from "next";
-import {
-  AI_PAGE_HERO_QUERY,
-  AI_PAGE_QUERY,
-  AI_SERVICES_QUERY,
-} from "./queries";
-import { AIPage, AIPageHero, AIServiceListItem } from "./types";
+import { AI_PAGE_QUERY, AI_SERVICES_QUERY } from "@/sanity/queries";
+import { AIPage, AIServiceListItem } from "@/sanity/types";
 
 // Generate metadata from Sanity
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    const [pageResponse, heroResponse] = await Promise.all([
-      sanityFetch({
-        query: AI_PAGE_QUERY,
-      }) as Promise<{ data: AIPage | null }>,
-      sanityFetch({
-        query: AI_PAGE_HERO_QUERY,
-      }) as Promise<{ data: AIPageHero | null }>,
-    ]);
+    const pageResponse = (await sanityFetch({
+      query: AI_PAGE_QUERY,
+    })) as { data: AIPage | null };
 
     const pageData = pageResponse.data;
-    const heroData = heroResponse.data;
 
-    // Use page SEO metadata if available, otherwise fallback to hero data
     const metaTitle =
       pageData?.seoMetadata?.metaTitle ||
-      `${heroData?.title || "Ai•conic"} | AI Services`;
+      `${pageData?.hero?.title || "Ai•conic"} | AI Services`;
     const metaDescription =
       pageData?.seoMetadata?.metaDescription ||
-      heroData?.subtitle ||
+      pageData?.hero?.subtitle ||
       "We shape AI strategy, optimize workflows, and craft intelligent brand experiences that perform.";
 
     return {
@@ -43,7 +31,6 @@ export async function generateMetadata(): Promise<Metadata> {
         title: metaTitle,
         description: metaDescription,
         type: "website",
-        // Add ogImage if available
         images: pageData?.seoMetadata?.ogImage
           ? [
               {
@@ -62,7 +49,6 @@ export async function generateMetadata(): Promise<Metadata> {
   } catch (error) {
     console.error("Error generating metadata:", error);
 
-    // Fallback metadata if Sanity fetch fails
     return {
       title: "AI Services | Ai•conic",
       description:
@@ -78,20 +64,19 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ServicesPage() {
-  const [servicesResponse, heroResponse] = await Promise.all([
+  const [servicesResponse, pageResponse] = await Promise.all([
     sanityFetch({
       query: AI_SERVICES_QUERY,
     }) as Promise<{ data: AIServiceListItem[] }>,
     sanityFetch({
-      query: AI_PAGE_HERO_QUERY,
-    }) as Promise<{ data: AIPageHero | null }>,
+      query: AI_PAGE_QUERY,
+    }) as Promise<{ data: AIPage | null }>,
   ]);
 
   const services = servicesResponse.data;
-  const heroData = heroResponse.data;
+  const pageData = pageResponse.data;
 
-  // Fallback hero data if nothing in Sanity
-  const hero = heroData || {
+  const hero = pageData?.hero || {
     title: "Ai•conic",
     showTrademark: true,
     subtitle:
@@ -101,12 +86,11 @@ export default async function ServicesPage() {
 
   return (
     <div className="w-full min-h-screen font-helvetica bg-background-light dark:bg-background-dark">
-      <Spacer className="w-full mt-5 px-5">
+      <div className="w-full mt-5 px-5">
         <Header />
-      </Spacer>
+      </div>
 
-      <Spacer horizontal vertical className="mt-[200px] overflow-hidden">
-        {/* Header Section - Now editable via Sanity */}
+      <div className="px-4 sm:px-8 lg:px-12 mt-[200px] overflow-hidden">
         <div className="mb-[168px]">
           {hero.showTrademark && (
             <div className="flex flex-row items-center justify-start mb-16">
@@ -126,7 +110,6 @@ export default async function ServicesPage() {
           </p>
         </div>
 
-        {/* Services Section */}
         <div className="flex flex-col md:flex-row items-start justify-center gap-10">
           <h2 className="w-full md:w-1/3 text-xl font-bold leading-[24px] mb-8 text-text-primary-light dark:text-text-primary-dark">
             {hero.sectionTitle}
@@ -135,7 +118,6 @@ export default async function ServicesPage() {
           <div className="w-full md:w-2/3 space-y-[90px]">
             {services.map((service: AIServiceListItem) => (
               <div key={service._id} className="flex items-start space-x-8">
-                {/* Service Number */}
                 <div className="shrink-0">
                   <span className="text-[40px] font-bold text-text-primary-light dark:text-text-primary-dark">
                     {service.serviceNumber}
@@ -145,7 +127,6 @@ export default async function ServicesPage() {
                   </span>
                 </div>
 
-                {/* Service Content */}
                 <div className="flex-1">
                   <Link href={`/contact-us`} className="group block">
                     <h3 className="text-4xl font-extralight leading-[35px] mb-3 text-text-primary-light dark:text-text-primary-dark group-hover:text-brand-light dark:group-hover:text-brand-dark transition-colors">
@@ -155,32 +136,16 @@ export default async function ServicesPage() {
                       {service.description}
                     </p>
                   </Link>
-
-                  {/* Features */}
-                  {/* {service.features && service.features.length > 0 && (
-                    <div className="mt-4">
-                      <ul className="text-sm text-light-gray dark:text-medium-gray space-y-1">
-                        {service.features.map(
-                          (feature: string, index: number) => (
-                            <li key={index} className="flex items-center">
-                              <span className="w-1.5 h-1.5 bg-brand-light dark:bg-brand-dark rounded-full mr-3"></span>
-                              {feature}
-                            </li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-                  )} */}
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </Spacer>
+      </div>
 
-      <Spacer className="mx-3 sm:mx-5 border-[0.5px] border-border-primary-light dark:border-border-primary-dark rounded-[10px] bg-white/50 dark:bg-[#0C0C0C]">
+      <div className="mx-3 sm:mx-5 mt-[100px] border-[0.5px] border-border-primary-light dark:border-border-primary-dark rounded-[10px] bg-white/50 dark:bg-[#0C0C0C]">
         <Team />
-      </Spacer>
+      </div>
     </div>
   );
 }

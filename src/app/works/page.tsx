@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { Header } from "@/components/header/header";
-import { Spacer } from "@/components/spacer";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { BabcoLogo } from "@/components/svg/babco-logo";
 import { Gallery } from "@/app/works/_components/gallery";
@@ -10,11 +9,11 @@ import { Gallery } from "@/app/works/_components/gallery";
 export default function WorksPage() {
   return (
     <div className="w-full min-h-screen font-helvetica">
-      <Spacer className="w-full  mt-5 px-5">
+      <div className="w-full  mt-5 px-5">
         <Header />
-      </Spacer>
+      </div>
 
-      <Spacer horizontal vertical className="mt-16 lg:mt-[242px]">
+      <div className="px-4 sm:px-8 lg:px-12 mt-16 lg:mt-[242px]">
         <motion.div
           className="cursor-scale w-full flex flex-col items-center justify-start gap-4 lg:gap-16 mb-[240px]"
           initial="hidden"
@@ -55,7 +54,7 @@ export default function WorksPage() {
         </motion.div>
 
         <Gallery />
-      </Spacer>
+      </div>
     </div>
   );
 }

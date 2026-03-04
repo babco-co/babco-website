@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { fetchBlogPosts, fetchBlogPostBySlug } from "@/lib/services/blog";
-import { Spacer } from "@/components/spacer";
+import { fetchBlogPosts, fetchBlogPostBySlug } from "@/lib/blog/blog";
 import { Header } from "@/components/header/header";
 import { BlogPostContent } from "@/app/insights/_components/blog-post-content";
 
@@ -67,9 +66,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="w-full min-h-screen font-helvetica bg-background-light dark:bg-background-dark">
-      <Spacer className="w-full mt-5 px-5">
+      <div className="w-full mt-5 px-5">
         <Header />
-      </Spacer>
+      </div>
 
       <BlogPostContent post={post} />
     </div>

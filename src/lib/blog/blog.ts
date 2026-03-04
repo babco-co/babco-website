@@ -1,7 +1,7 @@
 import "server-only";
 
 import { XMLParser } from "fast-xml-parser";
-import { BlogPost } from "@/app/insights/types";
+import { BlogPost } from "@/lib/blog/types";
 import {
   createSlug,
   decodeHtmlEntities,

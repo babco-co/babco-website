@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { Header } from "@/components/header/header";
-import { Spacer } from "@/components/spacer";
-import { fetchBlogPosts } from "@/lib/services/blog";
+import { fetchBlogPosts } from "@/lib/blog/blog";
 import { BlogPostGrid } from "@/app/insights/_components/blog-post-grid";
 
 export const metadata: Metadata = {
@@ -21,13 +20,13 @@ export default async function BlogPage() {
 
   return (
     <div className="w-full min-h-screen font-helvetica">
-      <Spacer className="w-full mt-5 px-5">
+      <div className="w-full mt-5 px-5">
         <Header />
-      </Spacer>
+      </div>
 
-      <Spacer className="w-full px-5 py-8 mt-[108px]">
+      <div className="w-full px-5 py-8 mt-[108px]">
         <BlogPostGrid posts={posts} />
-      </Spacer>
+      </div>
     </div>
   );
 }

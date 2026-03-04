@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { ValidationError } from "yup";
 import { CONTACT_EMAIL } from "@/lib/utils/constants";
-import { schema } from "@/app/contact-us/schema";
+import { schema } from "@/lib/contact/schema";
 
 export async function POST(request: Request) {
   const resendApiKey = process.env.RESEND_API_KEY;

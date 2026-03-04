@@ -59,18 +59,16 @@ export type AIServiceListItem = Pick<
   | "order"
 >;
 
-export interface AIPageHero {
-  _id: string;
-  title: string;
-  showTrademark: boolean;
-  subtitle: string;
-  sectionTitle: string;
-}
-
 export interface AIPage {
   _id: string;
   title: string;
   slug: SanitySlug;
+  hero: {
+    title: string;
+    showTrademark: boolean;
+    subtitle: string;
+    sectionTitle: string;
+  };
   seoMetadata: {
     metaTitle?: string;
     metaDescription?: string;

@@ -3,7 +3,6 @@
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Header } from "@/components/header/header";
-import { Spacer } from "@/components/spacer";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 
 export default function ProjectPage() {
@@ -12,11 +11,11 @@ export default function ProjectPage() {
 
   return (
     <div className="w-full min-h-screen font-helvetica">
-      <Spacer className="w-full mt-5 px-5">
+      <div className="w-full mt-5 px-5">
         <Header />
-      </Spacer>
+      </div>
 
-      <Spacer horizontal vertical className="mt-16 lg:mt-[192px]">
+      <div className="px-4 sm:px-8 lg:px-12 mt-16 lg:mt-[192px]">
         <motion.div
           className="w-full flex flex-row items-start justify-center gap-16 lg:gap-[240px]"
           initial="hidden"
@@ -42,7 +41,7 @@ export default function ProjectPage() {
             </p>
           </motion.div>
         </motion.div>
-      </Spacer>
+      </div>
     </div>
   );
 }
