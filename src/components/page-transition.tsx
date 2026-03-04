@@ -17,7 +17,7 @@ const TransitionContext = createContext<TransitionContextType>({
 
 export const useTransition = () => useContext(TransitionContext);
 
-export default function TransitionProvider({ children }: { children: React.ReactNode }) {
+export function TransitionProvider({ children }: { children: React.ReactNode }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { getFullGradientClass } = useThemeVariant();
 

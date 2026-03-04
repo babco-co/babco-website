@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import ProductItem from "@/app/(home)/_components/product/product-item";
+import { ProductItem } from "@/app/(home)/_components/product/product-item";
 import { StaticImageData } from "next/image";
 import { SliderItem } from "@/components/gallery-slider";
 import { Alignment, Fit } from "@rive-app/react-canvas";
@@ -221,7 +221,7 @@ const omletCarousel: SliderItem[][] = [
 //   [createImageSlide(apolitical3, 540, 540)],
 // ];
 
-export default function Product() {
+export function Product() {
   return (
     <section className="w-full flex flex-col items-start">
       <motion.p

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils/cn";
 
-export default function CarouselArrows({
+export function CarouselArrows({
   onPrev,
   onNext,
   canScrollPrev,

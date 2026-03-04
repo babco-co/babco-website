@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
-import Header from "@/components/header/header";
+import { Header } from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 

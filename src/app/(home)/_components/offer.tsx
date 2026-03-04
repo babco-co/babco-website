@@ -7,7 +7,7 @@ import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 
-export default function Offer() {
+export function Offer() {
   const handleContactClick = useTransitionClick("/contact-us");
   const { getFullGradientClass } = useThemeVariant();
 

@@ -2,10 +2,10 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import ContactForm from "@/app/contact-us/_components/form";
+import { ContactForm } from "@/app/contact-us/_components/form";
 import { pageVariants } from "@/lib/utils/animations";
 import { Spacer } from "@/components/spacer";
-import Header from "@/components/header/header";
+import { Header } from "@/components/header/header";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
 export default function ContactUsPage() {

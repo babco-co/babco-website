@@ -36,7 +36,7 @@ const content: GalleryContent[] = [
   },
 ];
 
-export default function Gallery() {
+export function Gallery() {
   const router = useRouter();
 
   const handleProjectClick = (slug: string) => {

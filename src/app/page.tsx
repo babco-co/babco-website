@@ -1,10 +1,10 @@
 import { Spacer } from "@/components/spacer";
-import Hero from "@/app/(home)/_components/hero/hero";
-import TeamBehind from "@/app//(home)/_components/team-behind";
-import Product from "@/app//(home)/_components/product/product";
-import Offer from "@/app//(home)/_components/offer";
-import Team from "@/app//(home)/_components/team";
-import Header from "@/components/header/header";
+import { Hero } from "@/app/(home)/_components/hero/hero";
+import { TeamBehind } from "@/app//(home)/_components/team-behind";
+import { Product } from "@/app//(home)/_components/product/product";
+import { Offer } from "@/app//(home)/_components/offer";
+import { Team } from "@/app//(home)/_components/team";
+import { Header } from "@/components/header/header";
 
 export default function Page() {
   return (

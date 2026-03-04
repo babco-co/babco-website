@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import Header from "@/components/header/header";
+import { Header } from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
-import BabcoLogo from "@/components/svg/babco-logo";
-import Gallery from "@/app/works/_components/gallery";
+import { BabcoLogo } from "@/components/svg/babco-logo";
+import { Gallery } from "@/app/works/_components/gallery";
 
 export default function WorksPage() {
   return (

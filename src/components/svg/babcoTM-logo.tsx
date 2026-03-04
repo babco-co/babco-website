@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-export default function BabcoTMLogo({
+export function BabcoTMLogo({
   width,
   height,
   className,

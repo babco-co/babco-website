@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { fetchBlogPosts, fetchBlogPostBySlug } from "@/lib/services/blog";
 import { Spacer } from "@/components/spacer";
-import Header from "@/components/header/header";
-import BlogPostContent from "@/app/insights/_components/blog-post-content";
+import { Header } from "@/components/header/header";
+import { BlogPostContent } from "@/app/insights/_components/blog-post-content";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;

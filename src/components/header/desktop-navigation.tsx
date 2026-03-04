@@ -1,13 +1,13 @@
 import { motion } from "motion/react";
-import NavigationLink from "@/components/header/navigation-link";
-import NavigationDropdown from "@/components/header/navigation-dropdown";
+import { NavigationLink } from "@/components/header/navigation-link";
+import { NavigationDropdown } from "@/components/header/navigation-dropdown";
 import type { MenuItem } from "@/components/header/types";
 
 type DesktopNavigationProps = {
   menuItems: MenuItem[];
 };
 
-export default function DesktopNavigation({ menuItems }: DesktopNavigationProps) {
+export function DesktopNavigation({ menuItems }: DesktopNavigationProps) {
   return (
     <motion.nav className="hidden lg:flex flex-1 items-center justify-center gap-5">
       {menuItems.map((item, index) => (

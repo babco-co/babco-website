@@ -4,8 +4,8 @@ import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { fadeInVariants } from "@/lib/utils/animations";
 import { Alignment, Fit } from "@rive-app/react-canvas";
-import RiveWrapper from "@/components/rive-wrapper";
-import Carousel from "@/components/carousel/carousel";
+import { RiveWrapper } from "@/components/rive-wrapper";
+import { Carousel } from "@/components/carousel/carousel";
 
 export type SliderItem = {
   src: string | StaticImageData;
@@ -60,7 +60,7 @@ function MediaComponent({ item }: { item: SliderItem }) {
   );
 };
 
-export default function GallerySlider({
+export function GallerySlider({
   items,
   containerHeight,
 }: {

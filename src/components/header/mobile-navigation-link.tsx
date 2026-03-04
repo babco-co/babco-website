@@ -29,7 +29,7 @@ interface MobileNavigationLinkProps {
   index: number;
 }
 
-export default function MobileNavigationLink({
+export function MobileNavigationLink({
   item,
   onNavigate,
   index,

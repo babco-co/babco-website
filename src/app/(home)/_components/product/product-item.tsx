@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import GallerySlider, { SliderItem } from "@/components/gallery-slider";
+import { GallerySlider, SliderItem } from "@/components/gallery-slider";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
-export default function ProductItem({
+export function ProductItem({
   title,
   subtitle,
   images,

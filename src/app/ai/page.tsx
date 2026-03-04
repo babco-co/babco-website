@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Header from "@/components/header/header";
+import { Header } from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
 import { sanityFetch } from "@/sanity/lib/live";
 import { AICONIC } from "@/components/svg/ai-coinc";
-import Team from "@/app/(home)/_components/team";
+import { Team } from "@/app/(home)/_components/team";
 import { Metadata } from "next";
 import {
   AI_PAGE_HERO_QUERY,
