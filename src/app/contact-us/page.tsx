@@ -4,16 +4,15 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { ContactForm } from "@/app/contact-us/_components/form";
 import { pageVariants } from "@/lib/utils/animations";
-import { Spacer } from "@/components/spacer";
 import { Header } from "@/components/header/header";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
 export default function ContactUsPage() {
   return (
-    <Spacer className="mb-10 font-helvetica">
-      <Spacer className="w-full mt-5 px-5">
+    <div className="mb-10 font-helvetica">
+      <div className="w-full mt-5 px-5">
         <Header />
-      </Spacer>
+      </div>
 
       <motion.div
         className="w-full flex shrink-0 flex-col items-start justify-center 
@@ -36,6 +35,6 @@ export default function ContactUsPage() {
 
         <ContactForm />
       </motion.div>
-    </Spacer>
+    </div>
   );
 }

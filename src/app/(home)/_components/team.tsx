@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Button } from "@/components/button";
-import { Spacer } from "@/components/spacer";
 import { BabcoLogo } from "@/components/svg/babco-logo";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
 import { Carousel } from "@/components/carousel/carousel";
@@ -44,10 +43,7 @@ export function Team() {
   return (
     <section className="w-full flex flex-col relative">
       <div className="w-full flex-1 flex flex-col items-center justify-center overflow-x-hidden pt-20">
-        <Spacer
-          horizontal
-          className="w-full flex flex-col lg:flex-row justify-between items-start gap-10"
-        >
+        <div className="px-4 sm:px-8 lg:px-12 w-full flex flex-col lg:flex-row justify-between items-start gap-10">
           <motion.div
             className="w-full flex flex-col items-start gap-10 lg:gap-16"
             initial="hidden"
@@ -90,7 +86,7 @@ export function Team() {
           </motion.div>
 
           <ThemeSelector />
-        </Spacer>
+        </div>
 
         <div className="w-full flex items-start justify-center relative mt-[126px]">
           <Carousel
