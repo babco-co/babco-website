@@ -5,7 +5,7 @@ interface BlogPostContentProps {
   post: BlogPost;
 }
 
-export default function BlogPostContent({ post }: BlogPostContentProps) {
+export function BlogPostContent({ post }: BlogPostContentProps) {
   const formattedDate = new Date(post.pubDateISO).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

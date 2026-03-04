@@ -4,8 +4,8 @@ import { useCallback, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import CarouselArrows from "@/components/carousel/carousel-arrows";
-import CarouselDots from "@/components/carousel/carousel-dots";
+import { CarouselArrows } from "@/components/carousel/carousel-arrows";
+import { CarouselDots } from "@/components/carousel/carousel-dots";
 import { CarouselContext } from "@/components/carousel/carousel-context";
 
 interface CarouselProps {
@@ -23,7 +23,7 @@ interface CarouselProps {
   autoScrollSpeed?: number;
 }
 
-export default function Carousel({
+export function Carousel({
   children,
   showArrows = true,
   showDots = false,

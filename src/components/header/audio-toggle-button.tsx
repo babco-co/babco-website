@@ -7,7 +7,7 @@ type AudioToggleButtonProps = {
   onClick: () => void;
 };
 
-export default function AudioToggleButton({ isMuted, onClick }: AudioToggleButtonProps) {
+export function AudioToggleButton({ isMuted, onClick }: AudioToggleButtonProps) {
   return (
     <button
       className="shrink-0 group relative touch-manipulation"

@@ -8,7 +8,7 @@ type MenuToggleButtonProps = {
   getFullGradientClass: () => string;
 };
 
-export default function MenuToggleButton({
+export function MenuToggleButton({
   isOpen,
   onClick,
   getFullGradientClass,

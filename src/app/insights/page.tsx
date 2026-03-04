@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import Header from "@/components/header/header";
+import { Header } from "@/components/header/header";
 import { Spacer } from "@/components/spacer";
 import { fetchBlogPosts } from "@/lib/services/blog";
-import BlogPostGrid from "@/app/insights/_components/blog-post-grid";
+import { BlogPostGrid } from "@/app/insights/_components/blog-post-grid";
 
 export const metadata: Metadata = {
   title: "Insights | Babco",

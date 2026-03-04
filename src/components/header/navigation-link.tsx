@@ -8,7 +8,7 @@ type NavigationLinkProps = {
   className?: string;
 };
 
-export default function NavigationLink({
+export function NavigationLink({
   href,
   text,
   external,

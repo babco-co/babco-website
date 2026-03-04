@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BIcon } from "@/components/svg/b-icon";
-import BabcoTMLogo from "@/components/svg/babcoTM-logo";
+import { BabcoTMLogo } from "@/components/svg/babcoTM-logo";
 
 type HeaderLogoProps = {
   isScrolled: boolean;
@@ -8,7 +8,7 @@ type HeaderLogoProps = {
   getFullGradientClass: () => string;
 };
 
-export default function HeaderLogo({
+export function HeaderLogo({
   isScrolled,
   isMenuOpen,
   getFullGradientClass,

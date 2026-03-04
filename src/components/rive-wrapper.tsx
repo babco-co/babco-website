@@ -17,7 +17,7 @@ interface RiveWrapperProps {
   loadingComponent?: React.ReactNode;
 }
 
-export default function RiveWrapper({
+export function RiveWrapper({
   src,
   stateMachines = "State Machine 1",
   autoplay = false,

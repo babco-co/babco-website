@@ -2,12 +2,12 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import RiveWrapper from "@/components/rive-wrapper";
+import { RiveWrapper } from "@/components/rive-wrapper";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 import { motion } from "motion/react";
-import BabcoLogo from "@/components/svg/babco-logo";
+import { BabcoLogo } from "@/components/svg/babco-logo";
 
-export default function Hero() {
+export function Hero() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 

@@ -1,11 +1,11 @@
 import { BlogPost } from "@/app/insights/types";
-import BlogPostCard from "@/app/insights/_components/blog-post-card";
+import { BlogPostCard } from "@/app/insights/_components/blog-post-card";
 
 interface BlogPostGridProps {
   posts: BlogPost[];
 }
 
-export default function BlogPostGrid({ posts }: BlogPostGridProps) {
+export function BlogPostGrid({ posts }: BlogPostGridProps) {
   if (posts.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">

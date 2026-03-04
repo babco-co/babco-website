@@ -18,7 +18,7 @@ interface NavigationDropdownProps {
   className?: string;
 }
 
-export default function NavigationDropdown({ text, items, className }: NavigationDropdownProps) {
+export function NavigationDropdown({ text, items, className }: NavigationDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

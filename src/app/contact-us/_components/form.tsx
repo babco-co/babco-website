@@ -5,13 +5,13 @@ import Image from "next/image";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormInputs, schema, serviceOptions } from "@/app/contact-us/schema";
-import Button from "@/components/button";
-import InputField from "@/app/contact-us/_components/input";
-import SelectField from "@/app/contact-us/_components/select-field";
-import TextAreaField from "@/app/contact-us/_components/text-area-field";
+import { Button } from "@/components/button";
+import { InputField } from "@/app/contact-us/_components/input";
+import { SelectField } from "@/app/contact-us/_components/select-field";
+import { TextAreaField } from "@/app/contact-us/_components/text-area-field";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 
-export default function ContactForm() {
+export function ContactForm() {
   const {
     register,
     handleSubmit,

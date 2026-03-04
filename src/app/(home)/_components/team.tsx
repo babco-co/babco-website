@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import Button from "@/components/button";
+import { Button } from "@/components/button";
 import { Spacer } from "@/components/spacer";
-import BabcoLogo from "@/components/svg/babco-logo";
+import { BabcoLogo } from "@/components/svg/babco-logo";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
-import Carousel from "@/components/carousel/carousel";
+import { Carousel } from "@/components/carousel/carousel";
 import olivia from "@/../public/images/members/olivia.webp";
 import mia from "@/../public/images/members/mia.webp";
 import mariana from "@/../public/images/members/mariana.webp";
@@ -38,7 +38,7 @@ const memberColumns = [
   { top: rachel, bottom: barbara },
 ];
 
-export default function Team() {
+export function Team() {
   const handleContactClick = useTransitionClick("/contact-us");
 
   return (

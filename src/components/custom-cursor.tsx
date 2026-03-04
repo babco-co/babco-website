@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 
-export default function CustomCursor() {
+export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);

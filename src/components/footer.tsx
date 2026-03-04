@@ -1,6 +1,6 @@
 import { Spacer } from "@/components/spacer";
 
-export default function Footer() {
+export function Footer() {
   return (
     <div className="w-full h-fit">
       <Spacer className="mx-3 sm:mx-5">

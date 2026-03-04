@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import Carousel from "@/components/carousel/carousel";
+import { Carousel } from "@/components/carousel/carousel";
 import { containerVariants, YScrollVariants } from "@/lib/utils/animations";
 
 const images = [
@@ -71,7 +71,7 @@ const images = [
   },
 ];
 
-export default function TeamBehind() {
+export function TeamBehind() {
   return (
     <section className="cursor-scale w-full flex flex-col overflow-x-hidden">
       <motion.div

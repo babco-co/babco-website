@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { SanityLive } from "@/sanity/lib/live";
-import TransitionProvider from "@/components/page-transition";
+import { TransitionProvider } from "@/components/page-transition";
 import { helveticaNeue, inter } from "@/styles/fonts";
-import Footer from "@/components/footer";
+import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import CustomCursor from "@/components/custom-cursor";
+import { CustomCursor } from "@/components/custom-cursor";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {

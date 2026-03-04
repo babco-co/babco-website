@@ -1,7 +1,7 @@
 import { UseFormRegister, FieldErrors } from "react-hook-form";
 import { FormInputs } from "@/app/contact-us/schema";
 
-export default function InputField({
+export function InputField({
   name,
   register,
   errors,

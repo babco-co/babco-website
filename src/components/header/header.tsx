@@ -2,19 +2,19 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import Button from "@/components/button";
+import { Button } from "@/components/button";
 import { LINKEDIN } from "@/lib/utils/constants";
 import { useTransitionClick } from "@/lib/hooks/use-transition-click";
-import MobileMenu from "@/components/header/mobile-menu";
-import DesktopNavigation from "@/components/header/desktop-navigation";
-import HeaderLogo from "@/components/header/header-logo";
-import AudioToggleButton from "@/components/header/audio-toggle-button";
-import MenuToggleButton from "@/components/header/menu-toggle-button";
+import { MobileMenu } from "@/components/header/mobile-menu";
+import { DesktopNavigation } from "@/components/header/desktop-navigation";
+import { HeaderLogo } from "@/components/header/header-logo";
+import { AudioToggleButton } from "@/components/header/audio-toggle-button";
+import { MenuToggleButton } from "@/components/header/menu-toggle-button";
 import type { MenuItem } from "@/components/header/types";
 import arrowBlackIcon from "@/../public/icons/arrow-black-icon.svg";
 import { useThemeVariant } from "@/lib/hooks/use-theme-variant";
 
-export default function Header() {
+export function Header() {
   const { getFullGradientClass } = useThemeVariant();
   const handleContactClick = useTransitionClick("/contact-us");
   const [isMenuOpen, setIsMenuOpen] = useState(false);

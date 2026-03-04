@@ -12,7 +12,7 @@ import Select, {
 import { FormInputs, SelectOption } from "@/app/contact-us/schema";
 import arrowDownIcon from "@/../public/icons/arrow-down-icon.svg";
 
-export default function SelectField({
+export function SelectField({
   name,
   control,
   errors,
