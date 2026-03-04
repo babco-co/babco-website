@@ -8,8 +8,8 @@ import {
   AI_PAGE_HERO_QUERY,
   AI_PAGE_QUERY,
   AI_SERVICES_QUERY,
-} from "./queries";
-import { AIPage, AIPageHero, AIServiceListItem } from "./types";
+} from "@/sanity/queries";
+import { AIPage, AIPageHero, AIServiceListItem } from "@/sanity/types";
 
 // Generate metadata from Sanity
 export async function generateMetadata(): Promise<Metadata> {

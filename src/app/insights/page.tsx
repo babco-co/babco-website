@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Header } from "@/components/header/header";
-import { fetchBlogPosts } from "@/lib/services/blog";
+import { fetchBlogPosts } from "@/lib/blog/blog";
 import { BlogPostGrid } from "@/app/insights/_components/blog-post-grid";
 
 export const metadata: Metadata = {

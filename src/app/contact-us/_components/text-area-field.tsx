@@ -1,5 +1,5 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { FormInputs } from "@/app/contact-us/schema";
+import { FormInputs } from "@/lib/contact/schema";
 
 export function TextAreaField({
     name,

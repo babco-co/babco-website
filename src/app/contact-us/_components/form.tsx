@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormInputs, schema, serviceOptions } from "@/app/contact-us/schema";
+import { FormInputs, schema, serviceOptions } from "@/lib/contact/schema";
 import { Button } from "@/components/button";
 import { InputField } from "@/app/contact-us/_components/input";
 import { SelectField } from "@/app/contact-us/_components/select-field";

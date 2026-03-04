@@ -9,7 +9,7 @@ import Select, {
   StylesConfig,
   InputProps,
 } from "react-select";
-import { FormInputs, SelectOption } from "@/app/contact-us/schema";
+import { FormInputs, SelectOption } from "@/lib/contact/schema";
 import arrowDownIcon from "@/../public/icons/arrow-down-icon.svg";
 
 export function SelectField({

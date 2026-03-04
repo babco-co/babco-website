@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { fetchBlogPosts, fetchBlogPostBySlug } from "@/lib/services/blog";
+import { fetchBlogPosts, fetchBlogPostBySlug } from "@/lib/blog/blog";
 import { Header } from "@/components/header/header";
 import { BlogPostContent } from "@/app/insights/_components/blog-post-content";
 

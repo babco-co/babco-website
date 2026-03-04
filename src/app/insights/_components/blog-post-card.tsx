@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BlogPost } from "@/app/insights/types";
+import { BlogPost } from "@/lib/blog/types";
 
 interface BlogPostCardProps {
   post: BlogPost;
