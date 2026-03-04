@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Header } from "@/components/header/header";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch } from "@/sanity/live";
 import { AICONIC } from "@/components/svg/ai-coinc";
 import { Team } from "@/app/(home)/_components/team";
 import { Metadata } from "next";
