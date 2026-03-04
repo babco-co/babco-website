@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SanityLive } from "@/sanity/lib/live";
+import { SanityLive } from "@/sanity/live";
 import { TransitionProvider } from "@/components/page-transition";
 import { helveticaNeue, inter } from "@/styles/fonts";
 import { Footer } from "@/components/footer";
